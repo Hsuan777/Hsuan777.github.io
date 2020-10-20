@@ -1,216 +1,330 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-TW">
 <head>
-  <meta charset="utf-8">
-  
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
 
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"onepercent.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="最喜悅的事，莫過於自己的成長，哪怕是1%也好">
+<meta property="og:type" content="website">
+<meta property="og:title" content="helpONEpercent">
 <meta property="og:url" content="http://onepercent.github.io/index.html">
-<meta property="og:site_name" content="Hexo">
-<meta property="og:locale" content="en_US">
-<meta property="article:author" content="John Doe">
+<meta property="og:site_name" content="helpONEpercent">
+<meta property="og:description" content="最喜悅的事，莫過於自己的成長，哪怕是1%也好">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:author" content="Vic">
+<meta property="article:tag" content="前端,CSS,JavaScript,Vue.js,git,演算法入門">
 <meta name="twitter:card" content="summary">
-  
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 5.2.0"></head>
 
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
+<link rel="canonical" href="http://onepercent.github.io/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : true,
+    isPost : false,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>helpONEpercent</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">helpONEpercent</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">紀錄曾學過的資訊</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+</div>
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/about">About</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://onepercent.github.io"></form>
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vic</p>
+  <div class="site-description" itemprop="description">最喜悅的事，莫過於自己的成長，哪怕是1%也好</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
       </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">標籤</span>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
     </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
-</header>
-      <div class="outer">
-        <section id="main">
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner index posts-expand">
+      
+
+      
+    
+
+
+<div class="post-block">
   
-    <article id="post-第一堂 演算法與大 O 符號" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/" class="article-date">
-  <time datetime="2020-10-19T09:27:47.000Z" itemprop="datePublished">2020-10-19</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/">第一堂 演算法與大 O 符號</a>
-    </h1>
   
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://onepercent.github.io/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vic">
+      <meta itemprop="description" content="最喜悅的事，莫過於自己的成長，哪怕是1%也好">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="helpONEpercent">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/" class="post-title-link" itemprop="url">第一堂 演算法與 $O$ 符號</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-10-19 17:27:47" itemprop="dateCreated datePublished" datetime="2020-10-19T17:27:47+08:00">2020-10-19</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-10-20 17:16:19" itemprop="dateModified" datetime="2020-10-20T17:16:19+08:00">2020-10-20</time>
+      </span>
+
+  
+</div>
+
+        </div>
       </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h1><p>演算法三步驟，它是明確的、有限的且有效率的</p>
-<ul>
-<li>輸入</li>
-<li>計算步驟</li>
-<li>輸出</li>
-</ul>
-<h2 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h2><p>假設現在目標是砍倒一棵樹，且不限時間，使用斧頭會需要很多時間也浪費力氣，使用電鋸省力也省時，換成步驟來看的話，斧頭需要很多砍很多下才會倒，且需要的時間非常多，換成電鋸後，省時省力。</p>
-<p>再假設你買了一部90萬的車輛，朋友問你這部車買了多少? 你只能打字回答，這時你會怎麼回覆呢? 9000百元? 900千元?  或者90萬元? 顯然是90萬元最符合答案也能最快回答。</p>
-<h2 id="如何描述程式中時間與空間的關係呢"><a href="#如何描述程式中時間與空間的關係呢" class="headerlink" title="如何描述程式中時間與空間的關係呢?"></a>如何描述程式中時間與空間的關係呢?</h2><p>我們會以<strong>數學符號之漸進符號 O</strong>，其表示為函數增長關係。</p>
-<ul>
-<li>漸進符號 O<ul>
-<li>bigO，通常會寫成 O()</li>
-</ul>
-</li>
-<li>時間複雜度<ul>
-<li>隨著輸入值成長之執行步驟</li>
-</ul>
-</li>
-<li>空間複雜度<ul>
-<li>隨著輸入值成長之記憶體暫用空間</li>
-</ul>
-</li>
-</ul>
-<p>而通常我們為了簡化表達方式，會取其極限值，以下為一些例子 :</p>
-<ul>
-<li>常數 -&gt; 1</li>
-<li>n、2n、3n -&gt; n</li>
-<li>n^2^+2n -&gt; n^2^ </li>
-<li>以此類推</li>
-</ul>
-<h2 id="執行複雜度表示方式"><a href="#執行複雜度表示方式" class="headerlink" title="執行複雜度表示方式"></a>執行複雜度表示方式</h2><p>來看以下的例子，小杰被師父指派去賣漢堡，每個漢堡50元 :</p>
-<ul>
-<li><p>範例一</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此函式一共執行2個步驟，也就是說輸入無窮大時，也只會執行2個步驟，那麼它的時間複雜度則為O(1)，空間複雜度為O(1)，因為只使用了 total這個變數。</p>
-</li>
-<li><p>範例二</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`小杰累計賣出<span class="subst">$&#123;i&#125;</span>個漢堡~`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br><span class="line">sell(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-<p>for迴圈執行了 n次再加上前後兩個步驟共 n+2次，以時間複雜度來表示則為 O(n)，空間複雜度為 O(1)，使用了 total與 i兩個變數</p>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://www.notion.so/JavaScript-49b80c4a10b9498ca0afa954ee8982f3#38cbcc1d017545b8bc094561c3593806">Long - 用JavaScript學習資料結構與演算法</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.notion.so/JavaScript-49b80c4a10b9498ca0afa954ee8982f3#3ab72425fc6746a4985796fe3b18f2db">胡程維 - 初學者學演算法</a></li>
-</ol>
-</blockquote>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://onepercent.github.io/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/" data-id="ckggc8kie0000agbp6rzo8jch" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%88%9D%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95%E3%80%81%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80%E3%80%81JavaScript%E8%88%87%E6%BC%94%E7%AE%97%E6%B3%95/" rel="tag">初學演算法、演算法入門、JavaScript與演算法</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-記錄自己的成長，那怕是1-也好" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/" class="article-date">
-  <time datetime="2020-10-16T09:07:40.000Z" itemprop="datePublished">2020-10-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
     
     
-      <header class="article-header">
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我們會以數學符號之漸進符號 $O$，其表示為函數增長關係。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/">
+                閱讀全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/">記錄自己的成長，那怕是1%也好</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>利用 Hexo寫技術部落格，那怕是第一篇，或者只有一篇，只怕自己停佇不前。</p>
-
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://onepercent.github.io/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/" data-id="ckgc1egcu0001cobpcakqfr7k" class="article-share-link">Share</a>
-      
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
       
     </footer>
-  </div>
-  
-</article>
+  </article>
+</div>
 
 
+
+
+    
+    
+
+
+<div class="post-block">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/10/16/hello-world/" class="article-date">
-  <time datetime="2020-10-16T09:04:51.998Z" itemprop="datePublished">2020-10-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/16/hello-world/">Hello World</a>
-    </h1>
   
 
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://onepercent.github.io/2020/10/16/hello-world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vic">
+      <meta itemprop="description" content="最喜悅的事，莫過於自己的成長，哪怕是1%也好">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="helpONEpercent">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/10/16/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2020-10-16 17:04:51" itemprop="dateCreated datePublished" datetime="2020-10-16T17:04:51+08:00">2020-10-16</time>
+    </span>
+
+  
+</div>
+
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -226,119 +340,155 @@
 
       
     </div>
-    <footer class="article-footer">
-      <a data-url="http://onepercent.github.io/2020/10/16/hello-world/" data-id="ckgc1egck0000cobpcoxl01nd" class="article-share-link">Share</a>
-      
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
       
     </footer>
+  </article>
+</div>
+
+
+
+
+
+  
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vic</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
   </div>
+
+    </div>
+  </footer>
+
   
-</article>
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
   
 
 
-</section>
-        
-          <aside id="sidebar">
+
+
+
+
+
+
   
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
     
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%88%9D%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95%E3%80%81%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80%E3%80%81JavaScript%E8%88%87%E6%BC%94%E7%AE%97%E6%B3%95/" rel="tag">初學演算法、演算法入門、JavaScript與演算法</a></li></ul>
-    </div>
-  </div>
 
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E5%88%9D%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95%E3%80%81%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80%E3%80%81JavaScript%E8%88%87%E6%BC%94%E7%AE%97%E6%B3%95/" style="font-size: 10px;">初學演算法、演算法入門、JavaScript與演算法</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/10/">October 2020</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/">第一堂 演算法與大 O 符號</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/">記錄自己的成長，那怕是1%也好</a>
-          </li>
-        
-          <li>
-            <a href="/2020/10/16/hello-world/">Hello World</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2020 John Doe<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/about" class="mobile-nav-link">About</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-  </div>
 </body>
 </html>
