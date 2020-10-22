@@ -21,20 +21,21 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"onepercent.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"onepercent.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
   <meta name="description" content="我們會以數學符號之漸進符號 $O$，其表示為函數增長關係。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="第一堂 演算法與 $O$ 符號">
 <meta property="og:url" content="http://onepercent.github.io/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/index.html">
-<meta property="og:site_name" content="helpONEpercent">
+<meta property="og:site_name" content="help ONE percent">
 <meta property="og:description" content="我們會以數學符號之漸進符號 $O$，其表示為函數增長關係。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-19T09:27:47.000Z">
-<meta property="article:modified_time" content="2020-10-20T09:16:19.103Z">
+<meta property="article:modified_time" content="2020-10-22T06:00:10.718Z">
 <meta property="article:author" content="Vic">
 <meta property="article:tag" content="演算法入門">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
 
@@ -51,7 +52,7 @@
   };
 </script>
 
-  <title>第一堂 演算法與 $O$ 符號 | helpONEpercent</title>
+  <title>第一堂 演算法與 $O$ 符號 | help ONE percent</title>
   
 
 
@@ -104,6 +105,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -111,7 +115,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">helpONEpercent</h1>
+      <h1 class="site-title">help ONE percent</h1>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">紀錄曾學過的資訊</p>
@@ -125,6 +129,30 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
 
 
 
@@ -152,7 +180,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#tags-%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80-JavaScript"><span class="nav-number">1.</span> <span class="nav-text">tags: 演算法入門 JavaScript</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%BC%94%E7%AE%97%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">演算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%EF%BC%8C%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8"><span class="nav-number"></span> <span class="nav-text">工欲善其事，必先利其器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8F%8F%E8%BF%B0%E7%A8%8B%E5%BC%8F%E4%B8%AD%E6%99%82%E9%96%93%E8%88%87%E7%A9%BA%E9%96%93%E7%9A%84%E9%97%9C%E4%BF%82%E5%91%A2"><span class="nav-number"></span> <span class="nav-text">如何描述程式中時間與空間的關係呢?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E8%A4%87%E9%9B%9C%E5%BA%A6%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="nav-number"></span> <span class="nav-text">執行複雜度表示方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number"></span> <span class="nav-text">參考來源</span></a></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%94%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">演算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%EF%BC%8C%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">工欲善其事，必先利其器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8F%8F%E8%BF%B0%E7%A8%8B%E5%BC%8F%E4%B8%AD%E6%99%82%E9%96%93%E8%88%87%E7%A9%BA%E9%96%93%E7%9A%84%E9%97%9C%E4%BF%82%E5%91%A2"><span class="nav-number">3.</span> <span class="nav-text">如何描述程式中時間與空間的關係呢?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E8%A4%87%E9%9B%9C%E5%BA%A6%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">執行複雜度表示方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -164,14 +192,23 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives">
+          <a href="/archives/">
+        
           <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">標籤</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
@@ -219,7 +256,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="helpONEpercent">
+      <meta itemprop="name" content="help ONE percent">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -241,8 +278,17 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-10-20 17:16:19" itemprop="dateModified" datetime="2020-10-20T17:16:19+08:00">2020-10-20</time>
+        <time title="修改時間：2020-10-22 14:00:10" itemprop="dateModified" datetime="2020-10-22T14:00:10+08:00">2020-10-22</time>
       </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/" itemprop="url" rel="index"><span itemprop="name">演算法入門</span></a>
+        </span>
+    </span>
 
   
 </div>
@@ -255,15 +301,17 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h6 id="tags-演算法入門-JavaScript"><a href="#tags-演算法入門-JavaScript" class="headerlink" title="tags: 演算法入門 JavaScript"></a>tags: <code>演算法入門</code> <code>JavaScript</code></h6><h1 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h1><p>演算法三步驟，它是明確的、有限的且有效率的</p>
-<ul>
+        <h2 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h2><blockquote>
+<p>演算法三步驟，它是明確的、有限的且有效率的</p>
+</blockquote>
+<ol>
 <li>輸入</li>
 <li>計算步驟</li>
 <li>輸出</li>
-</ul>
+</ol>
 <h2 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h2><p>假設現在目標是砍倒一棵樹，且不限時間，使用斧頭會需要很多時間也浪費力氣，使用電鋸省力也省時，換成步驟來看的話，斧頭需要很多砍很多下才會倒，且需要的時間非常多，換成電鋸後，省時省力。</p>
 <p>再假設你買了一部90萬的車輛，朋友問你這部車買了多少? 你只能打字回答，這時你會怎麼回覆呢? 9000百元? 900千元?  或者90萬元? 顯然是90萬元最符合答案也能最快回答。</p>
-<h2 id="如何描述程式中時間與空間的關係呢"><a href="#如何描述程式中時間與空間的關係呢" class="headerlink" title="如何描述程式中時間與空間的關係呢?"></a>如何描述程式中時間與空間的關係呢?</h2><p>我們會以*數學符號之漸進符號 $O$*，其表示為函數增長關係。</p>
+<h2 id="如何描述程式中時間與空間的關係呢"><a href="#如何描述程式中時間與空間的關係呢" class="headerlink" title="如何描述程式中時間與空間的關係呢?"></a>如何描述程式中時間與空間的關係呢?</h2><p>我們會以數學符號之<strong>漸進符號</strong> $O$，其表示為函數增長關係。</p>
 <ul>
 <li>漸進符號 $O$<ul>
 <li>bigO，通常會寫成 $O()$</li>
@@ -312,6 +360,7 @@
     <footer class="post-footer">
           <div class="post-tags">
               <a href="/tags/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/" rel="tag"># 演算法入門</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
           </div>
 
         
@@ -323,6 +372,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2020/10/22/%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/" rel="next" title="Hexo 教學(一) 使用 Hexo寫部落格">
+                  Hexo 教學(一) 使用 Hexo寫部落格 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>

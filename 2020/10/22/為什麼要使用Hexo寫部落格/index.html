@@ -21,24 +21,24 @@
 
 <script class="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"onepercent.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+    var CONFIG = {"hostname":"onepercent.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="只要有網頁伺服器，就能發布自己的部落格。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://onepercent.github.io/2020/10/16/hello-world/index.html">
-<meta property="og:site_name" content="helpONEpercent">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:title" content="Hexo 教學(一) 使用 Hexo寫部落格">
+<meta property="og:url" content="http://onepercent.github.io/2020/10/22/%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/index.html">
+<meta property="og:site_name" content="help ONE percent">
+<meta property="og:description" content="只要有網頁伺服器，就能發布自己的部落格。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-10-16T09:04:51.998Z">
-<meta property="article:modified_time" content="2020-10-16T09:04:51.998Z">
+<meta property="article:published_time" content="2020-10-22T03:41:17.000Z">
+<meta property="article:modified_time" content="2020-10-22T05:38:36.007Z">
 <meta property="article:author" content="Vic">
-<meta property="article:tag" content="前端,CSS,JavaScript,Vue.js,git,演算法入門">
+<meta property="article:tag" content="hexo教學">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://onepercent.github.io/2020/10/16/hello-world/">
+<link rel="canonical" href="http://onepercent.github.io/2020/10/22/%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/">
 
 
 <script class="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>Hello World | helpONEpercent</title>
+  <title>Hexo 教學(一) 使用 Hexo寫部落格 | help ONE percent</title>
   
 
 
@@ -104,6 +104,9 @@
       <div class="header-inner"><div class="site-brand-container">
   <div class="site-nav-toggle">
     <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
     </div>
   </div>
 
@@ -111,7 +114,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">helpONEpercent</h1>
+      <h1 class="site-title">help ONE percent</h1>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">紀錄曾學過的資訊</p>
@@ -125,6 +128,30 @@
 
 
 
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
 
 
 
@@ -152,7 +179,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8-Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC"><span class="nav-number">1.</span> <span class="nav-text">為什麼要使用 Hexo寫部落格?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%99%E5%AD%B8%E9%80%A3%E7%B5%90"><span class="nav-number">2.</span> <span class="nav-text">教學連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%92%B0%E5%AF%AB%E5%B7%A5%E5%85%B7%E8%88%87%E7%B7%9A%E4%B8%8A%E6%9C%8D%E5%8B%99"><span class="nav-number">3.</span> <span class="nav-text">撰寫工具與線上服務</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -164,14 +191,23 @@
 <div class="site-state-wrap site-overview-item animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
-          <a href="/archives">
+          <a href="/archives/">
+        
           <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">1</span>
-        <span class="site-state-item-name">標籤</span>
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
 </div>
@@ -210,7 +246,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://onepercent.github.io/2020/10/16/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://onepercent.github.io/2020/10/22/%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -219,11 +255,11 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="helpONEpercent">
+      <meta itemprop="name" content="help ONE percent">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          Hexo 教學(一) 使用 Hexo寫部落格
         </h1>
 
         <div class="post-meta-container">
@@ -233,13 +269,24 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
+      
 
-      <time title="創建時間：2020-10-16 17:04:51" itemprop="dateCreated datePublished" datetime="2020-10-16T17:04:51+08:00">2020-10-16</time>
+      <time title="創建時間：2020-10-22 11:41:17 / 修改時間：13:38:36" itemprop="dateCreated datePublished" datetime="2020-10-22T11:41:17+08:00">2020-10-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/hexo%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">hexo教學</span></a>
+        </span>
     </span>
 
   
 </div>
 
+            <div class="post-description">只要有網頁伺服器，就能發布自己的部落格。</div>
         </div>
       </header>
 
@@ -247,19 +294,22 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="為什麼要使用-Hexo寫部落格"><a href="#為什麼要使用-Hexo寫部落格" class="headerlink" title="為什麼要使用 Hexo寫部落格?"></a>為什麼要使用 Hexo寫部落格?</h2><p>現在有很多線上服務都能當成部落格，不管寫在 github、medium或者 wordpress等等，同樣是寫文章，心得也好，技術文也罷，學著使用 markdown寫文，最起碼自己的電腦有初始檔案，不怕線上服務突然關閉或者改變使用條款，而且只要有網頁伺服器，就能發布自己的部落格。</p>
+<h2 id="教學連結"><a href="#教學連結" class="headerlink" title="教學連結"></a>教學連結</h2><p>後續 hexo教學會說明這些主題並建立連結 :</p>
+<ul>
+<li>環境建立與安裝</li>
+<li>匯入主題 (themes)</li>
+<li>部屬到網頁 (使用 github page)</li>
+<li>分類與標籤</li>
+<li>數學符號</li>
+<li>字體</li>
+</ul>
+<h2 id="撰寫工具與線上服務"><a href="#撰寫工具與線上服務" class="headerlink" title="撰寫工具與線上服務"></a>撰寫工具與線上服務</h2><p>我們會使用到的軟體或服務如下，可以先點連結下載安裝或者先建立帳號</p>
+<ul>
+<li><a href="">VSCode</a> - 程式編輯器，我們會使用 VScode來編輯  hexo的資源</li>
+<li><a href="">github.com</a> - 程式碼版控，其中一項服務可以用來發布 hexo</li>
+<li><a href="">HackMD</a> - 線上筆記之一， hexo的撰寫方式為 markdown，使用 HackMD的服務可以快速編輯與即時預覽，不怕文章編輯到一半當掉。</li>
+</ul>
 
     </div>
 
@@ -268,16 +318,19 @@
     
 
     <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/hexo%E6%95%99%E5%AD%B8/" rel="tag"># hexo教學</a>
+          </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/" rel="prev" title="第一堂 演算法與 $O$ 符號">
+                  <i class="fa fa-chevron-left"></i> 第一堂 演算法與 $O$ 符號
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/" rel="next" title="記錄自己的成長，那怕是1%也好">
-                  記錄自己的成長，那怕是1%也好 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
