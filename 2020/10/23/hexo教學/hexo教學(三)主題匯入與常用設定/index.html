@@ -24,21 +24,21 @@
     var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="只要有網頁伺服器，就能發布自己的部落格。">
+  <meta name="description" content="認識 hexo檔案結構並將主題匯入。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 教學(一) 使用 Hexo寫部落格">
-<meta property="og:url" content="http://hsuan777.github.io/2020/10/22/%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/index.html">
+<meta property="og:title" content="hexo教學(三) 主題匯入與設定">
+<meta property="og:url" content="http://hsuan777.github.io/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5%E8%88%87%E5%B8%B8%E7%94%A8%E8%A8%AD%E5%AE%9A/index.html">
 <meta property="og:site_name" content="Help One Percent">
-<meta property="og:description" content="只要有網頁伺服器，就能發布自己的部落格。">
+<meta property="og:description" content="認識 hexo檔案結構並將主題匯入。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-10-22T03:41:17.000Z">
-<meta property="article:modified_time" content="2020-10-22T08:34:12.945Z">
+<meta property="article:published_time" content="2020-10-23T06:38:10.000Z">
+<meta property="article:modified_time" content="2020-10-23T08:26:14.281Z">
 <meta property="article:author" content="Vic">
 <meta property="article:tag" content="hexo教學">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://hsuan777.github.io/2020/10/22/%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/">
+<link rel="canonical" href="http://hsuan777.github.io/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5%E8%88%87%E5%B8%B8%E7%94%A8%E8%A8%AD%E5%AE%9A/">
 
 
 <script class="page-configurations">
@@ -51,7 +51,7 @@
   };
 </script>
 
-  <title>Hexo 教學(一) 使用 Hexo寫部落格 | Help One Percent</title>
+  <title>hexo教學(三) 主題匯入與設定 | Help One Percent</title>
   
 
 
@@ -179,7 +179,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8-Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC"><span class="nav-number">1.</span> <span class="nav-text">為什麼要使用 Hexo寫部落格?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%99%E5%AD%B8%E9%80%A3%E7%B5%90"><span class="nav-number">2.</span> <span class="nav-text">教學連結</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%92%B0%E5%AF%AB%E5%B7%A5%E5%85%B7%E8%88%87%E7%B7%9A%E4%B8%8A%E6%9C%8D%E5%8B%99"><span class="nav-number">3.</span> <span class="nav-text">撰寫工具與線上服務</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo%E6%AA%94%E6%A1%88%E7%B5%90%E6%A7%8B"><span class="nav-number">1.</span> <span class="nav-text">Ｈexo檔案結構</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8C%AF%E5%85%A5%E4%B8%BB%E9%A1%8C"><span class="nav-number">2.</span> <span class="nav-text">匯入主題</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NexT%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A"><span class="nav-number">3.</span> <span class="nav-text">NexT主題設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -193,7 +193,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -246,7 +246,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://hsuan777.github.io/2020/10/22/%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/">
+    <link itemprop="mainEntityOfPage" href="http://hsuan777.github.io/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5%E8%88%87%E5%B8%B8%E7%94%A8%E8%A8%AD%E5%AE%9A/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -259,7 +259,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo 教學(一) 使用 Hexo寫部落格
+          hexo教學(三) 主題匯入與設定
         </h1>
 
         <div class="post-meta-container">
@@ -271,7 +271,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2020-10-22 11:41:17 / 修改時間：16:34:12" itemprop="dateCreated datePublished" datetime="2020-10-22T11:41:17+08:00">2020-10-22</time>
+      <time title="創建時間：2020-10-23 14:38:10 / 修改時間：16:26:14" itemprop="dateCreated datePublished" datetime="2020-10-23T14:38:10+08:00">2020-10-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -286,7 +286,7 @@
   
 </div>
 
-            <div class="post-description">只要有網頁伺服器，就能發布自己的部落格。</div>
+            <div class="post-description">認識 hexo檔案結構並將主題匯入。</div>
         </div>
       </header>
 
@@ -294,35 +294,56 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="為什麼要使用-Hexo寫部落格"><a href="#為什麼要使用-Hexo寫部落格" class="headerlink" title="為什麼要使用 Hexo寫部落格?"></a>為什麼要使用 Hexo寫部落格?</h2><p>現在有很多線上服務都能當成部落格，不管寫在 github、medium或者 wordpress等等，同樣是寫文章，心得也好，技術文也罷，學著使用 markdown寫文，最起碼自己的電腦有初始檔案，不怕線上服務突然關閉或者改變使用條款，而且只要有網頁伺服器，就能發布自己的部落格。</p>
-<h2 id="教學連結"><a href="#教學連結" class="headerlink" title="教學連結"></a>教學連結</h2><p>後續 hexo教學會說明這些主題並建立連結 :</p>
+        <h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ public $\rightarrow$ 經由 <code>hexo generate</code>指令所發布的靜態檔案都在這<br>├─ scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ source<br>  ├─ _posts $\rightarrow$ source 內預設會有 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span><br>    * 經由 <code>hexo new &#39;文章標題&#39;</code>指令所產生的 .md檔案將會放 _posts 內<br>    * 可以在  _posts 內增加資料夾進行文章分類</p>
 <ul>
-<li>環境建立與安裝</li>
-<li>匯入主題 (themes)</li>
-<li>部屬到網頁 (使用 github page)</li>
-<li>分類與標籤</li>
-<li>數學符號</li>
-<li>字體</li>
+<li><span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes</li>
+<li>單一檔案 <ul>
+<li>_config.yml<ul>
+<li>hexo的設定檔，稍後會到這裡設定</li>
 </ul>
-<h2 id="撰寫工具與線上服務"><a href="#撰寫工具與線上服務" class="headerlink" title="撰寫工具與線上服務"></a>撰寫工具與線上服務</h2><p>我們會使用到的軟體或服務如下，可以先點連結下載安裝或者先建立帳號</p>
+</li>
+<li>.gitignore <ul>
+<li>會被 git忽略的資料夾或檔案在這裡設定 </li>
+</ul>
+</li>
+<li>package.json <ul>
+<li>與 npm相關，管理會用到的套件版本，可修改版本來使用</li>
+</ul>
+</li>
+<li>package-lock.json <ul>
+<li>與 npm相關，此為自動產生，不必修改</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a target="_blank" rel="noopener" href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://code.visualstudio.com/">VSCode</a> <ul>
-<li>程式編輯器，我們會使用 VScode來編輯  hexo的資源</li>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
 </ul>
 </li>
-<li><a target="_blank" rel="noopener" href="https://nodejs.org/en/">node.js</a><ul>
-<li>後續安裝 hexo環境會用到，LTS是穩定的版本，Current是最新的，推薦使用 <strong>LTS版本</strong></li>
-</ul>
-</li>
-<li><a target="_blank" rel="noopener" href="https://github.com/">github.com</a><ul>
-<li>程式碼版控，其中一項服務可以用來發布 hexo</li>
-</ul>
-</li>
-<li><a target="_blank" rel="noopener" href="https://hackmd.io/">HackMD</a><ul>
-<li>線上筆記之一， hexo的撰寫方式為 markdown，使用 HackMD的服務可以快速編輯與即時預覽，不怕文章編輯到一半當掉。</li>
+<li>NexT<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
 </ul>
 </li>
 </ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h2 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h2><p>由於自己選擇了 NexT主題匯入，這邊就以 NexT的設定做介紹。<br>請找到 <code>themes/next/_config.yml</code>這隻檔案</p>
+<ul>
+<li>程式碼區塊複製<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">copy_button</span> </span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure></li>
+<li>開啟數學符號 : <a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/third-party-services/math-equations">參考 NexT說明</a></li>
+<li>頁面導覽<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+</ol>
+</blockquote>
 
     </div>
 
@@ -339,14 +360,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/" rel="prev" title="第一堂 演算法與 $O$ 符號">
-                  <i class="fa fa-chevron-left"></i> 第一堂 演算法與 $O$ 符號
+                <a href="/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/" rel="prev" title="Hexo教學(二) 環境建立與安裝 hexo">
+                  <i class="fa fa-chevron-left"></i> Hexo教學(二) 環境建立與安裝 hexo
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/22/%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9D%20hexo/" rel="next" title="Hexo 教學(二) 環境建立與安裝 hexo">
-                  Hexo 教學(二) 環境建立與安裝 hexo <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -441,6 +459,50 @@
   
 
   
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 

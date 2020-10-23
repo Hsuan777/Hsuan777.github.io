@@ -24,32 +24,35 @@
     var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="哪怕是1%也好，只怕自己停佇不前">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Help One Percent">
-<meta property="og:url" content="http://hsuan777.github.io/index.html">
+  <meta name="description" content="我們會以數學符號之漸進符號 $O$，其表示為函數增長關係。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="演算法入門(一) 演算法與大 O 符號">
+<meta property="og:url" content="http://hsuan777.github.io/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/index.html">
 <meta property="og:site_name" content="Help One Percent">
-<meta property="og:description" content="哪怕是1%也好，只怕自己停佇不前">
+<meta property="og:description" content="我們會以數學符號之漸進符號 $O$，其表示為函數增長關係。">
 <meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-10-19T09:27:47.000Z">
+<meta property="article:modified_time" content="2020-10-23T07:07:10.937Z">
 <meta property="article:author" content="Vic">
-<meta property="article:tag" content="前端,CSS,JavaScript,Vue.js,git,演算法入門">
+<meta property="article:tag" content="演算法入門">
+<meta property="article:tag" content="JavaScript">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://hsuan777.github.io/">
+<link rel="canonical" href="http://hsuan777.github.io/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/">
 
 
 <script class="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-TW'
   };
 </script>
 
-  <title>Help One Percent</title>
+  <title>演算法入門(一) 演算法與大 O 符號 | Help One Percent</title>
   
 
 
@@ -165,7 +168,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目錄
@@ -177,6 +180,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%94%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">演算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%EF%BC%8C%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">工欲善其事，必先利其器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8F%8F%E8%BF%B0%E7%A8%8B%E5%BC%8F%E4%B8%AD%E6%99%82%E9%96%93%E8%88%87%E7%A9%BA%E9%96%93%E7%9A%84%E9%97%9C%E4%BF%82%E5%91%A2"><span class="nav-number">3.</span> <span class="nav-text">如何描述程式中時間與空間的關係呢?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E8%A4%87%E9%9B%9C%E5%BA%A6%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">執行複雜度表示方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -230,269 +234,12 @@
 </noscript>
 
 
-    <div class="main-inner index posts-expand">
+    <div class="main-inner post posts-expand">
       
 
       
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://hsuan777.github.io/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5%E8%88%87%E5%B8%B8%E7%94%A8%E8%A8%AD%E5%AE%9A/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vic">
-      <meta itemprop="description" content="哪怕是1%也好，只怕自己停佇不前">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Help One Percent">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5%E8%88%87%E5%B8%B8%E7%94%A8%E8%A8%AD%E5%AE%9A/" class="post-title-link" itemprop="url">hexo教學(三) 主題匯入與設定</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-      
-
-      <time title="創建時間：2020-10-23 14:38:10 / 修改時間：16:26:14" itemprop="dateCreated datePublished" datetime="2020-10-23T14:38:10+08:00">2020-10-23</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">hexo教學</span></a>
-        </span>
-    </span>
 
   
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>認識 hexo檔案結構並將主題匯入。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5%E8%88%87%E5%B8%B8%E7%94%A8%E8%A8%AD%E5%AE%9A/">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://hsuan777.github.io/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vic">
-      <meta itemprop="description" content="哪怕是1%也好，只怕自己停佇不前">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Help One Percent">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/" class="post-title-link" itemprop="url">Hexo教學(二) 環境建立與安裝 hexo</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-10-22 17:31:48" itemprop="dateCreated datePublished" datetime="2020-10-22T17:31:48+08:00">2020-10-22</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-10-23 15:06:21" itemprop="dateModified" datetime="2020-10-23T15:06:21+08:00">2020-10-23</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">hexo教學</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>hexo安裝並嘗試啟動它。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://hsuan777.github.io/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="Vic">
-      <meta itemprop="description" content="哪怕是1%也好，只怕自己停佇不前">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Help One Percent">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/" class="post-title-link" itemprop="url">Hexo教學(一) 使用 Hexo寫部落格</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">發表於</span>
-
-      <time title="創建時間：2020-10-22 11:41:17" itemprop="dateCreated datePublished" datetime="2020-10-22T11:41:17+08:00">2020-10-22</time>
-    </span>
-      <span class="post-meta-item">
-        <span class="post-meta-item-icon">
-          <i class="far fa-calendar-check"></i>
-        </span>
-        <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-10-23 15:06:07" itemprop="dateModified" datetime="2020-10-23T15:06:07+08:00">2020-10-23</time>
-      </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/hexo%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">hexo教學</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>只要有網頁伺服器，就能發布自己的部落格。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
 
 
 <div class="post-block">
@@ -512,10 +259,9 @@
       <meta itemprop="name" content="Help One Percent">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/" class="post-title-link" itemprop="url">演算法入門(一) 演算法與大 O 符號</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          演算法入門(一) 演算法與大 O 符號
+        </h1>
 
         <div class="post-meta-container">
           <div class="post-meta">
@@ -547,6 +293,7 @@
   
 </div>
 
+            <div class="post-description">我們會以數學符號之漸進符號 $O$，其表示為函數增長關係。</div>
         </div>
       </header>
 
@@ -554,16 +301,56 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>我們會以數學符號之漸進符號 $O$，其表示為函數增長關係。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/">
-                閱讀全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+        <h2 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h2><blockquote>
+<p>演算法三步驟，它是明確的、有限的且有效率的</p>
+</blockquote>
+<ol>
+<li>輸入</li>
+<li>計算步驟</li>
+<li>輸出</li>
+</ol>
+<h2 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h2><p>假設現在目標是砍倒一棵樹，且不限時間，使用斧頭會需要很多時間也浪費力氣，使用電鋸省力也省時，換成步驟來看的話，斧頭需要很多砍很多下才會倒，且需要的時間非常多，換成電鋸後，省時省力。</p>
+<p>再假設你買了一部90萬的車輛，朋友問你這部車買了多少? 你只能打字回答，這時你會怎麼回覆呢? 9000百元? 900千元?  或者90萬元? 顯然是90萬元最符合答案也能最快回答。</p>
+<h2 id="如何描述程式中時間與空間的關係呢"><a href="#如何描述程式中時間與空間的關係呢" class="headerlink" title="如何描述程式中時間與空間的關係呢?"></a>如何描述程式中時間與空間的關係呢?</h2><p>我們會以數學符號之<strong>漸進符號</strong> $O$，其表示為函數增長關係。</p>
+<ul>
+<li>漸進符號 $O$<ul>
+<li>bigO，通常會寫成 $O()$</li>
+</ul>
+</li>
+<li>時間複雜度<ul>
+<li>隨著輸入值成長之執行步驟</li>
+</ul>
+</li>
+<li>空間複雜度<ul>
+<li>隨著輸入值成長之記憶體暫用空間</li>
+</ul>
+</li>
+</ul>
+<p>而通常我們為了簡化表達方式，會取其極限值，以下為一些例子 :</p>
+<ul>
+<li>常數 $\rightarrow$ 1</li>
+<li>$n、2n、3n \rightarrow n$</li>
+<li>$n^2+2n \rightarrow n^2$</li>
+<li>以此類推</li>
+</ul>
+<h2 id="執行複雜度表示方式"><a href="#執行複雜度表示方式" class="headerlink" title="執行複雜度表示方式"></a>執行複雜度表示方式</h2><p>來看以下的例子，小杰被師父指派去賣漢堡，每個漢堡50元 :</p>
+<ul>
+<li><p>範例一</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此函式一共執行 2個步驟，也就是說輸入無窮大時，也只會執行 2個步驟，那麼它的時間複雜度則為 $O(1)$，空間複雜度為 $O(1)$，因為只使用了 total這個變數。</p>
+</li>
+<li><p>範例二</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`小杰累計賣出<span class="subst">$&#123;i&#125;</span>個漢堡~`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br><span class="line">sell(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<p>for迴圈執行了 n次再加上前後兩個步驟共 n+2次，以時間複雜度來表示則為 $O(n)$，空間複雜度為 $O(1)$，使用了 total與 i兩個變數</p>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://www.notion.so/JavaScript-49b80c4a10b9498ca0afa954ee8982f3#38cbcc1d017545b8bc094561c3593806">Long - 用JavaScript學習資料結構與演算法</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.notion.so/JavaScript-49b80c4a10b9498ca0afa954ee8982f3#3ab72425fc6746a4985796fe3b18f2db">胡程維 - 初學者學演算法</a></li>
+</ol>
+</blockquote>
+
     </div>
 
     
@@ -571,18 +358,31 @@
     
 
     <footer class="post-footer">
-        <div class="post-eof"></div>
-      
+          <div class="post-tags">
+              <a href="/tags/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/" rel="tag"># 演算法入門</a>
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/" rel="prev" title="記錄自己的成長，那怕是1%也好">
+                  <i class="fa fa-chevron-left"></i> 記錄自己的成長，那怕是1%也好
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/" rel="next" title="Hexo教學(一) 使用 Hexo寫部落格">
+                  Hexo教學(一) 使用 Hexo寫部落格 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>
 
 
 
-
-    
-
-  
 
 
 

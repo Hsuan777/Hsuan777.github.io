@@ -24,22 +24,21 @@
     var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="我們會以數學符號之漸進符號 $O$，其表示為函數增長關係。">
+  <meta name="description" content="hexo安裝並嘗試啟動它。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="第一堂 演算法與 $O$ 符號">
-<meta property="og:url" content="http://hsuan777.github.io/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/index.html">
+<meta property="og:title" content="Hexo教學(二) 環境建立與安裝 hexo">
+<meta property="og:url" content="http://hsuan777.github.io/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/index.html">
 <meta property="og:site_name" content="Help One Percent">
-<meta property="og:description" content="我們會以數學符號之漸進符號 $O$，其表示為函數增長關係。">
+<meta property="og:description" content="hexo安裝並嘗試啟動它。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-10-19T09:27:47.000Z">
-<meta property="article:modified_time" content="2020-10-22T06:00:10.718Z">
+<meta property="article:published_time" content="2020-10-22T09:31:48.000Z">
+<meta property="article:modified_time" content="2020-10-23T07:06:21.271Z">
 <meta property="article:author" content="Vic">
-<meta property="article:tag" content="演算法入門">
-<meta property="article:tag" content="JavaScript">
+<meta property="article:tag" content="hexo教學">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="http://hsuan777.github.io/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/">
+<link rel="canonical" href="http://hsuan777.github.io/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/">
 
 
 <script class="page-configurations">
@@ -52,7 +51,7 @@
   };
 </script>
 
-  <title>第一堂 演算法與 $O$ 符號 | Help One Percent</title>
+  <title>Hexo教學(二) 環境建立與安裝 hexo | Help One Percent</title>
   
 
 
@@ -180,7 +179,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BC%94%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">演算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B7%A5%E6%AC%B2%E5%96%84%E5%85%B6%E4%BA%8B%EF%BC%8C%E5%BF%85%E5%85%88%E5%88%A9%E5%85%B6%E5%99%A8"><span class="nav-number">2.</span> <span class="nav-text">工欲善其事，必先利其器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E6%8F%8F%E8%BF%B0%E7%A8%8B%E5%BC%8F%E4%B8%AD%E6%99%82%E9%96%93%E8%88%87%E7%A9%BA%E9%96%93%E7%9A%84%E9%97%9C%E4%BF%82%E5%91%A2"><span class="nav-number">3.</span> <span class="nav-text">如何描述程式中時間與空間的關係呢?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%B7%E8%A1%8C%E8%A4%87%E9%9B%9C%E5%BA%A6%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="nav-number">4.</span> <span class="nav-text">執行複雜度表示方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A4%8E%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B"><span class="nav-number">1.</span> <span class="nav-text">基礎環境建立</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js%E8%88%87-npm"><span class="nav-number">1.1.</span> <span class="nav-text">node.js與 npm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-hexo"><span class="nav-number">2.</span> <span class="nav-text">初始化 hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%9F%BA%E7%A4%8E%E8%A8%AD%E5%AE%9A"><span class="nav-number">3.</span> <span class="nav-text">修改基礎設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%95%9F%E5%8B%95-hexo"><span class="nav-number">4.</span> <span class="nav-text">啟動 hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -194,7 +193,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -247,7 +246,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="http://hsuan777.github.io/2020/10/19/%E7%AC%AC%E4%B8%80%E5%A0%82%20%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/">
+    <link itemprop="mainEntityOfPage" href="http://hsuan777.github.io/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -260,7 +259,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          第一堂 演算法與 $O$ 符號
+          Hexo教學(二) 環境建立與安裝 hexo
         </h1>
 
         <div class="post-meta-container">
@@ -271,14 +270,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-10-19 17:27:47" itemprop="dateCreated datePublished" datetime="2020-10-19T17:27:47+08:00">2020-10-19</time>
+      <time title="創建時間：2020-10-22 17:31:48" itemprop="dateCreated datePublished" datetime="2020-10-22T17:31:48+08:00">2020-10-22</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-10-22 14:00:10" itemprop="dateModified" datetime="2020-10-22T14:00:10+08:00">2020-10-22</time>
+        <time title="修改時間：2020-10-23 15:06:21" itemprop="dateModified" datetime="2020-10-23T15:06:21+08:00">2020-10-23</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -286,14 +285,14 @@
       </span>
       <span class="post-meta-item-text">分類於</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/" itemprop="url" rel="index"><span itemprop="name">演算法入門</span></a>
+          <a href="/categories/hexo%E6%95%99%E5%AD%B8/" itemprop="url" rel="index"><span itemprop="name">hexo教學</span></a>
         </span>
     </span>
 
   
 </div>
 
-            <div class="post-description">我們會以數學符號之漸進符號 $O$，其表示為函數增長關係。</div>
+            <div class="post-description">hexo安裝並嘗試啟動它。</div>
         </div>
       </header>
 
@@ -301,53 +300,64 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h2><blockquote>
-<p>演算法三步驟，它是明確的、有限的且有效率的</p>
-</blockquote>
-<ol>
-<li>輸入</li>
-<li>計算步驟</li>
-<li>輸出</li>
+        <h2 id="基礎環境建立"><a href="#基礎環境建立" class="headerlink" title="基礎環境建立"></a>基礎環境建立</h2><ol>
+<li>開啟 VScode後，按下快捷鍵 <code>ctrl+~</code>，會打開終端機</li>
+<li>輸入 <code>node -v</code><ul>
+<li>確認 node.js，若成功會出現版本編號</li>
+</ul>
+</li>
+<li>輸入 <code>npm -v</code> <ul>
+<li>確認 npm，若成功會出現版本編號</li>
+</ul>
+</li>
+<li>輸入 <code>npm install -g hexo-cli</code><ul>
+<li>正式安裝 hexo</li>
+</ul>
+</li>
 </ol>
-<h2 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h2><p>假設現在目標是砍倒一棵樹，且不限時間，使用斧頭會需要很多時間也浪費力氣，使用電鋸省力也省時，換成步驟來看的話，斧頭需要很多砍很多下才會倒，且需要的時間非常多，換成電鋸後，省時省力。</p>
-<p>再假設你買了一部90萬的車輛，朋友問你這部車買了多少? 你只能打字回答，這時你會怎麼回覆呢? 9000百元? 900千元?  或者90萬元? 顯然是90萬元最符合答案也能最快回答。</p>
-<h2 id="如何描述程式中時間與空間的關係呢"><a href="#如何描述程式中時間與空間的關係呢" class="headerlink" title="如何描述程式中時間與空間的關係呢?"></a>如何描述程式中時間與空間的關係呢?</h2><p>我們會以數學符號之<strong>漸進符號</strong> $O$，其表示為函數增長關係。</p>
-<ul>
-<li>漸進符號 $O$<ul>
-<li>bigO，通常會寫成 $O()$</li>
+<h3 id="node-js與-npm"><a href="#node-js與-npm" class="headerlink" title="node.js與 npm"></a>node.js與 npm</h3><p>自己對它們的了解， node.js是一個執行 JavaScript的環境，如同要運作 python時必須安裝 python的執行檔，npm則是一個線上的套件資源庫，可以輸入指令 <code>npm install 套件名稱</code> 來安裝額外套件，可以在網路上搜尋這兩個<a target="_blank" rel="noopener" href="https://www.google.com/search?ei=j06SX_bNB5G9mAXOkoSgBw&q=node.js+npm&oq=node.js+npm&gs_lcp=CgZwc3ktYWIQAzICCAAyAggAMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjoFCAAQzQJQzGFYu25glHJoAHAAeACAAYoBiAHcApIBAzMuMZgBAKABAaoBB2d3cy13aXrAAQE&sclient=psy-ab&ved=0ahUKEwi20d2548nsAhWRHqYKHU4JAXQQ4dUDCA0&uact=5">關鍵字</a>，會有更多開發者的說明。</p>
+<h2 id="初始化-hexo"><a href="#初始化-hexo" class="headerlink" title="初始化 hexo"></a>初始化 hexo</h2><p>上一階段已安裝完 hexo所需的基礎環境，接著要在電腦中新增一個空的資料夾來存放 hexo的檔案。</p>
+<ol>
+<li>新增資料夾<ul>
+<li>可以直接在桌面上新增一個資料夾，接著將它拖曳至 VScode，終端機的路徑就會是該資料夾的路徑了</li>
+<li>或者輸入終端機指令來新增一個空的資料夾並進入該資料夾中</li>
 </ul>
 </li>
-<li>時間複雜度<ul>
-<li>隨著輸入值成長之執行步驟</li>
+<li>輸入 <code>hexo init 自訂部落格名稱</code><ul>
+<li>為了方便說明自訂部落格名稱簡化為 hexoblog</li>
+<li>確認終端機路徑已在新建立的空資料夾中，我們要在這個資料夾中下載 hexo的初始檔案，也就是 hexo的初始化</li>
+<li>資料夾名稱可以跟部落格名稱不同，可以在 hexo的設定檔中更改部落格名稱</li>
+<li>若只輸入 <code>hexo init</code>，很可能會遇到安裝錯誤</li>
 </ul>
 </li>
-<li>空間複雜度<ul>
-<li>隨著輸入值成長之記憶體暫用空間</li>
+<li>確認 hexo初始資源<ul>
+<li>此時資料夾結構應該會是 <code>桌面\新增資料夾\hexobolg</code></li>
+<li>輸入 <code>cd hexobolg</code>，路徑會從 <code>桌面桌面\新增資料夾</code> 變更為 <code>桌面桌面\新增資料夾\hexobolg</code></li>
+<li>可以在 VScode的左邊檔案視窗檢查，確認 hexobolg的資料夾已有 hexo的初始相關檔案</li>
 </ul>
 </li>
+</ol>
+<p>舉個範例，若在桌面上新增了一個資料夾，那麼最終資料夾結構應該會是 <code>桌面\新增資料夾\hexoblog</code></p>
+<h2 id="修改基礎設定"><a href="#修改基礎設定" class="headerlink" title="修改基礎設定"></a>修改基礎設定</h2><p>剛下載好的 hexo有些設定是預設的，所以我們要修改成自己的。<br>找到 <code>hexoblog\_config.yml</code>這隻檔案，可以先修改以下資訊</p>
+<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attribute">title</span>: Help One Percent</span><br><span class="line"><span class="attribute">subtitle</span>: &#x27;遺忘x回想x自動化&#x27;</span><br><span class="line"><span class="attribute">description</span>: &#x27;哪怕是1%也好，只怕自己停佇不前&#x27;</span><br><span class="line"><span class="attribute">keywords</span>: 前端,CSS,JavaScript,Vue.js,git,演算法入門</span><br><span class="line"><span class="attribute">author</span>: Vic</span><br><span class="line"><span class="attribute">language</span>: zh-TW</span><br><span class="line"><span class="attribute">timezone</span>: &#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="啟動-hexo"><a href="#啟動-hexo" class="headerlink" title="啟動 hexo"></a>啟動 hexo</h2><p>接下來，我們可以先使用預設主題模擬上線情況。</p>
+<ol>
+<li>輸入 <code>hexo generate</code><ul>
+<li>會產生靜態檔案</li>
 </ul>
-<p>而通常我們為了簡化表達方式，會取其極限值，以下為一些例子 :</p>
-<ul>
-<li>常數 $\rightarrow$ 1</li>
-<li>$n、2n、3n \rightarrow n$</li>
-<li>$n^2+2n \rightarrow n^2$</li>
-<li>以此類推</li>
-</ul>
-<h2 id="執行複雜度表示方式"><a href="#執行複雜度表示方式" class="headerlink" title="執行複雜度表示方式"></a>執行複雜度表示方式</h2><p>來看以下的例子，小杰被師父指派去賣漢堡，每個漢堡50元 :</p>
-<ul>
-<li><p>範例一</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此函式一共執行 2個步驟，也就是說輸入無窮大時，也只會執行 2個步驟，那麼它的時間複雜度則為 $O(1)$，空間複雜度為 $O(1)$，因為只使用了 total這個變數。</p>
 </li>
-<li><p>範例二</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`小杰累計賣出<span class="subst">$&#123;i&#125;</span>個漢堡~`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br><span class="line">sell(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-<p>for迴圈執行了 n次再加上前後兩個步驟共 n+2次，以時間複雜度來表示則為 $O(n)$，空間複雜度為 $O(1)$，使用了 total與 i兩個變數</p>
-</li>
+<li>輸入 <code>hexo server</code><ul>
+<li>啟動 hexo內建的模擬網頁伺服器</li>
 </ul>
+</li>
+<li>在網址列輸入提供的網址，預設會是 <code>http://localhost:4000</code></li>
+</ol>
+<p>若成功看到預設主題以及第一篇文章標題 “Hello World”，恭喜你已經完成一半了! </p>
+<p>接下來我們要新增一篇文章並調整主題以及其他設定。</p>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li><a target="_blank" rel="noopener" href="https://www.notion.so/JavaScript-49b80c4a10b9498ca0afa954ee8982f3#38cbcc1d017545b8bc094561c3593806">Long - 用JavaScript學習資料結構與演算法</a></li>
-<li><a target="_blank" rel="noopener" href="https://www.notion.so/JavaScript-49b80c4a10b9498ca0afa954ee8982f3#3ab72425fc6746a4985796fe3b18f2db">胡程維 - 初學者學演算法</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10236936">Ray - (3)試著學 Hexo - 如何安裝 Hexo</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4)試著學 Hexo - 認識 Hexo 目錄結構</a></li>
 </ol>
 </blockquote>
 
@@ -359,21 +369,20 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/" rel="tag"># 演算法入門</a>
-              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+              <a href="/tags/hexo%E6%95%99%E5%AD%B8/" rel="tag"># hexo教學</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/" rel="prev" title="記錄自己的成長，那怕是1%也好">
-                  <i class="fa fa-chevron-left"></i> 記錄自己的成長，那怕是1%也好
+                <a href="/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/" rel="prev" title="Hexo教學(一) 使用 Hexo寫部落格">
+                  <i class="fa fa-chevron-left"></i> Hexo教學(一) 使用 Hexo寫部落格
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/22/%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/" rel="next" title="Hexo 教學(一) 使用 Hexo寫部落格">
-                  Hexo 教學(一) 使用 Hexo寫部落格 <i class="fa fa-chevron-right"></i>
+                <a href="/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5%E8%88%87%E5%B8%B8%E7%94%A8%E8%A8%AD%E5%AE%9A/" rel="next" title="hexo教學(三) 主題匯入與設定">
+                  hexo教學(三) 主題匯入與設定 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -469,50 +478,6 @@
   
 
   
-      <script>
-  if (typeof MathJax === 'undefined') {
-    window.MathJax = {
-      tex: {
-        inlineMath: {'[+]': [['$', '$']]},
-        tags: 'ams'
-      },
-      options: {
-        renderActions: {
-          findScript: [10, doc => {
-            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
-              const display = !!node.type.match(/; *mode=display/);
-              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
-              const text = document.createTextNode('');
-              node.parentNode.replaceChild(text, node);
-              math.start = {node: text, delim: '', n: 0};
-              math.end = {node: text, delim: '', n: 0};
-              doc.math.push(math);
-            });
-          }, '', false],
-          insertedScript: [200, () => {
-            document.querySelectorAll('mjx-container').forEach(node => {
-              const target = node.parentNode;
-              if (target.nodeName.toLowerCase() === 'li') {
-                target.parentNode.classList.add('has-jax');
-              }
-            });
-          }, '', false]
-        }
-      }
-    };
-    const script = document.createElement('script');
-    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
-    script.defer = true;
-    document.head.appendChild(script);
-  } else {
-    MathJax.startup.document.state(0);
-    MathJax.typesetClear();
-    MathJax.texReset();
-    MathJax.typeset();
-  }
-</script>
-
-    
 
   
 
