@@ -24,21 +24,23 @@
     var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="hexo安裝並嘗試啟動它。">
+  <meta name="description" content="利用 hexo指令新增文章">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo教學(二) 環境建立與安裝 hexo">
-<meta property="og:url" content="https://hsuan777.github.io/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/index.html">
+<meta property="og:title" content="hexo教學(四) 新增文章與常用指令">
+<meta property="og:url" content="https://hsuan777.github.io/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E5%9B%9B)%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Help One Percent">
-<meta property="og:description" content="hexo安裝並嘗試啟動它。">
+<meta property="og:description" content="利用 hexo指令新增文章">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2020-10-22T09:31:48.000Z">
-<meta property="article:modified_time" content="2020-10-26T03:47:34.056Z">
+<meta property="og:image" content="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
+<meta property="article:published_time" content="2020-10-23T06:38:10.000Z">
+<meta property="article:modified_time" content="2020-10-26T05:53:37.490Z">
 <meta property="article:author" content="Vic">
 <meta property="article:tag" content="hexo教學">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
 
 
-<link rel="canonical" href="https://hsuan777.github.io/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/">
+<link rel="canonical" href="https://hsuan777.github.io/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E5%9B%9B)%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
 
 
 <script class="page-configurations">
@@ -51,7 +53,7 @@
   };
 </script>
 
-  <title>Hexo教學(二) 環境建立與安裝 hexo | Help One Percent</title>
+  <title>hexo教學(四) 新增文章與常用指令 | Help One Percent</title>
   
 
 
@@ -179,7 +181,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A4%8E%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B"><span class="nav-number">1.</span> <span class="nav-text">基礎環境建立</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#node-js%E8%88%87-npm"><span class="nav-number">1.1.</span> <span class="nav-text">node.js與 npm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-hexo"><span class="nav-number">2.</span> <span class="nav-text">初始化 hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E5%9F%BA%E7%A4%8E%E8%A8%AD%E5%AE%9A"><span class="nav-number">3.</span> <span class="nav-text">修改基礎設定</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%95%9F%E5%8B%95-hexo"><span class="nav-number">4.</span> <span class="nav-text">啟動 hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">新增文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A6%8B-markdown%E8%AA%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">常見 markdown語法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C%E9%A1%9E"><span class="nav-number">2.1.</span> <span class="nav-text">標題類</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E5%AD%97%E9%A1%9E"><span class="nav-number">2.2.</span> <span class="nav-text">文字類</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">2.3.</span> <span class="nav-text">表格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">hexo常用指令</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -246,7 +248,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://hsuan777.github.io/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/">
+    <link itemprop="mainEntityOfPage" href="https://hsuan777.github.io/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E5%9B%9B)%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -259,7 +261,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo教學(二) 環境建立與安裝 hexo
+          hexo教學(四) 新增文章與常用指令
         </h1>
 
         <div class="post-meta-container">
@@ -270,14 +272,14 @@
       </span>
       <span class="post-meta-item-text">發表於</span>
 
-      <time title="創建時間：2020-10-22 17:31:48" itemprop="dateCreated datePublished" datetime="2020-10-22T17:31:48+08:00">2020-10-22</time>
+      <time title="創建時間：2020-10-23 14:38:10" itemprop="dateCreated datePublished" datetime="2020-10-23T14:38:10+08:00">2020-10-23</time>
     </span>
       <span class="post-meta-item">
         <span class="post-meta-item-icon">
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-10-26 11:47:34" itemprop="dateModified" datetime="2020-10-26T11:47:34+08:00">2020-10-26</time>
+        <time title="修改時間：2020-10-26 13:53:37" itemprop="dateModified" datetime="2020-10-26T13:53:37+08:00">2020-10-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -292,7 +294,7 @@
   
 </div>
 
-            <div class="post-description">hexo安裝並嘗試啟動它。</div>
+            <div class="post-description">利用 hexo指令新增文章</div>
         </div>
       </header>
 
@@ -300,66 +302,120 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="基礎環境建立"><a href="#基礎環境建立" class="headerlink" title="基礎環境建立"></a>基礎環境建立</h2><ol>
-<li>開啟 VScode後，按下快捷鍵 <code>ctrl+~</code>，會打開終端機</li>
-<li>輸入 <code>node -v</code><ul>
-<li>確認 node.js，若成功會出現版本編號</li>
+        <h2 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h2><p>在上一篇匯入主題後，這篇我們來新增一篇文章，輸入指令後，會在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post 中看到我們新建立的檔案。<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ *.md</p>
+<ul>
+<li>輸入 <code>hexo new &#39;文章標題&#39;</code></li>
+<li>檔案格式為 *.md</li>
+<li>寫法為 markdown</li>
 </ul>
-</li>
-<li>輸入 <code>npm -v</code> <ul>
-<li>確認 npm，若成功會出現版本編號</li>
-</ul>
-</li>
-<li>輸入 <code>npm install -g hexo-cli</code><ul>
-<li>正式安裝 hexo</li>
-</ul>
-</li>
-</ol>
-<h3 id="node-js與-npm"><a href="#node-js與-npm" class="headerlink" title="node.js與 npm"></a>node.js與 npm</h3><p>自己對它們的了解， node.js是一個執行 JavaScript的環境，如同要運作 python時必須安裝 python的執行檔，npm則是一個線上的套件資源庫，可以輸入指令 <code>npm install 套件名稱</code> 來安裝額外套件，可以在網路上搜尋這兩個<a target="_blank" rel="noopener" href="https://www.google.com/search?ei=j06SX_bNB5G9mAXOkoSgBw&q=node.js+npm&oq=node.js+npm&gs_lcp=CgZwc3ktYWIQAzICCAAyAggAMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjoFCAAQzQJQzGFYu25glHJoAHAAeACAAYoBiAHcApIBAzMuMZgBAKABAaoBB2d3cy13aXrAAQE&sclient=psy-ab&ved=0ahUKEwi20d2548nsAhWRHqYKHU4JAXQQ4dUDCA0&uact=5">關鍵字</a>，會有更多開發者的說明。</p>
-<h2 id="初始化-hexo"><a href="#初始化-hexo" class="headerlink" title="初始化 hexo"></a>初始化 hexo</h2><p>上一階段已安裝完 hexo所需的基礎環境，接著要在電腦中新增一個空的資料夾來存放 hexo的檔案。</p>
-<ol>
-<li>新增資料夾<ul>
-<li>可以直接在桌面上新增一個資料夾，接著將它拖曳至 VScode，終端機的路徑就會是該資料夾的路徑了</li>
-<li>或者輸入終端機指令來新增一個空的資料夾並進入該資料夾中</li>
-</ul>
-</li>
-<li>輸入 <code>hexo init 自訂部落格名稱</code><ul>
-<li>為了方便說明自訂部落格名稱簡化為 hexoblog</li>
-<li>確認終端機路徑已在新建立的空資料夾中，我們要在這個資料夾中下載 hexo的初始檔案，也就是 hexo的初始化</li>
-<li>資料夾名稱可以跟部落格名稱不同，可以在 hexo的設定檔中更改部落格名稱</li>
-<li>若只輸入 <code>hexo init</code>，很可能會遇到安裝錯誤</li>
-</ul>
-</li>
-<li>確認 hexo初始資源<ul>
-<li>此時資料夾結構應該會是 <code>桌面\新增資料夾\hexobolg</code></li>
-<li>輸入 <code>cd hexobolg</code>，路徑會從 <code>桌面桌面\新增資料夾</code> 變更為 <code>桌面桌面\新增資料夾\hexobolg</code></li>
-<li>可以在 VScode的左邊檔案視窗檢查，確認 hexobolg的資料夾已有 hexo的初始相關檔案</li>
-</ul>
-</li>
-</ol>
-<p>舉個範例，若在桌面上新增了一個資料夾，那麼最終資料夾結構應該會是 <code>桌面\新增資料夾\hexoblog</code></p>
-<h2 id="修改基礎設定"><a href="#修改基礎設定" class="headerlink" title="修改基礎設定"></a>修改基礎設定</h2><p>剛下載好的 hexo有些設定是預設的，所以我們要修改成自己的。<br>找到 <code>hexoblog\_config.yml</code>這隻檔案，可以先修改以下資訊</p>
-<figure class="highlight ldif"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attribute">title</span>: Help One Percent</span><br><span class="line"><span class="attribute">subtitle</span>: &#x27;遺忘x回想x自動化&#x27;</span><br><span class="line"><span class="attribute">description</span>: &#x27;哪怕是1%也好，只怕自己停佇不前&#x27;</span><br><span class="line"><span class="attribute">keywords</span>: 前端,CSS,JavaScript,Vue.js,git,演算法入門</span><br><span class="line"><span class="attribute">author</span>: Vic</span><br><span class="line"><span class="attribute">language</span>: zh-TW</span><br><span class="line"><span class="attribute">timezone</span>: &#x27;&#x27;</span><br></pre></td></tr></table></figure>
-<h2 id="啟動-hexo"><a href="#啟動-hexo" class="headerlink" title="啟動 hexo"></a>啟動 hexo</h2><p>接下來，我們可以先使用預設主題模擬上線情況。</p>
-<ol>
-<li>輸入 <code>hexo generate</code><ul>
-<li>會產生靜態檔案</li>
-</ul>
-</li>
-<li>輸入 <code>hexo server</code><ul>
-<li>啟動 hexo內建的模擬網頁伺服器</li>
-</ul>
-</li>
-<li>在網址列輸入提供的網址，預設會是 <code>http://localhost:4000</code></li>
-</ol>
-<p>若成功看到預設主題以及第一篇文章標題 “Hello World”，恭喜你已經完成一半了! </p>
-<p>接下來我們要新增一篇文章並調整主題以及其他設定。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10236936">Ray - (3)試著學 Hexo - 如何安裝 Hexo</a></li>
-<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4)試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-</ol>
-</blockquote>
+<h2 id="常見-markdown語法"><a href="#常見-markdown語法" class="headerlink" title="常見 markdown語法"></a>常見 markdown語法</h2><p>Markdown語法有非常多，這邊例舉幾個常用語法。</p>
+<h3 id="標題類"><a href="#標題類" class="headerlink" title="標題類"></a>標題類</h3><table>
+<thead>
+<tr>
+<th>符號</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#</td>
+<td>h1標題~h6標題</td>
+</tr>
+<tr>
+<td>######</td>
+<td>h1標題~h6標題</td>
+</tr>
+<tr>
+<td>- + 空格</td>
+<td>無序清單</td>
+</tr>
+<tr>
+<td>1. + 空格</td>
+<td>有序清單</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>引用</td>
+</tr>
+<tr>
+<td><code>``</code></td>
+<td>程式碼註解</td>
+</tr>
+<tr>
+<td><code>```</code></td>
+<td>程式碼區塊(上面三個下面三個)</td>
+</tr>
+</tbody></table>
+<h3 id="文字類"><a href="#文字類" class="headerlink" title="文字類"></a>文字類</h3><table>
+<thead>
+<tr>
+<th>符號</th>
+<th>功能</th>
+<th>實際效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>**文字**</code></td>
+<td>粗體</td>
+<td><strong>文字</strong></td>
+</tr>
+<tr>
+<td><code>*文字*</code></td>
+<td>斜體</td>
+<td><em>文字</em></td>
+</tr>
+<tr>
+<td><code>&lt;u&gt;文字&lt;u&gt;</code></td>
+<td>底線</td>
+<td><u>文字<u></td>
+</tr>
+<tr>
+<td><code>~~文字~~</code></td>
+<td>刪節線</td>
+<td><del>文字</del></td>
+</tr>
+<tr>
+<td><code>&lt;font color=#FF0000&gt;紅色&lt;/font&gt;</code></td>
+<td>文字顏色</td>
+<td><font color=#FF0000>紅色</font></td>
+</tr>
+<tr>
+<td><code>[連結文字](網址)</code></td>
+<td>超連結文字</td>
+<td><a href="%E7%B6%B2%E5%9D%80">連結文字</a></td>
+</tr>
+<tr>
+<td><code>![圖片文字](網址)</code></td>
+<td>圖片</td>
+<td><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google"></td>
+</tr>
+</tbody></table>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// :---  靠左對齊</span><br><span class="line">// ---:  靠右對齊</span><br><span class="line">// :---: 置中對齊</span><br><span class="line">|<span class="string"> 標題一 </span>|<span class="string"> 標題二 </span>|<span class="string"> 標題三 </span>|</span><br><span class="line">|<span class="string"> -------- </span>|<span class="string"> -------- </span>|<span class="string">-------</span>|</span><br><span class="line">|<span class="string"> 文字 </span>|<span class="string"> 文字 </span>|<span class="string"> 文字</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo常用指令"><a href="#hexo常用指令" class="headerlink" title="hexo常用指令"></a>hexo常用指令</h2><p>之後會輸入以下數次，其實多打幾次就會記住了。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hexo generate</code></td>
+<td>產生靜態檔案</td>
+</tr>
+<tr>
+<td><code>hexo server</code></td>
+<td>啟動模擬網頁伺服器</td>
+</tr>
+<tr>
+<td><code>hexo clean</code></td>
+<td>刪除編譯完成的靜態檔案</td>
+</tr>
+<tr>
+<td><code>hexo deploy</code></td>
+<td>部屬檔案至 github page</td>
+</tr>
+</tbody></table>
 
     </div>
 
@@ -376,14 +432,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/" rel="prev" title="Hexo教學(一) 使用 Hexo寫部落格">
-                  <i class="fa fa-chevron-left"></i> Hexo教學(一) 使用 Hexo寫部落格
+                <a href="/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5%E8%88%87%E5%B8%B8%E7%94%A8%E8%A8%AD%E5%AE%9A/" rel="prev" title="Hexo教學(三) 主題匯入與設定">
+                  <i class="fa fa-chevron-left"></i> Hexo教學(三) 主題匯入與設定
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5%E8%88%87%E5%B8%B8%E7%94%A8%E8%A8%AD%E5%AE%9A/" rel="next" title="Hexo教學(三) 主題匯入與設定">
-                  Hexo教學(三) 主題匯入與設定 <i class="fa fa-chevron-right"></i>
-                </a>
             </div>
           </div>
     </footer>
@@ -478,6 +531,50 @@
   
 
   
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
 
   
 
