@@ -32,7 +32,7 @@
 <meta property="og:description" content="認識 hexo檔案結構並將主題匯入。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-22T09:32:10.000Z">
-<meta property="article:modified_time" content="2020-10-26T05:59:47.872Z">
+<meta property="article:modified_time" content="2020-10-26T07:24:02.620Z">
 <meta property="article:author" content="Vic">
 <meta property="article:tag" content="hexo教學">
 <meta name="twitter:card" content="summary">
@@ -277,7 +277,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-10-26 13:59:47" itemprop="dateModified" datetime="2020-10-26T13:59:47+08:00">2020-10-26</time>
+        <time title="修改時間：2020-10-26 15:24:02" itemprop="dateModified" datetime="2020-10-26T15:24:02+08:00">2020-10-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -300,7 +300,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+        <h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
 <p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
 <h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a target="_blank" rel="noopener" href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
 <ul>

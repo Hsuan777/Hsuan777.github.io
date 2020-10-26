@@ -24,16 +24,16 @@
     var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
   </script>
 
-  <meta name="description" content="利用 hexo指令新增文章">
+  <meta name="description" content="利用 hexo指令與 scaffolds來新增文章">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo教學(四) 新增文章與常用指令">
 <meta property="og:url" content="https://hsuan777.github.io/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E5%9B%9B)%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/index.html">
 <meta property="og:site_name" content="Help One Percent">
-<meta property="og:description" content="利用 hexo指令新增文章">
+<meta property="og:description" content="利用 hexo指令與 scaffolds來新增文章">
 <meta property="og:locale" content="zh_TW">
 <meta property="og:image" content="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
 <meta property="article:published_time" content="2020-10-23T06:38:10.000Z">
-<meta property="article:modified_time" content="2020-10-26T05:53:37.490Z">
+<meta property="article:modified_time" content="2020-10-26T07:45:16.827Z">
 <meta property="article:author" content="Vic">
 <meta property="article:tag" content="hexo教學">
 <meta name="twitter:card" content="summary">
@@ -181,7 +181,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">新增文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A6%8B-markdown%E8%AA%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">常見 markdown語法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C%E9%A1%9E"><span class="nav-number">2.1.</span> <span class="nav-text">標題類</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E5%AD%97%E9%A1%9E"><span class="nav-number">2.2.</span> <span class="nav-text">文字類</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">2.3.</span> <span class="nav-text">表格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">hexo常用指令</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0"><span class="nav-number">1.</span> <span class="nav-text">新增文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E8%88%87%E6%A8%A3%E6%9D%BF-scaffolds"><span class="nav-number">1.1.</span> <span class="nav-text">文章與樣板 scaffolds</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E8%A6%8B-markdown%E8%AA%9E%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">常見 markdown語法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%99%E9%A1%8C%E9%A1%9E"><span class="nav-number">2.1.</span> <span class="nav-text">標題類</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E5%AD%97%E9%A1%9E"><span class="nav-number">2.2.</span> <span class="nav-text">文字類</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A8%E6%A0%BC"><span class="nav-number">2.3.</span> <span class="nav-text">表格</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4"><span class="nav-number">3.</span> <span class="nav-text">hexo常用指令</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -279,7 +279,7 @@
           <i class="far fa-calendar-check"></i>
         </span>
         <span class="post-meta-item-text">更新於</span>
-        <time title="修改時間：2020-10-26 13:53:37" itemprop="dateModified" datetime="2020-10-26T13:53:37+08:00">2020-10-26</time>
+        <time title="修改時間：2020-10-26 15:45:16" itemprop="dateModified" datetime="2020-10-26T15:45:16+08:00">2020-10-26</time>
       </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -294,7 +294,7 @@
   
 </div>
 
-            <div class="post-description">利用 hexo指令新增文章</div>
+            <div class="post-description">利用 hexo指令與 scaffolds來新增文章</div>
         </div>
       </header>
 
@@ -302,12 +302,21 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h2 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h2><p>在上一篇匯入主題後，這篇我們來新增一篇文章，輸入指令後，會在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post 中看到我們新建立的檔案。<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ *.md</p>
+        <h2 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h2><p>在上一篇匯入主題後，這篇我們來新增一篇文章，輸入指令後，會在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post 中看到我們新建立的檔案。<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ *.md</p>
 <ul>
 <li>輸入 <code>hexo new &#39;文章標題&#39;</code></li>
 <li>檔案格式為 *.md</li>
 <li>寫法為 markdown</li>
 </ul>
+<h3 id="文章與樣板-scaffolds"><a href="#文章與樣板-scaffolds" class="headerlink" title="文章與樣板 scaffolds"></a>文章與樣板 scaffolds</h3><p>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ _drafts.md<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ _page.md<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─  _post.md<br>通常 hexo新增文章時，預設利用 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _source內的 _post.md新增一篇文章，其三份檔案的功能如下 :</p>
+<ul>
+<li>_drafts.md，指令為 <code>hexo new drafts &#39;文章標題&#39;</code>，用於存放草稿且不會產生靜態檔案。</li>
+<li>_page.md，指令為 <code>hexo new page &#39;文章標題&#39;</code>，新開一個導覽頁面，像是關於我、歸檔以及標籤等網站分頁。</li>
+<li>_post.md，指令為 <code>hexo new post &#39;文章標題&#39;</code>，用於新增文章且會產生靜態檔案。</li>
+</ul>
+<p>可以在這些樣板檔案中規劃需要的標籤或者分類以及其他的資訊，如以下區塊 :</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> &#123;&#123; <span class="string">title</span> &#125;&#125;</span><br><span class="line"><span class="attr">date:</span> &#123;&#123; <span class="string">date</span> &#125;&#125;</span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="attr">description:</span> </span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>標籤與分類，會在其他篇說明。</p>
 <h2 id="常見-markdown語法"><a href="#常見-markdown語法" class="headerlink" title="常見 markdown語法"></a>常見 markdown語法</h2><p>Markdown語法有非常多，這邊例舉幾個常用語法。</p>
 <h3 id="標題類"><a href="#標題類" class="headerlink" title="標題類"></a>標題類</h3><table>
 <thead>
