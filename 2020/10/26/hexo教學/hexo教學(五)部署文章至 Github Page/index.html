@@ -32,7 +32,7 @@
 <meta property="og:description" content="建立 github資料庫並將文章上傳。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2020-10-26T07:49:16.000Z">
-<meta property="article:modified_time" content="2020-10-26T07:52:20.480Z">
+<meta property="article:modified_time" content="2020-10-27T03:49:40.732Z">
 <meta property="article:author" content="Vic">
 <meta property="article:tag" content="hexo教學">
 <meta name="twitter:card" content="summary">
@@ -179,7 +179,7 @@
 
       <!--noindex-->
       <section class="post-toc-wrap sidebar-panel">
-          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-github%E8%B3%87%E6%96%99%E5%BA%AB"><span class="nav-number">1.</span> <span class="nav-text">建立 github資料庫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-hexo%E8%A8%AD%E5%AE%9A%E6%AA%94"><span class="nav-number">2.</span> <span class="nav-text">修改 hexo設定檔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E5%B1%AC-Deploy"><span class="nav-number">3.</span> <span class="nav-text">部屬 (Deploy)</span></a></li></ol></div>
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BB%BA%E7%AB%8B-github%E8%B3%87%E6%96%99%E5%BA%AB"><span class="nav-number">1.</span> <span class="nav-text">建立 github資料庫</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9-hexo%E8%A8%AD%E5%AE%9A%E6%AA%94"><span class="nav-number">2.</span> <span class="nav-text">修改 hexo設定檔</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%83%A8%E5%B1%AC-Deploy"><span class="nav-number">3.</span> <span class="nav-text">部屬 (Deploy)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
       </section>
       <!--/noindex-->
 
@@ -206,7 +206,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -269,10 +269,16 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2020-10-26 15:49:16 / 修改時間：15:52:20" itemprop="dateCreated datePublished" datetime="2020-10-26T15:49:16+08:00">2020-10-26</time>
+      <time title="創建時間：2020-10-26 15:49:16" itemprop="dateCreated datePublished" datetime="2020-10-26T15:49:16+08:00">2020-10-26</time>
     </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">更新於</span>
+        <time title="修改時間：2020-10-27 11:49:40" itemprop="dateModified" datetime="2020-10-27T11:49:40+08:00">2020-10-27</time>
+      </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
         <i class="far fa-folder"></i>
@@ -308,7 +314,7 @@
 <h2 id="修改-hexo設定檔"><a href="#修改-hexo設定檔" class="headerlink" title="修改 hexo設定檔"></a>修改 hexo設定檔</h2><p>建立好 github的資料庫後，接著我們回到 hexo底下的 <code>_config.yml</code>，我們要修改發布時會用到的資訊。</p>
 <figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https:<span class="regexp">//</span>你的github帳號.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/你的github帳號/</span>你的github帳號.github.io.git </span><br><span class="line">  branch: master </span><br><span class="line">  message: <span class="string">&#x27;hexoblog&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="部屬-Deploy"><a href="#部屬-Deploy" class="headerlink" title="部屬 (Deploy)"></a>部屬 (Deploy)</h2><p>完成上述兩個部分後，讓我們重新產生 hexo的靜態檔案，就能將寫好的文章上傳了。</p>
+<h2 id="部屬-Deploy"><a href="#部屬-Deploy" class="headerlink" title="部屬 (Deploy)"></a>部屬 (Deploy)</h2><p>完成上述兩個部分後，讓我們重新產生 hexo的靜態檔案，就能將寫好的文章上傳了。<br>這裡還需要再輸入一個指令，<code>npm install --save hexo-deployer-git</code>，這樣才能將 hexo一鍵部屬到 github上。</p>
 <ol>
 <li>輸入 <code>hexo clean</code>，可縮寫 <code>hexo cl</code></li>
 <li>輸入 <code>hexo generate</code>，可縮寫 <code>hexo g</code></li>
@@ -316,6 +322,11 @@
 <li>輸入 <code>hexo deploy</code>，正式將文章上傳至網路空間</li>
 <li>在網址列輸入 https://你的github帳號.github.io，看是否成功</li>
 </ol>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10242893">Ray - 試著學 Hexo - 部署你的第一個部落格</a></li>
+</ol>
+</blockquote>
 
     </div>
 
