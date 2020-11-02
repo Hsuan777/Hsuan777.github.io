@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 而 this從何而來，又指向誰，為什麼會用到它?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6語法糖 - 箭頭函式與this(上)">
+<meta property="og:url" content="https://hsuan777.github.io/2020/11/02/javascript/%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/index.html">
+<meta property="og:site_name" content="Help One Percent">
+<meta property="og:description" content="箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 而 this從何而來，又指向誰，為什麼會用到它?">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-11-02T09:18:24.000Z">
+<meta property="article:modified_time" content="2020-11-02T09:21:34.209Z">
+<meta property="article:author" content="Vic">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hsuan777.github.io/2020/11/02/javascript/%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>ES6語法糖 - 箭頭函式與this(上) | Help One Percent</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Help One Percent</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">遺忘x回想x自動化</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F-Arrow-functions"><span class="nav-number">1.</span> <span class="nav-text">箭頭函式 (Arrow functions)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87%E4%B8%80%E8%88%AC%E5%87%BD%E5%BC%8F%E7%9A%84%E5%B7%AE%E7%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">箭頭函式與一般函式的差異</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#this"><span class="nav-number">2.</span> <span class="nav-text">this</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#this%E6%98%AF%E7%94%9A%E9%BA%BC"><span class="nav-number">2.1.</span> <span class="nav-text">this是甚麼 ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this%E5%BE%9E%E4%BD%95%E8%80%8C%E4%BE%86"><span class="nav-number">2.2.</span> <span class="nav-text">this從何而來 ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this%E6%8C%87%E5%90%91%E8%AA%B0"><span class="nav-number">2.3.</span> <span class="nav-text">this指向誰 ?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E6%9C%83%E7%94%A8-this"><span class="nav-number">2.4.</span> <span class="nav-text">為什麼會用 this ?</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87-this"><span class="nav-number">3.</span> <span class="nav-text">箭頭函式與 this</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9E%E6%83%B3"><span class="nav-number">4.</span> <span class="nav-text">回想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">5.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vic</p>
+  <div class="site-description" itemprop="description">哪怕是1%也好，只怕自己停佇不前</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">14</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://hsuan777.github.io/2020/11/02/javascript/%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vic">
+      <meta itemprop="description" content="哪怕是1%也好，只怕自己停佇不前">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Help One Percent">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ES6語法糖 - 箭頭函式與this(上)
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-11-02 17:18:24 / 修改時間：17:21:34" itemprop="dateCreated datePublished" datetime="2020-11-02T17:18:24+08:00">2020-11-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 而 this從何而來，又指向誰，為什麼會用到它?</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 一般函式寫法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為具名函式 - 函式陳述式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為匿名函式 - 函式表達式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭頭函式</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若函式只有單一變數，參數括號可以簡化</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  str = <span class="string">&#x27;簡化參數括號&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若函式內只有單一陳述行，大括號可以簡化，但沒有參數時，括號必須存在</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式簡易寫法。&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="箭頭函式與一般函式的差異"><a href="#箭頭函式與一般函式的差異" class="headerlink" title="箭頭函式與一般函式的差異"></a>箭頭函式與一般函式的差異</h3><p>箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 每當搜尋相關介紹時，總會說明它沒有這些 : </p>
+<ul>
+<li><code>this</code></li>
+<li><code>arguments</code> </li>
+<li><code>call()</code></li>
+<li><code>apply()</code></li>
+<li><code>bind()</code></li>
+</ul>
+<p>而這些到底是甚麼? 為什麼那三個內建函式又是甚麼? 為什麼它們看起來很陌生? 在下集會來介紹，在上集中會先介紹 <code>this</code>。</p>
+<p>先簡易說明一下，<code>call()</code>、<code>apply()</code>、<code>bind()</code> 這三種 JS內建函式，可以影響 <code>this</code> 的運作，若使用箭頭函式的話，由於 ES6的規則，連帶的那三個函式也跟著無法使用。<br>而 <code>arguments</code>，它為一般函式的內建參數，在箭頭函式中無此內建參數可運用，但是可以改用 ES6的其餘參數來達到同樣效果。</p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>看到箭頭函式的介紹時，常會看到一句話，箭頭函式沒有自己的<code>this</code>，而 this從何而來，又指向誰，為什麼會用到它? </p>
+<h3 id="this是甚麼"><a href="#this是甚麼" class="headerlink" title="this是甚麼 ?"></a>this是甚麼 ?</h3><ul>
+<li>this 是 JavaScript的內建關鍵字之一</li>
+<li>通常會用在函式或物件中，來呼叫自身的擁有的屬性或值等等…</li>
+</ul>
+<h3 id="this從何而來"><a href="#this從何而來" class="headerlink" title="this從何而來 ?"></a>this從何而來 ?</h3><p>先來看個範例 : </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span>.a) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>當我們將瀏覽器打開時，就已經建立好全域環境與執行環境，而程式碼就是寫在執行環境中，而 <code>this</code> 與全域環境一起被建立。</p>
+<ul>
+<li>全域環境</li>
+<li><code>this</code></li>
+<li>執行環境</li>
+</ul>
+<p>當我們要呼叫 a這個變數時，由上述範例可以知道，有三種呼叫變數 a的方式 :</p>
+<ul>
+<li>直接呼叫</li>
+<li>透過全域物件呼叫</li>
+<li>透過 JS內建關鍵字 <code>this</code> 呼叫</li>
+</ul>
+<p>變數 a是由 var宣告的，而它的執行環境在全域環境中，於是變數 a就被建立在全域環境，接著就能透過全域物件 window找到它。</p>
+<h3 id="this指向誰"><a href="#this指向誰" class="headerlink" title="this指向誰 ?"></a>this指向誰 ?</h3><p>通常我們寫程式碼時，習慣在全域環境下作業，而 <code>this</code> 在呼叫自身時，<strong>必須留意在哪個環境被呼叫，而不看在哪裡被使用</strong>，像是以下這些例子 :</p>
+<ul>
+<li>簡易呼叫函式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行函式，`this`會呼叫全域下的變數</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nameFn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&#x27;漂亮阿姨&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">nameFn() <span class="comment">// &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>物件中呼叫函式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行物件中的函式，`this`則指向物件本身</span></span><br><span class="line"><span class="keyword">const</span> obj =&#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>物件裡呼叫函式並執行函式中的函式<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callFn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// 相當於直接執行 callFn2() -&gt; &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure>
+<h3 id="為什麼會用-this"><a href="#為什麼會用-this" class="headerlink" title="為什麼會用 this ?"></a>為什麼會用 this ?</h3>在 <code>this</code> 一開始有提到，它可以用在函式或物件中，來呼叫自身的擁有的屬性或值，來看以下例子 : <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> personA = &#123;</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params">number</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;number&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personA.sayHello(personA.age)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> personB = &#123;</span><br><span class="line">  age: <span class="number">10</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personB.sayHello()</span><br></pre></td></tr></table></figure>
+使用 <code>this</code> 可以讓程式碼簡化不少。</li>
+</ul>
+<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>上述範例中，物件裡呼叫函式並執行函式中的函式，<code>this</code> 會指向全域，而我們可以使用箭頭函式來解決這樣的問題，因為 : </p>
+<ul>
+<li>箭頭函式沒有自己的 <code>this</code></li>
+<li>當箭頭函式中使用 <code>this</code>時，它會往上一層尋找</li>
+<li>也就是說，<strong>在哪邊被使用，它就會往上一層尋找，而不看環境</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn () &#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="keyword">const</span> callFn2 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="回想"><a href="#回想" class="headerlink" title="回想"></a>回想</h2><ul>
+<li>箭頭函式怎麼寫 ?</li>
+<li>如何知道箭頭函式沒有自己的 <code>this</code> ?</li>
+<li>甚麼時候會用到 <code>this</code> ?</li>
+<li><code>this</code> 在不同地方會指向誰 ?<ul>
+<li>在全域環境下，若創造一個箭頭函式並使用了 <code>this</code> ，它會指向誰 ?</li>
+<li>在物件中新增了一個函式並使用了 <code>this</code> ，最後在全域環境下呼叫物件內的函式，它會指向誰 ?</li>
+</ul>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://medium.com/schaoss-blog/%E5%89%8D%E7%AB%AF%E4%B8%89%E5%8D%81-10-js-%E4%B8%80%E8%88%AC%E5%87%BD%E5%BC%8F%E8%88%87%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E7%9A%84%E5%B7%AE%E7%95%B0-32ce9455ff1a">Schaos - 前端三十｜10. [JS] 一般函式與箭頭函式的差異？</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2019/02/23/javascript-this/">胡立 - 淺談 JavaScript 頭號難題 this：絕對不完整，但保證好懂</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10218937">Mooji - JS 原力覺醒 Day07 - 陳述式 表達式</a></li>
+<li><a target="_blank" rel="noopener" href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">卡斯伯 - 鐵人賽：箭頭函式 (Arrow functions)</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN - 箭頭函式</a></li>
+<li>六角學院 - JS核心篇</li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/" rel="prev" title="ES6變數宣告與全域環境">
+                  <i class="fa fa-chevron-left"></i> ES6變數宣告與全域環境
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/11/02/javascript/%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/" rel="next" title="ES6語法糖 - 箭頭函式與this(下) - call、apply、bind">
+                  ES6語法糖 - 箭頭函式與this(下) - call、apply、bind <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-paw"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vic 尊重分享者，從你我做起~</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
