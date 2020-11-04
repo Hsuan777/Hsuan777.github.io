@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="善加利用解構賦值、展開運算子以及其餘參數，對於函式的參數設計上會有很大的幫助。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ES6語法糖 - 解構賦值與其餘參數">
+<meta property="og:url" content="https://hsuan777.github.io/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/index.html">
+<meta property="og:site_name" content="Help One Percent">
+<meta property="og:description" content="善加利用解構賦值、展開運算子以及其餘參數，對於函式的參數設計上會有很大的幫助。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-11-04T06:19:18.000Z">
+<meta property="article:modified_time" content="2020-11-04T06:56:09.439Z">
+<meta property="article:author" content="Vic">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hsuan777.github.io/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>ES6語法糖 - 解構賦值與其餘參數 | Help One Percent</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Help One Percent</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">遺忘x回想x自動化</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC"><span class="nav-number">1.</span> <span class="nav-text">解構賦值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E8%A7%A3%E6%A7%8B"><span class="nav-number">2.</span> <span class="nav-text">陣列解構</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E8%B3%A6%E5%80%BC"><span class="nav-number">2.1.</span> <span class="nav-text">變數賦值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9D%87%E6%9C%89%E5%B0%8D%E6%87%89%E8%AE%8A%E6%95%B8"><span class="nav-number">2.2.</span> <span class="nav-text">均有對應變數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%BA%E5%B0%91%E8%AE%8A%E6%95%B8"><span class="nav-number">2.3.</span> <span class="nav-text">缺少變數</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%BA%E5%B0%91%E5%B0%8D%E6%87%89%E5%80%BC"><span class="nav-number">2.4.</span> <span class="nav-text">缺少對應值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8%E8%B3%A6%E4%BA%88%E6%96%B0%E9%99%A3%E5%88%97"><span class="nav-number">2.5.</span> <span class="nav-text">其餘參數賦予新陣列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E4%BA%A4%E6%8F%9B"><span class="nav-number">2.6.</span> <span class="nav-text">變數交換</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E4%B8%B2%E8%A7%A3%E6%A7%8B"><span class="nav-number">2.7.</span> <span class="nav-text">字串解構</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E8%A7%A3%E6%A7%8B"><span class="nav-number">3.</span> <span class="nav-text">物件解構</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E8%88%AC%E7%89%A9%E4%BB%B6%E8%A7%A3%E6%A7%8B"><span class="nav-number">3.1.</span> <span class="nav-text">一般物件解構</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%84%A1%E5%AE%A3%E5%91%8A%E7%89%A9%E4%BB%B6%E8%A7%A3%E6%A7%8B"><span class="nav-number">3.2.</span> <span class="nav-text">無宣告物件解構</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%A7%8B%E9%A0%90%E8%A8%AD%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">解構預設值</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%A3%E5%88%97%E8%A7%A3%E6%A7%8B%E9%A0%90%E8%A8%AD%E5%80%BC"><span class="nav-number">4.1.</span> <span class="nav-text">陣列解構預設值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E8%A7%A3%E6%A7%8B%E9%A0%90%E8%A8%AD%E5%80%BC"><span class="nav-number">4.2.</span> <span class="nav-text">物件解構預設值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E8%88%87%E9%A0%90%E8%A8%AD%E5%80%BC"><span class="nav-number">4.3.</span> <span class="nav-text">函式與預設值</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8%E8%88%87%E5%B1%95%E9%96%8B%E9%81%8B%E7%AE%97%E5%AD%90"><span class="nav-number">5.</span> <span class="nav-text">其餘參數與展開運算子</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8"><span class="nav-number">5.1.</span> <span class="nav-text">其餘參數</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%94%B6%E9%9B%86%E5%89%A9%E9%A4%98%E8%B3%87%E6%96%99"><span class="nav-number">5.1.1.</span> <span class="nav-text">收集剩餘資料</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%95%E9%96%8B%E9%81%8B%E7%AE%97%E5%AD%90"><span class="nav-number">5.2.</span> <span class="nav-text">展開運算子</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%87%E9%99%A3%E5%88%97%E5%B1%95%E9%96%8B"><span class="nav-number">5.2.1.</span> <span class="nav-text">將陣列展開</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%87%E5%AD%97%E4%B8%B2%E5%B1%95%E9%96%8B"><span class="nav-number">5.2.2.</span> <span class="nav-text">將字串展開</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B6%9C%E5%90%88%E4%BD%BF%E7%94%A8"><span class="nav-number">5.3.</span> <span class="nav-text">綜合使用</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8"><span class="nav-number">6.</span> <span class="nav-text">解構賦值與其餘參數</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">7.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vic</p>
+  <div class="site-description" itemprop="description">哪怕是1%也好，只怕自己停佇不前</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://hsuan777.github.io/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vic">
+      <meta itemprop="description" content="哪怕是1%也好，只怕自己停佇不前">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Help One Percent">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          ES6語法糖 - 解構賦值與其餘參數
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-11-04 14:19:18 / 修改時間：14:56:09" itemprop="dateCreated datePublished" datetime="2020-11-04T14:19:18+08:00">2020-11-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">善加利用解構賦值、展開運算子以及其餘參數，對於函式的參數設計上會有很大的幫助。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="解構賦值"><a href="#解構賦值" class="headerlink" title="解構賦值"></a>解構賦值</h2><blockquote>
+<p>解構賦值 (Destructuring assignment) 語法是一種 JavaScript 運算式，可以把陣列或物件中的資料解開擷取成為獨立變數。</p>
+</blockquote>
+<p>通常我們拿到的資料會是物件與陣列所組成，為了處理這些資料，需要使用迴圈、判斷等語法來取得相對應的資料，而陣列所包含的資料可能是複合性的或者物件屬性名稱不是我們要的，這時可以利用解構、展開運算子以及其餘參數混合使用達成我們的處理目的。若要透過函式處理更多事情，也能在函式的參數中使用。</p>
+<p>在以下的段落會介紹 : </p>
+<ul>
+<li>陣列解構</li>
+<li>物件解構</li>
+<li>解構預設值</li>
+<li>其餘參數與展開運算子</li>
+</ul>
+<h2 id="陣列解構"><a href="#陣列解構" class="headerlink" title="陣列解構"></a>陣列解構</h2><h3 id="變數賦值"><a href="#變數賦值" class="headerlink" title="變數賦值"></a>變數賦值</h3><ul>
+<li>宣告多個變數後，將它們用陣列的中括號包起來 <code>let [變數1, 變數2]</code></li>
+<li>變數會<strong>對應</strong>陣列中絕對位置的陣列值，順序為由左至右</li>
+<li>若缺少對應值，該變數則為 undefined</li>
+</ul>
+<h3 id="均有對應變數"><a href="#均有對應變數" class="headerlink" title="均有對應變數"></a>均有對應變數</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 所有變數在對應的位置賦值</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, c, d, e] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c ,d, e) </span><br><span class="line"><span class="comment">// 2 4 6 8 10</span></span><br></pre></td></tr></table></figure>
+<h3 id="缺少變數"><a href="#缺少變數" class="headerlink" title="缺少變數"></a>缺少變數</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 有限的變數在對應的位置賦值</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [x, , , y, z] = array</span><br><span class="line"><span class="built_in">console</span>.log(x, y, z) </span><br><span class="line"><span class="comment">// 2 8 10</span></span><br></pre></td></tr></table></figure>
+<h3 id="缺少對應值"><a href="#缺少對應值" class="headerlink" title="缺少對應值"></a>缺少對應值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 變數皆已宣告，但對應位置沒有賦予值</span></span><br><span class="line"><span class="comment">// 如同直接執行 console.log(d)</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, , , <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, c, d, e] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c ,d, e)</span><br><span class="line"><span class="comment">// 2 4 undefined undefined 10</span></span><br></pre></td></tr></table></figure>
+<h3 id="其餘參數賦予新陣列"><a href="#其餘參數賦予新陣列" class="headerlink" title="其餘參數賦予新陣列"></a>其餘參數賦予新陣列</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 可以利用其餘參數將剩下的元素形成一組新陣列</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, ...c] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c) </span><br><span class="line"><span class="comment">// 2 4 [6, 8, 10]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="變數交換"><a href="#變數交換" class="headerlink" title="變數交換"></a>變數交換</h3><ul>
+<li>利用解構將變數賦值後，再將它們的值做交換</li>
+<li>利用解構方式將變數值做交換時，上一行必須要有<strong>分號</strong>，否則會出錯</li>
+<li>若使用套件 ESLint檢查的話，需要換個方式寫，將外層以大括號區隔<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [seatA, seatB] = [<span class="string">&#x27;Jay&#x27;</span>, <span class="string">&#x27;Vic&#x27;</span>]</span><br><span class="line"><span class="built_in">console</span>.log(seatA, seatB); <span class="comment">// &quot;Jay&quot; &quot;Vic&quot;</span></span><br><span class="line"></span><br><span class="line">[seatA, seatB] = [seatB, seatA]</span><br><span class="line"><span class="comment">// 不用分號的寫法</span></span><br><span class="line"><span class="comment">// &#123;[seatA, seatB] = [seatB, seatA]&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(seatA, seatB) </span><br><span class="line"><span class="comment">// &quot;Vic&quot; &quot;Jay&quot;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="字串解構"><a href="#字串解構" class="headerlink" title="字串解構"></a>字串解構</h3><ul>
+<li>可以將字串每一個字元作為變數值<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line"><span class="keyword">let</span> [a, b ,c] = str</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c) </span><br><span class="line"><span class="comment">// &quot;V&quot; &quot;i&quot; &quot;c&quot; </span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="物件解構"><a href="#物件解構" class="headerlink" title="物件解構"></a>物件解構</h2><ul>
+<li>宣告多個變數後，將它們用物件的大括號包起來 <code>let &#123;變數1, 變數2&#125;</code></li>
+<li>但它<strong>沒有順序</strong></li>
+</ul>
+<h3 id="一般物件解構"><a href="#一般物件解構" class="headerlink" title="一般物件解構"></a>一般物件解構</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 宣告 name與 age為變數，只不過與物件內的屬性名稱相同</span></span><br><span class="line"><span class="keyword">let</span> &#123;name, age&#125; = person</span><br><span class="line"><span class="built_in">console</span>.log(name, age) </span><br><span class="line"><span class="comment">// &quot;Vic&quot; 18</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="無宣告物件解構"><a href="#無宣告物件解構" class="headerlink" title="無宣告物件解構"></a>無宣告物件解構</h3><ul>
+<li>未宣告的物件屬性值可以解構給已宣告變數<ul>
+<li>如同上一個範例，變數的值為物件的屬性值</li>
+<li>這裡不需將物件宣告</li>
+</ul>
+</li>
+<li><strong>但變數名稱需與未宣告的物件屬性名稱相同</strong></li>
+<li>已宣告的變數名稱可以再次給予新名稱</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>:anonymous, <span class="attr">age</span>:anonymousAge&#125; = &#123;<span class="attr">name</span>:<span class="string">&#x27;ccc&#x27;</span>, <span class="attr">age</span>:<span class="number">18</span>&#125; </span><br><span class="line"><span class="built_in">console</span>.log(anonymous, anonymousAge) </span><br><span class="line"><span class="comment">// &quot;ccc&quot; 18</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="解構預設值"><a href="#解構預設值" class="headerlink" title="解構預設值"></a>解構預設值</h2><ul>
+<li>在解構陣列與物件時，若沒有對應的變數值，預設會是 undefined</li>
+<li>可以在宣告時先給予一個預設值</li>
+</ul>
+<h3 id="陣列解構預設值"><a href="#陣列解構預設值" class="headerlink" title="陣列解構預設值"></a>陣列解構預設值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> [name=<span class="string">&#x27;匿名登入&#x27;</span>, age=<span class="string">&#x27;隱藏年齡&#x27;</span>] = [<span class="string">&#x27;Vic&#x27;</span>]</span><br><span class="line"><span class="built_in">console</span>.log(name, age) </span><br><span class="line"><span class="comment">// &quot;Vic&quot; &quot;隱藏年齡&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="物件解構預設值"><a href="#物件解構預設值" class="headerlink" title="物件解構預設值"></a>物件解構預設值</h3><ul>
+<li>給予預設值的同時，也可以賦予新的變數名稱，但只有物件可以</li>
+<li><code>let &#123; 已宣告變數名:新的變數名 = 預設值 &#125;</code></li>
+<li><code>let &#123;name:anonymous = &#39;匿名登入&#39;&#125;</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>:anonymous=<span class="string">&#x27;匿名登入&#x27;</span>, age=<span class="string">&#x27;隱藏年齡&#x27;</span>&#125; = &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(anonymous, age)</span><br><span class="line"><span class="comment">// &quot;匿名登入&quot; &quot;隱藏年齡&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函式與預設值"><a href="#函式與預設值" class="headerlink" title="函式與預設值"></a>函式與預設值</h3><ul>
+<li>可以將物件解構作為函式的參數並設定預設值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 單純參數預設值 */</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">(<span class="params">name=<span class="string">&#x27;匿名登入&#x27;</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name)</span><br><span class="line">&#125;</span><br><span class="line">fnA() <span class="comment">// &quot;匿名登入&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 物件解構預設值 */</span></span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">(<span class="params">&#123;name=<span class="string">&#x27;匿名登入&#x27;</span>, height=<span class="number">150</span>&#125;=&#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name, height)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name:<span class="string">&#x27;Vic&#x27;</span>, </span><br><span class="line">  height:<span class="number">180</span></span><br><span class="line">&#125;</span><br><span class="line">fnB() <span class="comment">// &quot;匿名登入&quot; 150</span></span><br><span class="line">fnB(person) <span class="comment">// &quot;Vic&quot; 180</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="其餘參數與展開運算子"><a href="#其餘參數與展開運算子" class="headerlink" title="其餘參數與展開運算子"></a>其餘參數與展開運算子</h2><ul>
+<li>寫法為三個點 <code>...</code></li>
+<li>必須寫在變數名稱前面 <code>...變數名稱</code></li>
+<li>兩者常會混淆，它們寫法相同，但行為不同</li>
+</ul>
+<h3 id="其餘參數"><a href="#其餘參數" class="headerlink" title="其餘參數"></a>其餘參數</h3><blockquote>
+<p>其餘參數（rest parameter） 語法可以讓我們表示不確定數量的參數，並將其視為一個陣列。</p>
+</blockquote>
+<ul>
+<li>可以將剩餘資料收集並組成一個新陣列</li>
+<li>它為實體陣列，也就是說，它可以使用 <code>forEach()</code>、<code>length</code>等等…</li>
+<li>它必需在最後一個位置才能使用</li>
+</ul>
+<h4 id="收集剩餘資料"><a href="#收集剩餘資料" class="headerlink" title="收集剩餘資料"></a>收集剩餘資料</h4><p>再看一次陣列解構中，有提到其餘參數的運用 : </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 陣列解構後賦予變數值</span></span><br><span class="line"><span class="comment">// 利用其餘參數將變數 c賦予一組新陣列</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, ...c] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c) </span><br><span class="line"><span class="comment">// 2 4 [6, 8, 10]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="展開運算子"><a href="#展開運算子" class="headerlink" title="展開運算子"></a>展開運算子</h3><blockquote>
+<p>展開運算子(…) 允許可迭代的陣列或字串展開成０到多個參數(如果是function的話)或是０到多個元素(如果是array或字組的話)，或如果是物件的話則展開成０到多個key-value pair。</p>
+</blockquote>
+<ul>
+<li>若對陣列展開，它會 return陣列中每一個值</li>
+<li>若對物件展開，它會 return物件中每一個屬性名稱</li>
+<li>若對字串展開，它為類陣列，會 return類陣列中每一個值</li>
+</ul>
+<h4 id="將陣列展開"><a href="#將陣列展開" class="headerlink" title="將陣列展開"></a>將陣列展開</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="built_in">console</span>.log(...array) </span><br><span class="line"><span class="comment">// 2 4 6 8 10</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="將字串展開"><a href="#將字串展開" class="headerlink" title="將字串展開"></a>將字串展開</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name =<span class="string">&#x27;Vic&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(...name)</span><br><span class="line"><span class="comment">// &quot;V&quot; &quot;i&quot; &quot;c&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="綜合使用"><a href="#綜合使用" class="headerlink" title="綜合使用"></a>綜合使用</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">a, b, ...c</span>) =&gt;</span> &#123; <span class="comment">// 將剩餘陣列值收集</span></span><br><span class="line">  <span class="built_in">console</span>.log(a+b)</span><br><span class="line">  <span class="comment">// reduce() 可以將陣列內所有值累加</span></span><br><span class="line">  <span class="built_in">console</span>.log(c.reduce(<span class="function">(<span class="params">d,e</span>) =&gt;</span> d+e))</span><br><span class="line">&#125;</span><br><span class="line">fn(...array) <span class="comment">// 將陣列展開</span></span><br><span class="line"><span class="comment">// 6</span></span><br><span class="line"><span class="comment">// 24</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解構賦值與其餘參數"><a href="#解構賦值與其餘參數" class="headerlink" title="解構賦值與其餘參數"></a>解構賦值與其餘參數</h2><p>參考別人的 JS寫法時，常會看到利用解構賦值與其餘參數的混和運用，但自己寫的時候卻常混淆它們的行為，三種不同的行為模式卻可以達成類似的目的，於是寫了這篇給自己看。要是能善加利用解構賦值、展開運算子以及其餘參數，對於函式的參數設計上會有很大的幫助。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">MDN - 解構賦值</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/rest_parameters">MDN - 其餘參數</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Spread_syntax">MDN - 展開運算子</a></li>
+<li><a target="_blank" rel="noopener" href="https://wcc723.github.io/javascript/2017/12/25/javascript-destructuring/">卡斯伯 - 鐵人賽：ES6 解構賦值</a></li>
+<li><a target="_blank" rel="noopener" href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/destructuring.html">從ES6開始的JavaScript學習生活 - 解構賦值</a></li>
+<li><a target="_blank" rel="noopener" href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/rest_spread.html">從ES6開始的JavaScript學習生活 - 展開運算符與其餘運算符</a></li>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@realdennis/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-%E8%A8%AD%E8%A8%88%E5%87%BD%E6%95%B8%E6%99%82%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7-javascript-1466f37d24f0">realdennis - 解構賦值 — 設計函數時的小技巧 JavaScript</a></li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/" rel="prev" title="ES6語法糖 - 箭頭函式與this(下) - call、apply、bind">
+                  <i class="fa fa-chevron-left"></i> ES6語法糖 - 箭頭函式與this(下) - call、apply、bind
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-paw"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vic 尊重分享者，從你我做起~</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
