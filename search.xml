@@ -21,35 +21,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo教學(六) 文章標籤與分類</title>
-    <url>/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
-    <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
-<h2 id="建立分類"><a href="#建立分類" class="headerlink" title="建立分類"></a>建立分類</h2><ol>
-<li>輸入 <code>hexo new page &#39;categories&#39;</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
-<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories中的 index.md檔案，插入 <code>type: &quot;categories&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>重新產生靜態檔案，可以在導覽列看到多了一個分類分頁</li>
-</ol>
-<h2 id="建立標籤"><a href="#建立標籤" class="headerlink" title="建立標籤"></a>建立標籤</h2><p>與分類的步驟一樣，但內容改變。</p>
-<ol>
-<li>輸入 <code>hexo new page &#39;tags&#39;</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
-<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> tags index.md檔案，插入 <code>type: &quot;tags&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-若需要多個標籤，可以這樣輸入<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">教學文</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>重新產生靜態檔案，可以在導覽列看到多了一個標籤分頁</li>
-</ol>
-<p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo教學(一) 使用 Hexo寫部落格</title>
     <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
     <content><![CDATA[<h2 id="為什麼要使用-Hexo寫部落格"><a href="#為什麼要使用-Hexo寫部落格" class="headerlink" title="為什麼要使用 Hexo寫部落格?"></a>為什麼要使用 Hexo寫部落格?</h2><p>現在有很多線上服務都能當成部落格，不管寫在 github、medium或者 wordpress等等，同樣是寫文章，心得也好，技術文也罷，學著使用 markdown寫文，最起碼自己的電腦有初始檔案，不怕線上服務突然關閉或者改變使用條款，而且只要有網頁伺服器，就能發布自己的部落格。</p>
@@ -81,6 +52,35 @@
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(六) 文章標籤與分類</title>
+    <url>/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
+    <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
+<h2 id="建立分類"><a href="#建立分類" class="headerlink" title="建立分類"></a>建立分類</h2><ol>
+<li>輸入 <code>hexo new page &#39;categories&#39;</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
+<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories中的 index.md檔案，插入 <code>type: &quot;categories&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>重新產生靜態檔案，可以在導覽列看到多了一個分類分頁</li>
+</ol>
+<h2 id="建立標籤"><a href="#建立標籤" class="headerlink" title="建立標籤"></a>建立標籤</h2><p>與分類的步驟一樣，但內容改變。</p>
+<ol>
+<li>輸入 <code>hexo new page &#39;tags&#39;</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
+<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> tags index.md檔案，插入 <code>type: &quot;tags&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+若需要多個標籤，可以這樣輸入<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">教學文</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>重新產生靜態檔案，可以在導覽列看到多了一個標籤分頁</li>
+</ol>
+<p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>hexo教學</category>
       </categories>
@@ -232,6 +232,45 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo教學 404頁面</title>
+    <url>/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8404/</url>
+    <content><![CDATA[<h2 id="建立-404頁面"><a href="#建立-404頁面" class="headerlink" title="建立 404頁面"></a>建立 404頁面</h2><ol>
+<li>輸入 <code>hexo new page 404</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source\404\index.md 增加以下資訊<ul>
+<li>comments，若之後有開啟評論功能，在這邊先將它關閉</li>
+<li>permalink，網站中的固定連結<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span> <span class="bullet">-</span> <span class="string">您似乎來到不對的地方~</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-27 13:45:41</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">/404</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>增加頁面說明文字。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 您要找的網頁不存在。</span></span><br><span class="line"></span><br><span class="line">很抱歉，您目前存取的頁面不存在。</span><br><span class="line"></span><br><span class="line">請點擊[<span class="string">這裡</span>](<span class="link">https://您的帳號.github.io/</span>)回首頁。</span><br></pre></td></tr></table></figure>
+建立好上述資訊後重新建立靜態檔案，github的預設 404頁面就會使用我們新建的 404頁面了。</li>
+</ol>
+<p>另外，在 github中有兩種方式都能讀取到 404頁面，</p>
+<ul>
+<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404\index.md<ul>
+<li>permalink就設定為 <code>permalink: /404</code></li>
+</ul>
+</li>
+<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404.md <ul>
+<li>permalink就設定為 <code>permalink: /404.html</code> </li>
+</ul>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">Creating a custom 404 page for your GitHub Pages site</a></li>
+<li><a href="https://hexo.io/zh-tw/docs/permalinks.html">Hexo - Permalinks</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10249685">Ray - 試著學 Hexo - SEO 篇 - 新增你的 404 頁面</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>hexo教學(四) 新增文章與常用指令</title>
     <url>/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E5%9B%9B)%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
     <content><![CDATA[<h2 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h2><p>在上一篇匯入主題後，這篇我們來新增一篇文章，輸入指令後，會在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post 中看到我們新建立的檔案。<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ *.md</p>
@@ -357,45 +396,6 @@
 <td>部屬檔案至 github page</td>
 </tr>
 </tbody></table>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學 404頁面</title>
-    <url>/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8404/</url>
-    <content><![CDATA[<h2 id="建立-404頁面"><a href="#建立-404頁面" class="headerlink" title="建立 404頁面"></a>建立 404頁面</h2><ol>
-<li>輸入 <code>hexo new page 404</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source\404\index.md 增加以下資訊<ul>
-<li>comments，若之後有開啟評論功能，在這邊先將它關閉</li>
-<li>permalink，網站中的固定連結<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span> <span class="bullet">-</span> <span class="string">您似乎來到不對的地方~</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-27 13:45:41</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">/404</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>增加頁面說明文字。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 您要找的網頁不存在。</span></span><br><span class="line"></span><br><span class="line">很抱歉，您目前存取的頁面不存在。</span><br><span class="line"></span><br><span class="line">請點擊[<span class="string">這裡</span>](<span class="link">https://您的帳號.github.io/</span>)回首頁。</span><br></pre></td></tr></table></figure>
-建立好上述資訊後重新建立靜態檔案，github的預設 404頁面就會使用我們新建的 404頁面了。</li>
-</ol>
-<p>另外，在 github中有兩種方式都能讀取到 404頁面，</p>
-<ul>
-<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404\index.md<ul>
-<li>permalink就設定為 <code>permalink: /404</code></li>
-</ul>
-</li>
-<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404.md <ul>
-<li>permalink就設定為 <code>permalink: /404.html</code> </li>
-</ul>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">Creating a custom 404 page for your GitHub Pages site</a></li>
-<li><a href="https://hexo.io/zh-tw/docs/permalinks.html">Hexo - Permalinks</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10249685">Ray - 試著學 Hexo - SEO 篇 - 新增你的 404 頁面</a></li>
-</ol>
-</blockquote>
 ]]></content>
       <categories>
         <category>hexo教學</category>
@@ -641,6 +641,74 @@
       </tags>
   </entry>
   <entry>
+    <title>ES6變數宣告與全域環境</title>
+    <url>/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
+<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
+<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
+<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>只在某區塊(例如函式)中有作用</li>
+<li>無法重複宣告同樣變數名稱</li>
+<li>變數的值可改變</li>
+</ul>
+<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>無法重複宣告</li>
+<li>變數的值不可改變</li>
+<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
+</ul>
+<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
+<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
+<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
+<ul>
+<li>物件環境 Object Environment</li>
+<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+以表格來看的話，類似像這樣 : <table>
+<thead>
+<tr>
+<th>聲明環境</th>
+<th>物件環境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>10</td>
+</tr>
+<tr>
+<td>b</td>
+<td>funciton()</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>而 JS是物件導向，以物件來看的話，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
+<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
+<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
+<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ES6語法糖 - 解構賦值與其餘參數</title>
     <url>/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/</url>
     <content><![CDATA[<h2 id="解構賦值"><a href="#解構賦值" class="headerlink" title="解構賦值"></a>解構賦值</h2><blockquote>
@@ -751,74 +819,6 @@
 <li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/destructuring.html">從ES6開始的JavaScript學習生活 - 解構賦值</a></li>
 <li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/rest_spread.html">從ES6開始的JavaScript學習生活 - 展開運算符與其餘運算符</a></li>
 <li><a href="https://medium.com/@realdennis/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-%E8%A8%AD%E8%A8%88%E5%87%BD%E6%95%B8%E6%99%82%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7-javascript-1466f37d24f0">realdennis - 解構賦值 — 設計函數時的小技巧 JavaScript</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ES6變數宣告與全域環境</title>
-    <url>/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
-<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
-<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
-<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
-<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>只在某區塊(例如函式)中有作用</li>
-<li>無法重複宣告同樣變數名稱</li>
-<li>變數的值可改變</li>
-</ul>
-<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>無法重複宣告</li>
-<li>變數的值不可改變</li>
-<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
-</ul>
-<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
-<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
-<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
-<ul>
-<li>物件環境 Object Environment</li>
-<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-以表格來看的話，類似像這樣 : <table>
-<thead>
-<tr>
-<th>聲明環境</th>
-<th>物件環境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a</td>
-<td>10</td>
-</tr>
-<tr>
-<td>b</td>
-<td>funciton()</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<p>而 JS是物件導向，以物件來看的話，</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
-<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
-<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
-<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -1012,8 +1012,8 @@
 </ul>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li><a href="https://www.notion.so/JavaScript-49b80c4a10b9498ca0afa954ee8982f3#38cbcc1d017545b8bc094561c3593806">Long - 用JavaScript學習資料結構與演算法</a></li>
-<li><a href="https://www.notion.so/JavaScript-49b80c4a10b9498ca0afa954ee8982f3#3ab72425fc6746a4985796fe3b18f2db">胡程維 - 初學者學演算法</a></li>
+<li><a href="https://break0344.medium.com/data-structures-and-algorithms-0-720c04cb8082">Long - 用JavaScript學習資料結構與演算法</a></li>
+<li><a href="https://medium.com/appworks-school/%E5%88%9D%E5%AD%B8%E8%80%85%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E6%B3%95%E5%85%A5%E9%96%80-%E9%81%B8%E6%93%87%E6%8E%92%E5%BA%8F%E8%88%87%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%B3%95-23d4bc7085ff">胡程維 - 初學者學演算法</a></li>
 </ol>
 </blockquote>
 ]]></content>
