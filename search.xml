@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>為什麼想寫部落格?</title>
+    <url>/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
+    <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
+<p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
+<p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
+]]></content>
+      <categories>
+        <category>閒聊</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Google試算表作為線上資料庫 - 讀取資料</title>
     <url>/2020/11/18/Google%E8%A9%A6%E7%AE%97%E8%A1%A8%E4%BD%9C%E7%82%BA%E7%B7%9A%E4%B8%8A%E8%B3%87%E6%96%99%E5%BA%AB-%E8%AE%80%E5%8F%96%E8%B3%87%E6%96%99/</url>
     <content><![CDATA[<p>想要弄自己的資料庫，卻又不知道該怎麼做，只知道要建立欄位，而Google的試算表就能達成這件事。只要 : </p>
@@ -40,7 +51,7 @@
 </li>
 <li>使用指令碼編輯器撰寫程式碼並發布<ul>
 <li>知道連結的人可供檢視</li>
-<li>可以不發布至網路</li>
+<li>可以不公開至網路(像是非公開資料但需要寫入)</li>
 </ul>
 </li>
 </ol>
@@ -57,17 +68,17 @@
 </li>
 </ul>
 <h3 id="發布自建試算表"><a href="#發布自建試算表" class="headerlink" title="發布自建試算表"></a>發布自建試算表</h3><ul>
-<li>在試算表的工具列中，找到”檔案”，這個選項，然後選擇”發佈到網路”</li>
+<li>在試算表的工具列中，找到 <code>檔案</code>，這個選項，然後選擇 <code>發佈到網路</code></li>
 <li>按下發布後，對話視窗關掉即可</li>
 </ul>
 <h3 id="指令碼編輯器"><a href="#指令碼編輯器" class="headerlink" title="指令碼編輯器"></a>指令碼編輯器</h3><ul>
-<li>在試算表的工具列中，找到”工具”這個選項，然後選擇”指令碼編輯器”</li>
+<li>在試算表的工具列中，找到 <code>工具</code> 這個選項，然後選擇 <code>指令碼編輯器</code></li>
 <li>將預設的 function內容改為以下程式碼</li>
 </ul>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 存取試算表資料</span></span><br><span class="line"><span class="comment">// function名稱必須是 doGet，才能使用 get方式取得資料</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doGet</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> id = <span class="string">&#x27;試算表網址列的 ID&#x27;</span>; </span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 看起來很複雜? 其實是一連串拆開後的結果</span></span><br><span class="line">  <span class="keyword">var</span> spreadsheet = SpreadsheetApp.openById(id);</span><br><span class="line">  <span class="keyword">var</span> sheet = spreadsheet.getSheets()[<span class="number">0</span>]; </span><br><span class="line">  <span class="keyword">var</span> data = sheet.getDataRange().getValues();</span><br><span class="line">  <span class="comment">// SpreadsheetApp.openById(id).getSheets()[0].getDataRange().getValues()</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">// 將物件轉為 JSON字串，因為瀏覽器只能使用字串傳輸</span></span><br><span class="line">  <span class="keyword">var</span> dataExportFormat = <span class="built_in">JSON</span>.stringify(data);</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// ContentService.createTextOutput(&#x27;字串&#x27;) 輸入發布的網址後，伺服器會回傳字串</span></span><br><span class="line">  <span class="comment">// 回傳的東西可以是字串、html以及 JSON</span></span><br><span class="line">  <span class="comment">// setMimeType(ContentService.MimeType.JSON) 要求回傳的資料為 JSON格式</span></span><br><span class="line">  <span class="keyword">return</span> ContentService.createTextOutput(dataExportFormat).setMimeType(ContentService.MimeType.JSON);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li>在編輯器的工作列中，找到”發布”這個選項，然後選擇”部屬為網頁應用程式”<ul>
+<li>在編輯器的工作列中，找到 <code>發布</code> 這個選項，然後選擇 <code>部屬為網頁應用程式</code><ul>
 <li>Project version : 每次發布時都需要修改版本編號</li>
 <li>Execute the app as: 選擇誰可以執行這個 APP</li>
 <li>Who has access to the app: 選擇誰可以訪問這個 APP</li>
@@ -78,15 +89,15 @@
 <h2 id="讀取資料"><a href="#讀取資料" class="headerlink" title="讀取資料"></a>讀取資料</h2><h3 id="跨網域問題"><a href="#跨網域問題" class="headerlink" title="跨網域問題"></a>跨網域問題</h3><p>為什麼需要將試算表發布為公開可檢視，是因為我們在撈取資料時，會遇到跨網域存取的問題，存放在 google的資料預設不給其他網站存取，但經過設定後，就能正常存取我們要的資料。另外，像是政府的開源資料，也常會遇到跨網域的問題，原因是<strong>同源政策</strong>，開源資料的網址在瀏覽器中可以正常讀取，但在測試用的線上程式編輯器就無法存取，因為它們無法跨網域存取資源，透過 Google Apps Script重新發布後，就能解決這個問題。</p>
 <h3 id="讀取自建試算表"><a href="#讀取自建試算表" class="headerlink" title="讀取自建試算表"></a>讀取自建試算表</h3><p>可以到線上程式碼編輯器等網站測試，codePen或者其他都可以，利用 fetch語法或者套件 axios進行資料撈取。</p>
 <ol>
-<li><p>讀取”發布至網路”的試算表</p>
+<li><p>讀取 <code>發布至網路</code> 的試算表</p>
 <ul>
 <li>其網址為 <code>https://spreadsheets.google.com/feeds/list/試算表的ID/第?張工作表/public/values?alt=json</code></li>
-<li>若要改回非公開，再回到”發佈到網路”，按下停止發布即可</li>
+<li>若要改回非公開，再回到 <code>發佈到網路</code> ，按下停止發布即可</li>
 </ul>
 </li>
-<li><p>讀取”部屬網頁應用程式”</p>
+<li><p>讀取 <code>部屬網頁應用程式</code></p>
 <ul>
-<li>不以”發布至網路”形式公開</li>
+<li>不以 <code>發布至網路</code> 形式公開</li>
 <li>其網址為 <code>https://script.google.com/macros/s/一連串的亂碼/exec</code></li>
 <li>在網址列輸入後，會轉成另外一串亂碼網址，內容是相同的</li>
 </ul>
@@ -115,24 +126,14 @@
         <category>資料庫</category>
       </categories>
       <tags>
-        <tag>Google試算表, 資料庫</tag>
+        <tag>Google試算表</tag>
+        <tag>資料庫</tag>
       </tags>
   </entry>
   <entry>
     <title>記錄自己的成長，那怕是1%也好</title>
     <url>/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/</url>
     <content><![CDATA[<p>利用 Hexo寫技術部落格，那怕是第一篇，或者只有一篇，只怕自己停佇不前。</p>
-]]></content>
-      <categories>
-        <category>閒聊</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>為什麼想寫部落格?</title>
-    <url>/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
-    <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
-<p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
-<p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
 ]]></content>
       <categories>
         <category>閒聊</category>
@@ -160,6 +161,40 @@
 </ol>
 <p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
 <figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(三) 主題匯入</title>
+    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
+<ul>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
+</ul>
+</li>
+<li>NexT<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
+</ul>
+</li>
+</ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
+</ol>
+</blockquote>
+]]></content>
       <categories>
         <category>hexo教學</category>
       </categories>
@@ -198,40 +233,6 @@
 </ul>
 </li>
 </ul>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學(三) 主題匯入</title>
-    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
-<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
-<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
-<ul>
-<li>hueman<ul>
-<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
-</ul>
-</li>
-<li>NexT<ul>
-<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
-<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
-</ul>
-</li>
-</ul>
-<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
-<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
-<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
-</ol>
-</blockquote>
 ]]></content>
       <categories>
         <category>hexo教學</category>
@@ -339,6 +340,45 @@
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
 <li><a href="https://ithelp.ithome.com.tw/articles/10242893">Ray - 試著學 Hexo - 部署你的第一個部落格</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學 404頁面</title>
+    <url>/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8404/</url>
+    <content><![CDATA[<h2 id="建立-404頁面"><a href="#建立-404頁面" class="headerlink" title="建立 404頁面"></a>建立 404頁面</h2><ol>
+<li>輸入 <code>hexo new page 404</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source\404\index.md 增加以下資訊<ul>
+<li>comments，若之後有開啟評論功能，在這邊先將它關閉</li>
+<li>permalink，網站中的固定連結<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span> <span class="bullet">-</span> <span class="string">您似乎來到不對的地方~</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-27 13:45:41</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">/404</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>增加頁面說明文字。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 您要找的網頁不存在。</span></span><br><span class="line"></span><br><span class="line">很抱歉，您目前存取的頁面不存在。</span><br><span class="line"></span><br><span class="line">請點擊[<span class="string">這裡</span>](<span class="link">https://您的帳號.github.io/</span>)回首頁。</span><br></pre></td></tr></table></figure>
+建立好上述資訊後重新建立靜態檔案，github的預設 404頁面就會使用我們新建的 404頁面了。</li>
+</ol>
+<p>另外，在 github中有兩種方式都能讀取到 404頁面，</p>
+<ul>
+<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404\index.md<ul>
+<li>permalink就設定為 <code>permalink: /404</code></li>
+</ul>
+</li>
+<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404.md <ul>
+<li>permalink就設定為 <code>permalink: /404.html</code> </li>
+</ul>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">Creating a custom 404 page for your GitHub Pages site</a></li>
+<li><a href="https://hexo.io/zh-tw/docs/permalinks.html">Hexo - Permalinks</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10249685">Ray - 試著學 Hexo - SEO 篇 - 新增你的 404 頁面</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -575,106 +615,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學 404頁面</title>
-    <url>/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8404/</url>
-    <content><![CDATA[<h2 id="建立-404頁面"><a href="#建立-404頁面" class="headerlink" title="建立 404頁面"></a>建立 404頁面</h2><ol>
-<li>輸入 <code>hexo new page 404</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source\404\index.md 增加以下資訊<ul>
-<li>comments，若之後有開啟評論功能，在這邊先將它關閉</li>
-<li>permalink，網站中的固定連結<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span> <span class="bullet">-</span> <span class="string">您似乎來到不對的地方~</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-27 13:45:41</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">/404</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>增加頁面說明文字。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 您要找的網頁不存在。</span></span><br><span class="line"></span><br><span class="line">很抱歉，您目前存取的頁面不存在。</span><br><span class="line"></span><br><span class="line">請點擊[<span class="string">這裡</span>](<span class="link">https://您的帳號.github.io/</span>)回首頁。</span><br></pre></td></tr></table></figure>
-建立好上述資訊後重新建立靜態檔案，github的預設 404頁面就會使用我們新建的 404頁面了。</li>
-</ol>
-<p>另外，在 github中有兩種方式都能讀取到 404頁面，</p>
-<ul>
-<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404\index.md<ul>
-<li>permalink就設定為 <code>permalink: /404</code></li>
-</ul>
-</li>
-<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404.md <ul>
-<li>permalink就設定為 <code>permalink: /404.html</code> </li>
-</ul>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">Creating a custom 404 page for your GitHub Pages site</a></li>
-<li><a href="https://hexo.io/zh-tw/docs/permalinks.html">Hexo - Permalinks</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10249685">Ray - 試著學 Hexo - SEO 篇 - 新增你的 404 頁面</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>演算法入門(一) 演算法與大 O 符號</title>
-    <url>/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/</url>
-    <content><![CDATA[<h2 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h2><blockquote>
-<p>演算法三步驟，它是明確的、有限的且有效率的</p>
-</blockquote>
-<ol>
-<li>輸入</li>
-<li>計算步驟</li>
-<li>輸出</li>
-</ol>
-<h2 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h2><p>假設現在目標是砍倒一棵樹，且不限時間，使用斧頭會需要很多時間也浪費力氣，使用電鋸省力也省時，換成步驟來看的話，斧頭需要很多砍很多下才會倒，且需要的時間非常多，換成電鋸後，省時省力。</p>
-<p>再假設你買了一部90萬的車輛，朋友問你這部車買了多少? 你只能打字回答，這時你會怎麼回覆呢? 9000百元? 900千元?  或者90萬元? 顯然是90萬元最符合答案也能最快回答。</p>
-<h2 id="如何描述程式中時間與空間的關係呢"><a href="#如何描述程式中時間與空間的關係呢" class="headerlink" title="如何描述程式中時間與空間的關係呢?"></a>如何描述程式中時間與空間的關係呢?</h2><p>我們會以數學符號之<strong>漸進符號</strong> $O$，其表示為函數增長關係。</p>
-<ul>
-<li>漸進符號 $O$<ul>
-<li>bigO，通常會寫成 $O()$</li>
-</ul>
-</li>
-<li>時間複雜度<ul>
-<li>隨著輸入值成長之執行步驟</li>
-</ul>
-</li>
-<li>空間複雜度<ul>
-<li>隨著輸入值成長之記憶體暫用空間</li>
-</ul>
-</li>
-</ul>
-<p>而通常我們為了簡化表達方式，會取其極限值，以下為一些例子 :</p>
-<ul>
-<li>常數 $\rightarrow$ 1</li>
-<li>$n、2n、3n \rightarrow n$</li>
-<li>$n^2+2n \rightarrow n^2$</li>
-<li>以此類推</li>
-</ul>
-<h2 id="執行複雜度表示方式"><a href="#執行複雜度表示方式" class="headerlink" title="執行複雜度表示方式"></a>執行複雜度表示方式</h2><p>來看以下的例子，小杰被師父指派去賣漢堡，每個漢堡50元 :</p>
-<ul>
-<li><p>範例一</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此函式一共執行 2個步驟，也就是說輸入無窮大時，也只會執行 2個步驟，那麼它的時間複雜度則為 $O(1)$，空間複雜度為 $O(1)$，因為只使用了 total這個變數。</p>
-</li>
-<li><p>範例二</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`小杰累計賣出<span class="subst">$&#123;i&#125;</span>個漢堡~`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br><span class="line">sell(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-<p>for迴圈執行了 n次再加上前後兩個步驟共 n+2次，以時間複雜度來表示則為 $O(n)$，空間複雜度為 $O(1)$，使用了 total與 i兩個變數</p>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://break0344.medium.com/data-structures-and-algorithms-0-720c04cb8082">Long - 用JavaScript學習資料結構與演算法</a></li>
-<li><a href="https://medium.com/appworks-school/%E5%88%9D%E5%AD%B8%E8%80%85%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E6%B3%95%E5%85%A5%E9%96%80-%E9%81%B8%E6%93%87%E6%8E%92%E5%BA%8F%E8%88%87%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%B3%95-23d4bc7085ff">胡程維 - 初學者學演算法</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>演算法入門</category>
-      </categories>
-      <tags>
-        <tag>演算法入門</tag>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ES6語法糖 - 箭頭函式與this(上)</title>
     <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
     <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
@@ -747,68 +687,6 @@
 <li><a href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">卡斯伯 - 鐵人賽：箭頭函式 (Arrow functions)</a></li>
 <li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN - 箭頭函式</a></li>
 <li>六角學院 - JS核心篇</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
-    <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
-    <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
-<ul>
-<li><code>this</code></li>
-<li><code>arguments</code> </li>
-<li><code>call()</code></li>
-<li><code>apply()</code></li>
-<li><code>bind()</code></li>
-</ul>
-<p>這篇我們要來看這些東西原本是怎麼運作的。</p>
-<h3 id="關鍵字-this"><a href="#關鍵字-this" class="headerlink" title="關鍵字 this"></a>關鍵字 this</h3><p>複習一下 <code>this</code> 的運作 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  whoAmI: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>，今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.whoAmI()</span><br><span class="line"><span class="comment">// 由於是在物件呼叫此函式的，所以往上一層尋找時(非箭頭函式)，會找到此物件的屬性值</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="關鍵字-arguments"><a href="#關鍵字-arguments" class="headerlink" title="關鍵字 arguments"></a>關鍵字 arguments</h3><ul>
-<li>一般函式內建的關鍵字之一</li>
-<li>可以將傳入的參數值抓取出來形成一個類陣列<strong>物件</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>])</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內建函式-call、apply、bind的共通點"><a href="#內建函式-call、apply、bind的共通點" class="headerlink" title="內建函式 call、apply、bind的共通點"></a>內建函式 call、apply、bind的共通點</h3><ul>
-<li>JS的內建函式</li>
-<li>它們都與 <code>this</code> 有所關聯</li>
-<li>不需要在函式中自訂參數就能將變數塞進 <code>this</code></li>
-<li>若有多個值，函式的第一個參數位置為 <code>this</code></li>
-<li>也就是說<code>(this, 參數1, 參數2, 以此類推)</code></li>
-</ul>
-<p>接下來，我們來看，<code>call()</code>、<code>apply()</code>以及 <code>bind()</code> 如何與 <code>this</code> 運作。</p>
-<h3 id="內建函式-call"><a href="#內建函式-call" class="headerlink" title="內建函式 call"></a>內建函式 call</h3><ul>
-<li>單純將參數值傳入</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line">sum.call(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// &quot;this為2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-<h3 id="內建函式-apply"><a href="#內建函式-apply" class="headerlink" title="內建函式 apply"></a>內建函式 apply</h3><ul>
-<li>傳入的型態必須是陣列</li>
-<li>功能上與 <code>call</code> 無異</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第一個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第二個是<span class="subst">$&#123;b&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">sum.apply(<span class="number">1</span>, array)</span><br><span class="line"><span class="comment">// &quot;陣列中第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;this為1&quot;</span></span><br><span class="line"><span class="comment">// &quot;陣列中第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內建函式-bind"><a href="#內建函式-bind" class="headerlink" title="內建函式 bind"></a>內建函式 bind</h3><ul>
-<li><strong><code>bind()</code> 將建立一個新的函式</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例一</span></span><br><span class="line"><span class="comment">// bind會建立一個新的函式</span></span><br><span class="line"><span class="comment">// this會對應傳入的參數 newPerson</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Jay&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newDisplay = display.bind(newPerson)</span><br><span class="line">display() <span class="comment">// Jay</span></span><br><span class="line">newDisplay() <span class="comment">// Vic</span></span><br><span class="line"><span class="comment">// 新的函式會執行 console.log(newPerson.name)</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例二</span></span><br><span class="line"><span class="comment">// 若有多個值，bind的參數第一順位為 &#x27;this&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第一個是<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> plusTwo = sum.bind(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plusTwo()</span><br><span class="line"><span class="comment">// &quot;第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>我們了解到箭頭函式沒有自己的 <code>this</code>，相對的也就沒有上述的那三種內建函式可供使用，也無法使用 <code>arguments</code>，但可以改用其餘參數來達成目的。箭頭函式與一般函式的運用，還是得看實際情況來做使用。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
-<li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -930,6 +808,68 @@
 <li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/destructuring.html">從ES6開始的JavaScript學習生活 - 解構賦值</a></li>
 <li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/rest_spread.html">從ES6開始的JavaScript學習生活 - 展開運算符與其餘運算符</a></li>
 <li><a href="https://medium.com/@realdennis/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-%E8%A8%AD%E8%A8%88%E5%87%BD%E6%95%B8%E6%99%82%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7-javascript-1466f37d24f0">realdennis - 解構賦值 — 設計函數時的小技巧 JavaScript</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
+    <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
+    <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
+<ul>
+<li><code>this</code></li>
+<li><code>arguments</code> </li>
+<li><code>call()</code></li>
+<li><code>apply()</code></li>
+<li><code>bind()</code></li>
+</ul>
+<p>這篇我們要來看這些東西原本是怎麼運作的。</p>
+<h3 id="關鍵字-this"><a href="#關鍵字-this" class="headerlink" title="關鍵字 this"></a>關鍵字 this</h3><p>複習一下 <code>this</code> 的運作 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  whoAmI: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>，今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.whoAmI()</span><br><span class="line"><span class="comment">// 由於是在物件呼叫此函式的，所以往上一層尋找時(非箭頭函式)，會找到此物件的屬性值</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="關鍵字-arguments"><a href="#關鍵字-arguments" class="headerlink" title="關鍵字 arguments"></a>關鍵字 arguments</h3><ul>
+<li>一般函式內建的關鍵字之一</li>
+<li>可以將傳入的參數值抓取出來形成一個類陣列<strong>物件</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>])</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內建函式-call、apply、bind的共通點"><a href="#內建函式-call、apply、bind的共通點" class="headerlink" title="內建函式 call、apply、bind的共通點"></a>內建函式 call、apply、bind的共通點</h3><ul>
+<li>JS的內建函式</li>
+<li>它們都與 <code>this</code> 有所關聯</li>
+<li>不需要在函式中自訂參數就能將變數塞進 <code>this</code></li>
+<li>若有多個值，函式的第一個參數位置為 <code>this</code></li>
+<li>也就是說<code>(this, 參數1, 參數2, 以此類推)</code></li>
+</ul>
+<p>接下來，我們來看，<code>call()</code>、<code>apply()</code>以及 <code>bind()</code> 如何與 <code>this</code> 運作。</p>
+<h3 id="內建函式-call"><a href="#內建函式-call" class="headerlink" title="內建函式 call"></a>內建函式 call</h3><ul>
+<li>單純將參數值傳入</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line">sum.call(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// &quot;this為2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<h3 id="內建函式-apply"><a href="#內建函式-apply" class="headerlink" title="內建函式 apply"></a>內建函式 apply</h3><ul>
+<li>傳入的型態必須是陣列</li>
+<li>功能上與 <code>call</code> 無異</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第一個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第二個是<span class="subst">$&#123;b&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">sum.apply(<span class="number">1</span>, array)</span><br><span class="line"><span class="comment">// &quot;陣列中第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;this為1&quot;</span></span><br><span class="line"><span class="comment">// &quot;陣列中第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內建函式-bind"><a href="#內建函式-bind" class="headerlink" title="內建函式 bind"></a>內建函式 bind</h3><ul>
+<li><strong><code>bind()</code> 將建立一個新的函式</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例一</span></span><br><span class="line"><span class="comment">// bind會建立一個新的函式</span></span><br><span class="line"><span class="comment">// this會對應傳入的參數 newPerson</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Jay&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newDisplay = display.bind(newPerson)</span><br><span class="line">display() <span class="comment">// Jay</span></span><br><span class="line">newDisplay() <span class="comment">// Vic</span></span><br><span class="line"><span class="comment">// 新的函式會執行 console.log(newPerson.name)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例二</span></span><br><span class="line"><span class="comment">// 若有多個值，bind的參數第一順位為 &#x27;this&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第一個是<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> plusTwo = sum.bind(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plusTwo()</span><br><span class="line"><span class="comment">// &quot;第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>我們了解到箭頭函式沒有自己的 <code>this</code>，相對的也就沒有上述的那三種內建函式可供使用，也無法使用 <code>arguments</code>，但可以改用其餘參數來達成目的。箭頭函式與一般函式的運用，還是得看實際情況來做使用。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
+<li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -1141,6 +1081,67 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>演算法入門(一) 演算法與大 O 符號</title>
+    <url>/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/</url>
+    <content><![CDATA[<h2 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h2><blockquote>
+<p>演算法三步驟，它是明確的、有限的且有效率的</p>
+</blockquote>
+<ol>
+<li>輸入</li>
+<li>計算步驟</li>
+<li>輸出</li>
+</ol>
+<h2 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h2><p>假設現在目標是砍倒一棵樹，且不限時間，使用斧頭會需要很多時間也浪費力氣，使用電鋸省力也省時，換成步驟來看的話，斧頭需要很多砍很多下才會倒，且需要的時間非常多，換成電鋸後，省時省力。</p>
+<p>再假設你買了一部90萬的車輛，朋友問你這部車買了多少? 你只能打字回答，這時你會怎麼回覆呢? 9000百元? 900千元?  或者90萬元? 顯然是90萬元最符合答案也能最快回答。</p>
+<h2 id="如何描述程式中時間與空間的關係呢"><a href="#如何描述程式中時間與空間的關係呢" class="headerlink" title="如何描述程式中時間與空間的關係呢?"></a>如何描述程式中時間與空間的關係呢?</h2><p>我們會以數學符號之<strong>漸進符號</strong> $O$，其表示為函數增長關係。</p>
+<ul>
+<li>漸進符號 $O$<ul>
+<li>bigO，通常會寫成 $O()$</li>
+</ul>
+</li>
+<li>時間複雜度<ul>
+<li>隨著輸入值成長之執行步驟</li>
+</ul>
+</li>
+<li>空間複雜度<ul>
+<li>隨著輸入值成長之記憶體暫用空間</li>
+</ul>
+</li>
+</ul>
+<p>而通常我們為了簡化表達方式，會取其極限值，以下為一些例子 :</p>
+<ul>
+<li>常數 $\rightarrow$ 1</li>
+<li>$n、2n、3n \rightarrow n$</li>
+<li>$n^2+2n \rightarrow n^2$</li>
+<li>以此類推</li>
+</ul>
+<h2 id="執行複雜度表示方式"><a href="#執行複雜度表示方式" class="headerlink" title="執行複雜度表示方式"></a>執行複雜度表示方式</h2><p>來看以下的例子，小杰被師父指派去賣漢堡，每個漢堡50元 :</p>
+<ul>
+<li><p>範例一</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此函式一共執行 2個步驟，也就是說輸入無窮大時，也只會執行 2個步驟，那麼它的時間複雜度則為 $O(1)$，空間複雜度為 $O(1)$，因為只使用了 total這個變數。</p>
+</li>
+<li><p>範例二</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`小杰累計賣出<span class="subst">$&#123;i&#125;</span>個漢堡~`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br><span class="line">sell(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<p>for迴圈執行了 n次再加上前後兩個步驟共 n+2次，以時間複雜度來表示則為 $O(n)$，空間複雜度為 $O(1)$，使用了 total與 i兩個變數</p>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://break0344.medium.com/data-structures-and-algorithms-0-720c04cb8082">Long - 用JavaScript學習資料結構與演算法</a></li>
+<li><a href="https://medium.com/appworks-school/%E5%88%9D%E5%AD%B8%E8%80%85%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E6%B3%95%E5%85%A5%E9%96%80-%E9%81%B8%E6%93%87%E6%8E%92%E5%BA%8F%E8%88%87%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%B3%95-23d4bc7085ff">胡程維 - 初學者學演算法</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>演算法入門</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>演算法入門</tag>
       </tags>
   </entry>
 </search>
