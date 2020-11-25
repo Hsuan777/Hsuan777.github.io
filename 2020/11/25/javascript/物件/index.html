@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+<meta name="google-site-verification" content="4pGR0zTBZNJ_Sp2fv8CWZmJieJkVxj4jdmuk95vxpvE" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="紀錄物件如何建立與取值，複製物件時又會遇到甚麼問題。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="物件">
+<meta property="og:url" content="https://hsuan777.github.io/2020/11/25/javascript/%E7%89%A9%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Help One Percent">
+<meta property="og:description" content="紀錄物件如何建立與取值，複製物件時又會遇到甚麼問題。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-11-25T07:41:21.000Z">
+<meta property="article:modified_time" content="2020-11-25T08:33:39.368Z">
+<meta property="article:author" content="Vic">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hsuan777.github.io/2020/11/25/javascript/%E7%89%A9%E4%BB%B6/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>物件 | Help One Percent</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Help One Percent</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">遺忘x回想x自動化</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E7%B5%90%E6%A7%8B"><span class="nav-number">1.</span> <span class="nav-text">物件結構</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E6%93%8D%E4%BD%9C-%E5%8F%96%E5%80%BC%E3%80%81%E6%96%B0%E5%A2%9E%E3%80%81%E5%88%AA%E9%99%A4"><span class="nav-number">2.</span> <span class="nav-text">物件操作(取值、新增、刪除)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%96%E5%80%BC"><span class="nav-number">2.1.</span> <span class="nav-text">取值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E"><span class="nav-number">2.2.</span> <span class="nav-text">新增</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%AA%E9%99%A4"><span class="nav-number">2.3.</span> <span class="nav-text">刪除</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E8%88%87%E7%B4%94%E5%80%BC"><span class="nav-number">3.</span> <span class="nav-text">物件與純值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E8%88%87%E9%A0%90%E8%A8%AD%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">物件與預設值</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%82%B3%E5%8F%83%E8%80%83"><span class="nav-number">5.</span> <span class="nav-text">物件傳參考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E8%A4%87%E8%A3%BD"><span class="nav-number">6.</span> <span class="nav-text">物件複製</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Call-by-Reference-%E8%88%87-Call-by-Sharing"><span class="nav-number">6.1.</span> <span class="nav-text">Call by Reference 與 Call by Sharing</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Call-by-Reference"><span class="nav-number">6.1.1.</span> <span class="nav-text">Call by Reference</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Call-by-Sharing"><span class="nav-number">6.1.2.</span> <span class="nav-text">Call by Sharing</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Call-by-Value"><span class="nav-number">6.1.3.</span> <span class="nav-text">Call by Value</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BA%E5%B1%A4%E8%88%87%E6%B7%B1%E5%B1%A4%E8%A4%87%E8%A3%BD"><span class="nav-number">6.2.</span> <span class="nav-text">淺層與深層複製</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BA%E5%B1%A4%E8%A4%87%E8%A3%BD-shallow-copy"><span class="nav-number">6.2.1.</span> <span class="nav-text">淺層複製 shallow copy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%B1%E5%B1%A4%E8%A4%87%E8%A3%BD-deep-copy"><span class="nav-number">6.2.2.</span> <span class="nav-text">深層複製 deep copy</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8F%92%E4%BB%B6%E7%9A%84%E6%B7%B1%E5%B1%A4%E8%A4%87%E8%A3%BD"><span class="nav-number">6.2.3.</span> <span class="nav-text">第三方插件的深層複製</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%9E%E7%AC%AC%E4%B8%89%E6%96%B9%E6%8F%92%E4%BB%B6%E4%B9%8B%E6%B7%B1%E5%B1%A4%E8%A4%87%E8%A3%BD"><span class="nav-number">6.2.4.</span> <span class="nav-text">非第三方插件之深層複製</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E8%88%87%E9%99%A3%E5%88%97"><span class="nav-number">7.</span> <span class="nav-text">物件與陣列</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E8%88%87JSON"><span class="nav-number">8.</span> <span class="nav-text">物件與JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">9.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vic</p>
+  <div class="site-description" itemprop="description">哪怕是1%也好，只怕自己停佇不前</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://hsuan777.github.io/2020/11/25/javascript/%E7%89%A9%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vic">
+      <meta itemprop="description" content="哪怕是1%也好，只怕自己停佇不前">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Help One Percent">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          物件
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-11-25 15:41:21 / 修改時間：16:33:39" itemprop="dateCreated datePublished" datetime="2020-11-25T15:41:21+08:00">2020-11-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">紀錄物件如何建立與取值，複製物件時又會遇到甚麼問題。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="物件結構"><a href="#物件結構" class="headerlink" title="物件結構"></a>物件結構</h2><p>建立物件有兩個方式 : </p>
+<ul>
+<li>物件實字</li>
+<li>建構式物件</li>
+</ul>
+<p>物件實字比起建構式更容易閱讀，也不需要額外繼承 <code>Object()</code> ，多數人推薦以此方式建立物件，而建構式物件則是學習建構式或者原型時再來使用。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> objA = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> objB = <span class="keyword">new</span> <span class="built_in">Object</span>()</span><br><span class="line">objB.a = <span class="number">1</span></span><br><span class="line">objB.b = <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="物件操作-取值、新增、刪除"><a href="#物件操作-取值、新增、刪除" class="headerlink" title="物件操作(取值、新增、刪除)"></a>物件操作(取值、新增、刪除)</h2><h3 id="取值"><a href="#取值" class="headerlink" title="取值"></a>取值</h3><p>可以使用兩種方式來取得物件的屬性值 :　</p>
+<ol>
+<li>使用<strong>點記號</strong>來取值 <code>.</code><ul>
+<li>必須使用字串去取得屬性名稱</li>
+<li>無法使用 <code>.數值</code> 取得屬性值，例如 <code>obj.1</code></li>
+</ul>
+</li>
+<li>使用中括號與字串來取值 <code>[&#39;屬性名稱&#39;]</code>，<ul>
+<li>可以利用變數名稱帶入</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> b = <span class="string">&#x27;a&#x27;</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  <span class="number">1</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">  fn()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;我是函式&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(obj<span class="number">.1</span>) <span class="comment">// 報錯 Unexpected number </span></span><br><span class="line"><span class="built_in">console</span>.log(obj[<span class="string">&#x27;1&#x27;</span>]) <span class="comment">// 1，使用中括號與字串就能正確取值</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.fn()) <span class="comment">// &#x27;我是函式&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj[<span class="string">&#x27;fn&#x27;</span>]()) <span class="comment">// &#x27;我是函式&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(obj[b]) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="新增"><a href="#新增" class="headerlink" title="新增"></a>新增</h3><p>一樣可以透過點記號與中括號新增值。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line">obj.cat = <span class="string">&#x27;阿美&#x27;</span></span><br><span class="line">obj[<span class="string">&#x27;dog&#x27;</span>] = <span class="string">&#x27;小黑&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="刪除"><a href="#刪除" class="headerlink" title="刪除"></a>刪除</h3><ul>
+<li>物件屬性可以經由 <code>delete</code> 刪除</li>
+<li>但已宣告的變數無法透過 <code>delete</code> 刪除</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> zoo = &#123;&#125;</span><br><span class="line">zoo.cat = <span class="string">&#x27;阿美&#x27;</span></span><br><span class="line">zoo[<span class="string">&#x27;dog&#x27;</span>] = <span class="string">&#x27;小黑&#x27;</span></span><br><span class="line"><span class="keyword">delete</span> zoo.cat</span><br><span class="line"><span class="keyword">delete</span> zoo[<span class="string">&#x27;dog&#x27;</span>]</span><br><span class="line"><span class="built_in">console</span>.log(zoo) <span class="comment">// &#123; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 物件屬性可以被刪除、已宣告的變數不行</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">delete</span> zoo.cat) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">delete</span> zoo[<span class="string">&#x27;dog&#x27;</span>]) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">delete</span> zoo) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="物件與純值"><a href="#物件與純值" class="headerlink" title="物件與純值"></a>物件與純值</h2><p>物件可以新增純值，但純值無法新增屬性</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> cat = <span class="string">&#x27;阿美&#x27;</span></span><br><span class="line"><span class="keyword">let</span> zoo = &#123;&#125;</span><br><span class="line">zoo.cat = cat</span><br><span class="line">cat.dog = <span class="string">&#x27;小黑&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(zoo) <span class="comment">// &#123; cat:&#x27;阿美&#x27; &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(cat) <span class="comment">// &#x27;阿美&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="物件與預設值"><a href="#物件與預設值" class="headerlink" title="物件與預設值"></a>物件與預設值</h2><p>所有的變數在建立的時候，JS均會給予一個 <code>undefined</code> 的值，當我們賦予這個變數值時，才會是正常看到的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a </span><br><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">  b: <span class="number">1</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(e) <span class="comment">// e is not defined</span></span><br><span class="line"><span class="comment">// 在呼叫變數 e 時，就會因為 e is not defined而中斷執行</span></span><br><span class="line"><span class="comment">// 可以透過物件取值的方式， window.e 讓執行可以繼續</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 當第一行為 window.e，會得到 undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.c) <span class="comment">// 當第一行為 window.e， 會得到 undefined</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="物件傳參考"><a href="#物件傳參考" class="headerlink" title="物件傳參考"></a>物件傳參考</h2><p>只要看到大括號 <code>&#123;&#125;</code> ，就會與原來的物件區隔開來。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 賦予純值</span></span><br><span class="line"><span class="keyword">let</span> objA = &#123;</span><br><span class="line">  x: <span class="number">1</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = objA</span><br><span class="line">b.x = <span class="number">2</span> </span><br><span class="line"><span class="built_in">console</span>.log(objA.x) <span class="comment">// 2，objA.a的值會被修改</span></span><br><span class="line"><span class="built_in">console</span>.log(b === objA) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 賦予物件，參考位置已被區隔</span></span><br><span class="line"><span class="keyword">let</span> objB = &#123;</span><br><span class="line">  x: <span class="number">1</span>,</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> c = objB</span><br><span class="line">c = &#123; </span><br><span class="line">  x: <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(objB.x) <span class="comment">// 1，objB.a的值不會被修改</span></span><br><span class="line"><span class="built_in">console</span>.log(c === objB) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="物件複製"><a href="#物件複製" class="headerlink" title="物件複製"></a>物件複製</h2><h3 id="Call-by-Reference-與-Call-by-Sharing"><a href="#Call-by-Reference-與-Call-by-Sharing" class="headerlink" title="Call by Reference 與 Call by Sharing"></a>Call by Reference 與 Call by Sharing</h3><p>在 JS中，物件是 Call by Reference 還是 Call by Sharing ?<br>在維基百科的求值策略中提到，JS的物件是屬於 Call by Sharing，但在取值與賦予值的過程中反而會讓人認為是其他概念。那麼，根據目的而分類它是那一種效果，而非一定是屬於那一種效果，或許比較容易理解這些概念。</p>
+<h4 id="Call-by-Reference"><a href="#Call-by-Reference" class="headerlink" title="Call by Reference"></a>Call by Reference</h4><p>將原物件賦予至新變數上，修改其值後，原物件也一併被修改，因為它們參照同一個位址上的物件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> refit = <span class="function">(<span class="params">car, color</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> newColor = car</span><br><span class="line">  newColor.color = color</span><br><span class="line">  <span class="keyword">return</span> newColor</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> carA = &#123;</span><br><span class="line">  age: <span class="number">20</span>,</span><br><span class="line">  color: <span class="string">&#x27;white&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> carB = refit(carA, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(carA, carB)</span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   color: &quot;white&quot;</span></span><br><span class="line"><span class="comment">// &#125; Object &#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   color: &quot;white&quot;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(carA === carB) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Call-by-Sharing"><a href="#Call-by-Sharing" class="headerlink" title="Call by Sharing"></a>Call by Sharing</h4><p>將物件複製後，修改其值，不會將原來的物件一併修改，因為使用了新物件做區隔。但這屬於淺層複製，後面會有淺層與深層複製的介紹。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> refit = <span class="function">(<span class="params">car, color</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// Object.assign(&#123;&#125;, 物件)</span></span><br><span class="line">  <span class="comment">// 複製目標物件的所有屬性至空物件</span></span><br><span class="line">  <span class="comment">// 也可以將多個物件屬性合併</span></span><br><span class="line">  <span class="keyword">let</span> newColor = <span class="built_in">Object</span>.assign(&#123;&#125;, car)</span><br><span class="line">  newColor.color = color</span><br><span class="line">  <span class="keyword">return</span> newColor</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> carA = &#123;</span><br><span class="line">  age: <span class="number">20</span>,</span><br><span class="line">  color: <span class="string">&#x27;white&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> carB = refit(carA, <span class="string">&#x27;red&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(carA, carB)</span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   color: &quot;white&quot;</span></span><br><span class="line"><span class="comment">// &#125; Object &#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   color: &quot;red&quot;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(carA === carB) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Call-by-Value"><a href="#Call-by-Value" class="headerlink" title="Call by Value"></a>Call by Value</h4><p><strong>複製</strong> x的值給 y，y 重新賦予值不會修改 x的值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> y = x</span><br><span class="line">y = <span class="number">2</span></span><br><span class="line"><span class="built_in">console</span>.log(x, y) <span class="comment">// 1 2</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="淺層與深層複製"><a href="#淺層與深層複製" class="headerlink" title="淺層與深層複製"></a>淺層與深層複製</h3><p>在上面的範例中，有使用到 <code>Object.assign()</code> 來複製物件內容，但這樣只有複製了第一層，若其中某個屬性值也是物件，也就是原物件的子物件，當修改這個子物件時，還是會修改到原物件的子內容。</p>
+<h4 id="淺層複製-shallow-copy"><a href="#淺層複製-shallow-copy" class="headerlink" title="淺層複製 shallow copy"></a>淺層複製 shallow copy</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> carA = &#123;</span><br><span class="line">  age: <span class="number">20</span>,</span><br><span class="line">  color: <span class="string">&#x27;white&#x27;</span>,</span><br><span class="line">  other: &#123;</span><br><span class="line">    door: <span class="number">4</span>,</span><br><span class="line">    SRS: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第一種方式 for in</span></span><br><span class="line"><span class="keyword">let</span> newCar = &#123;&#125;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> key <span class="keyword">in</span> carA)&#123;</span><br><span class="line">  newCar[key] = carA[key]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二種方式 jQuery</span></span><br><span class="line"><span class="comment">// let newCar = jQuery.extend(true, &#123;&#125;, carA)</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三種方式 ES6</span></span><br><span class="line"><span class="comment">// let newCar = Objecct.assign(&#123;&#125;, carA)</span></span><br><span class="line"></span><br><span class="line">newCar.other.SRS = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(carA, newCar)</span><br><span class="line"><span class="comment">// 原物件的子物件也一併被修改</span></span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   color: &#x27;white&#x27;</span></span><br><span class="line"><span class="comment">//   other: &#123;</span></span><br><span class="line"><span class="comment">//     door: 4,</span></span><br><span class="line"><span class="comment">//     SRS: 1</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// Object&#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   color: &#x27;white&#x27;</span></span><br><span class="line"><span class="comment">//   other: &#123;</span></span><br><span class="line"><span class="comment">//     door: 4,</span></span><br><span class="line"><span class="comment">//     SRS: 1</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(carA === newCar) <span class="comment">// false</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="深層複製-deep-copy"><a href="#深層複製-deep-copy" class="headerlink" title="深層複製 deep copy"></a>深層複製 deep copy</h4><p>藉由 JSON轉字串( <code>JSON.stringify(物件)</code> )再轉回物件( <code>JSON.parse(JSON字串)</code> )，就能完全複製出一個新物件。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> carA = &#123;</span><br><span class="line">  age: <span class="number">20</span>,</span><br><span class="line">  color: <span class="string">&#x27;white&#x27;</span>,</span><br><span class="line">  other: &#123;</span><br><span class="line">    door: <span class="number">4</span>,</span><br><span class="line">    SRS: <span class="number">2</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> newCar = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(carA))</span><br><span class="line"></span><br><span class="line">newCar.other.SRS = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(carA, newCar)</span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   color: &#x27;white&#x27;</span></span><br><span class="line"><span class="comment">//   other: &#123;</span></span><br><span class="line"><span class="comment">//     door: 4,</span></span><br><span class="line"><span class="comment">//     SRS: 2</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// Object&#123;</span></span><br><span class="line"><span class="comment">//   age: 20,</span></span><br><span class="line"><span class="comment">//   color: &#x27;white&#x27;</span></span><br><span class="line"><span class="comment">//   other: &#123;</span></span><br><span class="line"><span class="comment">//     door: 4,</span></span><br><span class="line"><span class="comment">//     SRS: 1</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(carA === newCar) <span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+
+<p>不過，使用 JSON互轉的方式會遇到一些問題，像是屬性值若為函式、undefined會消失，Nan則為 null。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> motorcycle = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Z900RS&#x27;</span>,</span><br><span class="line">  equipped: &#123;</span><br><span class="line">    headlight: <span class="string">&#x27;round&#x27;</span> </span><br><span class="line">  &#125;,</span><br><span class="line">  fn()&#123; </span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;123&#x27;</span>);</span><br><span class="line">  &#125;,</span><br><span class="line">  un: <span class="literal">undefined</span>, </span><br><span class="line">  nan: <span class="literal">NaN</span>, </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> newMotorcycle = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(motorcycle))</span><br><span class="line"><span class="built_in">console</span>.log(newMotorcycle)</span><br><span class="line"><span class="comment">// Object&#123;</span></span><br><span class="line"><span class="comment">//   name: &#x27;Z900RS&#x27;,</span></span><br><span class="line"><span class="comment">//   equipped: &#123;</span></span><br><span class="line"><span class="comment">//     headlight: &#x27;round&#x27; </span></span><br><span class="line"><span class="comment">//   &#125;,</span></span><br><span class="line"><span class="comment">//   nan: null</span></span><br><span class="line"><span class="comment">// &#125;,</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="第三方插件的深層複製"><a href="#第三方插件的深層複製" class="headerlink" title="第三方插件的深層複製"></a>第三方插件的深層複製</h4><p>能深層複製且沒有上述問題的方式，目前找到的有以下，經過 codePen測試(在 JS設定中匯入 CDN)，可以深層複製也沒有假值的問題。</p>
+<ul>
+<li>jQuery<ul>
+<li><code>jQuery.extend(true, &#123;&#125;, 目標物件)</code></li>
+<li><code>https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js</code></li>
+</ul>
+</li>
+<li>lodash<ul>
+<li><code>_.cloneDeep(objects)</code></li>
+<li><code>https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.20/lodash.min.js</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="非第三方插件之深層複製"><a href="#非第三方插件之深層複製" class="headerlink" title="非第三方插件之深層複製"></a>非第三方插件之深層複製</h4><p>若不依靠第三方插件，想自己動手試著複製，需要考慮到以下幾點，或者更多 : </p>
+<ul>
+<li>判斷型別，typeof </li>
+<li>循環引用，callback</li>
+<li>建構式</li>
+<li>假值判斷</li>
+<li>物件相依關係</li>
+</ul>
+<p>這邊附上測試後的確可運作的實例做為參考，<a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10223178">Gary - 14. [JS] 深拷貝是什麼？如何實現？</a>。</p>
+<h2 id="物件與陣列"><a href="#物件與陣列" class="headerlink" title="物件與陣列"></a>物件與陣列</h2><ul>
+<li>物件、函式、陣列的型別都是屬於 <code>object</code></li>
+<li>陣列使用中括號 [ ]</li>
+<li>每個索引位址都能賦予純值、物件、陣列、函式、布林值等</li>
+<li>可以新增屬性，但不影響原有陣列長度</li>
+<li>可以跳過索引賦予值，但是會有空的索引位置，預設為 undefined</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> fn = <span class="function">() =&gt;</span> &#123;<span class="keyword">return</span> <span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">let</span> arr = [<span class="number">1</span>, , <span class="string">&#x27;3&#x27;</span>, fn, <span class="literal">true</span>, , [], &#123;&#125;]</span><br><span class="line"><span class="built_in">console</span>.log(arr[<span class="number">1</span>]) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="物件與JSON"><a href="#物件與JSON" class="headerlink" title="物件與JSON"></a>物件與JSON</h2><ul>
+<li>轉成字串時，屬性會使用雙引號 <code>&quot;屬性名稱&quot;</code></li>
+<li>撰寫 JSON格式時，無法使用物件的形式撰寫，也就是說屬性名稱必須要有單或雙引號</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://medium.com/@mengchiang000/js%E5%9F%BA%E6%9C%AC%E8%A7%80%E5%BF%B5-call-by-value-%E9%82%84%E6%98%AFreference-%E5%8F%88%E6%88%96%E6%98%AF-sharing-22a87ca478fc">Charles Huang - JS基本觀念：call by value 還是reference 又或是 sharing?</a></li>
+<li><a target="_blank" rel="noopener" href="https://hsiangfeng.github.io/javascript/20200904/1772972600/">Ray - JavaScript 核心觀念(29)-物件-Call by Reference 還是 Call by Sharing</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2018/06/23/javascript-call-by-value-or-reference/">huli - 深入探討 JavaScript 中的參數傳遞：call by value 還是 reference？</a></li>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%B1%82%E5%80%BC%E7%AD%96%E7%95%A5">wikipedia - 求值策略</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/assign">MDN - Object.assign()</a></li>
+<li><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/38416020/deep-copy-in-es6-using-the-spread-syntax">stackoverflow - Deep copy in ES6 using the spread syntax</a></li>
+<li><a target="_blank" rel="noopener" href="https://api.jquery.com/jquery.extend/">jQuery - jQuery.extend()</a></li>
+<li><a target="_blank" rel="noopener" href="https://lodash.com/docs/4.17.15#cloneDeep">lodash - _.cloneDeep(value)</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10223178">Gary - 14. [JS] 深拷貝是什麼？如何實現？</a></li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/20/javascript/%E9%81%8B%E7%AE%97%E5%AD%90/" rel="prev" title="JavaScript 運算子">
+                  <i class="fa fa-chevron-left"></i> JavaScript 運算子
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-paw"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vic 尊重分享者，從你我做起~</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
