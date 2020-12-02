@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+<meta name="google-site-verification" content="4pGR0zTBZNJ_Sp2fv8CWZmJieJkVxj4jdmuk95vxpvE" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="若要有效的處理資料，就一定會用到函式，這篇記錄函式有怎樣的特性與閉包運用概念。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS核心篇-函式">
+<meta property="og:url" content="https://hsuan777.github.io/2020/12/02/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%87%BD%E5%BC%8F/index.html">
+<meta property="og:site_name" content="Help One Percent">
+<meta property="og:description" content="若要有效的處理資料，就一定會用到函式，這篇記錄函式有怎樣的特性與閉包運用概念。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-12-02T08:49:36.000Z">
+<meta property="article:modified_time" content="2020-12-02T09:09:39.599Z">
+<meta property="article:author" content="Vic">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hsuan777.github.io/2020/12/02/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%87%BD%E5%BC%8F/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>JS核心篇-函式 | Help One Percent</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Help One Percent</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">遺忘x回想x自動化</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F"><span class="nav-number">1.</span> <span class="nav-text">函式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E8%88%87%E5%9E%8B%E5%88%A5"><span class="nav-number">2.</span> <span class="nav-text">函式與型別</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%8B%E5%8D%B3%E5%87%BD%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">立即函式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E8%88%87%E5%8F%83%E6%95%B8"><span class="nav-number">4.</span> <span class="nav-text">函式與參數</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E6%95%B8%E9%97%9C%E9%8D%B5%E5%AD%97-arguments"><span class="nav-number">4.1.</span> <span class="nav-text">參數關鍵字 arguments</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%83%E6%95%B8%E9%97%9C%E9%8D%B5%E5%AD%97-this"><span class="nav-number">4.2.</span> <span class="nav-text">參數關鍵字 this</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#this-%E8%88%87%E7%B0%A1%E6%98%93%E5%91%BC%E5%8F%AB"><span class="nav-number">4.2.1.</span> <span class="nav-text">this 與簡易呼叫</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this-%E8%88%87DOM"><span class="nav-number">4.2.2.</span> <span class="nav-text">this 與DOM</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this-%E8%88%87-call%E3%80%81apply%E3%80%81bind"><span class="nav-number">4.2.3.</span> <span class="nav-text">this 與 call、apply、bind</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9A%B4%E6%A0%BC%E6%A8%A1%E5%BC%8F"><span class="nav-number">4.2.4.</span> <span class="nav-text">嚴格模式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E8%88%87%E8%87%AA%E8%A8%82%E5%8F%83%E6%95%B8"><span class="nav-number">4.3.</span> <span class="nav-text">函式與自訂參數</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%83%E6%95%B8%E5%82%B3%E5%85%A5%E5%80%BC"><span class="nav-number">4.3.1.</span> <span class="nav-text">參數傳入值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%83%E6%95%B8%E5%82%B3%E5%85%A5%E7%89%A9%E4%BB%B6"><span class="nav-number">4.3.2.</span> <span class="nav-text">參數傳入物件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8F%83%E6%95%B8%E5%82%B3%E5%85%A5%E5%87%BD%E5%BC%8F-callback-function"><span class="nav-number">4.3.3.</span> <span class="nav-text">參數傳入函式( callback function )</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%96%89%E5%8C%85"><span class="nav-number">5.</span> <span class="nav-text">閉包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E8%88%87%E7%AF%84%E5%9C%8D%E9%8F%88"><span class="nav-number">5.1.</span> <span class="nav-text">函式與範圍鏈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%9C%E6%85%8B%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">5.1.1.</span> <span class="nav-text">靜態作用域</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%8B%95%E6%85%8B%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="nav-number">5.1.2.</span> <span class="nav-text">動態作用域</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E8%88%87%E6%8F%90%E5%8D%87-Hoisting"><span class="nav-number">5.2.</span> <span class="nav-text">函式與提升(Hoisting)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E8%88%87%E8%A8%98%E6%86%B6%E9%AB%94%E7%A9%BA%E9%96%93"><span class="nav-number">5.3.</span> <span class="nav-text">函式與記憶體空間</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%96%89%E5%8C%85%E9%80%B2%E9%9A%8E%E8%88%87%E5%87%BD%E5%BC%8F%E5%B7%A5%E5%BB%A0"><span class="nav-number">5.4.</span> <span class="nav-text">閉包進階與函式工廠</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%96%89%E5%8C%85%E9%80%B2%E9%9A%8E%E7%9A%84%E7%A7%81%E6%9C%89%E6%96%B9%E6%B3%95"><span class="nav-number">5.5.</span> <span class="nav-text">閉包進階的私有方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">6.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vic</p>
+  <div class="site-description" itemprop="description">哪怕是1%也好，只怕自己停佇不前</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://hsuan777.github.io/2020/12/02/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%87%BD%E5%BC%8F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vic">
+      <meta itemprop="description" content="哪怕是1%也好，只怕自己停佇不前">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Help One Percent">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS核心篇-函式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-12-02 16:49:36 / 修改時間：17:09:39" itemprop="dateCreated datePublished" datetime="2020-12-02T16:49:36+08:00">2020-12-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">若要有效的處理資料，就一定會用到函式，這篇記錄函式有怎樣的特性與閉包運用概念。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>若要有效的處理資料，就一定會用到函式，這篇記錄函式有怎樣的特性與閉包運用概念。<br>目前有整理到的如下 :</p>
+<ul>
+<li>函式型別</li>
+<li>立即函式</li>
+<li>函式的參數使用，不同的函式會有不同的內建關鍵字，常見的有<ul>
+<li><code>arguments</code> (ES6箭頭函式則無此參數)</li>
+<li><code>this</code> (ES6箭頭函式則無此參數)</li>
+<li>自訂參數</li>
+</ul>
+</li>
+<li>閉包<ul>
+<li>範圍鏈</li>
+<li>函式與提升 (Hoisting)</li>
+<li>函式與變數利用</li>
+<li>閉包的私有方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h2><ul>
+<li>使用 <code>function</code> 來宣告一個函式。</li>
+<li>具名函式，宣告函式後，給定一個名稱以利後續呼叫。</li>
+<li>匿名函式，宣告函式後，不須給定名稱，常用於立即函式與變數賦予值上。<ul>
+<li>名稱要給也是可以，但通常不會這麼做。</li>
+</ul>
+</li>
+<li>ES6中可以使用箭頭函式。</li>
+<li>雖然型別為 <code>&quot;function&quot;</code>，但它其實是物件的一種。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 具名函式 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;具名函式&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 匿名函式 */</span></span><br><span class="line"><span class="keyword">var</span> fnB = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;匿名函式&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">fnB()</span><br><span class="line"></span><br><span class="line"><span class="comment">/* ES6箭頭函式 */</span></span><br><span class="line"><span class="keyword">let</span> fnC = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;箭頭函式&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fnA) <span class="comment">// &quot;function&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函式與型別"><a href="#函式與型別" class="headerlink" title="函式與型別"></a>函式與型別</h2><p>通常我們會利用 <code>typeof()</code> 來檢查目前值為哪一種型別，若對函式做檢查，會得到 <code>&quot;function&quot;</code>，但很多技術文章都說，函式其實也是一種物件，那要怎麼知道它的確是物件的一種呢?</p>
+<ul>
+<li>利用物件原型方式看子型別為何，會得到 <code>&quot;[object Function]&quot;</code> 。</li>
+<li>將函式當作物件新增屬性，console.log 可以正確取值。</li>
+<li>將函式使用 <code>new</code> 這個運算子做為物件，可以在 console.log 的結果中往內層展開並找到新增的屬性。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* typeof 型別檢查為 funciton */</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">() =&gt;</span> &#123; <span class="keyword">return</span> <span class="number">1</span> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn) <span class="comment">// &#x27;function&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 利用物件原型來看函式屬於哪一種子型別 */</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(fn))</span><br><span class="line"><span class="comment">// &quot;[object Function]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fn.prototype) <span class="comment">// Object &#123; 許多屬性 &#125; </span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 函式可以新增屬性 */</span></span><br><span class="line">fn.b = <span class="string">&#x27;新增屬性值&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(fn.b) <span class="comment">// &#x27;新增屬性值&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 將函式以 new這個運算子，成為一個建構式函式 */</span></span><br><span class="line"><span class="comment">// 可以在原型物件(__proto__)底下的 constructor中，發現新增的屬性 b</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> fn)</span><br><span class="line"></span><br><span class="line"><span class="comment">// fn&#123;</span></span><br><span class="line"><span class="comment">//   __proto__: &#123;</span></span><br><span class="line"><span class="comment">//     constructor: fn &#123;</span></span><br><span class="line"><span class="comment">//       b = &#x27;新增屬性值&#x27;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="立即函式"><a href="#立即函式" class="headerlink" title="立即函式"></a>立即函式</h2><ul>
+<li>一般函式需要呼叫它才會執行<ul>
+<li><code>函式名稱()</code></li>
+</ul>
+</li>
+<li>立即函式會立刻執行，給定名稱沒有意義<ul>
+<li><code>( 名稱()&#123;&#125; )()</code></li>
+<li><code>( ()&#123;&#125; )()</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 一般函式 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 立即函式 */</span></span><br><span class="line"><span class="comment">// 它會立刻執行，所以也可以寫成匿名函式</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;)(<span class="string">&#x27;函式&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 箭頭與立即 */</span></span><br><span class="line">( <span class="function"><span class="params">a</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(a)&#125; )(<span class="string">&#x27;函式&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="函式與參數"><a href="#函式與參數" class="headerlink" title="函式與參數"></a>函式與參數</h2><p>一段函式中，常見的內建參數有以下這些 : </p>
+<ul>
+<li>arguments</li>
+<li>this</li>
+<li>自訂參數</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;全域物件中的變數&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, <span class="built_in">arguments</span> , <span class="built_in">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="string">&#x27;自訂參數&#x27;</span>)</span><br><span class="line"><span class="comment">// &#x27;自訂參數&#x27;</span></span><br><span class="line"><span class="comment">// [&#x27;自訂參數&#x27;]，它為類陣列</span></span><br><span class="line"><span class="comment">// &#x27;全域物件中的變數&#x27;，為什麼不是 &#x27;自訂參數&#x27;，在後面 this會有說明</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="參數關鍵字-arguments"><a href="#參數關鍵字-arguments" class="headerlink" title="參數關鍵字 arguments"></a>參數關鍵字 arguments</h3><ul>
+<li>能接收所有傳入的值</li>
+<li>它為類陣列，也就說它沒有陣列的原型方法可以使用</li>
+<li>其型別為 <code>&quot;object&quot;</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>)</span><br><span class="line"><span class="comment">// Arguments&#123; </span></span><br><span class="line"><span class="comment">//   [2, 4, 6],</span></span><br><span class="line"><span class="comment">//   callee: f sum(),</span></span><br><span class="line"><span class="comment">//   length: 3</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="參數關鍵字-this"><a href="#參數關鍵字-this" class="headerlink" title="參數關鍵字 this"></a>參數關鍵字 this</h3><p>參考自己整理 this筆記，this在不同位置中會指向誰。</p>
+<ul>
+<li><a href="https://hsuan777.github.io/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/">箭頭函式與 this(上)</a></li>
+<li><a href="https://hsuan777.github.io/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/">箭頭函式與 this(下) - call、apply、bind</a></li>
+</ul>
+<h4 id="this-與簡易呼叫"><a href="#this-與簡易呼叫" class="headerlink" title="this 與簡易呼叫"></a>this 與簡易呼叫</h4><p>還記得 <code>this</code> 只看在哪裡被呼叫嗎? 又怎樣算是簡易呼叫(simple call)?<br>來看以下例子 : </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;全域物件&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">&#x27;函式內變數&#x27;</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fnC</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">  &#125;</span><br><span class="line">  fnC()</span><br><span class="line">&#125;</span><br><span class="line">fnA() <span class="comment">// &#x27;全域物件&#x27;</span></span><br><span class="line">fnB() <span class="comment">// &#x27;全域物件&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>為什麼兩個都是指向全域?</p>
+<ul>
+<li><code>fnA()</code> 在全域環境中被呼叫，且函式在全域環境下被定義，這點很容易看出來，就算把 <code>this</code> 拿掉，也會尋找外層的變數 a。</li>
+<li><code>fnB()</code> 被呼叫後，執行了 <code>fnC()</code> ，它明明在 <code>fnB()</code> 內被執行，為什麼 <code>this</code> 還是指向全域? 沒關係，繼續往下看另一個例子。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;全域物件&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="string">&#x27;物件屬性值&#x27;</span>,</span><br><span class="line">  fnA: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">  &#125;,</span><br><span class="line">  fnB: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">&#x27;函式內變數&#x27;</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fnC</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">    &#125;</span><br><span class="line">    fnC()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.fnA() <span class="comment">// &quot;物件屬性值&quot;</span></span><br><span class="line">obj.fnB() <span class="comment">// &quot;全域物件&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>為什麼執行物件中的兩個函式，結果會不一樣，照理說要指向物件中的屬性 <code>obj.a</code> 吧?</p>
+<ul>
+<li>物件中的 <code>fnA()</code>，<code>this</code> 正確指向了該物件</li>
+<li>物件中的 <code>fnB()</code> 執行後，再執行 <code>fnC()</code>，<code>this</code> 卻指向了全域物件?<ul>
+<li>執行 <code>obj.fnA()</code> ，是由 <code>obj</code> 呼叫 <code>fnA()</code></li>
+<li>執行 <code>obj.fnB()</code> ，是由 <code>obj</code> 呼叫 <code>fnB()</code>，接著執行 <code>fnC()</code> ，<br><code>fnC()</code> 被誰呼叫? 沒有，它是直接被執行的，所以它的 <code>this</code> 指向了全域。</li>
+<li>若將 <code>fnC()</code> 內的 <code>this.a</code> 改為 <code>a</code>，則會因為範圍鏈的關係往外層尋找，就會是 <code>&#39;函式內變數&#39;</code>。</li>
+</ul>
+</li>
+</ul>
+<p>再來複習一下 <code>this</code> 與簡易呼叫。</p>
+<ul>
+<li>簡易呼叫是甚麼?<ul>
+<li>直接呼叫，未透過任何方式取用執行。</li>
+</ul>
+</li>
+<li>簡易呼叫為全域物件下的一種? <ul>
+<li>否，是 <code>this</code> 會指向全域，而不是該函式被建立在在全域下</li>
+</ul>
+</li>
+<li>那些例子屬於簡易呼叫?<ul>
+<li>callback function </li>
+<li>立即函式</li>
+<li>原型方法，例如陣列的 <code>forEach</code>，此為繼承共用的原型方法，屬於直接執行。</li>
+</ul>
+</li>
+</ul>
+<p>那如果要將 <code>fnC()</code> ，正確的指向物件屬性 a呢 ? 來改寫上面的例子，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;全域物件&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="string">&#x27;物件屬性值&#x27;</span>,</span><br><span class="line">  fnA: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">  &#125;,</span><br><span class="line">  fnB: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">&#x27;函式內變數&#x27;</span></span><br><span class="line">    <span class="comment">// 這裡的 this 會指向該物件</span></span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fnC</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// 閉包的原理，讓還需用到的變數，將它關在函式中，不被釋放</span></span><br><span class="line">      <span class="built_in">console</span>.log(vm.a)</span><br><span class="line">    &#125;</span><br><span class="line">    fnC()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.fnA() <span class="comment">// &quot;物件屬性值&quot;</span></span><br><span class="line">obj.fnB() <span class="comment">// &quot;物件屬性值&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>為什麼 <code>fnB()</code> 將 <code>this</code> 賦予給一個變數時，就不會指向全域，而是會指向物件呢?</p>
+<ul>
+<li><code>fnB()</code> ，是由物件 <code>obj</code> 所呼叫的，就跟 <code>fnA()</code> 一樣，他們的 <code>this</code> 都會指向該物件。</li>
+<li>在 <code>fnB()</code> 內宣告一個變數，將指向物件的 <code>this</code> 賦予給該變數，<code>fnC()</code> 再利用此變數時，就會正確的指向物件 <code>obj</code>。</li>
+<li>後面的段落會說明閉包的概念。</li>
+</ul>
+<h4 id="this-與DOM"><a href="#this-與DOM" class="headerlink" title="this 與DOM"></a>this 與DOM</h4><ul>
+<li><code>console.dir</code> 可以看到它原本的物件有哪些屬性</li>
+<li>可以使用 <code>this</code> 指向 DOM的單一元素</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.dir(<span class="string">&#x27;某個標籤元素&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="this-與-call、apply、bind"><a href="#this-與-call、apply、bind" class="headerlink" title="this 與 call、apply、bind"></a>this 與 call、apply、bind</h4><ul>
+<li>call與 apply會立刻執行，bind則需要呼叫。</li>
+<li><strong>非嚴格模式傳入 <code>null</code>、<code>undefined</code>，則會指向全域物件</strong>。</li>
+<li><code>this</code> 為物件型別，也就是說傳入後會變成包裹物件(建構式)。<ul>
+<li>若傳入的是數字，會變成 <code>Number()</code></li>
+<li>若傳入的是字串，會變成 <code>String()</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="number">5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>+a)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>+b)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.c)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn.call(<span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;3&#x27;</span>)</span><br><span class="line"><span class="comment">// Number 1 </span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// &quot;13&quot;</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">fn.call(<span class="literal">null</span>, <span class="number">2</span>, <span class="string">&#x27;3&#x27;</span>)</span><br><span class="line"><span class="comment">// Window </span></span><br><span class="line"><span class="comment">// &quot;[object Window]2&quot;</span></span><br><span class="line"><span class="comment">// &quot;[object Window]3&quot;</span></span><br><span class="line"><span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="嚴格模式"><a href="#嚴格模式" class="headerlink" title="嚴格模式"></a>嚴格模式</h4><ul>
+<li>加入 <code>use strict</code></li>
+<li>不會影響不支援嚴格模式的瀏覽器</li>
+<li>可依據執行環境設定 <code>use strict</code></li>
+<li>透過拋出錯誤的方式消除ㄧ些安靜的錯誤(消除小錯誤)</li>
+<li>禁止使用ㄧ些有可能被未來版本 ECMAScript定義的語法</li>
+<li>在這些方法中的 <code>this</code> ，預設值是 <code>undefined</code>，若未傳入值又去呼叫它，就會是 <code>undefined</code>。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line"><span class="meta">  &#x27;use strict&#x27;</span></span><br><span class="line">  <span class="comment">// 在嚴格模式下的 call、apply、bind 不會變成建構式物件</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>+a)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>+b)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.c)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn.call(<span class="literal">null</span>, <span class="number">2</span>, <span class="string">&#x27;3&#x27;</span>)</span><br><span class="line"><span class="comment">// null</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;null3&quot;</span></span><br><span class="line"><span class="comment">// Cannot read property &#x27;c&#x27; of null </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函式與自訂參數"><a href="#函式與自訂參數" class="headerlink" title="函式與自訂參數"></a>函式與自訂參數</h3><h4 id="參數傳入值"><a href="#參數傳入值" class="headerlink" title="參數傳入值"></a>參數傳入值</h4><ul>
+<li>當函式執行時，只會根據位置傳入值</li>
+<li>在函式中，參數所運用的地方才會是對應的</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b, d, e</span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(d, e, a, b)</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;c&quot; &quot;d&quot; &quot;a&quot; &quot;b&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="參數傳入物件"><a href="#參數傳入物件" class="headerlink" title="參數傳入物件"></a>參數傳入物件</h4><p>當利用函式內的程式碼修改傳入的物件時，會依據傳參考特性修改原物件的屬性值，若物件在函式內做了深層複製的話則不會。</p>
+<h4 id="參數傳入函式-callback-function"><a href="#參數傳入函式-callback-function" class="headerlink" title="參數傳入函式( callback function )"></a>參數傳入函式( callback function )</h4><p>除了可以傳入值、物件、陣列，也可以將另一個函式傳入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函式參數傳入函式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSomeone</span>(<span class="params">name, a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name, <span class="string">&#x27;你好&#x27;</span>，a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">  fn(<span class="string">&#x27;小明&#x27;</span>, <span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnB(callSomeone)</span><br></pre></td></tr></table></figure>
+
+<h2 id="閉包"><a href="#閉包" class="headerlink" title="閉包"></a>閉包</h2><p>閉包為範圍鏈、記憶體空間、表達式以及函式等觀念總合的概念，重複執行函式時，其變數值就會累加上去。要利用閉包的概念前，先來複習一下函式還有怎樣的特性。</p>
+<ul>
+<li>範圍鏈</li>
+<li>函式與提升</li>
+<li>函式與記憶體空間</li>
+</ul>
+<h3 id="函式與範圍鏈"><a href="#函式與範圍鏈" class="headerlink" title="函式與範圍鏈"></a>函式與範圍鏈</h3><p>在函式中的變數，若沒有宣告，則往外層尋找直到全域，若全域也沒有，則報錯。</p>
+<h4 id="靜態作用域"><a href="#靜態作用域" class="headerlink" title="靜態作用域"></a>靜態作用域</h4><p>跟在哪裡被呼叫無關，跟位置有關。<br>來看以下範例，函式的位置會影響最後的結果。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">2</span></span><br><span class="line">  fnA()</span><br><span class="line">&#125;</span><br><span class="line">fnB() <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// fnA()內本身沒有 a變數，則向外層找</span></span><br><span class="line"><span class="comment">// 它也不在 fnB()內，於是找到了全域物件中的變數 a</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnC</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">3</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fnD</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  fnD()</span><br><span class="line">&#125;</span><br><span class="line">fnC() <span class="comment">// 3</span></span><br><span class="line"><span class="comment">// fnD()本身沒有 a變數，則向外層找</span></span><br><span class="line"><span class="comment">// 在 fnC()找到已宣告的變數 a</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="動態作用域"><a href="#動態作用域" class="headerlink" title="動態作用域"></a>動態作用域</h4><p>跟在哪裡使用無關，跟在哪裡被呼叫有關，最常見的就是 <code>this</code> 的運用。</p>
+<h3 id="函式與提升-Hoisting"><a href="#函式與提升-Hoisting" class="headerlink" title="函式與提升(Hoisting)"></a>函式與提升(Hoisting)</h3><p>在函式中，</p>
+<ul>
+<li>將自訂參數重新宣告不會有任何作用</li>
+<li>函式中的函式，不會提升至外層</li>
+<li>若在函式中不將變數宣告或者非自訂參數，則可能依據呼叫環境在全域物件中建立變數</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 將自訂參數重新宣告不會有任何作用</span></span><br><span class="line">  <span class="keyword">var</span> a</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 賦予新值</span></span><br><span class="line">  a = <span class="number">1</span></span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 若在裏頭插入函式，它不會提升到外層</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  fnB()</span><br><span class="line">  b = <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="string">&#x27;我是函式&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="built_in">console</span>.log(b)</span><br><span class="line"><span class="comment">// &#x27;我是函式&#x27;</span></span><br><span class="line"><span class="comment">// &#x27;我是函式&#x27;</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// a is not defined </span></span><br><span class="line"><span class="comment">// 2，b未正式宣告且因為範圍鏈(向外層尋找)的關係，在全域物件中建立了變數</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函式與記憶體空間"><a href="#函式與記憶體空間" class="headerlink" title="函式與記憶體空間"></a>函式與記憶體空間</h3><p>先看下面的例子，函式每次執行時，都會加 1。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a += <span class="number">1</span></span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line">fn() <span class="comment">// 1</span></span><br><span class="line">fn() <span class="comment">// 2</span></span><br><span class="line">fn() <span class="comment">// 3</span></span><br><span class="line">fn() <span class="comment">// 4</span></span><br><span class="line">fn() <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<p>如果將變數 a，移動到函式內，重複執行函式時，就會因為記憶體空間被釋放掉，又重新宣告而無法累計。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line">  a += <span class="number">1</span></span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line">fn() <span class="comment">// 1</span></span><br><span class="line">fn() <span class="comment">// 1</span></span><br><span class="line">fn() <span class="comment">// 1</span></span><br><span class="line">fn() <span class="comment">// 1</span></span><br><span class="line">fn() <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>接下來，改寫上述範例，假設今天去夜市套圈圈，老闆的每個籃子裡總共有五個圈圈，規則是每次只能丟一個圈圈。今天有兩個玩家，都另開新局，他們都能有五個圈圈可投。</p>
+<ul>
+<li>return 一個函式，此函式包含著變數，該變數會視為還須利用而不會被上層的函式釋放掉</li>
+<li>分別宣告變數並賦予函式，函式內部所宣告的變數不會互相影響<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">game</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> times = <span class="number">5</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    times -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`圈圈剩餘 <span class="subst">$&#123;times&#125;</span> 個`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> personA = game()</span><br><span class="line"><span class="built_in">console</span>.log(personA()) <span class="comment">// 圈圈剩餘 4個</span></span><br><span class="line"><span class="built_in">console</span>.log(personA()) <span class="comment">// 圈圈剩餘 3個</span></span><br><span class="line"><span class="built_in">console</span>.log(personA()) <span class="comment">// 圈圈剩餘 2個</span></span><br><span class="line"><span class="built_in">console</span>.log(personA()) <span class="comment">// 圈圈剩餘 1個</span></span><br><span class="line"><span class="built_in">console</span>.log(personA()) <span class="comment">// 圈圈剩餘 0個</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> personB = game()</span><br><span class="line"><span class="built_in">console</span>.log(personB()) <span class="comment">// 圈圈剩餘 4個</span></span><br><span class="line"><span class="built_in">console</span>.log(personB()) <span class="comment">// 圈圈剩餘 3個</span></span><br><span class="line"><span class="built_in">console</span>.log(personB()) <span class="comment">// 圈圈剩餘 2個</span></span><br><span class="line"><span class="built_in">console</span>.log(personB()) <span class="comment">// 圈圈剩餘 1個</span></span><br><span class="line"><span class="built_in">console</span>.log(personB()) <span class="comment">// 圈圈剩餘 0個</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="閉包進階與函式工廠"><a href="#閉包進階與函式工廠" class="headerlink" title="閉包進階與函式工廠"></a>閉包進階與函式工廠</h3><p>這次老闆使用機器人自動丟五個圈圈出去，每次丟一個就紀錄一次剩餘多少個圈圈。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">game</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> times = <span class="number">5</span></span><br><span class="line">  <span class="keyword">var</span> gameLog = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">0</span> ; x &lt; <span class="number">5</span> ; x++)&#123;</span><br><span class="line">    times -= <span class="number">1</span></span><br><span class="line">    gameLog.push(<span class="string">`第 <span class="subst">$&#123;x+<span class="number">1</span>&#125;</span> 次丟出圈圈剩餘 <span class="subst">$&#123;times&#125;</span> 個`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> gameLog</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> personA = game()</span><br><span class="line"><span class="built_in">console</span>.log(personA)</span><br><span class="line"><span class="comment">// [&quot;第 1 次丟出圈圈剩餘 4 個&quot;, </span></span><br><span class="line"><span class="comment">// &quot;第 2 次丟出圈圈剩餘 3 個&quot;,</span></span><br><span class="line"><span class="comment">// &quot;第 3 次丟出圈圈剩餘 2 個&quot;, </span></span><br><span class="line"><span class="comment">// &quot;第 4 次丟出圈圈剩餘 1 個&quot;, </span></span><br><span class="line"><span class="comment">// &quot;第 5 次丟出圈圈剩餘 0 個&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="閉包進階的私有方法"><a href="#閉包進階的私有方法" class="headerlink" title="閉包進階的私有方法"></a>閉包進階的私有方法</h3><p>讓我們再度強化機器人的可用性，基礎次數五次，每丟一次就記錄一次到陣列中，利用閉包的原理，將函式 return一個物件。<br>但是，這台機器人卻有個地方無法正常顯示，該怎麼修復它呢?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">game</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> times = <span class="number">5</span></span><br><span class="line">  <span class="keyword">var</span> gameLog = []</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    log: gameLog, </span><br><span class="line">    nowTimes: <span class="string">`目前剩餘次數為 <span class="subst">$&#123;times&#125;</span> 次`</span>,</span><br><span class="line">    addTimes: <span class="function"><span class="keyword">function</span>(<span class="params">number</span>)</span>&#123;</span><br><span class="line">      times += number</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`目前剩餘次數為 <span class="subst">$&#123;times&#125;</span> 次`</span></span><br><span class="line">    &#125;,</span><br><span class="line">    start: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">0</span> ; x &lt; <span class="number">5</span> ; x++)&#123;</span><br><span class="line">        times -= <span class="number">1</span></span><br><span class="line">        gameLog.push(<span class="string">`第 <span class="subst">$&#123;x+<span class="number">1</span>&#125;</span> 次丟出圈圈剩餘 <span class="subst">$&#123;times&#125;</span> 個`</span>)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;開始自動執行遊戲&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> personA = game()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(personA.addTimes(<span class="number">25</span>)) <span class="comment">// 30</span></span><br><span class="line"><span class="built_in">console</span>.log(personA.nowTimes) <span class="comment">// 卻還是顯示 5次</span></span><br></pre></td></tr></table></figure>
+
+<p>函式 <code>personA</code> return的物件，其包含許多函式與變數，而單純變數值卻無法修改? 我們來檢查看看，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 節錄 personA片段</span></span><br><span class="line"><span class="built_in">console</span>.log(personA) </span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   nowTimes: `目前剩餘次數為 5 次`,</span></span><br><span class="line"><span class="comment">//   addTimes: function(number)&#123;</span></span><br><span class="line"><span class="comment">//     times += number</span></span><br><span class="line"><span class="comment">//     return `目前剩餘次數為 $&#123;times&#125; 次`</span></span><br><span class="line"><span class="comment">//   &#125;,</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到有的直接變成字串，而待在函式裡的變數則維持變數的樣子，讓我們再回想閉包的原理，若該函式內的變數有需要用到，則記憶體空間不會被釋放掉，也就是說，屬性值為單純的變數，被使用後就釋放掉了，待在函式內的則不會。那麼，我們來修正機器人，將 <code>addTimes</code> 這個屬型值改為函式，這樣就能正確顯示了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">game</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> times = <span class="number">5</span></span><br><span class="line">  <span class="keyword">var</span> gameLog = []</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    log: gameLog, </span><br><span class="line">    nowTimes: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`目前剩餘次數為 <span class="subst">$&#123;times&#125;</span> 次`</span> </span><br><span class="line">    &#125;,</span><br><span class="line">    addTimes: <span class="function"><span class="keyword">function</span>(<span class="params">number</span>)</span>&#123;</span><br><span class="line">      times += number</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`目前剩餘次數為 <span class="subst">$&#123;times&#125;</span> 次`</span></span><br><span class="line">    &#125;,</span><br><span class="line">    start: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">0</span> ; x &lt; <span class="number">5</span> ; x++)&#123;</span><br><span class="line">        times -= <span class="number">1</span></span><br><span class="line">        gameLog.push(<span class="string">`第 <span class="subst">$&#123;x+<span class="number">1</span>&#125;</span> 次丟出圈圈剩餘 <span class="subst">$&#123;times&#125;</span> 個`</span>)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;開始自動執行遊戲&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> personA = game()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(personA.addTimes(<span class="number">25</span>)) <span class="comment">// 30</span></span><br><span class="line"><span class="built_in">console</span>.log(personA.nowTimes()) <span class="comment">// 30</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li>六角學院 - JS核心篇</li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10200841">cythilya - 你懂 JavaScript 嗎？#4 型別（Types）</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10191549">Kuro Hsu - 重新認識 JavaScript: Day 10 函式 Functions 的基本概念</a></li>
+<li><a target="_blank" rel="noopener" href="https://w3c.hexschool.com/blog/cb6e361">Ray - 有點長的淺談 JavaScript function 函式</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2019/02/23/javascript-this/">Huli - 淺談 JavaScript 頭號難題 this：絕對不完整，但保證好懂</a></li>
+<li><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2018/12/08/javascript-closure/">Huli - 所有的函式都是閉包：談 JS 中的作用域與 Closure</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10203387">OneJar - 你不可不知的 JavaScript 二三事#Day5：湯姆克魯斯與唐家霸王槍—變數的作用域(Scope) (1)</a></li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/25/javascript/%E7%89%A9%E4%BB%B6/" rel="prev" title="物件">
+                  <i class="fa fa-chevron-left"></i> 物件
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-paw"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vic 尊重分享者，從你我做起~</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

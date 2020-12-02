@@ -120,17 +120,6 @@
       </tags>
   </entry>
   <entry>
-    <title>為什麼想寫部落格?</title>
-    <url>/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
-    <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
-<p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
-<p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
-]]></content>
-      <categories>
-        <category>閒聊</category>
-      </categories>
-  </entry>
-  <entry>
     <title>記錄自己的成長，那怕是1%也好</title>
     <url>/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/</url>
     <content><![CDATA[<p>利用 Hexo寫技術部落格，那怕是第一篇，或者只有一篇，只怕自己停佇不前。</p>
@@ -169,6 +158,51 @@
       </tags>
   </entry>
   <entry>
+    <title>為什麼想寫部落格?</title>
+    <url>/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
+    <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
+<p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
+<p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
+]]></content>
+      <categories>
+        <category>閒聊</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo教學(三) 主題匯入</title>
+    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
+<ul>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
+</ul>
+</li>
+<li>NexT<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
+</ul>
+</li>
+</ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo教學(一) 使用 Hexo寫部落格</title>
     <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
     <content><![CDATA[<h2 id="為什麼要使用-Hexo寫部落格"><a href="#為什麼要使用-Hexo寫部落格" class="headerlink" title="為什麼要使用 Hexo寫部落格?"></a>為什麼要使用 Hexo寫部落格?</h2><p>現在有很多線上服務都能當成部落格，不管寫在 github、medium或者 wordpress等等，同樣是寫文章，心得也好，技術文也罷，學著使用 markdown寫文，最起碼自己的電腦有初始檔案，不怕線上服務突然關閉或者改變使用條款，而且只要有網頁伺服器，就能發布自己的部落格。</p>
@@ -199,40 +233,6 @@
 </ul>
 </li>
 </ul>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學(三) 主題匯入</title>
-    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
-<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
-<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
-<ul>
-<li>hueman<ul>
-<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
-</ul>
-</li>
-<li>NexT<ul>
-<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
-<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
-</ul>
-</li>
-</ul>
-<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
-<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
-<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
-</ol>
-</blockquote>
 ]]></content>
       <categories>
         <category>hexo教學</category>
@@ -698,127 +698,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6語法糖 - 解構賦值與其餘參數</title>
-    <url>/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/</url>
-    <content><![CDATA[<h2 id="解構賦值"><a href="#解構賦值" class="headerlink" title="解構賦值"></a>解構賦值</h2><blockquote>
-<p>解構賦值 (Destructuring assignment) 語法是一種 JavaScript 運算式，可以把陣列或物件中的資料解開擷取成為獨立變數。</p>
-</blockquote>
-<p>通常我們拿到的資料會是物件與陣列所組成，為了處理這些資料，需要使用迴圈、判斷等語法來取得相對應的資料，而陣列所包含的資料可能是複合性的或者物件屬性名稱不是我們要的，這時可以利用解構、展開運算子以及其餘參數混合使用達成我們的處理目的。若要透過函式處理更多事情，也能在函式的參數中使用。</p>
-<p>在以下的段落會介紹 : </p>
-<ul>
-<li>陣列解構</li>
-<li>物件解構</li>
-<li>解構預設值</li>
-<li>其餘參數與展開運算子</li>
-</ul>
-<h2 id="陣列解構"><a href="#陣列解構" class="headerlink" title="陣列解構"></a>陣列解構</h2><h3 id="變數賦值"><a href="#變數賦值" class="headerlink" title="變數賦值"></a>變數賦值</h3><ul>
-<li>宣告多個變數後，將它們用陣列的中括號包起來 <code>let [變數1, 變數2]</code></li>
-<li>變數會<strong>對應</strong>陣列中絕對位置的陣列值，順序為由左至右</li>
-<li>若缺少對應值，該變數則為 undefined</li>
-</ul>
-<h3 id="均有對應變數"><a href="#均有對應變數" class="headerlink" title="均有對應變數"></a>均有對應變數</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 所有變數在對應的位置賦值</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, c, d, e] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c ,d, e) </span><br><span class="line"><span class="comment">// 2 4 6 8 10</span></span><br></pre></td></tr></table></figure>
-<h3 id="缺少變數"><a href="#缺少變數" class="headerlink" title="缺少變數"></a>缺少變數</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 有限的變數在對應的位置賦值</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [x, , , y, z] = array</span><br><span class="line"><span class="built_in">console</span>.log(x, y, z) </span><br><span class="line"><span class="comment">// 2 8 10</span></span><br></pre></td></tr></table></figure>
-<h3 id="缺少對應值"><a href="#缺少對應值" class="headerlink" title="缺少對應值"></a>缺少對應值</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 變數皆已宣告，但對應位置沒有賦予值</span></span><br><span class="line"><span class="comment">// 如同直接執行 console.log(d)</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, , , <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, c, d, e] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c ,d, e)</span><br><span class="line"><span class="comment">// 2 4 undefined undefined 10</span></span><br></pre></td></tr></table></figure>
-<h3 id="其餘參數賦予新陣列"><a href="#其餘參數賦予新陣列" class="headerlink" title="其餘參數賦予新陣列"></a>其餘參數賦予新陣列</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以利用其餘參數將剩下的元素形成一組新陣列</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, ...c] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c) </span><br><span class="line"><span class="comment">// 2 4 [6, 8, 10]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="變數交換"><a href="#變數交換" class="headerlink" title="變數交換"></a>變數交換</h3><ul>
-<li>利用解構將變數賦值後，再將它們的值做交換</li>
-<li>利用解構方式將變數值做交換時，上一行必須要有<strong>分號</strong>，否則會出錯</li>
-<li>若使用套件 ESLint檢查的話，需要換個方式寫，將外層以大括號區隔<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [seatA, seatB] = [<span class="string">&#x27;Jay&#x27;</span>, <span class="string">&#x27;Vic&#x27;</span>]</span><br><span class="line"><span class="built_in">console</span>.log(seatA, seatB); <span class="comment">// &quot;Jay&quot; &quot;Vic&quot;</span></span><br><span class="line"></span><br><span class="line">[seatA, seatB] = [seatB, seatA]</span><br><span class="line"><span class="comment">// 不用分號的寫法</span></span><br><span class="line"><span class="comment">// &#123;[seatA, seatB] = [seatB, seatA]&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(seatA, seatB) </span><br><span class="line"><span class="comment">// &quot;Vic&quot; &quot;Jay&quot;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="字串解構"><a href="#字串解構" class="headerlink" title="字串解構"></a>字串解構</h3><ul>
-<li>可以將字串每一個字元作為變數值<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line"><span class="keyword">let</span> [a, b ,c] = str</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c) </span><br><span class="line"><span class="comment">// &quot;V&quot; &quot;i&quot; &quot;c&quot; </span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<hr>
-<h2 id="物件解構"><a href="#物件解構" class="headerlink" title="物件解構"></a>物件解構</h2><ul>
-<li>宣告多個變數後，將它們用物件的大括號包起來 <code>let &#123;變數1, 變數2&#125;</code></li>
-<li>但它<strong>沒有順序</strong></li>
-</ul>
-<h3 id="一般物件解構"><a href="#一般物件解構" class="headerlink" title="一般物件解構"></a>一般物件解構</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 宣告 name與 age為變數，只不過與物件內的屬性名稱相同</span></span><br><span class="line"><span class="keyword">let</span> &#123;name, age&#125; = person</span><br><span class="line"><span class="built_in">console</span>.log(name, age) </span><br><span class="line"><span class="comment">// &quot;Vic&quot; 18</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="無宣告物件解構"><a href="#無宣告物件解構" class="headerlink" title="無宣告物件解構"></a>無宣告物件解構</h3><ul>
-<li>未宣告的物件屬性值可以解構給已宣告變數<ul>
-<li>如同上一個範例，變數的值為物件的屬性值</li>
-<li>這裡不需將物件宣告</li>
-</ul>
-</li>
-<li><strong>但變數名稱需與未宣告的物件屬性名稱相同</strong></li>
-<li>已宣告的變數名稱可以再次給予新名稱</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>:anonymous, <span class="attr">age</span>:anonymousAge&#125; = &#123;<span class="attr">name</span>:<span class="string">&#x27;ccc&#x27;</span>, <span class="attr">age</span>:<span class="number">18</span>&#125; </span><br><span class="line"><span class="built_in">console</span>.log(anonymous, anonymousAge) </span><br><span class="line"><span class="comment">// &quot;ccc&quot; 18</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="解構預設值"><a href="#解構預設值" class="headerlink" title="解構預設值"></a>解構預設值</h2><ul>
-<li>在解構陣列與物件時，若沒有對應的變數值，預設會是 undefined</li>
-<li>可以在宣告時先給予一個預設值</li>
-</ul>
-<h3 id="陣列解構預設值"><a href="#陣列解構預設值" class="headerlink" title="陣列解構預設值"></a>陣列解構預設值</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [name=<span class="string">&#x27;匿名登入&#x27;</span>, age=<span class="string">&#x27;隱藏年齡&#x27;</span>] = [<span class="string">&#x27;Vic&#x27;</span>]</span><br><span class="line"><span class="built_in">console</span>.log(name, age) </span><br><span class="line"><span class="comment">// &quot;Vic&quot; &quot;隱藏年齡&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="物件解構預設值"><a href="#物件解構預設值" class="headerlink" title="物件解構預設值"></a>物件解構預設值</h3><ul>
-<li>給予預設值的同時，也可以賦予新的變數名稱，但只有物件可以</li>
-<li><code>let &#123; 已宣告變數名:新的變數名 = 預設值 &#125;</code></li>
-<li><code>let &#123;name:anonymous = &#39;匿名登入&#39;&#125;</code></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>:anonymous=<span class="string">&#x27;匿名登入&#x27;</span>, age=<span class="string">&#x27;隱藏年齡&#x27;</span>&#125; = &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(anonymous, age)</span><br><span class="line"><span class="comment">// &quot;匿名登入&quot; &quot;隱藏年齡&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="函式與預設值"><a href="#函式與預設值" class="headerlink" title="函式與預設值"></a>函式與預設值</h3><ul>
-<li>可以將物件解構作為函式的參數並設定預設值</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 單純參數預設值 */</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">(<span class="params">name=<span class="string">&#x27;匿名登入&#x27;</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name)</span><br><span class="line">&#125;</span><br><span class="line">fnA() <span class="comment">// &quot;匿名登入&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 物件解構預設值 */</span></span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">(<span class="params">&#123;name=<span class="string">&#x27;匿名登入&#x27;</span>, height=<span class="number">150</span>&#125;=&#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name, height)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name:<span class="string">&#x27;Vic&#x27;</span>, </span><br><span class="line">  height:<span class="number">180</span></span><br><span class="line">&#125;</span><br><span class="line">fnB() <span class="comment">// &quot;匿名登入&quot; 150</span></span><br><span class="line">fnB(person) <span class="comment">// &quot;Vic&quot; 180</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="其餘參數與展開運算子"><a href="#其餘參數與展開運算子" class="headerlink" title="其餘參數與展開運算子"></a>其餘參數與展開運算子</h2><ul>
-<li>寫法為三個點 <code>...</code></li>
-<li>必須寫在變數名稱前面 <code>...變數名稱</code></li>
-<li>兩者常會混淆，它們寫法相同，但行為不同</li>
-</ul>
-<h3 id="其餘參數"><a href="#其餘參數" class="headerlink" title="其餘參數"></a>其餘參數</h3><blockquote>
-<p>其餘參數（rest parameter） 語法可以讓我們表示不確定數量的參數，並將其視為一個陣列。</p>
-</blockquote>
-<ul>
-<li>可以將剩餘資料收集並組成一個新陣列</li>
-<li>它為實體陣列，也就是說，它可以使用 <code>forEach()</code>、<code>length</code>等等…</li>
-<li>它必需在最後一個位置才能使用</li>
-</ul>
-<h4 id="收集剩餘資料"><a href="#收集剩餘資料" class="headerlink" title="收集剩餘資料"></a>收集剩餘資料</h4><p>再看一次陣列解構中，有提到其餘參數的運用 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 陣列解構後賦予變數值</span></span><br><span class="line"><span class="comment">// 利用其餘參數將變數 c賦予一組新陣列</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, ...c] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c) </span><br><span class="line"><span class="comment">// 2 4 [6, 8, 10]</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="展開運算子"><a href="#展開運算子" class="headerlink" title="展開運算子"></a>展開運算子</h3><blockquote>
-<p>展開運算子(…) 允許可迭代的陣列或字串展開成０到多個參數(如果是function的話)或是０到多個元素(如果是array或字組的話)，或如果是物件的話則展開成０到多個key-value pair。</p>
-</blockquote>
-<ul>
-<li>若對陣列展開，它會 return陣列中每一個值</li>
-<li>若對物件展開，它會 return物件中每一個屬性名稱</li>
-<li>若對字串展開，它為類陣列，會 return類陣列中每一個值</li>
-</ul>
-<h4 id="將陣列展開"><a href="#將陣列展開" class="headerlink" title="將陣列展開"></a>將陣列展開</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="built_in">console</span>.log(...array) </span><br><span class="line"><span class="comment">// 2 4 6 8 10</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="將字串展開"><a href="#將字串展開" class="headerlink" title="將字串展開"></a>將字串展開</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name =<span class="string">&#x27;Vic&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(...name)</span><br><span class="line"><span class="comment">// &quot;V&quot; &quot;i&quot; &quot;c&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="綜合使用"><a href="#綜合使用" class="headerlink" title="綜合使用"></a>綜合使用</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">a, b, ...c</span>) =&gt;</span> &#123; <span class="comment">// 將剩餘陣列值收集</span></span><br><span class="line">  <span class="built_in">console</span>.log(a+b)</span><br><span class="line">  <span class="comment">// reduce() 可以將陣列內所有值累加</span></span><br><span class="line">  <span class="built_in">console</span>.log(c.reduce(<span class="function">(<span class="params">d,e</span>) =&gt;</span> d+e))</span><br><span class="line">&#125;</span><br><span class="line">fn(...array) <span class="comment">// 將陣列展開</span></span><br><span class="line"><span class="comment">// 6</span></span><br><span class="line"><span class="comment">// 24</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="解構賦值與其餘參數"><a href="#解構賦值與其餘參數" class="headerlink" title="解構賦值與其餘參數"></a>解構賦值與其餘參數</h2><p>參考別人的 JS寫法時，常會看到利用解構賦值與其餘參數的混和運用，但自己寫的時候卻常混淆它們的行為，三種不同的行為模式卻可以達成類似的目的，於是寫了這篇給自己看。要是能善加利用解構賦值、展開運算子以及其餘參數，對於函式的參數設計上會有很大的幫助。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">MDN - 解構賦值</a></li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/rest_parameters">MDN - 其餘參數</a></li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Spread_syntax">MDN - 展開運算子</a></li>
-<li><a href="https://wcc723.github.io/javascript/2017/12/25/javascript-destructuring/">卡斯伯 - 鐵人賽：ES6 解構賦值</a></li>
-<li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/destructuring.html">從ES6開始的JavaScript學習生活 - 解構賦值</a></li>
-<li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/rest_spread.html">從ES6開始的JavaScript學習生活 - 展開運算符與其餘運算符</a></li>
-<li><a href="https://medium.com/@realdennis/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-%E8%A8%AD%E8%A8%88%E5%87%BD%E6%95%B8%E6%99%82%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7-javascript-1466f37d24f0">realdennis - 解構賦值 — 設計函數時的小技巧 JavaScript</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
     <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
     <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
@@ -949,6 +828,127 @@
       </tags>
   </entry>
   <entry>
+    <title>ES6語法糖 - 解構賦值與其餘參數</title>
+    <url>/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/</url>
+    <content><![CDATA[<h2 id="解構賦值"><a href="#解構賦值" class="headerlink" title="解構賦值"></a>解構賦值</h2><blockquote>
+<p>解構賦值 (Destructuring assignment) 語法是一種 JavaScript 運算式，可以把陣列或物件中的資料解開擷取成為獨立變數。</p>
+</blockquote>
+<p>通常我們拿到的資料會是物件與陣列所組成，為了處理這些資料，需要使用迴圈、判斷等語法來取得相對應的資料，而陣列所包含的資料可能是複合性的或者物件屬性名稱不是我們要的，這時可以利用解構、展開運算子以及其餘參數混合使用達成我們的處理目的。若要透過函式處理更多事情，也能在函式的參數中使用。</p>
+<p>在以下的段落會介紹 : </p>
+<ul>
+<li>陣列解構</li>
+<li>物件解構</li>
+<li>解構預設值</li>
+<li>其餘參數與展開運算子</li>
+</ul>
+<h2 id="陣列解構"><a href="#陣列解構" class="headerlink" title="陣列解構"></a>陣列解構</h2><h3 id="變數賦值"><a href="#變數賦值" class="headerlink" title="變數賦值"></a>變數賦值</h3><ul>
+<li>宣告多個變數後，將它們用陣列的中括號包起來 <code>let [變數1, 變數2]</code></li>
+<li>變數會<strong>對應</strong>陣列中絕對位置的陣列值，順序為由左至右</li>
+<li>若缺少對應值，該變數則為 undefined</li>
+</ul>
+<h3 id="均有對應變數"><a href="#均有對應變數" class="headerlink" title="均有對應變數"></a>均有對應變數</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 所有變數在對應的位置賦值</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, c, d, e] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c ,d, e) </span><br><span class="line"><span class="comment">// 2 4 6 8 10</span></span><br></pre></td></tr></table></figure>
+<h3 id="缺少變數"><a href="#缺少變數" class="headerlink" title="缺少變數"></a>缺少變數</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 有限的變數在對應的位置賦值</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [x, , , y, z] = array</span><br><span class="line"><span class="built_in">console</span>.log(x, y, z) </span><br><span class="line"><span class="comment">// 2 8 10</span></span><br></pre></td></tr></table></figure>
+<h3 id="缺少對應值"><a href="#缺少對應值" class="headerlink" title="缺少對應值"></a>缺少對應值</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 變數皆已宣告，但對應位置沒有賦予值</span></span><br><span class="line"><span class="comment">// 如同直接執行 console.log(d)</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, , , <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, c, d, e] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c ,d, e)</span><br><span class="line"><span class="comment">// 2 4 undefined undefined 10</span></span><br></pre></td></tr></table></figure>
+<h3 id="其餘參數賦予新陣列"><a href="#其餘參數賦予新陣列" class="headerlink" title="其餘參數賦予新陣列"></a>其餘參數賦予新陣列</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以利用其餘參數將剩下的元素形成一組新陣列</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, ...c] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c) </span><br><span class="line"><span class="comment">// 2 4 [6, 8, 10]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="變數交換"><a href="#變數交換" class="headerlink" title="變數交換"></a>變數交換</h3><ul>
+<li>利用解構將變數賦值後，再將它們的值做交換</li>
+<li>利用解構方式將變數值做交換時，上一行必須要有<strong>分號</strong>，否則會出錯</li>
+<li>若使用套件 ESLint檢查的話，需要換個方式寫，將外層以大括號區隔<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [seatA, seatB] = [<span class="string">&#x27;Jay&#x27;</span>, <span class="string">&#x27;Vic&#x27;</span>]</span><br><span class="line"><span class="built_in">console</span>.log(seatA, seatB); <span class="comment">// &quot;Jay&quot; &quot;Vic&quot;</span></span><br><span class="line"></span><br><span class="line">[seatA, seatB] = [seatB, seatA]</span><br><span class="line"><span class="comment">// 不用分號的寫法</span></span><br><span class="line"><span class="comment">// &#123;[seatA, seatB] = [seatB, seatA]&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(seatA, seatB) </span><br><span class="line"><span class="comment">// &quot;Vic&quot; &quot;Jay&quot;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="字串解構"><a href="#字串解構" class="headerlink" title="字串解構"></a>字串解構</h3><ul>
+<li>可以將字串每一個字元作為變數值<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line"><span class="keyword">let</span> [a, b ,c] = str</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c) </span><br><span class="line"><span class="comment">// &quot;V&quot; &quot;i&quot; &quot;c&quot; </span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h2 id="物件解構"><a href="#物件解構" class="headerlink" title="物件解構"></a>物件解構</h2><ul>
+<li>宣告多個變數後，將它們用物件的大括號包起來 <code>let &#123;變數1, 變數2&#125;</code></li>
+<li>但它<strong>沒有順序</strong></li>
+</ul>
+<h3 id="一般物件解構"><a href="#一般物件解構" class="headerlink" title="一般物件解構"></a>一般物件解構</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 宣告 name與 age為變數，只不過與物件內的屬性名稱相同</span></span><br><span class="line"><span class="keyword">let</span> &#123;name, age&#125; = person</span><br><span class="line"><span class="built_in">console</span>.log(name, age) </span><br><span class="line"><span class="comment">// &quot;Vic&quot; 18</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="無宣告物件解構"><a href="#無宣告物件解構" class="headerlink" title="無宣告物件解構"></a>無宣告物件解構</h3><ul>
+<li>未宣告的物件屬性值可以解構給已宣告變數<ul>
+<li>如同上一個範例，變數的值為物件的屬性值</li>
+<li>這裡不需將物件宣告</li>
+</ul>
+</li>
+<li><strong>但變數名稱需與未宣告的物件屬性名稱相同</strong></li>
+<li>已宣告的變數名稱可以再次給予新名稱</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>:anonymous, <span class="attr">age</span>:anonymousAge&#125; = &#123;<span class="attr">name</span>:<span class="string">&#x27;ccc&#x27;</span>, <span class="attr">age</span>:<span class="number">18</span>&#125; </span><br><span class="line"><span class="built_in">console</span>.log(anonymous, anonymousAge) </span><br><span class="line"><span class="comment">// &quot;ccc&quot; 18</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="解構預設值"><a href="#解構預設值" class="headerlink" title="解構預設值"></a>解構預設值</h2><ul>
+<li>在解構陣列與物件時，若沒有對應的變數值，預設會是 undefined</li>
+<li>可以在宣告時先給予一個預設值</li>
+</ul>
+<h3 id="陣列解構預設值"><a href="#陣列解構預設值" class="headerlink" title="陣列解構預設值"></a>陣列解構預設值</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> [name=<span class="string">&#x27;匿名登入&#x27;</span>, age=<span class="string">&#x27;隱藏年齡&#x27;</span>] = [<span class="string">&#x27;Vic&#x27;</span>]</span><br><span class="line"><span class="built_in">console</span>.log(name, age) </span><br><span class="line"><span class="comment">// &quot;Vic&quot; &quot;隱藏年齡&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="物件解構預設值"><a href="#物件解構預設值" class="headerlink" title="物件解構預設值"></a>物件解構預設值</h3><ul>
+<li>給予預設值的同時，也可以賦予新的變數名稱，但只有物件可以</li>
+<li><code>let &#123; 已宣告變數名:新的變數名 = 預設值 &#125;</code></li>
+<li><code>let &#123;name:anonymous = &#39;匿名登入&#39;&#125;</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> &#123;<span class="attr">name</span>:anonymous=<span class="string">&#x27;匿名登入&#x27;</span>, age=<span class="string">&#x27;隱藏年齡&#x27;</span>&#125; = &#123;&#125;</span><br><span class="line"><span class="built_in">console</span>.log(anonymous, age)</span><br><span class="line"><span class="comment">// &quot;匿名登入&quot; &quot;隱藏年齡&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函式與預設值"><a href="#函式與預設值" class="headerlink" title="函式與預設值"></a>函式與預設值</h3><ul>
+<li>可以將物件解構作為函式的參數並設定預設值</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 單純參數預設值 */</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">(<span class="params">name=<span class="string">&#x27;匿名登入&#x27;</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name)</span><br><span class="line">&#125;</span><br><span class="line">fnA() <span class="comment">// &quot;匿名登入&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 物件解構預設值 */</span></span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">(<span class="params">&#123;name=<span class="string">&#x27;匿名登入&#x27;</span>, height=<span class="number">150</span>&#125;=&#123;&#125;</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name, height)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  name:<span class="string">&#x27;Vic&#x27;</span>, </span><br><span class="line">  height:<span class="number">180</span></span><br><span class="line">&#125;</span><br><span class="line">fnB() <span class="comment">// &quot;匿名登入&quot; 150</span></span><br><span class="line">fnB(person) <span class="comment">// &quot;Vic&quot; 180</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="其餘參數與展開運算子"><a href="#其餘參數與展開運算子" class="headerlink" title="其餘參數與展開運算子"></a>其餘參數與展開運算子</h2><ul>
+<li>寫法為三個點 <code>...</code></li>
+<li>必須寫在變數名稱前面 <code>...變數名稱</code></li>
+<li>兩者常會混淆，它們寫法相同，但行為不同</li>
+</ul>
+<h3 id="其餘參數"><a href="#其餘參數" class="headerlink" title="其餘參數"></a>其餘參數</h3><blockquote>
+<p>其餘參數（rest parameter） 語法可以讓我們表示不確定數量的參數，並將其視為一個陣列。</p>
+</blockquote>
+<ul>
+<li>可以將剩餘資料收集並組成一個新陣列</li>
+<li>它為實體陣列，也就是說，它可以使用 <code>forEach()</code>、<code>length</code>等等…</li>
+<li>它必需在最後一個位置才能使用</li>
+</ul>
+<h4 id="收集剩餘資料"><a href="#收集剩餘資料" class="headerlink" title="收集剩餘資料"></a>收集剩餘資料</h4><p>再看一次陣列解構中，有提到其餘參數的運用 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 陣列解構後賦予變數值</span></span><br><span class="line"><span class="comment">// 利用其餘參數將變數 c賦予一組新陣列</span></span><br><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">let</span> [a, b, ...c] = array</span><br><span class="line"><span class="built_in">console</span>.log(a, b, c) </span><br><span class="line"><span class="comment">// 2 4 [6, 8, 10]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="展開運算子"><a href="#展開運算子" class="headerlink" title="展開運算子"></a>展開運算子</h3><blockquote>
+<p>展開運算子(…) 允許可迭代的陣列或字串展開成０到多個參數(如果是function的話)或是０到多個元素(如果是array或字組的話)，或如果是物件的話則展開成０到多個key-value pair。</p>
+</blockquote>
+<ul>
+<li>若對陣列展開，它會 return陣列中每一個值</li>
+<li>若對物件展開，它會 return物件中每一個屬性名稱</li>
+<li>若對字串展開，它為類陣列，會 return類陣列中每一個值</li>
+</ul>
+<h4 id="將陣列展開"><a href="#將陣列展開" class="headerlink" title="將陣列展開"></a>將陣列展開</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="built_in">console</span>.log(...array) </span><br><span class="line"><span class="comment">// 2 4 6 8 10</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="將字串展開"><a href="#將字串展開" class="headerlink" title="將字串展開"></a>將字串展開</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name =<span class="string">&#x27;Vic&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(...name)</span><br><span class="line"><span class="comment">// &quot;V&quot; &quot;i&quot; &quot;c&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="綜合使用"><a href="#綜合使用" class="headerlink" title="綜合使用"></a>綜合使用</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> array = [<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>, <span class="number">8</span>, <span class="number">10</span>]</span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">a, b, ...c</span>) =&gt;</span> &#123; <span class="comment">// 將剩餘陣列值收集</span></span><br><span class="line">  <span class="built_in">console</span>.log(a+b)</span><br><span class="line">  <span class="comment">// reduce() 可以將陣列內所有值累加</span></span><br><span class="line">  <span class="built_in">console</span>.log(c.reduce(<span class="function">(<span class="params">d,e</span>) =&gt;</span> d+e))</span><br><span class="line">&#125;</span><br><span class="line">fn(...array) <span class="comment">// 將陣列展開</span></span><br><span class="line"><span class="comment">// 6</span></span><br><span class="line"><span class="comment">// 24</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="解構賦值與其餘參數"><a href="#解構賦值與其餘參數" class="headerlink" title="解構賦值與其餘參數"></a>解構賦值與其餘參數</h2><p>參考別人的 JS寫法時，常會看到利用解構賦值與其餘參數的混和運用，但自己寫的時候卻常混淆它們的行為，三種不同的行為模式卻可以達成類似的目的，於是寫了這篇給自己看。要是能善加利用解構賦值、展開運算子以及其餘參數，對於函式的參數設計上會有很大的幫助。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment">MDN - 解構賦值</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/rest_parameters">MDN - 其餘參數</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Operators/Spread_syntax">MDN - 展開運算子</a></li>
+<li><a href="https://wcc723.github.io/javascript/2017/12/25/javascript-destructuring/">卡斯伯 - 鐵人賽：ES6 解構賦值</a></li>
+<li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/destructuring.html">從ES6開始的JavaScript學習生活 - 解構賦值</a></li>
+<li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/rest_spread.html">從ES6開始的JavaScript學習生活 - 展開運算符與其餘運算符</a></li>
+<li><a href="https://medium.com/@realdennis/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-%E8%A8%AD%E8%A8%88%E5%87%BD%E6%95%B8%E6%99%82%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7-javascript-1466f37d24f0">realdennis - 解構賦值 — 設計函數時的小技巧 JavaScript</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>物件</title>
     <url>/2020/11/25/javascript/%E7%89%A9%E4%BB%B6/</url>
     <content><![CDATA[<h2 id="物件結構"><a href="#物件結構" class="headerlink" title="物件結構"></a>物件結構</h2><p>建立物件有兩個方式 : </p>
@@ -1057,132 +1057,6 @@
 <li><a href="https://api.jquery.com/jquery.extend/">jQuery - jQuery.extend()</a></li>
 <li><a href="https://lodash.com/docs/4.17.15#cloneDeep">lodash - _.cloneDeep(value)</a></li>
 <li><a href="https://ithelp.ithome.com.tw/articles/10223178">Gary - 14. [JS] 深拷貝是什麼？如何實現？</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript 運算子</title>
-    <url>/2020/11/20/javascript/%E9%81%8B%E7%AE%97%E5%AD%90/</url>
-    <content><![CDATA[<h2 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h2><p>舉凡加減乘除都是運算子，等號也是運算子之一。<br>(詳細可參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators">MDN-運算子</a>)。</p>
-<ul>
-<li>運算子均為表達式，一定會回傳值</li>
-<li>一元運算子<ul>
-<li><code>let a = 1</code></li>
-</ul>
-</li>
-<li>二元運算子<ul>
-<li><code>let b = 1 + 2</code></li>
-</ul>
-</li>
-<li>三元運算子<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> c = <span class="literal">true</span></span><br><span class="line"><span class="built_in">console</span>.log(c ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
-<li>物件增加屬性的方法 <code>.</code> ，也是一個運算子，<code>.</code>、<code>[]</code> 在運算子中為<strong>最優先</strong>。</li>
-</ul>
-<h3 id="優先性、相依性"><a href="#優先性、相依性" class="headerlink" title="優先性、相依性"></a>優先性、相依性</h3><ul>
-<li>運算子有其優先順序<ul>
-<li>乘除的優先序大於加減的優先序</li>
-</ul>
-</li>
-<li>相依性則決定了運算方向<ul>
-<li>絕大多數的運算子都是從左至右</li>
-<li>等號賦值為從右至左</li>
-</ul>
-</li>
-<li>經典題目 : <code>6/2(2+1) = ?</code></li>
-</ul>
-<h4 id="比較運算子"><a href="#比較運算子" class="headerlink" title="比較運算子"></a>比較運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 從左至右，逐一比較</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span> &gt; <span class="number">2</span> &gt; <span class="number">1</span>)</span><br><span class="line"><span class="comment">// 3 &gt; 2 為 true</span></span><br><span class="line"><span class="comment">// true &gt; 1 為 false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &gt; <span class="number">2</span> &gt; <span class="number">3</span>)</span><br><span class="line"><span class="comment">// 1 &lt; 2 為 false</span></span><br><span class="line"><span class="comment">// false &gt; 3 為 false</span></span><br></pre></td></tr></table></figure>
-<h4 id="賦值運算子"><a href="#賦值運算子" class="headerlink" title="賦值運算子"></a>賦值運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 從右至左，逐一賦值</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">a = b = <span class="number">3</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
-
-<h4 id="Member-Access"><a href="#Member-Access" class="headerlink" title="Member Access ."></a>Member Access <code>.</code></h4><p>這縮寫為點的運算子，可以尋找/賦予物件的屬性。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 物件屬性賦值</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> b ;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.defineProperty 可以定義物件中某個屬性的內建屬性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;a&#x27;</span>, &#123;</span><br><span class="line">  value: <span class="number">3</span>,</span><br><span class="line">  writable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line">b = obj.a </span><br><span class="line">obj.c = b = <span class="number">5</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.a, b, obj.c)</span><br><span class="line"><span class="comment">// 3 5 5</span></span><br><span class="line"><span class="comment">// obj.a 無法被修改</span></span><br><span class="line"><span class="comment">// b 再度被&quot;賦予值&quot; </span></span><br><span class="line"><span class="comment">// 依據運算子的優先順序，物件的成員也就是屬性，它的優先順序大於等號</span></span><br><span class="line"><span class="comment">// 物件 obj，會先建立了 c這個屬性，之後才被等號賦予值</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="物件傳參考賦予值"><a href="#物件傳參考賦予值" class="headerlink" title="物件傳參考賦予值"></a>物件傳參考賦予值</h4><p>運算子與物件傳參考綜合使用。</p>
-<ol>
-<li>物件 e會先建立屬性名稱 x</li>
-<li>接著依照等號運作從右至左賦值</li>
-<li>物件 e另開了一個位址</li>
-<li>原先的物件 e的確有新增屬性名稱 x，且被賦予物件</li>
-<li>原先的物件 e依然被 f參考</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> e = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">let</span> f = e</span><br><span class="line">e.x = e = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(e.x) </span><br><span class="line"><span class="built_in">console</span>.log(e.q) </span><br><span class="line"><span class="built_in">console</span>.log(f.x)</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined 物件已存在，可以直接增加屬性名稱</span></span><br><span class="line"><span class="comment">// 呼叫 e.q時，不會是 &#x27;q is not defined&#x27;，所以呼叫 e.x也是一樣的，只不過物件 e已新開參考位址</span></span><br><span class="line"><span class="comment">// &#123;x:2&#125;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="寬鬆與嚴謹模式"><a href="#寬鬆與嚴謹模式" class="headerlink" title="寬鬆與嚴謹模式"></a>寬鬆與嚴謹模式</h3><p>一個等號為賦值，兩個等號為寬鬆判斷，三個等號為嚴謹判斷。</p>
-<ul>
-<li>寬鬆判斷<ul>
-<li>當兩者型別不同時，JS會嘗試轉換型別。</li>
-</ul>
-</li>
-<li>嚴謹判斷<ul>
-<li>當兩者型別不同時，JS不會轉換型別。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> == <span class="number">1</span>)    <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> == <span class="string">&#x27;1&#x27;</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> === <span class="string">&#x27;1&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> != <span class="string">&#x27;1&#x27;</span>)  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> !== <span class="string">&#x27;1&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="隱藏型別-自動轉型"><a href="#隱藏型別-自動轉型" class="headerlink" title="隱藏型別 / 自動轉型"></a>隱藏型別 / 自動轉型</h3><p>在判斷是否相等時，根據模式 JS會將型別自動轉型(踩地雷~砰!)。</p>
-<h4 id="寬鬆判斷時"><a href="#寬鬆判斷時" class="headerlink" title="寬鬆判斷時"></a>寬鬆判斷時</h4><ul>
-<li>字串與數字</li>
-<li>布林與數字</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 字串與數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> == <span class="number">1</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 布林與數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> == <span class="number">1</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;N&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">false</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"><span class="comment">// JS會嘗試將布林值轉成數字</span></span><br><span class="line"><span class="comment">// Number(true)，1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字串與數字 ???</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;false&#x27;</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;N&#x27;</span></span><br><span class="line"><span class="comment">// JS會嘗試將字串轉成數字</span></span><br><span class="line"><span class="comment">// Number(&#x27;false&#x27;)，NaN</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="算數運算子"><a href="#算數運算子" class="headerlink" title="算數運算子"></a>算數運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> + <span class="number">1</span>) <span class="comment">// 字串</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> - <span class="number">1</span>) <span class="comment">// 數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> * <span class="number">2</span>) <span class="comment">// 數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> / <span class="number">2</span>) <span class="comment">// 數字</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="包裹物件"><a href="#包裹物件" class="headerlink" title="包裹物件"></a>包裹物件</h4><p>它們的型別為物件，JS在寬鬆相等判斷時會利用這些來轉型，像是這些 : </p>
-<ul>
-<li>Number()</li>
-<li>String()</li>
-<li>Boolean()</li>
-</ul>
-<hr>
-<h3 id="Truthy-amp-Falthy"><a href="#Truthy-amp-Falthy" class="headerlink" title="Truthy &amp; Falthy"></a>Truthy &amp; Falthy</h3><p>這邊指得是在某個函式中的參數，若放入以下其中一種<strong>單一值</strong>，其值被判定後的結果，與相等判斷、邏輯判斷概念不太一樣。</p>
-<ul>
-<li>參數其值為單一數字、字串、物件、陣列、建構函式、Infinity、-Infinity以及 <code>true</code>，均為<strong>真值</strong>。</li>
-<li>參數其值為 <code>false</code>、<code>0</code>、<code>&quot;&quot;</code>、<code>null</code>、<code>undefined</code> 和 <code>NaN</code> 均為<strong>假值</strong>。</li>
-<li>也就是說，除了假值之外，其餘均為真值。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">1</span> <span class="comment">// 可自由替換</span></span><br><span class="line"><span class="keyword">if</span> (x) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;被判定為 true，故為真值&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;被判定為 false，故為假值&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(x))</span><br></pre></td></tr></table></figure>
-
-<h3 id="邏輯運算子"><a href="#邏輯運算子" class="headerlink" title="邏輯運算子"></a>邏輯運算子</h3><p>共有三種，優先順序為 <code>!</code> 大於 <code>&amp;&amp;</code> 大於 <code>||</code>，相依性為由左至右，而且在邏輯判斷時，<strong>型別不會自動轉換。</strong></p>
-<h4 id="AND-amp-amp"><a href="#AND-amp-amp" class="headerlink" title="AND &amp;&amp;"></a>AND <code>&amp;&amp;</code></h4><ul>
-<li>當前者可被轉型成 false時，會回傳前者結果</li>
-<li>若否，回傳後者結果</li>
-<li>也因此若兩者皆為布林值，根據規則剛好與”真值表”相同</li>
-</ul>
-<h4 id="OR"><a href="#OR" class="headerlink" title="OR ||"></a>OR <code>||</code></h4><ul>
-<li>當前者可被轉型成 true，會回傳前者結果</li>
-<li>若否，回傳後者結果</li>
-<li>也因此若兩者皆為布林值，根據規則剛好與”真值表”相同</li>
-</ul>
-<h4 id="NOT"><a href="#NOT" class="headerlink" title="NOT !"></a>NOT <code>!</code></h4><ul>
-<li>會將布林值反轉</li>
-<li>可以將 Truthy &amp; Falthy的結果反轉</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// AND `&amp;&amp;`</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="number">0</span> &amp;&amp; <span class="number">1</span>)        <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;0&#x27;</span> &amp;&amp; <span class="number">1</span>)       <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> &amp;&amp; <span class="number">1</span>&lt;<span class="number">2</span>)  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="string">&#x27;&#x27;</span> &amp;&amp; <span class="number">1</span>)       <span class="comment">// &#x27;&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">true</span> &amp;&amp; <span class="number">3</span>&gt;<span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="number">3</span>&gt;<span class="number">2</span> &amp;&amp;  <span class="literal">false</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// OR `||`</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0</span> || <span class="number">1</span>)         <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;0&#x27;</span> || <span class="number">1</span>)       <span class="comment">// &#x27;0&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> || <span class="number">1</span>&lt;<span class="number">2</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="string">&#x27;&#x27;</span> || <span class="literal">null</span>)    <span class="comment">// null</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">true</span> || <span class="number">3</span>&gt;<span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> || <span class="number">3</span>&gt;<span class="number">2</span> ) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NOT `!`</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="number">1</span> || <span class="number">2</span>)      <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> || <span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> &amp;&amp; !<span class="string">&#x27;&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> &amp;&amp; [])  <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="綜合練習-函式預設值"><a href="#綜合練習-函式預設值" class="headerlink" title="綜合練習 - 函式預設值"></a>綜合練習 - 函式預設值</h3><p>請修改以下函式，當函式未給值時，不讓它成為假值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">500</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  x += y</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`本次儲存 <span class="subst">$&#123;y&#125;</span> 元!，您共有 <span class="subst">$&#123;x&#125;</span> 元。`</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn() </span><br><span class="line"><span class="comment">// 本次儲存 undefined 元!，您共有 NaN 元。&quot;</span></span><br><span class="line"><span class="comment">// undefined，其為函式參數預設值</span></span><br><span class="line"><span class="comment">// 數值與 undefined相加，會變成 NaN</span></span><br></pre></td></tr></table></figure>
-
-<p>修改函式後</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">500</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  y = (y || y === <span class="number">0</span>) ? y: <span class="number">500</span>;</span><br><span class="line">  x += y</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`本次儲存 <span class="subst">$&#123;y&#125;</span> 元!，您共有 <span class="subst">$&#123;x&#125;</span> 元。`</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn() </span><br><span class="line"><span class="comment">// &quot;本次儲存 500 元!，您共有 1000 元。&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li>六角學院 JS核心篇 - 運算子章節</li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">MDN - Object.defineProperty()</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy">MDN - Truthy（真值）</a></li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Default_parameters">MDN - 預設參數( Default parameters )</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10192342">SimonAllen - Day17 傳值by value與傳址by reference</a></li>
-<li><a href="https://medium.com/@yining1204/javascript-%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-chap-33-%E6%9C%AA%E5%AE%9A%E7%BE%A9%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E9%A0%90%E8%A8%AD%E5%80%BC-59406399c521">Yi-Ning - JavaScript 核心篇 學習筆記: Chap.33 — 未定義的物件屬性預設值</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10205918">Jimmy - Day 13 物件與點</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10191343">Kuro Hsu - 重新認識 JavaScript: Day 08 Boolean 的真假判斷</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -1329,6 +1203,132 @@
       </tags>
   </entry>
   <entry>
+    <title>JavaScript 運算子</title>
+    <url>/2020/11/20/javascript/%E9%81%8B%E7%AE%97%E5%AD%90/</url>
+    <content><![CDATA[<h2 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h2><p>舉凡加減乘除都是運算子，等號也是運算子之一。<br>(詳細可參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators">MDN-運算子</a>)。</p>
+<ul>
+<li>運算子均為表達式，一定會回傳值</li>
+<li>一元運算子<ul>
+<li><code>let a = 1</code></li>
+</ul>
+</li>
+<li>二元運算子<ul>
+<li><code>let b = 1 + 2</code></li>
+</ul>
+</li>
+<li>三元運算子<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> c = <span class="literal">true</span></span><br><span class="line"><span class="built_in">console</span>.log(c ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>物件增加屬性的方法 <code>.</code> ，也是一個運算子，<code>.</code>、<code>[]</code> 在運算子中為<strong>最優先</strong>。</li>
+</ul>
+<h3 id="優先性、相依性"><a href="#優先性、相依性" class="headerlink" title="優先性、相依性"></a>優先性、相依性</h3><ul>
+<li>運算子有其優先順序<ul>
+<li>乘除的優先序大於加減的優先序</li>
+</ul>
+</li>
+<li>相依性則決定了運算方向<ul>
+<li>絕大多數的運算子都是從左至右</li>
+<li>等號賦值為從右至左</li>
+</ul>
+</li>
+<li>經典題目 : <code>6/2(2+1) = ?</code></li>
+</ul>
+<h4 id="比較運算子"><a href="#比較運算子" class="headerlink" title="比較運算子"></a>比較運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 從左至右，逐一比較</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span> &gt; <span class="number">2</span> &gt; <span class="number">1</span>)</span><br><span class="line"><span class="comment">// 3 &gt; 2 為 true</span></span><br><span class="line"><span class="comment">// true &gt; 1 為 false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &gt; <span class="number">2</span> &gt; <span class="number">3</span>)</span><br><span class="line"><span class="comment">// 1 &lt; 2 為 false</span></span><br><span class="line"><span class="comment">// false &gt; 3 為 false</span></span><br></pre></td></tr></table></figure>
+<h4 id="賦值運算子"><a href="#賦值運算子" class="headerlink" title="賦值運算子"></a>賦值運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 從右至左，逐一賦值</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">a = b = <span class="number">3</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Member-Access"><a href="#Member-Access" class="headerlink" title="Member Access ."></a>Member Access <code>.</code></h4><p>這縮寫為點的運算子，可以尋找/賦予物件的屬性。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 物件屬性賦值</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> b ;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.defineProperty 可以定義物件中某個屬性的內建屬性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;a&#x27;</span>, &#123;</span><br><span class="line">  value: <span class="number">3</span>,</span><br><span class="line">  writable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line">b = obj.a </span><br><span class="line">obj.c = b = <span class="number">5</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.a, b, obj.c)</span><br><span class="line"><span class="comment">// 3 5 5</span></span><br><span class="line"><span class="comment">// obj.a 無法被修改</span></span><br><span class="line"><span class="comment">// b 再度被&quot;賦予值&quot; </span></span><br><span class="line"><span class="comment">// 依據運算子的優先順序，物件的成員也就是屬性，它的優先順序大於等號</span></span><br><span class="line"><span class="comment">// 物件 obj，會先建立了 c這個屬性，之後才被等號賦予值</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="物件傳參考賦予值"><a href="#物件傳參考賦予值" class="headerlink" title="物件傳參考賦予值"></a>物件傳參考賦予值</h4><p>運算子與物件傳參考綜合使用。</p>
+<ol>
+<li>物件 e會先建立屬性名稱 x</li>
+<li>接著依照等號運作從右至左賦值</li>
+<li>物件 e另開了一個位址</li>
+<li>原先的物件 e的確有新增屬性名稱 x，且被賦予物件</li>
+<li>原先的物件 e依然被 f參考</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> e = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">let</span> f = e</span><br><span class="line">e.x = e = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(e.x) </span><br><span class="line"><span class="built_in">console</span>.log(e.q) </span><br><span class="line"><span class="built_in">console</span>.log(f.x)</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined 物件已存在，可以直接增加屬性名稱</span></span><br><span class="line"><span class="comment">// 呼叫 e.q時，不會是 &#x27;q is not defined&#x27;，所以呼叫 e.x也是一樣的，只不過物件 e已新開參考位址</span></span><br><span class="line"><span class="comment">// &#123;x:2&#125;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="寬鬆與嚴謹模式"><a href="#寬鬆與嚴謹模式" class="headerlink" title="寬鬆與嚴謹模式"></a>寬鬆與嚴謹模式</h3><p>一個等號為賦值，兩個等號為寬鬆判斷，三個等號為嚴謹判斷。</p>
+<ul>
+<li>寬鬆判斷<ul>
+<li>當兩者型別不同時，JS會嘗試轉換型別。</li>
+</ul>
+</li>
+<li>嚴謹判斷<ul>
+<li>當兩者型別不同時，JS不會轉換型別。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> == <span class="number">1</span>)    <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> == <span class="string">&#x27;1&#x27;</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> === <span class="string">&#x27;1&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> != <span class="string">&#x27;1&#x27;</span>)  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> !== <span class="string">&#x27;1&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="隱藏型別-自動轉型"><a href="#隱藏型別-自動轉型" class="headerlink" title="隱藏型別 / 自動轉型"></a>隱藏型別 / 自動轉型</h3><p>在判斷是否相等時，根據模式 JS會將型別自動轉型(踩地雷~砰!)。</p>
+<h4 id="寬鬆判斷時"><a href="#寬鬆判斷時" class="headerlink" title="寬鬆判斷時"></a>寬鬆判斷時</h4><ul>
+<li>字串與數字</li>
+<li>布林與數字</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 字串與數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> == <span class="number">1</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 布林與數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> == <span class="number">1</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;N&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">false</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"><span class="comment">// JS會嘗試將布林值轉成數字</span></span><br><span class="line"><span class="comment">// Number(true)，1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字串與數字 ???</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;false&#x27;</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;N&#x27;</span></span><br><span class="line"><span class="comment">// JS會嘗試將字串轉成數字</span></span><br><span class="line"><span class="comment">// Number(&#x27;false&#x27;)，NaN</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="算數運算子"><a href="#算數運算子" class="headerlink" title="算數運算子"></a>算數運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> + <span class="number">1</span>) <span class="comment">// 字串</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> - <span class="number">1</span>) <span class="comment">// 數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> * <span class="number">2</span>) <span class="comment">// 數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> / <span class="number">2</span>) <span class="comment">// 數字</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="包裹物件"><a href="#包裹物件" class="headerlink" title="包裹物件"></a>包裹物件</h4><p>它們的型別為物件，JS在寬鬆相等判斷時會利用這些來轉型，像是這些 : </p>
+<ul>
+<li>Number()</li>
+<li>String()</li>
+<li>Boolean()</li>
+</ul>
+<hr>
+<h3 id="Truthy-amp-Falthy"><a href="#Truthy-amp-Falthy" class="headerlink" title="Truthy &amp; Falthy"></a>Truthy &amp; Falthy</h3><p>這邊指得是在某個函式中的參數，若放入以下其中一種<strong>單一值</strong>，其值被判定後的結果，與相等判斷、邏輯判斷概念不太一樣。</p>
+<ul>
+<li>參數其值為單一數字、字串、物件、陣列、建構函式、Infinity、-Infinity以及 <code>true</code>，均為<strong>真值</strong>。</li>
+<li>參數其值為 <code>false</code>、<code>0</code>、<code>&quot;&quot;</code>、<code>null</code>、<code>undefined</code> 和 <code>NaN</code> 均為<strong>假值</strong>。</li>
+<li>也就是說，除了假值之外，其餘均為真值。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">1</span> <span class="comment">// 可自由替換</span></span><br><span class="line"><span class="keyword">if</span> (x) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;被判定為 true，故為真值&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;被判定為 false，故為假值&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(x))</span><br></pre></td></tr></table></figure>
+
+<h3 id="邏輯運算子"><a href="#邏輯運算子" class="headerlink" title="邏輯運算子"></a>邏輯運算子</h3><p>共有三種，優先順序為 <code>!</code> 大於 <code>&amp;&amp;</code> 大於 <code>||</code>，相依性為由左至右，而且在邏輯判斷時，<strong>型別不會自動轉換。</strong></p>
+<h4 id="AND-amp-amp"><a href="#AND-amp-amp" class="headerlink" title="AND &amp;&amp;"></a>AND <code>&amp;&amp;</code></h4><ul>
+<li>當前者可被轉型成 false時，會回傳前者結果</li>
+<li>若否，回傳後者結果</li>
+<li>也因此若兩者皆為布林值，根據規則剛好與”真值表”相同</li>
+</ul>
+<h4 id="OR"><a href="#OR" class="headerlink" title="OR ||"></a>OR <code>||</code></h4><ul>
+<li>當前者可被轉型成 true，會回傳前者結果</li>
+<li>若否，回傳後者結果</li>
+<li>也因此若兩者皆為布林值，根據規則剛好與”真值表”相同</li>
+</ul>
+<h4 id="NOT"><a href="#NOT" class="headerlink" title="NOT !"></a>NOT <code>!</code></h4><ul>
+<li>會將布林值反轉</li>
+<li>可以將 Truthy &amp; Falthy的結果反轉</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// AND `&amp;&amp;`</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="number">0</span> &amp;&amp; <span class="number">1</span>)        <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;0&#x27;</span> &amp;&amp; <span class="number">1</span>)       <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> &amp;&amp; <span class="number">1</span>&lt;<span class="number">2</span>)  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="string">&#x27;&#x27;</span> &amp;&amp; <span class="number">1</span>)       <span class="comment">// &#x27;&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">true</span> &amp;&amp; <span class="number">3</span>&gt;<span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="number">3</span>&gt;<span class="number">2</span> &amp;&amp;  <span class="literal">false</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// OR `||`</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0</span> || <span class="number">1</span>)         <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;0&#x27;</span> || <span class="number">1</span>)       <span class="comment">// &#x27;0&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> || <span class="number">1</span>&lt;<span class="number">2</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="string">&#x27;&#x27;</span> || <span class="literal">null</span>)    <span class="comment">// null</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">true</span> || <span class="number">3</span>&gt;<span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> || <span class="number">3</span>&gt;<span class="number">2</span> ) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NOT `!`</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="number">1</span> || <span class="number">2</span>)      <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> || <span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> &amp;&amp; !<span class="string">&#x27;&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> &amp;&amp; [])  <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="綜合練習-函式預設值"><a href="#綜合練習-函式預設值" class="headerlink" title="綜合練習 - 函式預設值"></a>綜合練習 - 函式預設值</h3><p>請修改以下函式，當函式未給值時，不讓它成為假值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">500</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  x += y</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`本次儲存 <span class="subst">$&#123;y&#125;</span> 元!，您共有 <span class="subst">$&#123;x&#125;</span> 元。`</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn() </span><br><span class="line"><span class="comment">// 本次儲存 undefined 元!，您共有 NaN 元。&quot;</span></span><br><span class="line"><span class="comment">// undefined，其為函式參數預設值</span></span><br><span class="line"><span class="comment">// 數值與 undefined相加，會變成 NaN</span></span><br></pre></td></tr></table></figure>
+
+<p>修改函式後</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">500</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  y = (y || y === <span class="number">0</span>) ? y: <span class="number">500</span>;</span><br><span class="line">  x += y</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`本次儲存 <span class="subst">$&#123;y&#125;</span> 元!，您共有 <span class="subst">$&#123;x&#125;</span> 元。`</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn() </span><br><span class="line"><span class="comment">// &quot;本次儲存 500 元!，您共有 1000 元。&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li>六角學院 JS核心篇 - 運算子章節</li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">MDN - Object.defineProperty()</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy">MDN - Truthy（真值）</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Default_parameters">MDN - 預設參數( Default parameters )</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10192342">SimonAllen - Day17 傳值by value與傳址by reference</a></li>
+<li><a href="https://medium.com/@yining1204/javascript-%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-chap-33-%E6%9C%AA%E5%AE%9A%E7%BE%A9%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E9%A0%90%E8%A8%AD%E5%80%BC-59406399c521">Yi-Ning - JavaScript 核心篇 學習筆記: Chap.33 — 未定義的物件屬性預設值</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10205918">Jimmy - Day 13 物件與點</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10191343">Kuro Hsu - 重新認識 JavaScript: Day 08 Boolean 的真假判斷</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>演算法入門(一) 演算法與大 O 符號</title>
     <url>/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/</url>
     <content><![CDATA[<h2 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h2><blockquote>
@@ -1387,6 +1387,226 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>演算法入門</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS核心篇-函式</title>
+    <url>/2020/12/02/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%87%BD%E5%BC%8F/</url>
+    <content><![CDATA[<p>若要有效的處理資料，就一定會用到函式，這篇記錄函式有怎樣的特性與閉包運用概念。<br>目前有整理到的如下 :</p>
+<ul>
+<li>函式型別</li>
+<li>立即函式</li>
+<li>函式的參數使用，不同的函式會有不同的內建關鍵字，常見的有<ul>
+<li><code>arguments</code> (ES6箭頭函式則無此參數)</li>
+<li><code>this</code> (ES6箭頭函式則無此參數)</li>
+<li>自訂參數</li>
+</ul>
+</li>
+<li>閉包<ul>
+<li>範圍鏈</li>
+<li>函式與提升 (Hoisting)</li>
+<li>函式與變數利用</li>
+<li>閉包的私有方法</li>
+</ul>
+</li>
+</ul>
+<h2 id="函式"><a href="#函式" class="headerlink" title="函式"></a>函式</h2><ul>
+<li>使用 <code>function</code> 來宣告一個函式。</li>
+<li>具名函式，宣告函式後，給定一個名稱以利後續呼叫。</li>
+<li>匿名函式，宣告函式後，不須給定名稱，常用於立即函式與變數賦予值上。<ul>
+<li>名稱要給也是可以，但通常不會這麼做。</li>
+</ul>
+</li>
+<li>ES6中可以使用箭頭函式。</li>
+<li>雖然型別為 <code>&quot;function&quot;</code>，但它其實是物件的一種。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 具名函式 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;具名函式&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 匿名函式 */</span></span><br><span class="line"><span class="keyword">var</span> fnB = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;匿名函式&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">fnB()</span><br><span class="line"></span><br><span class="line"><span class="comment">/* ES6箭頭函式 */</span></span><br><span class="line"><span class="keyword">let</span> fnC = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;箭頭函式&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fnA) <span class="comment">// &quot;function&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="函式與型別"><a href="#函式與型別" class="headerlink" title="函式與型別"></a>函式與型別</h2><p>通常我們會利用 <code>typeof()</code> 來檢查目前值為哪一種型別，若對函式做檢查，會得到 <code>&quot;function&quot;</code>，但很多技術文章都說，函式其實也是一種物件，那要怎麼知道它的確是物件的一種呢?</p>
+<ul>
+<li>利用物件原型方式看子型別為何，會得到 <code>&quot;[object Function]&quot;</code> 。</li>
+<li>將函式當作物件新增屬性，console.log 可以正確取值。</li>
+<li>將函式使用 <code>new</code> 這個運算子做為物件，可以在 console.log 的結果中往內層展開並找到新增的屬性。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* typeof 型別檢查為 funciton */</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">() =&gt;</span> &#123; <span class="keyword">return</span> <span class="number">1</span> &#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> fn) <span class="comment">// &#x27;function&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 利用物件原型來看函式屬於哪一種子型別 */</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.prototype.toString.call(fn))</span><br><span class="line"><span class="comment">// &quot;[object Function]&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(fn.prototype) <span class="comment">// Object &#123; 許多屬性 &#125; </span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 函式可以新增屬性 */</span></span><br><span class="line">fn.b = <span class="string">&#x27;新增屬性值&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(fn.b) <span class="comment">// &#x27;新增屬性值&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 將函式以 new這個運算子，成為一個建構式函式 */</span></span><br><span class="line"><span class="comment">// 可以在原型物件(__proto__)底下的 constructor中，發現新增的屬性 b</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">new</span> fn)</span><br><span class="line"></span><br><span class="line"><span class="comment">// fn&#123;</span></span><br><span class="line"><span class="comment">//   __proto__: &#123;</span></span><br><span class="line"><span class="comment">//     constructor: fn &#123;</span></span><br><span class="line"><span class="comment">//       b = &#x27;新增屬性值&#x27;</span></span><br><span class="line"><span class="comment">//     &#125;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="立即函式"><a href="#立即函式" class="headerlink" title="立即函式"></a>立即函式</h2><ul>
+<li>一般函式需要呼叫它才會執行<ul>
+<li><code>函式名稱()</code></li>
+</ul>
+</li>
+<li>立即函式會立刻執行，給定名稱沒有意義<ul>
+<li><code>( 名稱()&#123;&#125; )()</code></li>
+<li><code>( ()&#123;&#125; )()</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 一般函式 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 立即函式 */</span></span><br><span class="line"><span class="comment">// 它會立刻執行，所以也可以寫成匿名函式</span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;)(<span class="string">&#x27;函式&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 箭頭與立即 */</span></span><br><span class="line">( <span class="function"><span class="params">a</span> =&gt;</span> &#123;<span class="built_in">console</span>.log(a)&#125; )(<span class="string">&#x27;函式&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="函式與參數"><a href="#函式與參數" class="headerlink" title="函式與參數"></a>函式與參數</h2><p>一段函式中，常見的內建參數有以下這些 : </p>
+<ul>
+<li>arguments</li>
+<li>this</li>
+<li>自訂參數</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;全域物件中的變數&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, <span class="built_in">arguments</span> , <span class="built_in">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="string">&#x27;自訂參數&#x27;</span>)</span><br><span class="line"><span class="comment">// &#x27;自訂參數&#x27;</span></span><br><span class="line"><span class="comment">// [&#x27;自訂參數&#x27;]，它為類陣列</span></span><br><span class="line"><span class="comment">// &#x27;全域物件中的變數&#x27;，為什麼不是 &#x27;自訂參數&#x27;，在後面 this會有說明</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="參數關鍵字-arguments"><a href="#參數關鍵字-arguments" class="headerlink" title="參數關鍵字 arguments"></a>參數關鍵字 arguments</h3><ul>
+<li>能接收所有傳入的值</li>
+<li>它為類陣列，也就說它沒有陣列的原型方法可以使用</li>
+<li>其型別為 <code>&quot;object&quot;</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>, <span class="number">6</span>)</span><br><span class="line"><span class="comment">// Arguments&#123; </span></span><br><span class="line"><span class="comment">//   [2, 4, 6],</span></span><br><span class="line"><span class="comment">//   callee: f sum(),</span></span><br><span class="line"><span class="comment">//   length: 3</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="參數關鍵字-this"><a href="#參數關鍵字-this" class="headerlink" title="參數關鍵字 this"></a>參數關鍵字 this</h3><p>參考自己整理 this筆記，this在不同位置中會指向誰。</p>
+<ul>
+<li><a href="https://hsuan777.github.io/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/">箭頭函式與 this(上)</a></li>
+<li><a href="https://hsuan777.github.io/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/">箭頭函式與 this(下) - call、apply、bind</a></li>
+</ul>
+<h4 id="this-與簡易呼叫"><a href="#this-與簡易呼叫" class="headerlink" title="this 與簡易呼叫"></a>this 與簡易呼叫</h4><p>還記得 <code>this</code> 只看在哪裡被呼叫嗎? 又怎樣算是簡易呼叫(simple call)?<br>來看以下例子 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;全域物件&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="string">&#x27;函式內變數&#x27;</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fnC</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">  &#125;</span><br><span class="line">  fnC()</span><br><span class="line">&#125;</span><br><span class="line">fnA() <span class="comment">// &#x27;全域物件&#x27;</span></span><br><span class="line">fnB() <span class="comment">// &#x27;全域物件&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>為什麼兩個都是指向全域?</p>
+<ul>
+<li><code>fnA()</code> 在全域環境中被呼叫，且函式在全域環境下被定義，這點很容易看出來，就算把 <code>this</code> 拿掉，也會尋找外層的變數 a。</li>
+<li><code>fnB()</code> 被呼叫後，執行了 <code>fnC()</code> ，它明明在 <code>fnB()</code> 內被執行，為什麼 <code>this</code> 還是指向全域? 沒關係，繼續往下看另一個例子。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;全域物件&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="string">&#x27;物件屬性值&#x27;</span>,</span><br><span class="line">  fnA: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">  &#125;,</span><br><span class="line">  fnB: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">&#x27;函式內變數&#x27;</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fnC</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">    &#125;</span><br><span class="line">    fnC()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.fnA() <span class="comment">// &quot;物件屬性值&quot;</span></span><br><span class="line">obj.fnB() <span class="comment">// &quot;全域物件&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>為什麼執行物件中的兩個函式，結果會不一樣，照理說要指向物件中的屬性 <code>obj.a</code> 吧?</p>
+<ul>
+<li>物件中的 <code>fnA()</code>，<code>this</code> 正確指向了該物件</li>
+<li>物件中的 <code>fnB()</code> 執行後，再執行 <code>fnC()</code>，<code>this</code> 卻指向了全域物件?<ul>
+<li>執行 <code>obj.fnA()</code> ，是由 <code>obj</code> 呼叫 <code>fnA()</code></li>
+<li>執行 <code>obj.fnB()</code> ，是由 <code>obj</code> 呼叫 <code>fnB()</code>，接著執行 <code>fnC()</code> ，<br><code>fnC()</code> 被誰呼叫? 沒有，它是直接被執行的，所以它的 <code>this</code> 指向了全域。</li>
+<li>若將 <code>fnC()</code> 內的 <code>this.a</code> 改為 <code>a</code>，則會因為範圍鏈的關係往外層尋找，就會是 <code>&#39;函式內變數&#39;</code>。</li>
+</ul>
+</li>
+</ul>
+<p>再來複習一下 <code>this</code> 與簡易呼叫。</p>
+<ul>
+<li>簡易呼叫是甚麼?<ul>
+<li>直接呼叫，未透過任何方式取用執行。</li>
+</ul>
+</li>
+<li>簡易呼叫為全域物件下的一種? <ul>
+<li>否，是 <code>this</code> 會指向全域，而不是該函式被建立在在全域下</li>
+</ul>
+</li>
+<li>那些例子屬於簡易呼叫?<ul>
+<li>callback function </li>
+<li>立即函式</li>
+<li>原型方法，例如陣列的 <code>forEach</code>，此為繼承共用的原型方法，屬於直接執行。</li>
+</ul>
+</li>
+</ul>
+<p>那如果要將 <code>fnC()</code> ，正確的指向物件屬性 a呢 ? 來改寫上面的例子，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="string">&#x27;全域物件&#x27;</span></span><br><span class="line"><span class="keyword">var</span> obj = &#123;</span><br><span class="line">  a: <span class="string">&#x27;物件屬性值&#x27;</span>,</span><br><span class="line">  fnA: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.a)</span><br><span class="line">  &#125;,</span><br><span class="line">  fnB: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> a = <span class="string">&#x27;函式內變數&#x27;</span></span><br><span class="line">    <span class="comment">// 這裡的 this 會指向該物件</span></span><br><span class="line">    <span class="keyword">var</span> vm = <span class="built_in">this</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fnC</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="comment">// 閉包的原理，讓還需用到的變數，將它關在函式中，不被釋放</span></span><br><span class="line">      <span class="built_in">console</span>.log(vm.a)</span><br><span class="line">    &#125;</span><br><span class="line">    fnC()</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">obj.fnA() <span class="comment">// &quot;物件屬性值&quot;</span></span><br><span class="line">obj.fnB() <span class="comment">// &quot;物件屬性值&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>為什麼 <code>fnB()</code> 將 <code>this</code> 賦予給一個變數時，就不會指向全域，而是會指向物件呢?</p>
+<ul>
+<li><code>fnB()</code> ，是由物件 <code>obj</code> 所呼叫的，就跟 <code>fnA()</code> 一樣，他們的 <code>this</code> 都會指向該物件。</li>
+<li>在 <code>fnB()</code> 內宣告一個變數，將指向物件的 <code>this</code> 賦予給該變數，<code>fnC()</code> 再利用此變數時，就會正確的指向物件 <code>obj</code>。</li>
+<li>後面的段落會說明閉包的概念。</li>
+</ul>
+<h4 id="this-與DOM"><a href="#this-與DOM" class="headerlink" title="this 與DOM"></a>this 與DOM</h4><ul>
+<li><code>console.dir</code> 可以看到它原本的物件有哪些屬性</li>
+<li>可以使用 <code>this</code> 指向 DOM的單一元素</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.dir(<span class="string">&#x27;某個標籤元素&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="this-與-call、apply、bind"><a href="#this-與-call、apply、bind" class="headerlink" title="this 與 call、apply、bind"></a>this 與 call、apply、bind</h4><ul>
+<li>call與 apply會立刻執行，bind則需要呼叫。</li>
+<li><strong>非嚴格模式傳入 <code>null</code>、<code>undefined</code>，則會指向全域物件</strong>。</li>
+<li><code>this</code> 為物件型別，也就是說傳入後會變成包裹物件(建構式)。<ul>
+<li>若傳入的是數字，會變成 <code>Number()</code></li>
+<li>若傳入的是字串，會變成 <code>String()</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> c = <span class="number">5</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>+a)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>+b)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.c)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn.call(<span class="number">1</span>, <span class="number">2</span>, <span class="string">&#x27;3&#x27;</span>)</span><br><span class="line"><span class="comment">// Number 1 </span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// &quot;13&quot;</span></span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">fn.call(<span class="literal">null</span>, <span class="number">2</span>, <span class="string">&#x27;3&#x27;</span>)</span><br><span class="line"><span class="comment">// Window </span></span><br><span class="line"><span class="comment">// &quot;[object Window]2&quot;</span></span><br><span class="line"><span class="comment">// &quot;[object Window]3&quot;</span></span><br><span class="line"><span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="嚴格模式"><a href="#嚴格模式" class="headerlink" title="嚴格模式"></a>嚴格模式</h4><ul>
+<li>加入 <code>use strict</code></li>
+<li>不會影響不支援嚴格模式的瀏覽器</li>
+<li>可依據執行環境設定 <code>use strict</code></li>
+<li>透過拋出錯誤的方式消除ㄧ些安靜的錯誤(消除小錯誤)</li>
+<li>禁止使用ㄧ些有可能被未來版本 ECMAScript定義的語法</li>
+<li>在這些方法中的 <code>this</code> ，預設值是 <code>undefined</code>，若未傳入值又去呼叫它，就會是 <code>undefined</code>。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b</span>)</span>&#123;</span><br><span class="line"><span class="meta">  &#x27;use strict&#x27;</span></span><br><span class="line">  <span class="comment">// 在嚴格模式下的 call、apply、bind 不會變成建構式物件</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>+a)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>+b)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.c)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fn.call(<span class="literal">null</span>, <span class="number">2</span>, <span class="string">&#x27;3&#x27;</span>)</span><br><span class="line"><span class="comment">// null</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;null3&quot;</span></span><br><span class="line"><span class="comment">// Cannot read property &#x27;c&#x27; of null </span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函式與自訂參數"><a href="#函式與自訂參數" class="headerlink" title="函式與自訂參數"></a>函式與自訂參數</h3><h4 id="參數傳入值"><a href="#參數傳入值" class="headerlink" title="參數傳入值"></a>參數傳入值</h4><ul>
+<li>當函式執行時，只會根據位置傳入值</li>
+<li>在函式中，參數所運用的地方才會是對應的</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a, b, d, e</span>)</span>&#123;</span><br><span class="line"> <span class="built_in">console</span>.log(d, e, a, b)</span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="string">&#x27;a&#x27;</span>, <span class="string">&#x27;b&#x27;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="string">&#x27;d&#x27;</span>)</span><br><span class="line"><span class="comment">// &quot;c&quot; &quot;d&quot; &quot;a&quot; &quot;b&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="參數傳入物件"><a href="#參數傳入物件" class="headerlink" title="參數傳入物件"></a>參數傳入物件</h4><p>當利用函式內的程式碼修改傳入的物件時，會依據傳參考特性修改原物件的屬性值，若物件在函式內做了深層複製的話則不會。</p>
+<h4 id="參數傳入函式-callback-function"><a href="#參數傳入函式-callback-function" class="headerlink" title="參數傳入函式( callback function )"></a>參數傳入函式( callback function )</h4><p>除了可以傳入值、物件、陣列，也可以將另一個函式傳入。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 函式參數傳入函式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">callSomeone</span>(<span class="params">name, a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(name, <span class="string">&#x27;你好&#x27;</span>，a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params">fn</span>)</span>&#123;</span><br><span class="line">  fn(<span class="string">&#x27;小明&#x27;</span>, <span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnB(callSomeone)</span><br></pre></td></tr></table></figure>
+
+<h2 id="閉包"><a href="#閉包" class="headerlink" title="閉包"></a>閉包</h2><p>閉包為範圍鏈、記憶體空間、表達式以及函式等觀念總合的概念，重複執行函式時，其變數值就會累加上去。要利用閉包的概念前，先來複習一下函式還有怎樣的特性。</p>
+<ul>
+<li>範圍鏈</li>
+<li>函式與提升</li>
+<li>函式與記憶體空間</li>
+</ul>
+<h3 id="函式與範圍鏈"><a href="#函式與範圍鏈" class="headerlink" title="函式與範圍鏈"></a>函式與範圍鏈</h3><p>在函式中的變數，若沒有宣告，則往外層尋找直到全域，若全域也沒有，則報錯。</p>
+<h4 id="靜態作用域"><a href="#靜態作用域" class="headerlink" title="靜態作用域"></a>靜態作用域</h4><p>跟在哪裡被呼叫無關，跟位置有關。<br>來看以下範例，函式的位置會影響最後的結果。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">2</span></span><br><span class="line">  fnA()</span><br><span class="line">&#125;</span><br><span class="line">fnB() <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// fnA()內本身沒有 a變數，則向外層找</span></span><br><span class="line"><span class="comment">// 它也不在 fnB()內，於是找到了全域物件中的變數 a</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnC</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">3</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fnD</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  fnD()</span><br><span class="line">&#125;</span><br><span class="line">fnC() <span class="comment">// 3</span></span><br><span class="line"><span class="comment">// fnD()本身沒有 a變數，則向外層找</span></span><br><span class="line"><span class="comment">// 在 fnC()找到已宣告的變數 a</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="動態作用域"><a href="#動態作用域" class="headerlink" title="動態作用域"></a>動態作用域</h4><p>跟在哪裡使用無關，跟在哪裡被呼叫有關，最常見的就是 <code>this</code> 的運用。</p>
+<h3 id="函式與提升-Hoisting"><a href="#函式與提升-Hoisting" class="headerlink" title="函式與提升(Hoisting)"></a>函式與提升(Hoisting)</h3><p>在函式中，</p>
+<ul>
+<li>將自訂參數重新宣告不會有任何作用</li>
+<li>函式中的函式，不會提升至外層</li>
+<li>若在函式中不將變數宣告或者非自訂參數，則可能依據呼叫環境在全域物件中建立變數</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 將自訂參數重新宣告不會有任何作用</span></span><br><span class="line">  <span class="keyword">var</span> a</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 賦予新值</span></span><br><span class="line">  a = <span class="number">1</span></span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 若在裏頭插入函式，它不會提升到外層</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a)</span><br><span class="line">  &#125;</span><br><span class="line">  fnB()</span><br><span class="line">  b = <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line">fn(<span class="string">&#x27;我是函式&#x27;</span>)</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="built_in">console</span>.log(b)</span><br><span class="line"><span class="comment">// &#x27;我是函式&#x27;</span></span><br><span class="line"><span class="comment">// &#x27;我是函式&#x27;</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// a is not defined </span></span><br><span class="line"><span class="comment">// 2，b未正式宣告且因為範圍鏈(向外層尋找)的關係，在全域物件中建立了變數</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="函式與記憶體空間"><a href="#函式與記憶體空間" class="headerlink" title="函式與記憶體空間"></a>函式與記憶體空間</h3><p>先看下面的例子，函式每次執行時，都會加 1。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  a += <span class="number">1</span></span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line">fn() <span class="comment">// 1</span></span><br><span class="line">fn() <span class="comment">// 2</span></span><br><span class="line">fn() <span class="comment">// 3</span></span><br><span class="line">fn() <span class="comment">// 4</span></span><br><span class="line">fn() <span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<p>如果將變數 a，移動到函式內，重複執行函式時，就會因為記憶體空間被釋放掉，又重新宣告而無法累計。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">0</span></span><br><span class="line">  a += <span class="number">1</span></span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line">fn() <span class="comment">// 1</span></span><br><span class="line">fn() <span class="comment">// 1</span></span><br><span class="line">fn() <span class="comment">// 1</span></span><br><span class="line">fn() <span class="comment">// 1</span></span><br><span class="line">fn() <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>接下來，改寫上述範例，假設今天去夜市套圈圈，老闆的每個籃子裡總共有五個圈圈，規則是每次只能丟一個圈圈。今天有兩個玩家，都另開新局，他們都能有五個圈圈可投。</p>
+<ul>
+<li>return 一個函式，此函式包含著變數，該變數會視為還須利用而不會被上層的函式釋放掉</li>
+<li>分別宣告變數並賦予函式，函式內部所宣告的變數不會互相影響<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">game</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> times = <span class="number">5</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    times -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">`圈圈剩餘 <span class="subst">$&#123;times&#125;</span> 個`</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> personA = game()</span><br><span class="line"><span class="built_in">console</span>.log(personA()) <span class="comment">// 圈圈剩餘 4個</span></span><br><span class="line"><span class="built_in">console</span>.log(personA()) <span class="comment">// 圈圈剩餘 3個</span></span><br><span class="line"><span class="built_in">console</span>.log(personA()) <span class="comment">// 圈圈剩餘 2個</span></span><br><span class="line"><span class="built_in">console</span>.log(personA()) <span class="comment">// 圈圈剩餘 1個</span></span><br><span class="line"><span class="built_in">console</span>.log(personA()) <span class="comment">// 圈圈剩餘 0個</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> personB = game()</span><br><span class="line"><span class="built_in">console</span>.log(personB()) <span class="comment">// 圈圈剩餘 4個</span></span><br><span class="line"><span class="built_in">console</span>.log(personB()) <span class="comment">// 圈圈剩餘 3個</span></span><br><span class="line"><span class="built_in">console</span>.log(personB()) <span class="comment">// 圈圈剩餘 2個</span></span><br><span class="line"><span class="built_in">console</span>.log(personB()) <span class="comment">// 圈圈剩餘 1個</span></span><br><span class="line"><span class="built_in">console</span>.log(personB()) <span class="comment">// 圈圈剩餘 0個</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="閉包進階與函式工廠"><a href="#閉包進階與函式工廠" class="headerlink" title="閉包進階與函式工廠"></a>閉包進階與函式工廠</h3><p>這次老闆使用機器人自動丟五個圈圈出去，每次丟一個就紀錄一次剩餘多少個圈圈。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">game</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> times = <span class="number">5</span></span><br><span class="line">  <span class="keyword">var</span> gameLog = []</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">0</span> ; x &lt; <span class="number">5</span> ; x++)&#123;</span><br><span class="line">    times -= <span class="number">1</span></span><br><span class="line">    gameLog.push(<span class="string">`第 <span class="subst">$&#123;x+<span class="number">1</span>&#125;</span> 次丟出圈圈剩餘 <span class="subst">$&#123;times&#125;</span> 個`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> gameLog</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> personA = game()</span><br><span class="line"><span class="built_in">console</span>.log(personA)</span><br><span class="line"><span class="comment">// [&quot;第 1 次丟出圈圈剩餘 4 個&quot;, </span></span><br><span class="line"><span class="comment">// &quot;第 2 次丟出圈圈剩餘 3 個&quot;,</span></span><br><span class="line"><span class="comment">// &quot;第 3 次丟出圈圈剩餘 2 個&quot;, </span></span><br><span class="line"><span class="comment">// &quot;第 4 次丟出圈圈剩餘 1 個&quot;, </span></span><br><span class="line"><span class="comment">// &quot;第 5 次丟出圈圈剩餘 0 個&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="閉包進階的私有方法"><a href="#閉包進階的私有方法" class="headerlink" title="閉包進階的私有方法"></a>閉包進階的私有方法</h3><p>讓我們再度強化機器人的可用性，基礎次數五次，每丟一次就記錄一次到陣列中，利用閉包的原理，將函式 return一個物件。<br>但是，這台機器人卻有個地方無法正常顯示，該怎麼修復它呢?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">game</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> times = <span class="number">5</span></span><br><span class="line">  <span class="keyword">var</span> gameLog = []</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    log: gameLog, </span><br><span class="line">    nowTimes: <span class="string">`目前剩餘次數為 <span class="subst">$&#123;times&#125;</span> 次`</span>,</span><br><span class="line">    addTimes: <span class="function"><span class="keyword">function</span>(<span class="params">number</span>)</span>&#123;</span><br><span class="line">      times += number</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`目前剩餘次數為 <span class="subst">$&#123;times&#125;</span> 次`</span></span><br><span class="line">    &#125;,</span><br><span class="line">    start: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">0</span> ; x &lt; <span class="number">5</span> ; x++)&#123;</span><br><span class="line">        times -= <span class="number">1</span></span><br><span class="line">        gameLog.push(<span class="string">`第 <span class="subst">$&#123;x+<span class="number">1</span>&#125;</span> 次丟出圈圈剩餘 <span class="subst">$&#123;times&#125;</span> 個`</span>)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;開始自動執行遊戲&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> personA = game()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(personA.addTimes(<span class="number">25</span>)) <span class="comment">// 30</span></span><br><span class="line"><span class="built_in">console</span>.log(personA.nowTimes) <span class="comment">// 卻還是顯示 5次</span></span><br></pre></td></tr></table></figure>
+
+<p>函式 <code>personA</code> return的物件，其包含許多函式與變數，而單純變數值卻無法修改? 我們來檢查看看，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 節錄 personA片段</span></span><br><span class="line"><span class="built_in">console</span>.log(personA) </span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   nowTimes: `目前剩餘次數為 5 次`,</span></span><br><span class="line"><span class="comment">//   addTimes: function(number)&#123;</span></span><br><span class="line"><span class="comment">//     times += number</span></span><br><span class="line"><span class="comment">//     return `目前剩餘次數為 $&#123;times&#125; 次`</span></span><br><span class="line"><span class="comment">//   &#125;,</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>可以看到有的直接變成字串，而待在函式裡的變數則維持變數的樣子，讓我們再回想閉包的原理，若該函式內的變數有需要用到，則記憶體空間不會被釋放掉，也就是說，屬性值為單純的變數，被使用後就釋放掉了，待在函式內的則不會。那麼，我們來修正機器人，將 <code>addTimes</code> 這個屬型值改為函式，這樣就能正確顯示了。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">game</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> times = <span class="number">5</span></span><br><span class="line">  <span class="keyword">var</span> gameLog = []</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    log: gameLog, </span><br><span class="line">    nowTimes: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`目前剩餘次數為 <span class="subst">$&#123;times&#125;</span> 次`</span> </span><br><span class="line">    &#125;,</span><br><span class="line">    addTimes: <span class="function"><span class="keyword">function</span>(<span class="params">number</span>)</span>&#123;</span><br><span class="line">      times += number</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`目前剩餘次數為 <span class="subst">$&#123;times&#125;</span> 次`</span></span><br><span class="line">    &#125;,</span><br><span class="line">    start: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">var</span> x = <span class="number">0</span> ; x &lt; <span class="number">5</span> ; x++)&#123;</span><br><span class="line">        times -= <span class="number">1</span></span><br><span class="line">        gameLog.push(<span class="string">`第 <span class="subst">$&#123;x+<span class="number">1</span>&#125;</span> 次丟出圈圈剩餘 <span class="subst">$&#123;times&#125;</span> 個`</span>)</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&#x27;開始自動執行遊戲&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> personA = game()</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(personA.addTimes(<span class="number">25</span>)) <span class="comment">// 30</span></span><br><span class="line"><span class="built_in">console</span>.log(personA.nowTimes()) <span class="comment">// 30</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li>六角學院 - JS核心篇</li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10200841">cythilya - 你懂 JavaScript 嗎？#4 型別（Types）</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10191549">Kuro Hsu - 重新認識 JavaScript: Day 10 函式 Functions 的基本概念</a></li>
+<li><a href="https://w3c.hexschool.com/blog/cb6e361">Ray - 有點長的淺談 JavaScript function 函式</a></li>
+<li><a href="https://blog.techbridge.cc/2019/02/23/javascript-this/">Huli - 淺談 JavaScript 頭號難題 this：絕對不完整，但保證好懂</a></li>
+<li><a href="https://blog.techbridge.cc/2018/12/08/javascript-closure/">Huli - 所有的函式都是閉包：談 JS 中的作用域與 Closure</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10203387">OneJar - 你不可不知的 JavaScript 二三事#Day5：湯姆克魯斯與唐家霸王槍—變數的作用域(Scope) (1)</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
 </search>
