@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+<meta name="google-site-verification" content="4pGR0zTBZNJ_Sp2fv8CWZmJieJkVxj4jdmuk95vxpvE" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="當我們撰寫 JavaScript的程式碼時，為什麼會有那麼多的內建方法可以用?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS核心篇-原型鏈">
+<meta property="og:url" content="https://hsuan777.github.io/2020/12/08/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%8E%9F%E5%9E%8B%E9%8F%88/index.html">
+<meta property="og:site_name" content="Help One Percent">
+<meta property="og:description" content="當我們撰寫 JavaScript的程式碼時，為什麼會有那麼多的內建方法可以用?">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-12-08T09:24:01.000Z">
+<meta property="article:modified_time" content="2020-12-08T09:31:55.244Z">
+<meta property="article:author" content="Vic">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hsuan777.github.io/2020/12/08/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%8E%9F%E5%9E%8B%E9%8F%88/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>JS核心篇-原型鏈 | Help One Percent</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Help One Percent</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">遺忘x回想x自動化</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E7%89%A9%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">原型物件</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E5%B1%AC%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">原型屬性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E7%B9%BC%E6%89%BF"><span class="nav-number">1.2.</span> <span class="nav-text">原型繼承</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Object-%E5%8E%9F%E7%94%9F%E5%8E%9F%E5%9E%8B%E8%88%87%E7%B9%BC%E6%89%BF%E5%8E%9F%E5%9E%8B"><span class="nav-number">1.2.1.</span> <span class="nav-text">Object 原生原型與繼承原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-%E5%8E%9F%E7%94%9F%E5%8E%9F%E5%9E%8B%E8%88%87%E7%B9%BC%E6%89%BF%E5%8E%9F%E5%9E%8B"><span class="nav-number">1.2.2.</span> <span class="nav-text">Function 原生原型與繼承原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Array-%E5%8E%9F%E7%94%9F%E5%8E%9F%E5%9E%8B%E8%88%87%E7%B9%BC%E6%89%BF%E5%8E%9F%E5%9E%8B"><span class="nav-number">1.2.3.</span> <span class="nav-text">Array 原生原型與繼承原型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Function-and-Array-%E5%8E%9F%E7%94%9F%E5%8E%9F%E5%9E%8B%E8%88%87%E7%B9%BC%E6%89%BF%E5%8E%9F%E5%9E%8B"><span class="nav-number">1.2.4.</span> <span class="nav-text">Function and Array 原生原型與繼承原型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8E%9F%E5%9E%8B%E9%8F%88"><span class="nav-number">2.</span> <span class="nav-text">原型鏈</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#new-Object-%E8%87%AA%E8%A8%82%E5%8E%9F%E5%9E%8B"><span class="nav-number">3.</span> <span class="nav-text">new Object( ) 自訂原型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BB%BA%E6%A7%8B%E5%BC%8F%E7%89%A9%E4%BB%B6%E7%B9%BC%E6%89%BF%E4%BA%86%E7%94%9A%E9%BA%BC"><span class="nav-number">3.1.</span> <span class="nav-text">建構式物件繼承了甚麼</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A6%82%E4%BD%95%E5%BE%97%E7%9F%A5%E8%A9%B2%E6%96%B9%E6%B3%95%E7%82%BA%E7%89%A9%E4%BB%B6%E6%89%80%E6%9C%89%E9%82%84%E6%98%AF%E7%B9%BC%E6%89%BF%E7%9A%84"><span class="nav-number">3.2.</span> <span class="nav-text">如何得知該方法為物件所有還是繼承的</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Object-create-%E5%B0%87%E5%85%B6%E4%BB%96%E7%89%A9%E4%BB%B6%E4%BD%9C%E7%82%BA%E5%8E%9F%E5%9E%8B"><span class="nav-number">4.</span> <span class="nav-text">Object.create( ) 將其他物件作為原型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E5%B1%A4%E7%B9%BC%E6%89%BF%E5%AF%A6%E4%BD%9C"><span class="nav-number">5.</span> <span class="nav-text">多層繼承實作</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E7%89%B9%E5%BE%B5"><span class="nav-number">6.</span> <span class="nav-text">物件屬性特徵</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#prototype"><span class="nav-number">6.1.</span> <span class="nav-text">prototype</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">7.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vic</p>
+  <div class="site-description" itemprop="description">哪怕是1%也好，只怕自己停佇不前</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://hsuan777.github.io/2020/12/08/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%8E%9F%E5%9E%8B%E9%8F%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vic">
+      <meta itemprop="description" content="哪怕是1%也好，只怕自己停佇不前">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Help One Percent">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS核心篇-原型鏈
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-12-08 17:24:01 / 修改時間：17:31:55" itemprop="dateCreated datePublished" datetime="2020-12-08T17:24:01+08:00">2020-12-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">當我們撰寫 JavaScript的程式碼時，為什麼會有那麼多的內建方法可以用?</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>當我們撰寫 JavaScript的程式碼時，為什麼會有那麼多的內建方法可以用? 例如一組陣列可以使用 <code>.length</code> 來得知陣列有多少位址資料，陣列內建的方式又是從何而來?</p>
+<p>這裡紀錄一些關於原型的筆記 : </p>
+<ul>
+<li>原型物件<ul>
+<li>原型屬性</li>
+<li>原型繼承</li>
+</ul>
+</li>
+<li>原型鏈</li>
+<li>new Object( ) 自訂原型</li>
+<li>Object.create( ) 將其他物件作為原型</li>
+<li>多層繼承實作</li>
+<li>物件屬性特徵</li>
+</ul>
+<h2 id="原型物件"><a href="#原型物件" class="headerlink" title="原型物件"></a>原型物件</h2><p>JavaScript是一個物件導向的語言，許多內建的方法都是透過繼承原型屬性來的，當我們打開以 JS撰寫的瀏覽器時，就建好基礎的原型方法。像是以下例子，原型的頂層為一個物件，其名稱為 <strong>Object</strong>。物件 <code>&#123;&#125;</code>、函式 <code>function</code>、陣列 <code>[]</code> ，都是繼承了這個原型物件內的屬性，再根據型別有自己的原生方法，例如陣列與函式的原生原型就不一樣。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>) </span><br><span class="line"><span class="comment">// 此為物件頂層，會發現一個名為 Object的函式</span></span><br><span class="line"><span class="comment">// 函式也是物件的一種，可以發現它擁有自己的物件屬性</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>())</span><br><span class="line"><span class="comment">// 執行 Object() 這個函式會 return 一個名為 Object的物件</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.__proto__ === <span class="built_in">Function</span>.__proto__) </span><br><span class="line"><span class="comment">// true，__proto__ 都是繼承了物件</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype === <span class="built_in">Function</span>.prototype) </span><br><span class="line"><span class="comment">// false，原生原型不同</span></span><br></pre></td></tr></table></figure>
+<h3 id="原型屬性"><a href="#原型屬性" class="headerlink" title="原型屬性"></a>原型屬性</h3><p>原型物件內建了很多原生屬性，我們可以自行增加共用的屬性，方式有兩個 : </p>
+<ol>
+<li><code>__proto__</code> ，繼承原型，建立在物件上<ul>
+<li>每個物件都有此屬性</li>
+<li>屬性特徵為可被列舉 </li>
+<li><strong>原型鏈的關鍵</strong></li>
+</ul>
+</li>
+<li><code>prototype</code> ，原生原型，建立在函式上<ul>
+<li>函式才有此原生屬性</li>
+<li>屬性特徵為不可被列舉</li>
+</ul>
+</li>
+</ol>
+<p>為什麼以下比對是 true?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Object</span>.__proto__.__proto__ === <span class="built_in">Object</span>.prototype ) </span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>因為物件原型 <code>Object</code> 本身是一個函式，而</p>
+<ul>
+<li><code>Object</code> 這個函式繼承了 <code>function</code> 的原生原型</li>
+<li><code>function</code> 又繼承了原型物件 <code>Object</code> 的原生原型</li>
+</ul>
+<p>所以它們指得是同樣的東西，可以使用 <code>console.dir(Object)</code> 驗證。(可以先往下看原型繼承，再回來想一下。)</p>
+<hr>
+<h3 id="原型繼承"><a href="#原型繼承" class="headerlink" title="原型繼承"></a>原型繼承</h3><p>以下比對可以了解繼承原型與原生原型。</p>
+<p>首先，物件、函式與陣列本身為 <code>&quot;function&quot;</code> 。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>)   <span class="comment">// &quot;function&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Array</span>)    <span class="comment">// &quot;function&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>) <span class="comment">// &quot;function&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Object-原生原型與繼承原型"><a href="#Object-原生原型與繼承原型" class="headerlink" title="Object 原生原型與繼承原型"></a>Object 原生原型與繼承原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  Object */</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Object</span>.prototype === <span class="built_in">Object</span>.__proto__ ) </span><br><span class="line"><span class="comment">// false，前者是物件原生原型之物件，後者是繼承函式原型之函式</span></span><br><span class="line"><span class="comment">// Object，本身是為名為 Object的函式</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Object</span>.__proto__.__proto__ === <span class="built_in">Object</span>.prototype ) </span><br><span class="line"><span class="comment">// true，前者是繼承函式原型又繼承物件原型之物件，後者是原生原型之物件</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Function-原生原型與繼承原型"><a href="#Function-原生原型與繼承原型" class="headerlink" title="Function 原生原型與繼承原型"></a>Function 原生原型與繼承原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*  Function  */</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Function</span>.prototype === <span class="built_in">Object</span>.__proto__ )  </span><br><span class="line"><span class="comment">// true，前者是函式原生原型之函式，後者是繼承函式原型之函式</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Function</span>.prototype === <span class="built_in">Function</span>.__proto__ )  </span><br><span class="line"><span class="comment">// true，前者為函式原生原型之函式，後者為繼承函式原型之函式</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Function</span>.__proto__ === <span class="built_in">Object</span>.__proto__ )</span><br><span class="line"><span class="comment">// true </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( </span><br><span class="line">  <span class="built_in">Function</span>.__proto__.__proto__ === </span><br><span class="line">  <span class="built_in">Object</span>.__proto__.__proto__ </span><br><span class="line">)</span><br><span class="line"><span class="comment">// true </span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Array-原生原型與繼承原型"><a href="#Array-原生原型與繼承原型" class="headerlink" title="Array 原生原型與繼承原型"></a>Array 原生原型與繼承原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Array */</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Array</span>.prototype === <span class="built_in">Object</span>.__proto__ ) </span><br><span class="line"><span class="comment">// false，前者為陣列原生原型之物件，後者為繼承函式原型之函式</span></span><br><span class="line"><span class="comment">// typeof Array.prototype 為 &quot;object&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Array</span>.prototype === <span class="built_in">Array</span>.__proto__) </span><br><span class="line"><span class="comment">// false，前者為陣列原生原型之物件，後者為繼承函式原型之函式</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Function-and-Array-原生原型與繼承原型"><a href="#Function-and-Array-原生原型與繼承原型" class="headerlink" title="Function and Array 原生原型與繼承原型"></a>Function and Array 原生原型與繼承原型</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Function and Array*/</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Function</span>.prototype === <span class="built_in">Array</span>.prototype )</span><br><span class="line"><span class="comment">// false，原生原型不同</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Function</span>.__proto__ === <span class="built_in">Array</span>.__proto__ )</span><br><span class="line"><span class="comment">// true，均為繼承函式原型之函式</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( </span><br><span class="line">  <span class="built_in">Function</span>.__proto__.__proto__ === </span><br><span class="line">  <span class="built_in">Array</span>.__proto__.__proto__ </span><br><span class="line">)</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>在往後撰寫 JS程式碼時，就可以知道正在使用的陣列、函式以及物件是繼承誰的屬性。</p>
+<hr>
+<h2 id="原型鏈"><a href="#原型鏈" class="headerlink" title="原型鏈"></a>原型鏈</h2><ul>
+<li>擁有物件的特性</li>
+<li>會往上層搜尋</li>
+<li>原型屬性可共用，不須額外撰寫<ul>
+<li>可以新增屬性在原型中並賦予值，可以是陣列、函式、物件、純值等等…</li>
+<li>其他物件可以利用點記號取用</li>
+</ul>
+</li>
+</ul>
+<p>例如下面的範例 :  </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayA = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> arrayB = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">arrayA.name = <span class="string">&#x27;X陣列&#x27;</span></span><br><span class="line">arrayB.name = <span class="string">&#x27;Y陣列&#x27;</span></span><br><span class="line">arrayA.getLast = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arrayA)</span><br><span class="line"><span class="built_in">console</span>.log(arrayA.getLast())</span><br><span class="line"><span class="built_in">console</span>.log(arrayB.getLast())</span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br><span class="line"><span class="comment">// &quot;X陣列&quot;</span></span><br><span class="line"><span class="comment">// arrayB.getLast is not a function </span></span><br></pre></td></tr></table></figure>
+<p>上面的範例中 : </p>
+<ul>
+<li><code>arrayA</code> ，可以使用 getLast這個方法</li>
+<li><code>arrayB</code> ，卻無法使用 getLast這個方法，因為只建立在 <code>arrayA</code> 這個物件下</li>
+<li>若要讓 <code>arrayB</code> ，可以使用 getLast這個方法，就得再建立一次</li>
+</ul>
+<p>那如何讓方法共用呢? 我們可以利用<strong>原型鏈</strong>，新增一個共用方法在陣列這個實體物件上，像是這樣 : </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayA = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> arrayB = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">arrayA.name = <span class="string">&#x27;X陣列&#x27;</span></span><br><span class="line">arrayB.name = <span class="string">&#x27;Y陣列&#x27;</span></span><br><span class="line"><span class="comment">// 使用 __proto__ ，其繼承了陣列的原生原型</span></span><br><span class="line"><span class="comment">// 在這個原型屬性上建立一個新方法</span></span><br><span class="line">arrayA.__proto__.getLast = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arrayA.getLast())</span><br><span class="line"><span class="built_in">console</span>.log(arrayB.getLast())</span><br><span class="line"><span class="comment">// &quot;X陣列&quot;</span></span><br><span class="line"><span class="comment">// &quot;Y陣列&quot;</span></span><br></pre></td></tr></table></figure>
+<p>不過上述的例子無法使用 <code>prototype</code> ，因為這個實體陣列型別為 “object”，它沒有這個原型屬性，只有函式才有，而 <code>__proto__</code> 直接在繼承來的物件上新增共用方法。除非新增在原生原型 <code>Array.prototype.getLast()</code>，這樣所有陣列都能共用。</p>
+<hr>
+<h2 id="new-Object-自訂原型"><a href="#new-Object-自訂原型" class="headerlink" title="new Object( ) 自訂原型"></a>new Object( ) 自訂原型</h2><p>只需要在原型自訂方法，就不用浪費一堆記憶體空間(不用一直重開)。</p>
+<p>舉個例子來說，打開某個編輯應用程式時，會問你是否套入範本，然後再問你基本資料要填入甚麼。<br>以下範例是一個構造函式，把它想成是一範本，利用這個範本去建立一個實體檔案，這個範本函式裏頭可以先寫上未來要成為物件時，所擁有的屬性，以建構式運算子建立時，就會成為該物件的屬性。<br>而範例中 :</p>
+<ul>
+<li>每個物件實體繼承了構造函式的屬性名稱，同時也繼承了物件的原生屬性</li>
+<li>每個物件實體有自己的屬性值</li>
+<li>不同物件時體會新開記憶體位置</li>
+<li>每個物件實體之物件屬性為自己的原生原型</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">motorCycle</span>(<span class="params">name, color, displacement</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">  <span class="built_in">this</span>.color = color</span><br><span class="line">  <span class="built_in">this</span>.displacement = displacement</span><br><span class="line">  <span class="built_in">this</span>.congratulate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Congratulations on the deal! Have a nice trip!&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> motoA = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;Z900RS&#x27;</span>, <span class="string">&#x27;red&#x27;</span>, <span class="number">948</span>)</span><br><span class="line"><span class="keyword">var</span> motoB = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;R1000&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="number">1000</span>)</span><br><span class="line"><span class="built_in">console</span>.log(motoA.name)</span><br><span class="line"><span class="built_in">console</span>.log(motoB.color)</span><br><span class="line">motoB.congratulate()</span><br><span class="line"><span class="built_in">console</span>.log(motoA.congratulate === motoB.congratulate)</span><br><span class="line"><span class="comment">// &quot;Z900RS&quot;</span></span><br><span class="line"><span class="comment">// &quot;blue&quot;</span></span><br><span class="line"><span class="comment">// &quot;Congratulations on the deal! Have a nice trip!&quot;</span></span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>雖然上述範例中，每個物件實體都能使用相同的方法，但它們屬於不同的記憶體位址，直接寫在構造函式中也不易閱讀，接著讓我們來改寫上述的範例 : </p>
+<ul>
+<li>將構造函式的方法移動到原生原型上，也就是物件原生原型</li>
+<li>結果變成了 true，代表它們參考同樣的位址</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">motorCycle</span>(<span class="params">name, color, displacement</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">  <span class="built_in">this</span>.color = color</span><br><span class="line">  <span class="built_in">this</span>.displacement = displacement</span><br><span class="line">&#125;</span><br><span class="line">motorCycle.prototype.congratulate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Congratulations on the deal! Have a nice trip!&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> motoA = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;Z900RS&#x27;</span>, <span class="string">&#x27;red&#x27;</span>, <span class="number">948</span>)</span><br><span class="line"><span class="keyword">var</span> motoB = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;R1000&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(motoA.congratulate === motoB.congratulate)</span><br><span class="line"><span class="built_in">console</span>.log(motoA.__proto__ === motorCycle.prototype ) </span><br><span class="line"><span class="built_in">console</span>.log(motorCycle.__proto__ === <span class="built_in">Function</span>.prototype ) </span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// true，motoA繼承了 motorCycle的原生原型，但沒有繼承函式的原生原型</span></span><br><span class="line"><span class="comment">// true，motorCycle繼承了 Function的原生原型</span></span><br></pre></td></tr></table></figure>
+<h3 id="建構式物件繼承了甚麼"><a href="#建構式物件繼承了甚麼" class="headerlink" title="建構式物件繼承了甚麼"></a>建構式物件繼承了甚麼</h3><p>不知道看到這裡會不會有個疑問，<code>motoA</code> 這個物件實體怎麼沒有繼承函式的原生原型，讓我們用 <code>console.log(motoA.__proto__)</code> 檢查它繼承了甚麼?</p>
+<ul>
+<li><code>congratulate</code><ul>
+<li>繼承 motorCycle的原生原型之自訂方法</li>
+</ul>
+</li>
+<li><code>constructor</code><ul>
+<li>繼承 motorCycle這個函式</li>
+<li>可以利用它來<strong>辨認是從哪一個建構函式繼承的</strong></li>
+</ul>
+</li>
+<li><code>__proto__</code><ul>
+<li>繼承物件的原生原型</li>
+<li>建構式物件型別為 “object”</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何得知該方法為物件所有還是繼承的"><a href="#如何得知該方法為物件所有還是繼承的" class="headerlink" title="如何得知該方法為物件所有還是繼承的"></a>如何得知該方法為物件所有還是繼承的</h3><p>可以利用 <code>hasOwnProperty</code> 來檢查。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">array.forEach(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log( array.hasOwnProperty(<span class="string">&#x27;forEach&#x27;</span>)) </span><br><span class="line"><span class="built_in">console</span>.log( array.hasOwnProperty(<span class="string">&#x27;length&#x27;</span>)) </span><br><span class="line"><span class="built_in">console</span>.log( array.__proto__.hasOwnProperty(<span class="string">&#x27;forEach&#x27;</span>)) </span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Object-create-將其他物件作為原型"><a href="#Object-create-將其他物件作為原型" class="headerlink" title="Object.create( ) 將其他物件作為原型"></a>Object.create( ) 將其他物件作為原型</h2><p>除了使用構造函式轉為建構物件來自訂原生原型屬性，也可以將另一個物件直接作為建構物件使用。</p>
+<ol>
+<li>自訂構造函式 &gt; 建構物件 &gt; 實體物件</li>
+<li>將另一個物件屬性作為建構物件 &gt; 實體物件<ul>
+<li>新的實體物件透過 <code>Object.create(另一物件)</code> 將其作為原生原型屬性(包含屬性值)</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">motorCycle</span>(<span class="params">name, color, displacement</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">  <span class="built_in">this</span>.color = color</span><br><span class="line">  <span class="built_in">this</span>.displacement = displacement</span><br><span class="line">&#125;</span><br><span class="line">motorCycle.prototype.congratulate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Congratulations on the deal! Have a nice trip!&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> motoA = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;Z900RS&#x27;</span>, <span class="string">&#x27;red&#x27;</span>, <span class="number">948</span>)</span><br><span class="line"><span class="keyword">var</span> motoB = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;R1000&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> motoC = <span class="built_in">Object</span>.create(motoA)</span><br><span class="line">motoC.color = <span class="string">&#x27;black&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(motoC)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(motoC.prototype === motoA.prototype) </span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// 原生原型看起來相同，但要注意，建構物件型別為 &quot;object&quot;</span></span><br><span class="line"><span class="comment">// 也就是說，它們沒有 prototype這個屬性，是 undefined</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(motoC.__proto__ === motoA) </span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// 繼承另一個物件屬性作為原型</span></span><br></pre></td></tr></table></figure>
+<p>但是上面的範例這樣做會有點問題，繼承來的原生原型是一個物件，若不變更屬性值，基本上它們的 console.log() 內容一樣，但它是利用原型鏈向上層找，本身沒有自己的屬性，像這樣 : </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 這是 motoC */</span></span><br><span class="line"><span class="built_in">console</span>.log(motoC)</span><br><span class="line"><span class="comment">// 在開發者模式下的結果</span></span><br><span class="line"><span class="comment">// motorCycle &#123;</span></span><br><span class="line"><span class="comment">//   __proto__ : motorCycle</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 這是 motoA */</span></span><br><span class="line"><span class="built_in">console</span>.log(motoA)</span><br><span class="line"><span class="comment">// motorCycle &#123;</span></span><br><span class="line"><span class="comment">//   name: &#x27;Z900RS&#x27;</span></span><br><span class="line"><span class="comment">//   color: &#x27;red&#x27;</span></span><br><span class="line"><span class="comment">//   displacement: 948</span></span><br><span class="line"><span class="comment">//   __proto__ : Object</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>不過，還是可以利用 <code>Object.create()</code> 來快速複製屬性，例如繼承多個物件屬性時會用到它。</p>
+<h2 id="多層繼承實作"><a href="#多層繼承實作" class="headerlink" title="多層繼承實作"></a>多層繼承實作</h2><p>JS無法同時繼承多個物件，但是可以使用多層繼承的方式，實作中我們會用到 : </p>
+<ul>
+<li><code>Object.creat()</code></li>
+<li><code>new Object()</code></li>
+<li><code>prototype</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Object &gt; Transportation &gt; 汽車、摩托車、飛機 &gt; 保時捷911、Z900RS、A320</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 交通工具 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Transportation</span>(<span class="params">tool</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.toolName = tool || <span class="string">&#x27;交通工具&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 在頂層交通工具函式原型上新增共用方法</span></span><br><span class="line">Transportation.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.toolName + <span class="string">&#x27;向前移動&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">Transportation.prototype.congratulate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Congratulations on the deal! Have a nice trip!&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 交通工具類別*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">motorCycle</span>(<span class="params">name, color, displacement</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 執行 Transportation.call() 並填入工具名稱，完成該工具類別屬性</span></span><br><span class="line">  <span class="comment">// 未加入任何原型</span></span><br><span class="line">  Transportation.call(<span class="built_in">this</span>, <span class="string">&#x27;摩托車&#x27;</span>)</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">  <span class="built_in">this</span>.color = color</span><br><span class="line">  <span class="built_in">this</span>.displacement = displacement</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 將交通工具類別的原型更改為頂層交通工具</span></span><br><span class="line">motorCycle.prototype = <span class="built_in">Object</span>.create(Transportation.prototype)</span><br><span class="line"><span class="comment">// motorCycle.prototype = Transportation.prototype</span></span><br><span class="line"><span class="comment">// 這樣也是可以運作，但是這樣變成傳參考，修改 motorCycle.prototype時，</span></span><br><span class="line"><span class="comment">// 也會一併修改 Transportation.prototype</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 將交通工具的類別的建構函式改回自己，否則為頂層交通工具的建構函式</span></span><br><span class="line"><span class="comment">// 有助於辨別從哪個函式轉來</span></span><br><span class="line">motorCycle.prototype.constructor = motorCycle</span><br><span class="line"></span><br><span class="line"><span class="comment">// 將交通工具的類別，新增一個只有該類別才能用的函式</span></span><br><span class="line">motorCycle.prototype.wheelie = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;翹孤輪~&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 雖然它的繼承原型還是 Transportation，</span></span><br><span class="line"><span class="comment">// 但是同一層的建構函式已修改回原本交通工具類別，還是可以辨認</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> motoA = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;Z900RS&#x27;</span>, <span class="string">&#x27;red&#x27;</span>, <span class="number">948</span>)</span><br><span class="line">motoA.move() <span class="comment">// &quot;摩托車向前移動&quot;</span></span><br><span class="line">motoA.wheelie() <span class="comment">// &quot;翹孤輪~&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="物件屬性特徵"><a href="#物件屬性特徵" class="headerlink" title="物件屬性特徵"></a>物件屬性特徵</h2><p>當我們使用原型來新增方法時，有沒有發現到有個東西會用到，但實際上看不到它?</p>
+<h3 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h3><p>當我們新增一個方法在函式原型上，為什麼使用 console.log()時，卻找不到 <code>prototype</code> 呢? 讓我們使用 <code>Object.getOwnPropertyDescriptor</code> 這個方式來檢查該 prototype 這個物件屬性，</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 創造一個構造函式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proto</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 接著，在原型上新增一個方法</span></span><br><span class="line">proto.prototype.fnA = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;函式&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(proto, <span class="string">&#x27;prototype&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   value: &#123;</span></span><br><span class="line"><span class="comment">//     fnA: funciton()&#123;</span></span><br><span class="line"><span class="comment">//       console.log(&#x27;函式&#x27;)</span></span><br><span class="line"><span class="comment">//     &#125;,</span></span><br><span class="line"><span class="comment">//     constructor: ƒ proto(name),</span></span><br><span class="line"><span class="comment">//     __proto__: Object&#123;...&#125;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">//   writable: true, // 可寫入</span></span><br><span class="line"><span class="comment">//   configurable: false, // 不可被刪除</span></span><br><span class="line"><span class="comment">//   enumerable: false, // 不可被列舉</span></span><br><span class="line"><span class="comment">//   __proto__: Object&#123;...&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>我們可以發現，<code>prototype</code> 這個屬性設定的其中兩個為 false</p>
+<ul>
+<li>configurable 可否被刪除</li>
+<li>enumerable 可否被列舉</li>
+</ul>
+<p>很多教學建議新增原型方法時，盡量設定在這個屬性上，但實際上又看不到它，而上述就是為什麼看不到 <code>prototype</code> 這個屬性的原因。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li>六角學院 - JS核心篇</li>
+<li><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2017/04/22/javascript-prototype/">Huli- 該來理解 JavaScript 的原型鍊了</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">MDN - 繼承與原型鏈</a></li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/02/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%87%BD%E5%BC%8F/" rel="prev" title="JS核心篇-函式">
+                  <i class="fa fa-chevron-left"></i> JS核心篇-函式
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-paw"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vic 尊重分享者，從你我做起~</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

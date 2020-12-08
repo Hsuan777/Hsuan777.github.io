@@ -120,6 +120,173 @@
       </tags>
   </entry>
   <entry>
+    <title>JS核心篇-原型鏈</title>
+    <url>/2020/12/08/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%8E%9F%E5%9E%8B%E9%8F%88/</url>
+    <content><![CDATA[<p>當我們撰寫 JavaScript的程式碼時，為什麼會有那麼多的內建方法可以用? 例如一組陣列可以使用 <code>.length</code> 來得知陣列有多少位址資料，陣列內建的方式又是從何而來?</p>
+<p>這裡紀錄一些關於原型的筆記 : </p>
+<ul>
+<li>原型物件<ul>
+<li>原型屬性</li>
+<li>原型繼承</li>
+</ul>
+</li>
+<li>原型鏈</li>
+<li>new Object( ) 自訂原型</li>
+<li>Object.create( ) 將其他物件作為原型</li>
+<li>多層繼承實作</li>
+<li>物件屬性特徵</li>
+</ul>
+<h2 id="原型物件"><a href="#原型物件" class="headerlink" title="原型物件"></a>原型物件</h2><p>JavaScript是一個物件導向的語言，許多內建的方法都是透過繼承原型屬性來的，當我們打開以 JS撰寫的瀏覽器時，就建好基礎的原型方法。像是以下例子，原型的頂層為一個物件，其名稱為 <strong>Object</strong>。物件 <code>&#123;&#125;</code>、函式 <code>function</code>、陣列 <code>[]</code> ，都是繼承了這個原型物件內的屬性，再根據型別有自己的原生方法，例如陣列與函式的原生原型就不一樣。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>) </span><br><span class="line"><span class="comment">// 此為物件頂層，會發現一個名為 Object的函式</span></span><br><span class="line"><span class="comment">// 函式也是物件的一種，可以發現它擁有自己的物件屬性</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>())</span><br><span class="line"><span class="comment">// 執行 Object() 這個函式會 return 一個名為 Object的物件</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.__proto__ === <span class="built_in">Function</span>.__proto__) </span><br><span class="line"><span class="comment">// true，__proto__ 都是繼承了物件</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype === <span class="built_in">Function</span>.prototype) </span><br><span class="line"><span class="comment">// false，原生原型不同</span></span><br></pre></td></tr></table></figure>
+<h3 id="原型屬性"><a href="#原型屬性" class="headerlink" title="原型屬性"></a>原型屬性</h3><p>原型物件內建了很多原生屬性，我們可以自行增加共用的屬性，方式有兩個 : </p>
+<ol>
+<li><code>__proto__</code> ，繼承原型，建立在物件上<ul>
+<li>每個物件都有此屬性</li>
+<li>屬性特徵為可被列舉 </li>
+<li><strong>原型鏈的關鍵</strong></li>
+</ul>
+</li>
+<li><code>prototype</code> ，原生原型，建立在函式上<ul>
+<li>函式才有此原生屬性</li>
+<li>屬性特徵為不可被列舉</li>
+</ul>
+</li>
+</ol>
+<p>為什麼以下比對是 true?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Object</span>.__proto__.__proto__ === <span class="built_in">Object</span>.prototype ) </span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>因為物件原型 <code>Object</code> 本身是一個函式，而</p>
+<ul>
+<li><code>Object</code> 這個函式繼承了 <code>function</code> 的原生原型</li>
+<li><code>function</code> 又繼承了原型物件 <code>Object</code> 的原生原型</li>
+</ul>
+<p>所以它們指得是同樣的東西，可以使用 <code>console.dir(Object)</code> 驗證。(可以先往下看原型繼承，再回來想一下。)</p>
+<hr>
+<h3 id="原型繼承"><a href="#原型繼承" class="headerlink" title="原型繼承"></a>原型繼承</h3><p>以下比對可以了解繼承原型與原生原型。</p>
+<p>首先，物件、函式與陣列本身為 <code>&quot;function&quot;</code> 。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Object</span>)   <span class="comment">// &quot;function&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Array</span>)    <span class="comment">// &quot;function&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> <span class="built_in">Function</span>) <span class="comment">// &quot;function&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Object-原生原型與繼承原型"><a href="#Object-原生原型與繼承原型" class="headerlink" title="Object 原生原型與繼承原型"></a>Object 原生原型與繼承原型</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*  Object */</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Object</span>.prototype === <span class="built_in">Object</span>.__proto__ ) </span><br><span class="line"><span class="comment">// false，前者是物件原生原型之物件，後者是繼承函式原型之函式</span></span><br><span class="line"><span class="comment">// Object，本身是為名為 Object的函式</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Object</span>.__proto__.__proto__ === <span class="built_in">Object</span>.prototype ) </span><br><span class="line"><span class="comment">// true，前者是繼承函式原型又繼承物件原型之物件，後者是原生原型之物件</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Function-原生原型與繼承原型"><a href="#Function-原生原型與繼承原型" class="headerlink" title="Function 原生原型與繼承原型"></a>Function 原生原型與繼承原型</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/*  Function  */</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Function</span>.prototype === <span class="built_in">Object</span>.__proto__ )  </span><br><span class="line"><span class="comment">// true，前者是函式原生原型之函式，後者是繼承函式原型之函式</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Function</span>.prototype === <span class="built_in">Function</span>.__proto__ )  </span><br><span class="line"><span class="comment">// true，前者為函式原生原型之函式，後者為繼承函式原型之函式</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Function</span>.__proto__ === <span class="built_in">Object</span>.__proto__ )</span><br><span class="line"><span class="comment">// true </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( </span><br><span class="line">  <span class="built_in">Function</span>.__proto__.__proto__ === </span><br><span class="line">  <span class="built_in">Object</span>.__proto__.__proto__ </span><br><span class="line">)</span><br><span class="line"><span class="comment">// true </span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Array-原生原型與繼承原型"><a href="#Array-原生原型與繼承原型" class="headerlink" title="Array 原生原型與繼承原型"></a>Array 原生原型與繼承原型</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Array */</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Array</span>.prototype === <span class="built_in">Object</span>.__proto__ ) </span><br><span class="line"><span class="comment">// false，前者為陣列原生原型之物件，後者為繼承函式原型之函式</span></span><br><span class="line"><span class="comment">// typeof Array.prototype 為 &quot;object&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Array</span>.prototype === <span class="built_in">Array</span>.__proto__) </span><br><span class="line"><span class="comment">// false，前者為陣列原生原型之物件，後者為繼承函式原型之函式</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="Function-and-Array-原生原型與繼承原型"><a href="#Function-and-Array-原生原型與繼承原型" class="headerlink" title="Function and Array 原生原型與繼承原型"></a>Function and Array 原生原型與繼承原型</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* Function and Array*/</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Function</span>.prototype === <span class="built_in">Array</span>.prototype )</span><br><span class="line"><span class="comment">// false，原生原型不同</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( <span class="built_in">Function</span>.__proto__ === <span class="built_in">Array</span>.__proto__ )</span><br><span class="line"><span class="comment">// true，均為繼承函式原型之函式</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log( </span><br><span class="line">  <span class="built_in">Function</span>.__proto__.__proto__ === </span><br><span class="line">  <span class="built_in">Array</span>.__proto__.__proto__ </span><br><span class="line">)</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p>在往後撰寫 JS程式碼時，就可以知道正在使用的陣列、函式以及物件是繼承誰的屬性。</p>
+<hr>
+<h2 id="原型鏈"><a href="#原型鏈" class="headerlink" title="原型鏈"></a>原型鏈</h2><ul>
+<li>擁有物件的特性</li>
+<li>會往上層搜尋</li>
+<li>原型屬性可共用，不須額外撰寫<ul>
+<li>可以新增屬性在原型中並賦予值，可以是陣列、函式、物件、純值等等…</li>
+<li>其他物件可以利用點記號取用</li>
+</ul>
+</li>
+</ul>
+<p>例如下面的範例 :  </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayA = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> arrayB = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">arrayA.name = <span class="string">&#x27;X陣列&#x27;</span></span><br><span class="line">arrayB.name = <span class="string">&#x27;Y陣列&#x27;</span></span><br><span class="line">arrayA.getLast = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> arrayA)</span><br><span class="line"><span class="built_in">console</span>.log(arrayA.getLast())</span><br><span class="line"><span class="built_in">console</span>.log(arrayB.getLast())</span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br><span class="line"><span class="comment">// &quot;X陣列&quot;</span></span><br><span class="line"><span class="comment">// arrayB.getLast is not a function </span></span><br></pre></td></tr></table></figure>
+<p>上面的範例中 : </p>
+<ul>
+<li><code>arrayA</code> ，可以使用 getLast這個方法</li>
+<li><code>arrayB</code> ，卻無法使用 getLast這個方法，因為只建立在 <code>arrayA</code> 這個物件下</li>
+<li>若要讓 <code>arrayB</code> ，可以使用 getLast這個方法，就得再建立一次</li>
+</ul>
+<p>那如何讓方法共用呢? 我們可以利用<strong>原型鏈</strong>，新增一個共用方法在陣列這個實體物件上，像是這樣 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> arrayA = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line"><span class="keyword">var</span> arrayB = [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]</span><br><span class="line">arrayA.name = <span class="string">&#x27;X陣列&#x27;</span></span><br><span class="line">arrayB.name = <span class="string">&#x27;Y陣列&#x27;</span></span><br><span class="line"><span class="comment">// 使用 __proto__ ，其繼承了陣列的原生原型</span></span><br><span class="line"><span class="comment">// 在這個原型屬性上建立一個新方法</span></span><br><span class="line">arrayA.__proto__.getLast = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">this</span>.name</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(arrayA.getLast())</span><br><span class="line"><span class="built_in">console</span>.log(arrayB.getLast())</span><br><span class="line"><span class="comment">// &quot;X陣列&quot;</span></span><br><span class="line"><span class="comment">// &quot;Y陣列&quot;</span></span><br></pre></td></tr></table></figure>
+<p>不過上述的例子無法使用 <code>prototype</code> ，因為這個實體陣列型別為 “object”，它沒有這個原型屬性，只有函式才有，而 <code>__proto__</code> 直接在繼承來的物件上新增共用方法。除非新增在原生原型 <code>Array.prototype.getLast()</code>，這樣所有陣列都能共用。</p>
+<hr>
+<h2 id="new-Object-自訂原型"><a href="#new-Object-自訂原型" class="headerlink" title="new Object( ) 自訂原型"></a>new Object( ) 自訂原型</h2><p>只需要在原型自訂方法，就不用浪費一堆記憶體空間(不用一直重開)。</p>
+<p>舉個例子來說，打開某個編輯應用程式時，會問你是否套入範本，然後再問你基本資料要填入甚麼。<br>以下範例是一個構造函式，把它想成是一範本，利用這個範本去建立一個實體檔案，這個範本函式裏頭可以先寫上未來要成為物件時，所擁有的屬性，以建構式運算子建立時，就會成為該物件的屬性。<br>而範例中 :</p>
+<ul>
+<li>每個物件實體繼承了構造函式的屬性名稱，同時也繼承了物件的原生屬性</li>
+<li>每個物件實體有自己的屬性值</li>
+<li>不同物件時體會新開記憶體位置</li>
+<li>每個物件實體之物件屬性為自己的原生原型</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">motorCycle</span>(<span class="params">name, color, displacement</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">  <span class="built_in">this</span>.color = color</span><br><span class="line">  <span class="built_in">this</span>.displacement = displacement</span><br><span class="line">  <span class="built_in">this</span>.congratulate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;Congratulations on the deal! Have a nice trip!&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> motoA = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;Z900RS&#x27;</span>, <span class="string">&#x27;red&#x27;</span>, <span class="number">948</span>)</span><br><span class="line"><span class="keyword">var</span> motoB = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;R1000&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="number">1000</span>)</span><br><span class="line"><span class="built_in">console</span>.log(motoA.name)</span><br><span class="line"><span class="built_in">console</span>.log(motoB.color)</span><br><span class="line">motoB.congratulate()</span><br><span class="line"><span class="built_in">console</span>.log(motoA.congratulate === motoB.congratulate)</span><br><span class="line"><span class="comment">// &quot;Z900RS&quot;</span></span><br><span class="line"><span class="comment">// &quot;blue&quot;</span></span><br><span class="line"><span class="comment">// &quot;Congratulations on the deal! Have a nice trip!&quot;</span></span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>雖然上述範例中，每個物件實體都能使用相同的方法，但它們屬於不同的記憶體位址，直接寫在構造函式中也不易閱讀，接著讓我們來改寫上述的範例 : </p>
+<ul>
+<li>將構造函式的方法移動到原生原型上，也就是物件原生原型</li>
+<li>結果變成了 true，代表它們參考同樣的位址</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">motorCycle</span>(<span class="params">name, color, displacement</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">  <span class="built_in">this</span>.color = color</span><br><span class="line">  <span class="built_in">this</span>.displacement = displacement</span><br><span class="line">&#125;</span><br><span class="line">motorCycle.prototype.congratulate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Congratulations on the deal! Have a nice trip!&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> motoA = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;Z900RS&#x27;</span>, <span class="string">&#x27;red&#x27;</span>, <span class="number">948</span>)</span><br><span class="line"><span class="keyword">var</span> motoB = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;R1000&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(motoA.congratulate === motoB.congratulate)</span><br><span class="line"><span class="built_in">console</span>.log(motoA.__proto__ === motorCycle.prototype ) </span><br><span class="line"><span class="built_in">console</span>.log(motorCycle.__proto__ === <span class="built_in">Function</span>.prototype ) </span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// true，motoA繼承了 motorCycle的原生原型，但沒有繼承函式的原生原型</span></span><br><span class="line"><span class="comment">// true，motorCycle繼承了 Function的原生原型</span></span><br></pre></td></tr></table></figure>
+<h3 id="建構式物件繼承了甚麼"><a href="#建構式物件繼承了甚麼" class="headerlink" title="建構式物件繼承了甚麼"></a>建構式物件繼承了甚麼</h3><p>不知道看到這裡會不會有個疑問，<code>motoA</code> 這個物件實體怎麼沒有繼承函式的原生原型，讓我們用 <code>console.log(motoA.__proto__)</code> 檢查它繼承了甚麼?</p>
+<ul>
+<li><code>congratulate</code><ul>
+<li>繼承 motorCycle的原生原型之自訂方法</li>
+</ul>
+</li>
+<li><code>constructor</code><ul>
+<li>繼承 motorCycle這個函式</li>
+<li>可以利用它來<strong>辨認是從哪一個建構函式繼承的</strong></li>
+</ul>
+</li>
+<li><code>__proto__</code><ul>
+<li>繼承物件的原生原型</li>
+<li>建構式物件型別為 “object”</li>
+</ul>
+</li>
+</ul>
+<h3 id="如何得知該方法為物件所有還是繼承的"><a href="#如何得知該方法為物件所有還是繼承的" class="headerlink" title="如何得知該方法為物件所有還是繼承的"></a>如何得知該方法為物件所有還是繼承的</h3><p>可以利用 <code>hasOwnProperty</code> 來檢查。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">2</span>]</span><br><span class="line">array.forEach(<span class="function">(<span class="params">item</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(item)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log( array.hasOwnProperty(<span class="string">&#x27;forEach&#x27;</span>)) </span><br><span class="line"><span class="built_in">console</span>.log( array.hasOwnProperty(<span class="string">&#x27;length&#x27;</span>)) </span><br><span class="line"><span class="built_in">console</span>.log( array.__proto__.hasOwnProperty(<span class="string">&#x27;forEach&#x27;</span>)) </span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Object-create-將其他物件作為原型"><a href="#Object-create-將其他物件作為原型" class="headerlink" title="Object.create( ) 將其他物件作為原型"></a>Object.create( ) 將其他物件作為原型</h2><p>除了使用構造函式轉為建構物件來自訂原生原型屬性，也可以將另一個物件直接作為建構物件使用。</p>
+<ol>
+<li>自訂構造函式 &gt; 建構物件 &gt; 實體物件</li>
+<li>將另一個物件屬性作為建構物件 &gt; 實體物件<ul>
+<li>新的實體物件透過 <code>Object.create(另一物件)</code> 將其作為原生原型屬性(包含屬性值)</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">motorCycle</span>(<span class="params">name, color, displacement</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">  <span class="built_in">this</span>.color = color</span><br><span class="line">  <span class="built_in">this</span>.displacement = displacement</span><br><span class="line">&#125;</span><br><span class="line">motorCycle.prototype.congratulate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Congratulations on the deal! Have a nice trip!&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> motoA = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;Z900RS&#x27;</span>, <span class="string">&#x27;red&#x27;</span>, <span class="number">948</span>)</span><br><span class="line"><span class="keyword">var</span> motoB = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;R1000&#x27;</span>, <span class="string">&#x27;blue&#x27;</span>, <span class="number">1000</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> motoC = <span class="built_in">Object</span>.create(motoA)</span><br><span class="line">motoC.color = <span class="string">&#x27;black&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(motoC)</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(motoC.prototype === motoA.prototype) </span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// 原生原型看起來相同，但要注意，建構物件型別為 &quot;object&quot;</span></span><br><span class="line"><span class="comment">// 也就是說，它們沒有 prototype這個屬性，是 undefined</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(motoC.__proto__ === motoA) </span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"><span class="comment">// 繼承另一個物件屬性作為原型</span></span><br></pre></td></tr></table></figure>
+<p>但是上面的範例這樣做會有點問題，繼承來的原生原型是一個物件，若不變更屬性值，基本上它們的 console.log() 內容一樣，但它是利用原型鏈向上層找，本身沒有自己的屬性，像這樣 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 這是 motoC */</span></span><br><span class="line"><span class="built_in">console</span>.log(motoC)</span><br><span class="line"><span class="comment">// 在開發者模式下的結果</span></span><br><span class="line"><span class="comment">// motorCycle &#123;</span></span><br><span class="line"><span class="comment">//   __proto__ : motorCycle</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 這是 motoA */</span></span><br><span class="line"><span class="built_in">console</span>.log(motoA)</span><br><span class="line"><span class="comment">// motorCycle &#123;</span></span><br><span class="line"><span class="comment">//   name: &#x27;Z900RS&#x27;</span></span><br><span class="line"><span class="comment">//   color: &#x27;red&#x27;</span></span><br><span class="line"><span class="comment">//   displacement: 948</span></span><br><span class="line"><span class="comment">//   __proto__ : Object</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>不過，還是可以利用 <code>Object.create()</code> 來快速複製屬性，例如繼承多個物件屬性時會用到它。</p>
+<h2 id="多層繼承實作"><a href="#多層繼承實作" class="headerlink" title="多層繼承實作"></a>多層繼承實作</h2><p>JS無法同時繼承多個物件，但是可以使用多層繼承的方式，實作中我們會用到 : </p>
+<ul>
+<li><code>Object.creat()</code></li>
+<li><code>new Object()</code></li>
+<li><code>prototype</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Object &gt; Transportation &gt; 汽車、摩托車、飛機 &gt; 保時捷911、Z900RS、A320</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 交通工具 */</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Transportation</span>(<span class="params">tool</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.toolName = tool || <span class="string">&#x27;交通工具&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 在頂層交通工具函式原型上新增共用方法</span></span><br><span class="line">Transportation.prototype.move = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.toolName + <span class="string">&#x27;向前移動&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">Transportation.prototype.congratulate = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Congratulations on the deal! Have a nice trip!&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 交通工具類別*/</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">motorCycle</span>(<span class="params">name, color, displacement</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 執行 Transportation.call() 並填入工具名稱，完成該工具類別屬性</span></span><br><span class="line">  <span class="comment">// 未加入任何原型</span></span><br><span class="line">  Transportation.call(<span class="built_in">this</span>, <span class="string">&#x27;摩托車&#x27;</span>)</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">  <span class="built_in">this</span>.color = color</span><br><span class="line">  <span class="built_in">this</span>.displacement = displacement</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 將交通工具類別的原型更改為頂層交通工具</span></span><br><span class="line">motorCycle.prototype = <span class="built_in">Object</span>.create(Transportation.prototype)</span><br><span class="line"><span class="comment">// motorCycle.prototype = Transportation.prototype</span></span><br><span class="line"><span class="comment">// 這樣也是可以運作，但是這樣變成傳參考，修改 motorCycle.prototype時，</span></span><br><span class="line"><span class="comment">// 也會一併修改 Transportation.prototype</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 將交通工具的類別的建構函式改回自己，否則為頂層交通工具的建構函式</span></span><br><span class="line"><span class="comment">// 有助於辨別從哪個函式轉來</span></span><br><span class="line">motorCycle.prototype.constructor = motorCycle</span><br><span class="line"></span><br><span class="line"><span class="comment">// 將交通工具的類別，新增一個只有該類別才能用的函式</span></span><br><span class="line">motorCycle.prototype.wheelie = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;翹孤輪~&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 雖然它的繼承原型還是 Transportation，</span></span><br><span class="line"><span class="comment">// 但是同一層的建構函式已修改回原本交通工具類別，還是可以辨認</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> motoA = <span class="keyword">new</span> motorCycle(<span class="string">&#x27;Z900RS&#x27;</span>, <span class="string">&#x27;red&#x27;</span>, <span class="number">948</span>)</span><br><span class="line">motoA.move() <span class="comment">// &quot;摩托車向前移動&quot;</span></span><br><span class="line">motoA.wheelie() <span class="comment">// &quot;翹孤輪~&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="物件屬性特徵"><a href="#物件屬性特徵" class="headerlink" title="物件屬性特徵"></a>物件屬性特徵</h2><p>當我們使用原型來新增方法時，有沒有發現到有個東西會用到，但實際上看不到它?</p>
+<h3 id="prototype"><a href="#prototype" class="headerlink" title="prototype"></a>prototype</h3><p>當我們新增一個方法在函式原型上，為什麼使用 console.log()時，卻找不到 <code>prototype</code> 呢? 讓我們使用 <code>Object.getOwnPropertyDescriptor</code> 這個方式來檢查該 prototype 這個物件屬性，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 創造一個構造函式</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">proto</span>(<span class="params">name</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">this</span>.name = name</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 接著，在原型上新增一個方法</span></span><br><span class="line">proto.prototype.fnA = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;函式&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(proto, <span class="string">&#x27;prototype&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   value: &#123;</span></span><br><span class="line"><span class="comment">//     fnA: funciton()&#123;</span></span><br><span class="line"><span class="comment">//       console.log(&#x27;函式&#x27;)</span></span><br><span class="line"><span class="comment">//     &#125;,</span></span><br><span class="line"><span class="comment">//     constructor: ƒ proto(name),</span></span><br><span class="line"><span class="comment">//     __proto__: Object&#123;...&#125;</span></span><br><span class="line"><span class="comment">//   &#125;</span></span><br><span class="line"><span class="comment">//   writable: true, // 可寫入</span></span><br><span class="line"><span class="comment">//   configurable: false, // 不可被刪除</span></span><br><span class="line"><span class="comment">//   enumerable: false, // 不可被列舉</span></span><br><span class="line"><span class="comment">//   __proto__: Object&#123;...&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>我們可以發現，<code>prototype</code> 這個屬性設定的其中兩個為 false</p>
+<ul>
+<li>configurable 可否被刪除</li>
+<li>enumerable 可否被列舉</li>
+</ul>
+<p>很多教學建議新增原型方法時，盡量設定在這個屬性上，但實際上又看不到它，而上述就是為什麼看不到 <code>prototype</code> 這個屬性的原因。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li>六角學院 - JS核心篇</li>
+<li><a href="https://blog.techbridge.cc/2017/04/22/javascript-prototype/">Huli- 該來理解 JavaScript 的原型鍊了</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Inheritance_and_the_prototype_chain">MDN - 繼承與原型鏈</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>為什麼想寫部落格?</title>
+    <url>/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
+    <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
+<p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
+<p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
+]]></content>
+      <categories>
+        <category>閒聊</category>
+      </categories>
+  </entry>
+  <entry>
     <title>記錄自己的成長，那怕是1%也好</title>
     <url>/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/</url>
     <content><![CDATA[<p>利用 Hexo寫技術部落格，那怕是第一篇，或者只有一篇，只怕自己停佇不前。</p>
@@ -158,51 +325,6 @@
       </tags>
   </entry>
   <entry>
-    <title>為什麼想寫部落格?</title>
-    <url>/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
-    <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
-<p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
-<p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
-]]></content>
-      <categories>
-        <category>閒聊</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo教學(三) 主題匯入</title>
-    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
-<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
-<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
-<ul>
-<li>hueman<ul>
-<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
-</ul>
-</li>
-<li>NexT<ul>
-<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
-<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
-</ul>
-</li>
-</ul>
-<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
-<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
-<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo教學(一) 使用 Hexo寫部落格</title>
     <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
     <content><![CDATA[<h2 id="為什麼要使用-Hexo寫部落格"><a href="#為什麼要使用-Hexo寫部落格" class="headerlink" title="為什麼要使用 Hexo寫部落格?"></a>為什麼要使用 Hexo寫部落格?</h2><p>現在有很多線上服務都能當成部落格，不管寫在 github、medium或者 wordpress等等，同樣是寫文章，心得也好，技術文也罷，學著使用 markdown寫文，最起碼自己的電腦有初始檔案，不怕線上服務突然關閉或者改變使用條款，而且只要有網頁伺服器，就能發布自己的部落格。</p>
@@ -233,6 +355,40 @@
 </ul>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(三) 主題匯入</title>
+    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
+<ul>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
+</ul>
+</li>
+<li>NexT<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
+</ul>
+</li>
+</ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
+</ol>
+</blockquote>
 ]]></content>
       <categories>
         <category>hexo教學</category>
@@ -524,6 +680,89 @@
       </tags>
   </entry>
   <entry>
+    <title>ES6語法糖 - 箭頭函式與this(上)</title>
+    <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
+    <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一般函式寫法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為具名函式 - 函式陳述式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為匿名函式 - 函式表達式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭頭函式</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若函式只有單一變數，參數括號可以簡化</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  str = <span class="string">&#x27;簡化參數括號&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若函式內只有單一陳述行，大括號可以簡化，但沒有參數時，括號必須存在</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式簡易寫法。&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="箭頭函式與一般函式的差異"><a href="#箭頭函式與一般函式的差異" class="headerlink" title="箭頭函式與一般函式的差異"></a>箭頭函式與一般函式的差異</h3><p>箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 每當搜尋相關介紹時，總會說明它沒有這些 : </p>
+<ul>
+<li><code>this</code></li>
+<li><code>arguments</code> </li>
+<li><code>call()</code></li>
+<li><code>apply()</code></li>
+<li><code>bind()</code></li>
+</ul>
+<p>而這些到底是甚麼? 為什麼那三個內建函式又是甚麼? 為什麼它們看起來很陌生? 在下集會來介紹，在上集中會先介紹 <code>this</code>。</p>
+<p>先簡易說明一下，<code>call()</code>、<code>apply()</code>、<code>bind()</code> 這三種 JS內建函式，可以影響 <code>this</code> 的運作，若使用箭頭函式的話，由於 ES6的規則，連帶的那三個函式也跟著無法使用。<br>而 <code>arguments</code>，它為一般函式的內建參數，在箭頭函式中無此內建參數可運用，但是可以改用 ES6的其餘參數來達到同樣效果。</p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>看到箭頭函式的介紹時，常會看到一句話，箭頭函式沒有自己的 <code>this</code>，而 <code>this</code> 從何而來，又指向誰，為什麼會用到它? </p>
+<h3 id="this是甚麼"><a href="#this是甚麼" class="headerlink" title="this是甚麼 ?"></a>this是甚麼 ?</h3><ul>
+<li>this 是 JavaScript的內建關鍵字之一</li>
+<li>通常會用在函式或物件中，來呼叫自身的擁有的屬性或值等等…</li>
+</ul>
+<h3 id="this從何而來"><a href="#this從何而來" class="headerlink" title="this從何而來 ?"></a>this從何而來 ?</h3><p>先來看個範例 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span>.a) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>當我們將瀏覽器打開時，就已經建立好全域環境與執行環境，而程式碼就是寫在執行環境中，而 <code>this</code> 與全域環境一起被建立。</p>
+<ul>
+<li>全域環境</li>
+<li><code>this</code></li>
+<li>執行環境</li>
+</ul>
+<p>當我們要呼叫 a這個變數時，由上述範例可以知道，有三種呼叫變數 a的方式 :</p>
+<ul>
+<li>直接呼叫</li>
+<li>透過全域物件呼叫</li>
+<li>透過 JS內建關鍵字 <code>this</code> 呼叫</li>
+</ul>
+<p>變數 a是由 var宣告的，而它的執行環境在全域環境中，於是變數 a就被建立在全域環境，接著就能透過全域物件 window找到它。</p>
+<h3 id="this指向誰"><a href="#this指向誰" class="headerlink" title="this指向誰 ?"></a>this指向誰 ?</h3><p>通常我們寫程式碼時，習慣在全域環境下作業，而 <code>this</code> 在呼叫自身時，<strong>必須留意在哪個環境被呼叫，而不看在哪裡被使用</strong>，像是以下這些例子 :</p>
+<ul>
+<li>簡易呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行函式，`this`會呼叫全域下的變數</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nameFn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&#x27;漂亮阿姨&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">nameFn() <span class="comment">// &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>物件中呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行物件中的函式，`this`則指向物件本身</span></span><br><span class="line"><span class="keyword">const</span> obj =&#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>物件裡呼叫函式並執行函式中的函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callFn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// 相當於直接執行 callFn2() -&gt; &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="為什麼會用-this"><a href="#為什麼會用-this" class="headerlink" title="為什麼會用 this ?"></a>為什麼會用 this ?</h3><p>在 <code>this</code> 一開始有提到，它可以用在函式或物件中，來呼叫自身的擁有的屬性或值，來看以下例子 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> personA = &#123;</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params">number</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;number&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personA.sayHello(personA.age)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> personB = &#123;</span><br><span class="line">  age: <span class="number">10</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personB.sayHello()</span><br></pre></td></tr></table></figure>
+<p>使用 <code>this</code> 可以讓程式碼簡化不少。</p>
+<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>上述範例中，物件裡呼叫函式並執行函式中的函式，<code>this</code> 會指向全域，而我們可以使用箭頭函式來解決這樣的問題，因為 : </p>
+<ul>
+<li>箭頭函式沒有自己的 <code>this</code></li>
+<li>當箭頭函式中使用 <code>this</code>時，它會往上一層尋找</li>
+<li>也就是說，<strong>在哪邊被使用，它就會往上一層尋找，而不看環境</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn () &#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="keyword">const</span> callFn2 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="回想"><a href="#回想" class="headerlink" title="回想"></a>回想</h2><ul>
+<li>箭頭函式怎麼寫 ?</li>
+<li>如何知道箭頭函式沒有自己的 <code>this</code> ?</li>
+<li>甚麼時候會用到 <code>this</code> ?</li>
+<li><code>this</code> 在不同地方會指向誰 ?<ul>
+<li>在全域環境下，若創造一個箭頭函式並使用了 <code>this</code> ，它會指向誰 ?</li>
+<li>在物件中新增了一個函式並使用了 <code>this</code> ，最後在全域環境下呼叫物件內的函式，它會指向誰 ?</li>
+</ul>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/schaoss-blog/%E5%89%8D%E7%AB%AF%E4%B8%89%E5%8D%81-10-js-%E4%B8%80%E8%88%AC%E5%87%BD%E5%BC%8F%E8%88%87%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E7%9A%84%E5%B7%AE%E7%95%B0-32ce9455ff1a">Schaos - 前端三十｜10. [JS] 一般函式與箭頭函式的差異？</a></li>
+<li><a href="https://blog.techbridge.cc/2019/02/23/javascript-this/">胡立 - 淺談 JavaScript 頭號難題 this：絕對不完整，但保證好懂</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10218937">Mooji - JS 原力覺醒 Day07 - 陳述式 表達式</a></li>
+<li><a href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">卡斯伯 - 鐵人賽：箭頭函式 (Arrow functions)</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN - 箭頭函式</a></li>
+<li>六角學院 - JS核心篇</li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo教學 Next主題設定與頁面功能(Ver. 8)</title>
     <url>/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/</url>
     <content><![CDATA[<p>由於自己選擇了 NexT主題匯入，這邊就以 NexT的設定做介紹。<br>請找到 <code>themes/next/_config.yml</code> 這隻檔案。</p>
@@ -615,89 +854,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6語法糖 - 箭頭函式與this(上)</title>
-    <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
-    <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一般函式寫法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為具名函式 - 函式陳述式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為匿名函式 - 函式表達式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭頭函式</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若函式只有單一變數，參數括號可以簡化</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  str = <span class="string">&#x27;簡化參數括號&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若函式內只有單一陳述行，大括號可以簡化，但沒有參數時，括號必須存在</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式簡易寫法。&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="箭頭函式與一般函式的差異"><a href="#箭頭函式與一般函式的差異" class="headerlink" title="箭頭函式與一般函式的差異"></a>箭頭函式與一般函式的差異</h3><p>箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 每當搜尋相關介紹時，總會說明它沒有這些 : </p>
-<ul>
-<li><code>this</code></li>
-<li><code>arguments</code> </li>
-<li><code>call()</code></li>
-<li><code>apply()</code></li>
-<li><code>bind()</code></li>
-</ul>
-<p>而這些到底是甚麼? 為什麼那三個內建函式又是甚麼? 為什麼它們看起來很陌生? 在下集會來介紹，在上集中會先介紹 <code>this</code>。</p>
-<p>先簡易說明一下，<code>call()</code>、<code>apply()</code>、<code>bind()</code> 這三種 JS內建函式，可以影響 <code>this</code> 的運作，若使用箭頭函式的話，由於 ES6的規則，連帶的那三個函式也跟著無法使用。<br>而 <code>arguments</code>，它為一般函式的內建參數，在箭頭函式中無此內建參數可運用，但是可以改用 ES6的其餘參數來達到同樣效果。</p>
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>看到箭頭函式的介紹時，常會看到一句話，箭頭函式沒有自己的 <code>this</code>，而 <code>this</code> 從何而來，又指向誰，為什麼會用到它? </p>
-<h3 id="this是甚麼"><a href="#this是甚麼" class="headerlink" title="this是甚麼 ?"></a>this是甚麼 ?</h3><ul>
-<li>this 是 JavaScript的內建關鍵字之一</li>
-<li>通常會用在函式或物件中，來呼叫自身的擁有的屬性或值等等…</li>
-</ul>
-<h3 id="this從何而來"><a href="#this從何而來" class="headerlink" title="this從何而來 ?"></a>this從何而來 ?</h3><p>先來看個範例 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span>.a) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<p>當我們將瀏覽器打開時，就已經建立好全域環境與執行環境，而程式碼就是寫在執行環境中，而 <code>this</code> 與全域環境一起被建立。</p>
-<ul>
-<li>全域環境</li>
-<li><code>this</code></li>
-<li>執行環境</li>
-</ul>
-<p>當我們要呼叫 a這個變數時，由上述範例可以知道，有三種呼叫變數 a的方式 :</p>
-<ul>
-<li>直接呼叫</li>
-<li>透過全域物件呼叫</li>
-<li>透過 JS內建關鍵字 <code>this</code> 呼叫</li>
-</ul>
-<p>變數 a是由 var宣告的，而它的執行環境在全域環境中，於是變數 a就被建立在全域環境，接著就能透過全域物件 window找到它。</p>
-<h3 id="this指向誰"><a href="#this指向誰" class="headerlink" title="this指向誰 ?"></a>this指向誰 ?</h3><p>通常我們寫程式碼時，習慣在全域環境下作業，而 <code>this</code> 在呼叫自身時，<strong>必須留意在哪個環境被呼叫，而不看在哪裡被使用</strong>，像是以下這些例子 :</p>
-<ul>
-<li>簡易呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行函式，`this`會呼叫全域下的變數</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nameFn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&#x27;漂亮阿姨&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">nameFn() <span class="comment">// &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure></li>
-<li>物件中呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行物件中的函式，`this`則指向物件本身</span></span><br><span class="line"><span class="keyword">const</span> obj =&#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure></li>
-<li>物件裡呼叫函式並執行函式中的函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callFn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// 相當於直接執行 callFn2() -&gt; &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="為什麼會用-this"><a href="#為什麼會用-this" class="headerlink" title="為什麼會用 this ?"></a>為什麼會用 this ?</h3><p>在 <code>this</code> 一開始有提到，它可以用在函式或物件中，來呼叫自身的擁有的屬性或值，來看以下例子 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> personA = &#123;</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params">number</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;number&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personA.sayHello(personA.age)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> personB = &#123;</span><br><span class="line">  age: <span class="number">10</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personB.sayHello()</span><br></pre></td></tr></table></figure>
-<p>使用 <code>this</code> 可以讓程式碼簡化不少。</p>
-<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>上述範例中，物件裡呼叫函式並執行函式中的函式，<code>this</code> 會指向全域，而我們可以使用箭頭函式來解決這樣的問題，因為 : </p>
-<ul>
-<li>箭頭函式沒有自己的 <code>this</code></li>
-<li>當箭頭函式中使用 <code>this</code>時，它會往上一層尋找</li>
-<li>也就是說，<strong>在哪邊被使用，它就會往上一層尋找，而不看環境</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn () &#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="keyword">const</span> callFn2 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="回想"><a href="#回想" class="headerlink" title="回想"></a>回想</h2><ul>
-<li>箭頭函式怎麼寫 ?</li>
-<li>如何知道箭頭函式沒有自己的 <code>this</code> ?</li>
-<li>甚麼時候會用到 <code>this</code> ?</li>
-<li><code>this</code> 在不同地方會指向誰 ?<ul>
-<li>在全域環境下，若創造一個箭頭函式並使用了 <code>this</code> ，它會指向誰 ?</li>
-<li>在物件中新增了一個函式並使用了 <code>this</code> ，最後在全域環境下呼叫物件內的函式，它會指向誰 ?</li>
-</ul>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/schaoss-blog/%E5%89%8D%E7%AB%AF%E4%B8%89%E5%8D%81-10-js-%E4%B8%80%E8%88%AC%E5%87%BD%E5%BC%8F%E8%88%87%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E7%9A%84%E5%B7%AE%E7%95%B0-32ce9455ff1a">Schaos - 前端三十｜10. [JS] 一般函式與箭頭函式的差異？</a></li>
-<li><a href="https://blog.techbridge.cc/2019/02/23/javascript-this/">胡立 - 淺談 JavaScript 頭號難題 this：絕對不完整，但保證好懂</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10218937">Mooji - JS 原力覺醒 Day07 - 陳述式 表達式</a></li>
-<li><a href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">卡斯伯 - 鐵人賽：箭頭函式 (Arrow functions)</a></li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN - 箭頭函式</a></li>
-<li>六角學院 - JS核心篇</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
     <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
     <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
@@ -749,74 +905,6 @@
 <li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
 <li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
 <li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ES6變數宣告與全域環境</title>
-    <url>/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
-<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
-<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
-<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
-<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>只在某區塊(例如函式)中有作用</li>
-<li>無法重複宣告同樣變數名稱</li>
-<li>變數的值可改變</li>
-</ul>
-<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>無法重複宣告</li>
-<li>變數的值不可改變</li>
-<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
-</ul>
-<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
-<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
-<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
-<ul>
-<li>物件環境 Object Environment</li>
-<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-以表格來看的話，類似像這樣 : <table>
-<thead>
-<tr>
-<th>聲明環境</th>
-<th>物件環境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a</td>
-<td>10</td>
-</tr>
-<tr>
-<td>b</td>
-<td>funciton()</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<p>而 JS是物件導向，以物件來看的話，</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
-<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
-<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
-<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -938,6 +1026,74 @@
 <li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/destructuring.html">從ES6開始的JavaScript學習生活 - 解構賦值</a></li>
 <li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/rest_spread.html">從ES6開始的JavaScript學習生活 - 展開運算符與其餘運算符</a></li>
 <li><a href="https://medium.com/@realdennis/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-%E8%A8%AD%E8%A8%88%E5%87%BD%E6%95%B8%E6%99%82%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7-javascript-1466f37d24f0">realdennis - 解構賦值 — 設計函數時的小技巧 JavaScript</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6變數宣告與全域環境</title>
+    <url>/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
+<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
+<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
+<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>只在某區塊(例如函式)中有作用</li>
+<li>無法重複宣告同樣變數名稱</li>
+<li>變數的值可改變</li>
+</ul>
+<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>無法重複宣告</li>
+<li>變數的值不可改變</li>
+<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
+</ul>
+<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
+<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
+<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
+<ul>
+<li>物件環境 Object Environment</li>
+<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+以表格來看的話，類似像這樣 : <table>
+<thead>
+<tr>
+<th>聲明環境</th>
+<th>物件環境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>10</td>
+</tr>
+<tr>
+<td>b</td>
+<td>funciton()</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>而 JS是物件導向，以物件來看的話，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
+<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
+<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
+<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
 </ol>
 </blockquote>
 ]]></content>
