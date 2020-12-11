@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+<meta name="google-site-verification" content="4pGR0zTBZNJ_Sp2fv8CWZmJieJkVxj4jdmuk95vxpvE" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="當我們寫好程式碼後，將它執行看結果，為何有時跟預期的不一樣?">
+<meta property="og:type" content="article">
+<meta property="og:title" content="提升">
+<meta property="og:url" content="https://hsuan777.github.io/2020/12/11/javascript/%E6%8F%90%E5%8D%87/index.html">
+<meta property="og:site_name" content="Help One Percent">
+<meta property="og:description" content="當我們寫好程式碼後，將它執行看結果，為何有時跟預期的不一樣?">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-12-11T08:08:48.000Z">
+<meta property="article:modified_time" content="2020-12-11T08:34:41.865Z">
+<meta property="article:author" content="Vic">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hsuan777.github.io/2020/12/11/javascript/%E6%8F%90%E5%8D%87/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>提升 | Help One Percent</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Help One Percent</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">遺忘x回想x自動化</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E6%8F%90%E5%8D%87"><span class="nav-number">1.</span> <span class="nav-text">變數提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%87%BD%E5%BC%8F%E6%8F%90%E5%8D%87"><span class="nav-number">2.</span> <span class="nav-text">函式提升</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AE%8A%E6%95%B8%E8%88%87%E5%87%BD%E5%BC%8F%E6%8F%90%E5%8D%87%E7%9A%84%E5%84%AA%E5%85%88%E7%A8%8B%E5%BA%A6"><span class="nav-number">3.</span> <span class="nav-text">變數與函式提升的優先程度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hosting-%E5%81%9A%E4%BA%86%E7%94%9A%E9%BA%BC%E4%BA%8B"><span class="nav-number">4.</span> <span class="nav-text">Hosting 做了甚麼事</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Temporal-Dead-Zone"><span class="nav-number">5.</span> <span class="nav-text">Temporal Dead Zone</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">6.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vic</p>
+  <div class="site-description" itemprop="description">哪怕是1%也好，只怕自己停佇不前</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://hsuan777.github.io/2020/12/11/javascript/%E6%8F%90%E5%8D%87/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vic">
+      <meta itemprop="description" content="哪怕是1%也好，只怕自己停佇不前">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Help One Percent">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          提升
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-12-11 16:08:48 / 修改時間：16:34:41" itemprop="dateCreated datePublished" datetime="2020-12-11T16:08:48+08:00">2020-12-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">當我們寫好程式碼後，將它執行看結果，為何有時跟預期的不一樣?</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>分別呼叫這些例子，會產生甚麼結果?</p>
+<p>E.g. 1. : console.log 結果會是?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+<p>E.g. 2 : console.log 結果會是?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+
+<p>E.g. 3 : fnA() 是否執行? 又會產生甚麼?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fn()</span><br><span class="line"><span class="keyword">var</span> fn = <span class="function">() =&gt;</span> <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+
+<p>E.g. 4 : console.log 結果會是?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fn)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="變數提升"><a href="#變數提升" class="headerlink" title="變數提升"></a>變數提升</h2><p>當我們宣告變數時，JS就會先開一個記憶體位置來存放，而它的預設值為 ‘undefined’，最後賦予我們給這個變數的值。<br>而 JS的執行順序為由上至下且依序執行，所以範例1與範例2的樣子就會是 :<br>E.g. 1 : console.log 結果會是 a is not defined</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) </span><br></pre></td></tr></table></figure>
+<p>E.g. 2 : console.log 結果會是 undefined</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>實際上它的執行順序是這樣 : </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line">a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="函式提升"><a href="#函式提升" class="headerlink" title="函式提升"></a>函式提升</h2><p>在 JS中，它會依據函式定義的位置順序，依序將函式提升到最上方，但在函式內的不會移動到外層。<br>E.g. 3 : fnA() 會執行並 return 1</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fn()</span><br><span class="line"><span class="keyword">var</span> fn = <span class="function">() =&gt;</span> <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+<p>實際上它的執行順序是這樣 : </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function">() =&gt;</span> <span class="number">1</span></span><br><span class="line">fn()</span><br></pre></td></tr></table></figure>
+<p>而在函式內的函式不會提升到外層，但是可以呼叫外層的函式 : </p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line"> fnB()</span><br><span class="line"> fnC()</span><br><span class="line"> <span class="keyword">var</span> fnB = <span class="function">() =&gt;</span> <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fnC = <span class="function">() =&gt;</span> <span class="number">3</span></span><br><span class="line">fnA()</span><br></pre></td></tr></table></figure>
+<p>不過，如果將匿名函式賦予到一個變數上，就會根據變數的規則走。</p>
+<hr>
+<h2 id="變數與函式提升的優先程度"><a href="#變數與函式提升的優先程度" class="headerlink" title="變數與函式提升的優先程度"></a>變數與函式提升的優先程度</h2><p>在 JS中，會將優先將函式提升到最上方，接著再宣告變數，而函式的參數傳遞限於函式內並且是最優先，重新宣告它無任何意義。<br>E.g. 4 : console.log 結果會是 function fn( ){}</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fn)</span><br><span class="line"><span class="comment">// 第一次 console.log(fn) 為 function fn()&#123;&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(fn)</span><br><span class="line"><span class="comment">// 第二次 console.log(fn) 為 1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  fnB(<span class="number">10</span>)</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a+<span class="number">3</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">5</span></span><br><span class="line">&#125;</span><br><span class="line">fnA(<span class="number">1</span>) </span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 13</span></span><br><span class="line"><span class="comment">// 若使用 let 宣告 a會報錯，因為 a為參數</span></span><br><span class="line"><span class="comment">// Identifier &#x27;a&#x27; has already been declared </span></span><br><span class="line"><span class="comment">// fnB() 的參數其實跟 fnA的參數 a無關，只看 fnB()真正執行時傳了甚麼值進去</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Hosting-做了甚麼事"><a href="#Hosting-做了甚麼事" class="headerlink" title="Hosting 做了甚麼事"></a>Hosting 做了甚麼事</h2><p>我們打開編輯器撰寫 JS時，其實是在一個全域環境底下開始寫程式，它同時是全域也是執行環境，當我們宣告一個 function時，也會同時建立 : </p>
+<ul>
+<li>獨立的執行環境 ( Execution Contexts )</li>
+<li>獨立的變數物件 ( Variable Object )</li>
+</ul>
+<p>以下的例子有不同情況 : </p>
+<ol>
+<li><p>多餘的變數，其預設為 undefined</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 建立執行環境 Execution Contexts</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a, b, c</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c)</span><br><span class="line">&#125;</span><br><span class="line">fnA(<span class="number">10</span>)</span><br><span class="line"><span class="comment">// 10 undefined undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 建立變數物件 VO </span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   a:10</span></span><br><span class="line"><span class="comment">//   b:undefined</span></span><br><span class="line"><span class="comment">//   c:undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函式內建立函式，函式若與參數同名會被覆蓋</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 執行環境 Execution Contexts</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">1</span>&#125;</span><br><span class="line">fnA(fnB)</span><br><span class="line"><span class="comment">// function a()&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 參數 a 被函式覆蓋掉</span></span><br><span class="line"><span class="comment">// VO variable object</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   a: function a()&#123;&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>總合以上情況並再次宣告參數然後賦予值</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a, b, c</span>)</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c)</span><br><span class="line">  <span class="comment">// 10 function b()&#123;&#125; undefined</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">5</span></span><br><span class="line">  <span class="built_in">console</span>.log(c)</span><br><span class="line">  <span class="comment">// 5</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">1</span>&#125;</span><br><span class="line">fnA(<span class="number">10</span>, fnB)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 為什麼 c不是 5? 因為它宣告被忽略且呼叫時未被設定成 5</span></span><br><span class="line"><span class="comment">// 在第二次呼叫 c 時，已被設定成 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// VO variable object</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   a: 10,</span></span><br><span class="line"><span class="comment">//   b: function b()&#123;&#125;,</span></span><br><span class="line"><span class="comment">//   c: undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>透過以上例子可以發現，當有執行環境後，就會有變數物件，而它在函式中會做以下三件事 : </p>
+<ul>
+<li>若參數值為函式且參數名稱同名則覆蓋成函式</li>
+<li>若函式內宣告且與參數名稱同名則忽略</li>
+<li>參數名稱若有設定，預設值為 undefined</li>
+</ul>
+<p>回到全域環境後，就更加單純，使用 var宣告的函式與變數會被覆蓋，若該變數未賦予值時，預設值為 undefined。</p>
+<p>再回想一下，當我們寫好 JS程式碼後，透過瀏覽器執行，其實是開始創建接著執行，在創建(包含編譯)的過程中，<strong>Hosting 就是在建立變數物件的過程。</strong></p>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 撰寫 &gt; 創建(包含建立變數物件) &gt; 執行</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Temporal-Dead-Zone"><a href="#Temporal-Dead-Zone" class="headerlink" title="Temporal Dead Zone"></a>Temporal Dead Zone</h2><p>目前的範例都是使用 var 來宣告，ES6開始就推薦以 let或 const 來宣告變數，那麼 let 與 const 所宣告的變數與函式也具有提升特性嗎?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span> </span><br><span class="line"><span class="comment">// Uncaught ReferenceError: Cannot access &#x27;a&#x27; before initialization </span></span><br></pre></td></tr></table></figure>
+<p>上面錯誤的意義是，未初始化變數 a前，無法存取它的值，為什麼會這樣?</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 執行環境</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span> </span><br><span class="line"><span class="comment">// VO，在變數物件中還是有建立名稱，</span></span><br><span class="line"><span class="comment">// 但按照依序執行的規則變成了未賦予值</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//  a: ?</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>為了解釋這個空窗期，於是就有了這個名詞 Temporal Dead Zone。拋出錯誤的目的還是希望開發者的撰寫習慣能改變吧?! </p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://blog.techbridge.cc/2018/11/10/javascript-hoisting/">Huli - 我知道你懂 hoisting，可是你了解到多深？</a></li>
+<li><a target="_blank" rel="noopener" href="https://shawnlin0201.github.io/JavaScript/JavaScript-Variable-Object-and-Activation-Object/">ShawnL - JavaScript 深入淺出 Variable Object &amp; Activation Object</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10219518">江江好 - Day22【ES6 小筆記】變數提升（Hoisting）與暫時死區（TDZ）</a></li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/10/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E7%89%B9%E5%BE%B5/" rel="prev" title="JS核心篇-物件屬性特徵">
+                  <i class="fa fa-chevron-left"></i> JS核心篇-物件屬性特徵
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-paw"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vic 尊重分享者，從你我做起~</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

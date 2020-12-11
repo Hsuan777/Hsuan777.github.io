@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+<meta name="google-site-verification" content="4pGR0zTBZNJ_Sp2fv8CWZmJieJkVxj4jdmuk95vxpvE" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Noto+Sans+TC:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.0/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"hsuan777.github.io","root":"/","scheme":"Pisces","version":"8.0.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
+  </script>
+
+  <meta name="description" content="紀錄物件屬性特徵可以怎樣做設定，包含 Getter 與 Setter。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS核心篇-物件屬性特徵">
+<meta property="og:url" content="https://hsuan777.github.io/2020/12/10/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E7%89%B9%E5%BE%B5/index.html">
+<meta property="og:site_name" content="Help One Percent">
+<meta property="og:description" content="紀錄物件屬性特徵可以怎樣做設定，包含 Getter 與 Setter。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2020-12-10T06:44:56.000Z">
+<meta property="article:modified_time" content="2020-12-10T06:48:48.467Z">
+<meta property="article:author" content="Vic">
+<meta property="article:tag" content="JavaScript">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://hsuan777.github.io/2020/12/10/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E7%89%B9%E5%BE%B5/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>JS核心篇-物件屬性特徵 | Help One Percent</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Help One Percent</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">遺忘x回想x自動化</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <section class="post-toc-wrap sidebar-panel">
+          <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E8%A8%AD%E5%AE%9A"><span class="nav-number">1.</span> <span class="nav-text">物件屬性設定</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%96%AE%E4%B8%80%E5%B1%AC%E6%80%A7%E8%A8%AD%E5%AE%9A-Object-definedProperty"><span class="nav-number">1.1.</span> <span class="nav-text">單一屬性設定 Object.definedProperty</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%9A%E5%80%8B%E5%B1%AC%E6%80%A7%E7%89%B9%E5%BE%B5%E8%A8%AD%E5%AE%9A-Object-defineProperties"><span class="nav-number">1.2.</span> <span class="nav-text">多個屬性特徵設定 Object.defineProperties</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%89%A9%E4%BB%B6%E8%A8%AD%E5%AE%9A%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">物件設定方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-preventExtensions"><span class="nav-number">2.1.</span> <span class="nav-text">Object.preventExtensions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-seal"><span class="nav-number">2.2.</span> <span class="nav-text">Object.seal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Object-freeze"><span class="nav-number">2.3.</span> <span class="nav-text">Object.freeze</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%B3%A6%E5%80%BC%E9%81%8B%E7%AE%97%E4%B8%8D%E4%BD%BF%E7%94%A8%E9%A1%8D%E5%A4%96%E5%87%BD%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">賦值運算不使用額外函式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Getter-%E8%88%87-Setter"><span class="nav-number">3.1.</span> <span class="nav-text">Getter 與 Setter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Object-defineProperty%EF%BC%8C%E8%A8%AD%E5%AE%9A-Getter%E3%80%81Setter"><span class="nav-number">3.2.</span> <span class="nav-text">使用 Object.defineProperty，設定 Getter、Setter</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%8C%AF%E8%AA%A4%E8%A8%AD%E5%AE%9A"><span class="nav-number">3.3.</span> <span class="nav-text">錯誤設定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%83%E8%80%83%E4%BE%86%E6%BA%90"><span class="nav-number">4.</span> <span class="nav-text">參考來源</span></a></li></ol></div>
+      </section>
+      <!--/noindex-->
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Vic</p>
+  <div class="site-description" itemprop="description">哪怕是1%也好，只怕自己停佇不前</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </section>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://hsuan777.github.io/2020/12/10/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E7%89%B9%E5%BE%B5/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Vic">
+      <meta itemprop="description" content="哪怕是1%也好，只怕自己停佇不前">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Help One Percent">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          JS核心篇-物件屬性特徵
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2020-12-10 14:44:56 / 修改時間：14:48:48" itemprop="dateCreated datePublished" datetime="2020-12-10T14:44:56+08:00">2020-12-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+            <div class="post-description">紀錄物件屬性特徵可以怎樣做設定，包含 Getter 與 Setter。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>本文快速導覽 : </p>
+<ul>
+<li>物件屬性設定<ul>
+<li>單一屬性設定 <code>Object.definedProperty(物件, 屬性)</code> </li>
+<li>多個屬性設定 <code>Object.defineProperties(物件, &#123; 屬性:&#123;&#125;, 屬性2:&#123;&#125;&#125;)</code> </li>
+</ul>
+</li>
+<li>物件設定方法<ul>
+<li>防止物件屬性擴充 <code>Object.preventExtensions(物件)</code> </li>
+<li>封裝物件 <code>Object.seal</code></li>
+<li>凍結物件 <code>Object.freeze</code></li>
+</ul>
+</li>
+<li>檢查物件設定<ul>
+<li>回傳物件屬性設定 <code>Object.getOwnPropertyDescriptor(物件, 屬性)</code> </li>
+<li>回傳多個物件屬性設定 <code>Object.getOwnPropertyDescriptors(物件, 屬性1, 屬性2)</code></li>
+<li>物件屬性可否被擴充 <code>Object.isExtensible(物件)</code> (true or fasle)</li>
+<li>物件是否被封裝 <code>Object.isSealed(物件)</code></li>
+<li>物件是否被凍結 <code>Object.isFrozen(物件)</code></li>
+<li>列舉物件屬性 <code>Object.keys(物件)</code><ul>
+<li>只回傳可被列舉的屬性名稱</li>
+<li>與 <code>for in</code> 一致</li>
+<li>回傳陣列 <code>[屬性1, 屬性2, ...]</code></li>
+</ul>
+</li>
+<li>列舉物件屬性 <code>Object.getOwnPropertyNames(物件)</code><ul>
+<li>不管是否無法被列舉，都會顯示其屬性名稱</li>
+<li>回傳陣列 <code>[屬性1, 屬性2, ...]</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>賦值運算不使用額外函式<ul>
+<li>Getter 與 Setter  </li>
+<li>錯誤設定</li>
+</ul>
+</li>
+</ul>
+<p>(快速導覽包含一些本文未使用的方法，以方便日後搜尋)</p>
+<h2 id="物件屬性設定"><a href="#物件屬性設定" class="headerlink" title="物件屬性設定"></a>物件屬性設定</h2><p>在原型鏈中，我們會用 <code>某函式.prototype.要新增的屬性名稱</code> 在原生原型上新增共用的方法或值，但新增後使用 <code>console.log()</code> 卻找不到它，這是怎麼一回事? 原因在於它的屬性被 <code>Object.definedProperty</code> 設定了。</p>
+<h3 id="單一屬性設定-Object-definedProperty"><a href="#單一屬性設定-Object-definedProperty" class="headerlink" title="單一屬性設定 Object.definedProperty"></a>單一屬性設定 Object.definedProperty</h3><table>
+<thead>
+<tr>
+<th>可設定特徵名稱</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>value</td>
+<td>值</td>
+</tr>
+<tr>
+<td>writable</td>
+<td>可否寫入</td>
+</tr>
+<tr>
+<td>configurable</td>
+<td>可否被刪除</td>
+</tr>
+<tr>
+<td>enumerable</td>
+<td>可否被列舉</td>
+</tr>
+</tbody></table>
+<p>要注意的是，<code>Object.definedProperty</code> 只能針對當下的物件屬性作設定，若物件內屬性值也為物件，還是可以被寫入。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 物件屬性設定 */</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span>,</span><br><span class="line">  c: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">&#x27;a&#x27;</span>, &#123;</span><br><span class="line">  value: <span class="number">10</span>,</span><br><span class="line">  writable: <span class="literal">false</span>, <span class="comment">// 不可寫入</span></span><br><span class="line">  configurable: <span class="literal">false</span>, <span class="comment">// 不可被刪除</span></span><br><span class="line">  enumerable: <span class="literal">false</span> <span class="comment">// 不可被列舉</span></span><br><span class="line">&#125;)</span><br><span class="line">person.a = <span class="number">100</span> </span><br><span class="line"><span class="keyword">delete</span> person.a</span><br><span class="line"></span><br><span class="line"><span class="comment">// 可以用 for in 的方式看每個屬性名稱，</span></span><br><span class="line"><span class="comment">// 會發現 person.a 還在</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> key <span class="keyword">in</span> person)&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(key)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person.a) </span><br><span class="line"><span class="comment">// 10，不可再寫入，不能被刪除，也不能被列舉</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 若物件內屬性值也為物件，還是可以被寫入 */</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">&#x27;d&#x27;</span>, &#123;</span><br><span class="line">  value: &#123;&#125;,</span><br><span class="line">  writable: <span class="literal">true</span>, </span><br><span class="line">  configurable: <span class="literal">true</span>, </span><br><span class="line">  enumerable: <span class="literal">true</span> </span><br><span class="line">&#125;)</span><br><span class="line">person.d.a = <span class="number">1000</span></span><br><span class="line"><span class="built_in">console</span>.log(person.d.a) <span class="comment">// 1000</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="多個屬性特徵設定-Object-defineProperties"><a href="#多個屬性特徵設定-Object-defineProperties" class="headerlink" title="多個屬性特徵設定 Object.defineProperties"></a>多個屬性特徵設定 Object.defineProperties</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 一次修改多屬性設定 */</span></span><br><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  a: <span class="number">1</span>,</span><br><span class="line">  b: <span class="number">2</span>,</span><br><span class="line">  c: <span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(person, &#123;</span><br><span class="line">  b: &#123;</span><br><span class="line">    value: <span class="number">200</span></span><br><span class="line">  &#125;,</span><br><span class="line">  d: &#123;</span><br><span class="line">    writable: <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">person.d = []</span><br><span class="line"><span class="built_in">console</span>.log(person.b) <span class="comment">// 200</span></span><br><span class="line"><span class="built_in">console</span>.log(person.d) <span class="comment">// &#123; a:1000 &#125;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="物件設定方法"><a href="#物件設定方法" class="headerlink" title="物件設定方法"></a>物件設定方法</h2><p>除了可以設定物件內屬性，也可以針對物件本身去設定，像是 : </p>
+<ul>
+<li><code>Object.preventExtensions</code><ul>
+<li>防止擴充 / 無法新增屬性，但無法針對巢狀屬性禁止</li>
+</ul>
+</li>
+<li><code>Object.seal</code><ul>
+<li>封裝</li>
+</ul>
+</li>
+<li><code>Object.Freeze</code><ul>
+<li>凍結</li>
+</ul>
+</li>
+</ul>
+<h3 id="Object-preventExtensions"><a href="#Object-preventExtensions" class="headerlink" title="Object.preventExtensions"></a>Object.preventExtensions</h3><ul>
+<li>防止該物件屬性被擴充，但它無法對巢狀物件屬性禁止</li>
+<li>屬性可以被刪除<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  a:<span class="number">1</span>, </span><br><span class="line">  b:<span class="number">2</span>, </span><br><span class="line">  c:<span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.preventExtensions(person)</span><br><span class="line"><span class="keyword">delete</span> person.c</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回傳布林值，是否可被擴充</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;是否可以被擴充:&#x27;</span>+ <span class="built_in">Object</span>.isExtensible(person))</span><br><span class="line"></span><br><span class="line"><span class="comment">// 檢查物件屬性設定</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(person, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   configurable: true,</span></span><br><span class="line"><span class="comment">//   enumerable: true,</span></span><br><span class="line"><span class="comment">//   value: 1,</span></span><br><span class="line"><span class="comment">//   writable: true</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person)</span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   a: 1,</span></span><br><span class="line"><span class="comment">//   b: 2</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Object-seal"><a href="#Object-seal" class="headerlink" title="Object.seal"></a>Object.seal</h3><ul>
+<li>不能調整屬性特徵</li>
+<li>可以調整目前屬性值</li>
+<li>物件屬性會被加上 preventExtensions</li>
+<li>無法新增刪除屬性<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  a:<span class="number">1</span>, </span><br><span class="line">  b:<span class="number">2</span>, </span><br><span class="line">  c:<span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.seal(person)</span><br><span class="line">person.a = <span class="number">1000</span></span><br><span class="line">person.d = <span class="number">10</span></span><br><span class="line"><span class="keyword">delete</span> person.b</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(person, <span class="string">&#x27;b&#x27;</span>, &#123;</span><br><span class="line">  writable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line">person.b = <span class="number">2000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 回傳布林值，是否被封裝</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;是否被封裝:&#x27;</span>+ <span class="built_in">Object</span>.isSealed(person))</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 檢查物件屬性設定</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(person, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   configurable: false,</span></span><br><span class="line"><span class="comment">//   enumerable: true,</span></span><br><span class="line"><span class="comment">//   value: 1000,</span></span><br><span class="line"><span class="comment">//   writable: true</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(person)</span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   a: 1000,</span></span><br><span class="line"><span class="comment">//   b: 2000,</span></span><br><span class="line"><span class="comment">//   c: 3</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="Object-freeze"><a href="#Object-freeze" class="headerlink" title="Object.freeze"></a>Object.freeze</h3><p>物件使用 <code>Object.Freeze</code> 凍結後，就無法對它修改屬性設定，否則會報錯。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  a:<span class="number">1</span>, </span><br><span class="line">  b:<span class="number">2</span>, </span><br><span class="line">  c:<span class="number">3</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.Freeze(person)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 回傳布林值，是否被凍結</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;是否被凍結:&#x27;</span>+ <span class="built_in">Object</span>.isFrozen(person))</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 檢查物件屬性設定</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(person, <span class="string">&#x27;a&#x27;</span>))</span><br><span class="line"><span class="comment">// Object &#123;</span></span><br><span class="line"><span class="comment">//   configurable: false,</span></span><br><span class="line"><span class="comment">//   enumerable: true,</span></span><br><span class="line"><span class="comment">//   value: 1,</span></span><br><span class="line"><span class="comment">//   writable: false</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="賦值運算不使用額外函式"><a href="#賦值運算不使用額外函式" class="headerlink" title="賦值運算不使用額外函式"></a>賦值運算不使用額外函式</h2><p>物件屬性還有兩個特徵可以設定，分別是 Getter 與 Setter，以下就來看看它們怎麼運作。</p>
+<h3 id="Getter-與-Setter"><a href="#Getter-與-Setter" class="headerlink" title="Getter 與 Setter"></a>Getter 與 Setter</h3><ul>
+<li>Getter，取值<ul>
+<li>使用 console.log()檢查時，狀態為 <code>...</code>，當點開時才會正確取值</li>
+</ul>
+</li>
+<li>Setter，存值<ul>
+<li>必須要有傳入參數，否則報錯</li>
+<li>console.log()、return 不會有任何作用<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;</span><br><span class="line">  array: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>],</span><br><span class="line">  <span class="keyword">get</span> <span class="title">getData</span>()&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.array</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="keyword">set</span> <span class="title">addData</span>(<span class="params">a</span>)&#123;</span><br><span class="line">    <span class="built_in">this</span>.array.push(a)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">  &#125;,</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">a.addData = <span class="string">&quot;99&quot;</span></span><br><span class="line">a.addData = <span class="string">&quot;100&quot;</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="使用-Object-defineProperty，設定-Getter、Setter"><a href="#使用-Object-defineProperty，設定-Getter、Setter" class="headerlink" title="使用 Object.defineProperty，設定 Getter、Setter"></a>使用 Object.defineProperty，設定 Getter、Setter</h3><p>若有一個已知的物件其屬性未設定 Getter、Setter，可以使用 defineProperty來設定。透過這個方式設定時，Getter、Setter的預設為不可列舉也不可被刪除。以下範例使用了 : </p>
+<ul>
+<li>多個屬性特徵設定</li>
+<li>Getter 與 Setter<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 收入來源有股票與工作</span></span><br><span class="line"><span class="comment">// 將它們分別設定 Getter 與 Setter</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> sourceofIncome = &#123;</span><br><span class="line">  money: <span class="number">0</span>,</span><br><span class="line">  stock: <span class="literal">null</span>,</span><br><span class="line">  work: <span class="literal">null</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperties(sourceofIncome, &#123;</span><br><span class="line">  money: &#123;</span><br><span class="line">    configurable: <span class="literal">false</span></span><br><span class="line">  &#125;,</span><br><span class="line">  stock: &#123;</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span> (<span class="params">money</span>)</span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.__stock__ = money</span><br><span class="line">      <span class="built_in">this</span>.money += money</span><br><span class="line">    &#125;,</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`股票賺了: <span class="subst">$&#123;<span class="built_in">this</span>.__stock__&#125;</span>，現在有: <span class="subst">$&#123;<span class="built_in">this</span>.money&#125;</span>`</span></span><br><span class="line">    &#125; </span><br><span class="line">  &#125;,</span><br><span class="line">  work: &#123;</span><br><span class="line">    set: <span class="function"><span class="keyword">function</span> (<span class="params">money</span>)</span>&#123;</span><br><span class="line">      <span class="built_in">this</span>.__work__ = money</span><br><span class="line">      <span class="built_in">this</span>.money += money</span><br><span class="line">    &#125;,</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">`股票賺了: <span class="subst">$&#123;<span class="built_in">this</span>.__work__&#125;</span>，現在有: <span class="subst">$&#123;<span class="built_in">this</span>.money&#125;</span>`</span></span><br><span class="line">    &#125; </span><br><span class="line">  &#125;,</span><br><span class="line">&#125;)</span><br><span class="line">sourceofIncome.stock = <span class="number">20000</span></span><br><span class="line">sourceofIncome.work = <span class="number">50000</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 若分段顯示就會是分段的，現在金額顯示為累計過的</span></span><br><span class="line"><span class="built_in">console</span>.log(sourceofIncome.stock)</span><br><span class="line"><span class="built_in">console</span>.log(sourceofIncome.work)</span><br><span class="line"><span class="built_in">console</span>.log(sourceofIncome.money)</span><br></pre></td></tr></table></figure></li>
+<li>若要設定屬性值，可以針對屬性再多一個屬性，像是 <code>this.__work__</code>，否則指向自己，會變成無限循環。</li>
+<li>取用屬性時，可以同時做很多事，不用再額外寫函式傳參數進去。</li>
+</ul>
+<h3 id="錯誤設定"><a href="#錯誤設定" class="headerlink" title="錯誤設定"></a>錯誤設定</h3><p>設定過程中可能會遇到以下問題 : </p>
+<ol>
+<li><code>Maximum call stack size exceeded</code><ul>
+<li>Getter 與 Setter 不能指向自己，否則會造成無限循環。</li>
+</ul>
+</li>
+<li><code>Invalid property descriptor. Cannot both specify accessors and a value or writable attribute, #&lt;Object&gt;</code><ul>
+<li>因為屬性特徵不相容<ul>
+<li>資料描述器 ( data descriptor ) : value、writable與其他</li>
+<li>存取器描述器 ( accessor descriptor ) : get 與 set</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li>六角學院 - JS核心篇</li>
+<li><a target="_blank" rel="noopener" href="https://andyyou.github.io/2017/10/28/javascript-object-property/?fbclid=IwAR1Uh6dwUEPz-fl7iJQaFM9dj7elVzCE0QjTdpdSYLq6UY-v4LFAH1Q_ovU">andyyou - 深入 ECMAScript 5 物件屬性</a></li>
+<li><a target="_blank" rel="noopener" href="https://ithelp.ithome.com.tw/articles/10197827?sc=pt">Henry Chang - JavaScript - 屬性描述器 (2)</a></li>
+</ol>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/JavaScript/" rel="tag"># JavaScript</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/12/08/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%8E%9F%E5%9E%8B%E9%8F%88/" rel="prev" title="JS核心篇-原型鏈">
+                  <i class="fa fa-chevron-left"></i> JS核心篇-原型鏈
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2020/12/11/javascript/%E6%8F%90%E5%8D%87/" rel="next" title="提升">
+                  提升 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-paw"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vic 尊重分享者，從你我做起~</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.0/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
