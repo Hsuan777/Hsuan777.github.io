@@ -131,6 +131,15 @@
       </categories>
   </entry>
   <entry>
+    <title>記錄自己的成長，那怕是1%也好</title>
+    <url>/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/</url>
+    <content><![CDATA[<p>利用 Hexo寫技術部落格，那怕是第一篇，或者只有一篇，只怕自己停佇不前。</p>
+]]></content>
+      <categories>
+        <category>閒聊</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Hexo教學(六) 文章標籤與分類</title>
     <url>/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
     <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
@@ -158,15 +167,6 @@
       <tags>
         <tag>hexo教學</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>記錄自己的成長，那怕是1%也好</title>
-    <url>/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/</url>
-    <content><![CDATA[<p>利用 Hexo寫技術部落格，那怕是第一篇，或者只有一篇，只怕自己停佇不前。</p>
-]]></content>
-      <categories>
-        <category>閒聊</category>
-      </categories>
   </entry>
   <entry>
     <title>Hexo教學(一) 使用 Hexo寫部落格</title>
@@ -199,6 +199,40 @@
 </ul>
 </li>
 </ul>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(三) 主題匯入</title>
+    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
+<ul>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
+</ul>
+</li>
+<li>NexT<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
+</ul>
+</li>
+</ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
+</ol>
+</blockquote>
 ]]></content>
       <categories>
         <category>hexo教學</category>
@@ -314,131 +348,6 @@
       </categories>
       <tags>
         <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學(三) 主題匯入</title>
-    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
-<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
-<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
-<ul>
-<li>hueman<ul>
-<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
-</ul>
-</li>
-<li>NexT<ul>
-<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
-<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
-</ul>
-</li>
-</ul>
-<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
-<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
-<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學 Next主題設定與頁面功能(Ver. 8)</title>
-    <url>/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/</url>
-    <content><![CDATA[<p>由於自己選擇了 NexT主題匯入，這邊就以 NexT的設定做介紹。<br>請找到 <code>themes/next/_config.yml</code> 這隻檔案。</p>
-<h2 id="全域設定"><a href="#全域設定" class="headerlink" title="全域設定"></a>全域設定</h2><h3 id="菜單導覽"><a href="#菜單導覽" class="headerlink" title="菜單導覽"></a>菜單導覽</h3><p>可以根據實際需求開啟，<code>#</code> 移除為關閉，反之則開。</p>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="comment"># about: /about/ || fa fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="comment"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="搜尋"><a href="#搜尋" class="headerlink" title="搜尋"></a>搜尋</h3><p>請輸入以下指令，會開始安裝額外套件。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
-<p>接著搜尋 local_search的設定，將它設為 true</p>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="字體"><a href="#字體" class="headerlink" title="字體"></a>字體</h3><p>修改 Next主題的字體，預設為 Google font的字體資源。</p>
-<ul>
-<li>font $\rightarrow$ 記得開啟</li>
-<li>font &gt; host $\rightarrow$ 若有其他字體資源，可將網址放這</li>
-<li>global $\rightarrow$ 網站文字全部修改</li>
-<li>其餘部分均能修改成不同字體</li>
-</ul>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">font:</span></span><br><span class="line">  <span class="comment"># enable: false</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">host:</span></span><br><span class="line">  <span class="attr">global:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># family: Lato</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">&quot;Noto Sans TC&quot;</span></span><br><span class="line">    <span class="attr">size:</span> </span><br><span class="line">  <span class="attr">title:</span></span><br><span class="line">  <span class="attr">headings:</span></span><br><span class="line">  <span class="attr">posts:</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="閱讀全文-More"><a href="#閱讀全文-More" class="headerlink" title="閱讀全文 More"></a>閱讀全文 More</h3><div class="tabs" id="閱讀全文"><ul class="nav-tabs"><li class="tab"><a href="#閱讀全文-1">1. 手動截斷</a></li><li class="tab active"><a href="#閱讀全文-2">2. 加入 description</a></li></ul><div class="tab-content"><div class="tab-pane" id="閱讀全文-1"><p>在文章中某的地方加入 <code>&lt;!--more--&gt;</code></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文字文字文字文字文字文字文字<span class="comment">&lt;!--more--&gt;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane active" id="閱讀全文-2"><p>在檔案 header部分加上 description，會根據其內容呈現。</p>
-<figure class="highlight yaml"><figcaption><span>source/_posts/頁面.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">description:</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></div></div></div>
-
-
-<h2 id="撰寫相關功能"><a href="#撰寫相關功能" class="headerlink" title="撰寫相關功能"></a>撰寫相關功能</h2><h3 id="程式碼區塊"><a href="#程式碼區塊" class="headerlink" title="程式碼區塊"></a>程式碼區塊</h3><h4 id="區塊複製"><a href="#區塊複製" class="headerlink" title="區塊複製"></a>區塊複製</h4><figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add copy button on codeblock</span></span><br><span class="line"><span class="attr">copy_button:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="區塊主題"><a href="#區塊主題" class="headerlink" title="區塊主題"></a>區塊主題</h4><p><a href="https://theme-next.js.org/highlight/">主題預覽</a></p>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line"><span class="attr">theme:</span></span><br><span class="line">  <span class="comment"># light: default</span></span><br><span class="line">  <span class="attr">light:</span> <span class="string">tomorrow-night</span></span><br><span class="line">  <span class="attr">dark:</span> <span class="string">tomorrow-night</span></span><br><span class="line"><span class="attr">prism:</span></span><br><span class="line">  <span class="attr">light:</span> <span class="string">prism</span></span><br><span class="line">  <span class="attr">dark:</span> <span class="string">prism-dark</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="區塊標題"><a href="#區塊標題" class="headerlink" title="區塊標題"></a>區塊標題</h4><p>標題前方可以加上該程式碼為何種語言，<br>例如，.yal為 yaml，.js 為 javascript</p>
-<figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line">```yaml 標題文字</span><br><span class="line">title: </span><br><span class="line"><span class="keyword">tags:</span> </span><br><span class="line">``` ```</span><br></pre></td></tr></table></figure>
-
-<h3 id="數學符號"><a href="#數學符號" class="headerlink" title="數學符號"></a>數學符號</h3><table>
-<thead>
-<tr>
-<th>功能名稱</th>
-<th>功能描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>every_page</code></td>
-<td>是否讓每一頁都開啟數學符號功能</td>
-</tr>
-<tr>
-<td><code>mathjax</code></td>
-<td>是否讓 mathjax寫在檔案開頭才開啟數學符號功能</td>
-</tr>
-</tbody></table>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>回到撰寫頁面</p>
-<figure class="highlight yaml"><figcaption><span>source/_post/頁面.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo教學</span> <span class="string">Next主題</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">Next主題相關設定</span> <span class="bullet">-</span> <span class="string">開啟數學符號以及更改字體</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內容分頁-tabs"><a href="#內容分頁-tabs" class="headerlink" title="內容分頁 tabs"></a>內容分頁 tabs</h3><p>預設就能使用，設定為 true時，切換時較為平滑</p>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Tabs tag</span></span><br><span class="line"><span class="attr">tabs:</span></span><br><span class="line">  <span class="attr">transition:</span></span><br><span class="line">    <span class="attr">tabs:</span> <span class="literal">true</span> </span><br><span class="line">    <span class="attr">labels:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>回到頁面撰寫時，加入以下字串</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 區塊標題, 預設顯示區塊索引值 %&#125;</span><br><span class="line">&lt;!-- tab 可單獨寫分頁標題 --&gt;</span><br><span class="line">Any content (support inline tags too).</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>用上面的範例可以這樣寫 :</p>
-<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">tabs</span> 閱讀全文, 2 %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab 手動截斷--&gt;</span></span></span><br><span class="line"><span class="xml">在文章中某的地方加入 `<span class="comment">&lt;!--more--&gt;</span>`</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab 加入 description--&gt;</span></span></span><br><span class="line"><span class="xml">在檔案 header部分加上 description，會根據其內容呈現。</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endtabs</span> %&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>若 <code>&lt;!-- tab 手動截斷--&gt;</code> 不加上該分頁標題，只有單純 <code>&lt;!-- tab --&gt;</code>，<br>則會根據區塊標題的文字自動加上索引值然後在分頁標題上顯示 <code>分頁標題 1</code> <code>分頁標題 2</code>。</p>
-<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">tabs</span> First unique name %&#125;</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 1**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 2**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 3**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endtabs</span> %&#125;</span></span><br></pre></td></tr></table></figure>
-<p>自動加入分頁標題 : </p>
-<div class="tabs" id="first-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#first-unique-name-1">First unique name 1</a></li><li class="tab"><a href="#first-unique-name-2">First unique name 2</a></li><li class="tab"><a href="#first-unique-name-3">First unique name 3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="first-unique-name-1"><p><strong>這是分頁 1</strong></p></div><div class="tab-pane" id="first-unique-name-2"><p><strong>這是分頁 2</strong></p></div><div class="tab-pane" id="first-unique-name-3"><p><strong>這是分頁 3</strong></p></div></div></div>
-
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="關閉-Powered-by-Hexo-amp-NexT"><a href="#關閉-Powered-by-Hexo-amp-NexT" class="headerlink" title="關閉 Powered by Hexo &amp; NexT"></a>關閉 Powered by Hexo &amp; NexT</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 Powered可以自由關閉，</p>
-<h3 id="版權宣告"><a href="#版權宣告" class="headerlink" title="版權宣告"></a>版權宣告</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 copyright，可以加入版權宣告的文字敘述。</p>
-<h3 id="footer-icon"><a href="#footer-icon" class="headerlink" title="footer icon"></a>footer icon</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 “# Icon name in Font Awesome.” ，可以在 <a href="https://fontawesome.com/icons">fontawesome</a>找到喜歡的 icon，將 “name”的文字更換即可，當然也可以修改 “animated”與 “color”。</p>
-<h2 id="後續功能"><a href="#後續功能" class="headerlink" title="後續功能"></a>後續功能</h2><ul>
-<li>摺疊</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://theme-next.js.org/docs/third-party-services/math-equations">NexT說明 - math-equations</a></li>
-<li><a href="https://theme-next.js.org/docs/tag-plugins/tabs.html">NexT說明 - tabs</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10248682">Ray - 試著學 Hexo - NexT 主題篇 - NexT 還有哪些設定？</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10248214">Ray - 試著學 Hexo - 試著學 Hexo - NexT 主題篇 - 可以安裝的套件 </a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-        <tag>hexo Next</tag>
       </tags>
   </entry>
   <entry>
@@ -615,6 +524,97 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo教學 Next主題設定與頁面功能(Ver. 8)</title>
+    <url>/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/</url>
+    <content><![CDATA[<p>由於自己選擇了 NexT主題匯入，這邊就以 NexT的設定做介紹。<br>請找到 <code>themes/next/_config.yml</code> 這隻檔案。</p>
+<h2 id="全域設定"><a href="#全域設定" class="headerlink" title="全域設定"></a>全域設定</h2><h3 id="菜單導覽"><a href="#菜單導覽" class="headerlink" title="菜單導覽"></a>菜單導覽</h3><p>可以根據實際需求開啟，<code>#</code> 移除為關閉，反之則開。</p>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="comment"># about: /about/ || fa fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="comment"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="搜尋"><a href="#搜尋" class="headerlink" title="搜尋"></a>搜尋</h3><p>請輸入以下指令，會開始安裝額外套件。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<p>接著搜尋 local_search的設定，將它設為 true</p>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字體"><a href="#字體" class="headerlink" title="字體"></a>字體</h3><p>修改 Next主題的字體，預設為 Google font的字體資源。</p>
+<ul>
+<li>font $\rightarrow$ 記得開啟</li>
+<li>font &gt; host $\rightarrow$ 若有其他字體資源，可將網址放這</li>
+<li>global $\rightarrow$ 網站文字全部修改</li>
+<li>其餘部分均能修改成不同字體</li>
+</ul>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">font:</span></span><br><span class="line">  <span class="comment"># enable: false</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">host:</span></span><br><span class="line">  <span class="attr">global:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># family: Lato</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">&quot;Noto Sans TC&quot;</span></span><br><span class="line">    <span class="attr">size:</span> </span><br><span class="line">  <span class="attr">title:</span></span><br><span class="line">  <span class="attr">headings:</span></span><br><span class="line">  <span class="attr">posts:</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="閱讀全文-More"><a href="#閱讀全文-More" class="headerlink" title="閱讀全文 More"></a>閱讀全文 More</h3><div class="tabs" id="閱讀全文"><ul class="nav-tabs"><li class="tab"><a href="#閱讀全文-1">1. 手動截斷</a></li><li class="tab active"><a href="#閱讀全文-2">2. 加入 description</a></li></ul><div class="tab-content"><div class="tab-pane" id="閱讀全文-1"><p>在文章中某的地方加入 <code>&lt;!--more--&gt;</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文字文字文字文字文字文字文字<span class="comment">&lt;!--more--&gt;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane active" id="閱讀全文-2"><p>在檔案 header部分加上 description，會根據其內容呈現。</p>
+<figure class="highlight yaml"><figcaption><span>source/_posts/頁面.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">description:</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></div></div></div>
+
+
+<h2 id="撰寫相關功能"><a href="#撰寫相關功能" class="headerlink" title="撰寫相關功能"></a>撰寫相關功能</h2><h3 id="程式碼區塊"><a href="#程式碼區塊" class="headerlink" title="程式碼區塊"></a>程式碼區塊</h3><h4 id="區塊複製"><a href="#區塊複製" class="headerlink" title="區塊複製"></a>區塊複製</h4><figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add copy button on codeblock</span></span><br><span class="line"><span class="attr">copy_button:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="區塊主題"><a href="#區塊主題" class="headerlink" title="區塊主題"></a>區塊主題</h4><p><a href="https://theme-next.js.org/highlight/">主題預覽</a></p>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line"><span class="attr">theme:</span></span><br><span class="line">  <span class="comment"># light: default</span></span><br><span class="line">  <span class="attr">light:</span> <span class="string">tomorrow-night</span></span><br><span class="line">  <span class="attr">dark:</span> <span class="string">tomorrow-night</span></span><br><span class="line"><span class="attr">prism:</span></span><br><span class="line">  <span class="attr">light:</span> <span class="string">prism</span></span><br><span class="line">  <span class="attr">dark:</span> <span class="string">prism-dark</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="區塊標題"><a href="#區塊標題" class="headerlink" title="區塊標題"></a>區塊標題</h4><p>標題前方可以加上該程式碼為何種語言，<br>例如，.yal為 yaml，.js 為 javascript</p>
+<figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line">```yaml 標題文字</span><br><span class="line">title: </span><br><span class="line"><span class="keyword">tags:</span> </span><br><span class="line">``` ```</span><br></pre></td></tr></table></figure>
+
+<h3 id="數學符號"><a href="#數學符號" class="headerlink" title="數學符號"></a>數學符號</h3><table>
+<thead>
+<tr>
+<th>功能名稱</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>every_page</code></td>
+<td>是否讓每一頁都開啟數學符號功能</td>
+</tr>
+<tr>
+<td><code>mathjax</code></td>
+<td>是否讓 mathjax寫在檔案開頭才開啟數學符號功能</td>
+</tr>
+</tbody></table>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>回到撰寫頁面</p>
+<figure class="highlight yaml"><figcaption><span>source/_post/頁面.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo教學</span> <span class="string">Next主題</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">Next主題相關設定</span> <span class="bullet">-</span> <span class="string">開啟數學符號以及更改字體</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內容分頁-tabs"><a href="#內容分頁-tabs" class="headerlink" title="內容分頁 tabs"></a>內容分頁 tabs</h3><p>預設就能使用，設定為 true時，切換時較為平滑</p>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Tabs tag</span></span><br><span class="line"><span class="attr">tabs:</span></span><br><span class="line">  <span class="attr">transition:</span></span><br><span class="line">    <span class="attr">tabs:</span> <span class="literal">true</span> </span><br><span class="line">    <span class="attr">labels:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>回到頁面撰寫時，加入以下字串</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 區塊標題, 預設顯示區塊索引值 %&#125;</span><br><span class="line">&lt;!-- tab 可單獨寫分頁標題 --&gt;</span><br><span class="line">Any content (support inline tags too).</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用上面的範例可以這樣寫 :</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">tabs</span> 閱讀全文, 2 %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab 手動截斷--&gt;</span></span></span><br><span class="line"><span class="xml">在文章中某的地方加入 `<span class="comment">&lt;!--more--&gt;</span>`</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab 加入 description--&gt;</span></span></span><br><span class="line"><span class="xml">在檔案 header部分加上 description，會根據其內容呈現。</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endtabs</span> %&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>若 <code>&lt;!-- tab 手動截斷--&gt;</code> 不加上該分頁標題，只有單純 <code>&lt;!-- tab --&gt;</code>，<br>則會根據區塊標題的文字自動加上索引值然後在分頁標題上顯示 <code>分頁標題 1</code> <code>分頁標題 2</code>。</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">tabs</span> First unique name %&#125;</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 1**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 2**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 3**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endtabs</span> %&#125;</span></span><br></pre></td></tr></table></figure>
+<p>自動加入分頁標題 : </p>
+<div class="tabs" id="first-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#first-unique-name-1">First unique name 1</a></li><li class="tab"><a href="#first-unique-name-2">First unique name 2</a></li><li class="tab"><a href="#first-unique-name-3">First unique name 3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="first-unique-name-1"><p><strong>這是分頁 1</strong></p></div><div class="tab-pane" id="first-unique-name-2"><p><strong>這是分頁 2</strong></p></div><div class="tab-pane" id="first-unique-name-3"><p><strong>這是分頁 3</strong></p></div></div></div>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="關閉-Powered-by-Hexo-amp-NexT"><a href="#關閉-Powered-by-Hexo-amp-NexT" class="headerlink" title="關閉 Powered by Hexo &amp; NexT"></a>關閉 Powered by Hexo &amp; NexT</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 Powered可以自由關閉，</p>
+<h3 id="版權宣告"><a href="#版權宣告" class="headerlink" title="版權宣告"></a>版權宣告</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 copyright，可以加入版權宣告的文字敘述。</p>
+<h3 id="footer-icon"><a href="#footer-icon" class="headerlink" title="footer icon"></a>footer icon</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 “# Icon name in Font Awesome.” ，可以在 <a href="https://fontawesome.com/icons">fontawesome</a>找到喜歡的 icon，將 “name”的文字更換即可，當然也可以修改 “animated”與 “color”。</p>
+<h2 id="後續功能"><a href="#後續功能" class="headerlink" title="後續功能"></a>後續功能</h2><ul>
+<li>摺疊</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://theme-next.js.org/docs/third-party-services/math-equations">NexT說明 - math-equations</a></li>
+<li><a href="https://theme-next.js.org/docs/tag-plugins/tabs.html">NexT說明 - tabs</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10248682">Ray - 試著學 Hexo - NexT 主題篇 - NexT 還有哪些設定？</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10248214">Ray - 試著學 Hexo - 試著學 Hexo - NexT 主題篇 - 可以安裝的套件 </a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+        <tag>hexo Next</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ES6語法糖 - 箭頭函式與this(上)</title>
     <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
     <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
@@ -760,6 +760,74 @@
       </tags>
   </entry>
   <entry>
+    <title>ES6變數宣告與全域環境</title>
+    <url>/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
+<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
+<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
+<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>只在某區塊(例如函式)中有作用</li>
+<li>無法重複宣告同樣變數名稱</li>
+<li>變數的值可改變</li>
+</ul>
+<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>無法重複宣告</li>
+<li>變數的值不可改變</li>
+<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
+</ul>
+<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
+<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
+<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
+<ul>
+<li>物件環境 Object Environment</li>
+<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+以表格來看的話，類似像這樣 : <table>
+<thead>
+<tr>
+<th>聲明環境</th>
+<th>物件環境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>10</td>
+</tr>
+<tr>
+<td>b</td>
+<td>funciton()</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>而 JS是物件導向，以物件來看的話，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
+<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
+<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
+<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ES6語法糖 - 解構賦值與其餘參數</title>
     <url>/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/</url>
     <content><![CDATA[<h2 id="解構賦值"><a href="#解構賦值" class="headerlink" title="解構賦值"></a>解構賦值</h2><blockquote>
@@ -881,63 +949,138 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6變數宣告與全域環境</title>
-    <url>/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
-<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
-<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
-<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
-<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>只在某區塊(例如函式)中有作用</li>
-<li>無法重複宣告同樣變數名稱</li>
-<li>變數的值可改變</li>
-</ul>
-<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>無法重複宣告</li>
-<li>變數的值不可改變</li>
-<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
-</ul>
-<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
-<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
-<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
+    <title>Promise</title>
+    <url>/2020/12/15/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-Promise/</url>
+    <content><![CDATA[<p>快速導覽 : </p>
 <ul>
-<li>物件環境 Object Environment</li>
-<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-以表格來看的話，類似像這樣 : <table>
+<li>Promise 例子<ul>
+<li>AJAX</li>
+<li>事件佇列</li>
+</ul>
+</li>
+<li>Promise 狀態</li>
+<li>Promise 建立</li>
+<li>Promise 回傳資料與串接</li>
+<li>Promise 常用資料回傳方法</li>
+<li>透過 Promise改寫事件佇列</li>
+</ul>
+<h2 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h2><p>Promise 是 ES6所新增的建構函式，常用來處理同步與非同步的問題，也增強了程式碼的可讀性。而 JS的執行順序是由上到下，若遇到事件則為進入事件佇列( Event queue  )中，就是非同步的問題，像是 : </p>
+<ul>
+<li>AJAX行為</li>
+<li>監聽事件(click、change、…)</li>
+<li><code>setTimeout( () =&gt; &#123; &#125; )</code></li>
+</ul>
+<h3 id="Promise-與-AJAX"><a href="#Promise-與-AJAX" class="headerlink" title="Promise 與 AJAX"></a>Promise 與 AJAX</h3><p>我們可以用原生 fetch語法或是直接使用第三方套件的 Axios來做 AJAX行為。</p>
+<p>這邊提供一個資料測試網址(<a href="https://randomuser.me/api">點我</a>)，它可以取得一些 JSON格式的假資料。</p>
+<h4 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h4><p>以下是 axios套件寫法 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 利用 axios的 get方法取得資料</span></span><br><span class="line"><span class="comment">// 可以接收資料後， return 資料出來傳入下一個 then使用</span></span><br><span class="line"><span class="keyword">var</span> url = <span class="string">&#x27;https://randomuser.me/api&#x27;</span></span><br><span class="line"></span><br><span class="line">axios.get(url).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).catch(<span class="function"><span class="params">err</span> =&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h4><p>利用 fetch原生語法來進行 :</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">&#x27;https://randomuser.me/api&#x27;</span></span><br><span class="line"></span><br><span class="line">fetch(url)</span><br><span class="line">  .then(<span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 必須從 response中 return response.json()給下一個 then</span></span><br><span class="line">    <span class="comment">// response 為被鎖定的名為的物件，ReadableStream，其中一個方法會回傳 JSON格式</span></span><br><span class="line">    <span class="comment">// 但是網址請求已被使用中，必須使用下一個 then再度請求後回傳</span></span><br><span class="line">    <span class="keyword">return</span> response.json(); </span><br><span class="line">  &#125;)</span><br><span class="line">  .then(<span class="function"><span class="params">jsonData</span> =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(jsonData);</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="string">&#x27;https://randomuser.me/api&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">url</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> req = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">    req.open(<span class="string">&#x27;GET&#x27;</span>, url)</span><br><span class="line">    req.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(req.status = <span class="number">200</span>)&#123;</span><br><span class="line">        <span class="comment">// 成功時</span></span><br><span class="line">        resolve(req.response)</span><br><span class="line">        <span class="built_in">console</span>.log(req.response)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 失敗時</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    req.send()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">get(url).then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;get&#x27;</span>, res)</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">err</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(err)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="Promise-與事件佇列"><a href="#Promise-與事件佇列" class="headerlink" title="Promise 與事件佇列"></a>Promise 與事件佇列</h3><p>通常我們會使用一些監聽事件等待使用者去觸發，或是用一個計時器，例如這樣 : </p>
+<h4 id="一般事件佇列"><a href="#一般事件佇列" class="headerlink" title="一般事件佇列"></a>一般事件佇列</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// setTimeout秒數就算設定為0，也會是最後出現</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;等待出現&#x27;</span>)</span><br><span class="line">  &#125;, <span class="number">0</span>)</span><br><span class="line">  alert(<span class="string">&#x27;使用者點擊&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> btn = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.btn&#x27;</span>)</span><br><span class="line">btn.addEventListener(<span class="string">&#x27;click&#x27;</span>, fn)</span><br></pre></td></tr></table></figure>
+
+<p>但如果目標是讓每經過一秒顯示一次呢?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 這樣會變成 1 秒後一起出現</span></span><br><span class="line"><span class="comment">// 而非每秒出現一次</span></span><br><span class="line"><span class="comment">// 當然也可以設計成 1000 &gt; 2000 &gt; 3000，但這不是我們要的</span></span><br><span class="line"><span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;等待出現&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;等待出現&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
+
+<h4 id="透過-Promise來操作事件佇列"><a href="#透過-Promise來操作事件佇列" class="headerlink" title="透過 Promise來操作事件佇列"></a>透過 Promise來操作事件佇列</h4><p>像是上述的例子，可以透過 Promise來處理問題。</p>
+<p>以下透過 Promise來操作事件佇列 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">activeFn</span>(<span class="params">time</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      resolve(<span class="string">`<span class="subst">$&#123;time&#125;</span>毫秒後自動顯示`</span>)</span><br><span class="line">    &#125;, time)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">activeFn(<span class="number">1000</span>).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 顯示第一次</span></span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">    <span class="keyword">return</span> activeFn(<span class="number">1000</span>)</span><br><span class="line">  &#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 顯示第二次</span></span><br><span class="line">    <span class="built_in">console</span>.log(res)</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="Promise-狀態"><a href="#Promise-狀態" class="headerlink" title="Promise 狀態"></a>Promise 狀態</h2><div id="graphviz-0"></div>
+
+
+<p>Promise會有三種狀態，分別是 : </p>
+<table>
 <thead>
 <tr>
-<th>聲明環境</th>
-<th>物件環境</th>
+<th>狀態名稱</th>
+<th>意義</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>a</td>
-<td>10</td>
+<td>Pending</td>
+<td>待機 / 未確認，以 AJAX行為來說，就是傳入網址等待取回資料</td>
 </tr>
 <tr>
-<td>b</td>
-<td>funciton()</td>
+<td>Fulfilled</td>
+<td>已實現狀態，以 AJAX行為來說，就是取值成功時</td>
+</tr>
+<tr>
+<td>Rejected</td>
+<td>已否決狀態，以 AJAX行為來說，就是取值失敗時</td>
 </tr>
 </tbody></table>
+<p>以上一次只會有一種狀態，並在實際使用時分別用不同的關鍵字取用。</p>
+<ul>
+<li>若進入 fulfilled<ul>
+<li>使用 then接收上一個 return的值</li>
+<li>使用函式將值作為參數傳入 <code>.then((參數名稱)=&gt;&#123;console.log(參數)&#125;)</code></li>
+</ul>
+</li>
+<li>若進入 rejected<ul>
+<li>使用 catch接收錯誤時會回報的值</li>
+<li>使用函式將值作為參數傳入 <code>.catch((參數名稱)=&gt;&#123;console.log(參數)&#125;)</code></li>
+</ul>
 </li>
 </ul>
-<p>而 JS是物件導向，以物件來看的話，</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Promise-建立"><a href="#Promise-建立" class="headerlink" title="Promise 建立"></a>Promise 建立</h2><ul>
+<li>Promise是一個內建的函式 <code>(typeof Promise) // &quot;function&quot;</code></li>
+<li>可以使用 new運算子轉為物件，但它需要傳入一個 function才能運作</li>
+<li>根據使用者認為該<ul>
+<li>情況正確使用 <code>resoleve()</code>回傳資料</li>
+<li>若不正確是用 <code>reject()</code>回傳失敗訊息</li>
+</ul>
+</li>
+<li>resolve與 reject可自定義參數名稱，不過為了避免混淆，還是習慣使用預設名稱</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promiseFn</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 非同步行為</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(num)&#123;</span><br><span class="line">        resolve(<span class="string">&#x27;成功!&#x27;</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(<span class="string">&#x27;失敗!&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">10</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">promiseFn(<span class="number">1</span>).then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
+
+<h2 id="Promise-回傳資料與串接"><a href="#Promise-回傳資料與串接" class="headerlink" title="Promise 回傳資料與串接"></a>Promise 回傳資料與串接</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promiseFn</span>(<span class="params">num</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 非同步行為</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(num)&#123;</span><br><span class="line">        resolve(<span class="string">&#x27;成功!&#x27;</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(<span class="string">&#x27;失敗!&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">10</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">promiseFn(<span class="number">1</span>).then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">  <span class="keyword">return</span> promiseFn(<span class="number">2</span>) </span><br><span class="line">  <span class="comment">// 這個回傳的值會給下一個 then</span></span><br><span class="line">  <span class="comment">// 若值為假值 promiseFn(0)，會直接跳至 catch</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">  <span class="keyword">return</span> promiseFn(<span class="number">4</span>)</span><br><span class="line">  <span class="comment">// 這個回傳的值會給下一個 then</span></span><br><span class="line">&#125;).then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接使用 then傳入兩個函式 then(函式1, 函式2)，</span></span><br><span class="line"><span class="comment">// 前者接收 resolve狀態，後者 reject狀態</span></span><br><span class="line">promiseFn(<span class="number">1</span>).then(</span><br><span class="line">  (res)=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(res, <span class="string">&#x27;success&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> promiseFn(<span class="number">0</span>) <span class="comment">// 會傳給下一個 then接收</span></span><br><span class="line">  &#125;, </span><br><span class="line">  (rej)=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(rej, <span class="string">&#x27;fail&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> promiseFn(<span class="number">1</span>) <span class="comment">// 會傳給下一個 then接收</span></span><br><span class="line">  &#125;).then(</span><br><span class="line">  (res)=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;成功!&#x27;</span>)</span><br><span class="line">  &#125;, </span><br><span class="line">  (rej)=&gt;&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;失敗!&#x27;</span>)</span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Promise-常用資料回傳方法"><a href="#Promise-常用資料回傳方法" class="headerlink" title="Promise 常用資料回傳方法"></a>Promise 常用資料回傳方法</h2><ul>
+<li>Promise.all <ul>
+<li>等待全部執行完畢，並回傳所有結果</li>
+<li>途中只要有狀態為 reject，會直接回傳 catch結果</li>
+</ul>
+</li>
+<li>Promise.race<ul>
+<li>只會回傳第一個執行完畢的函式並根據狀態回傳結果</li>
+<li>只會回傳一組資料</li>
+</ul>
+</li>
+</ul>
+<h3 id="Promise-all"><a href="#Promise-all" class="headerlink" title="Promise.all"></a>Promise.all</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promiseFn</span>(<span class="params">num, time</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 非同步行為</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(num)&#123;</span><br><span class="line">        resolve(<span class="string">&#x27;成功!&#x27;</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(<span class="string">&#x27;失敗!&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, time)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">promiseFn(<span class="number">1</span>, <span class="number">2000</span>).then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只要途中有一個執行失敗的話，就會進入 reject狀態並回傳結果，不會再往下執行</span></span><br><span class="line"><span class="built_in">Promise</span>.all([</span><br><span class="line">  promiseFn(<span class="number">1</span>, <span class="number">1000</span>),</span><br><span class="line">  promiseFn(<span class="number">0</span>, <span class="number">2000</span>),</span><br><span class="line">  promiseFn(<span class="number">1</span>, <span class="number">3000</span>)</span><br><span class="line">]).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res[<span class="number">0</span>], res[<span class="number">1</span>], res[<span class="number">2</span>])</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="Promise-race"><a href="#Promise-race" class="headerlink" title="Promise.race"></a>Promise.race</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">promiseFn</span>(<span class="params">num, time</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="comment">// 非同步行為</span></span><br><span class="line">    <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>(num)&#123;</span><br><span class="line">        resolve(<span class="string">&#x27;成功!&#x27;</span>)</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(<span class="string">&#x27;失敗!&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, time)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">promiseFn(<span class="number">1</span>, <span class="number">2000</span>).then(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 只取第一個先跑完的結果，再根據狀態回傳</span></span><br><span class="line"><span class="built_in">Promise</span>.race([</span><br><span class="line">  promiseFn(<span class="number">1</span>, <span class="number">1000</span>),</span><br><span class="line">  promiseFn(<span class="number">1</span>, <span class="number">500</span>),</span><br><span class="line">  promiseFn(<span class="number">1</span>, <span class="number">3000</span>)</span><br><span class="line">]).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;).catch(<span class="function">(<span class="params">res</span>)=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="事件佇列與一般結果"><a href="#事件佇列與一般結果" class="headerlink" title="事件佇列與一般結果"></a>事件佇列與一般結果</h2><p>若想在事件佇列執行完畢後顯示其他結果，該怎麼做?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">activeFn</span>(<span class="params">time</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`<span class="subst">$&#123;time&#125;</span>毫秒後自動顯示`</span>)</span><br><span class="line">  &#125;, time)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">activeFn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;最後顯示&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">activeFn(<span class="number">3000</span>)</span><br><span class="line">activeFn2()</span><br><span class="line"><span class="comment">// &quot;最後顯示&quot; </span></span><br><span class="line"><span class="comment">// &#x27;1000毫秒後自動顯示&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="利用-Promise修正結果"><a href="#利用-Promise修正結果" class="headerlink" title="利用 Promise修正結果"></a>利用 Promise修正結果</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">activeFn</span>(<span class="params">time</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">setTimeout</span>( <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      resolve(<span class="string">`<span class="subst">$&#123;time&#125;</span>毫秒後自動顯示`</span>)</span><br><span class="line">    &#125;, time)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">activeFn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>)=&gt;</span>&#123;</span><br><span class="line">    resolve(<span class="string">`最後顯示`</span>)</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 執行函式 &gt; 接收結果，return 函式執行的結果 &gt; 接收結果 </span></span><br><span class="line"></span><br><span class="line">activeFn(<span class="number">3000</span>).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 顯示上一個函式執行的結果</span></span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">  <span class="comment">// return 另一個函式執行的結果</span></span><br><span class="line">  <span class="keyword">return</span> activeFn2()</span><br><span class="line">  </span><br><span class="line">  &#125;).then(<span class="function"><span class="params">res</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 顯示上一個函式執行的結果</span></span><br><span class="line">  <span class="built_in">console</span>.log(res)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &quot;3000毫秒後自動顯示&quot;</span></span><br><span class="line"><span class="comment">// &quot;最後顯示&quot; </span></span><br></pre></td></tr></table></figure>
+
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
-<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
-<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
-<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
+<li>六角學院 - 核心篇</li>
+<li><a href="https://www.oxxostudio.tw/articles/201706/javascript-promise-settimeout.html"> OXXO.STUDIO - JavaScript 同步延遲 ( Promise + setTimeout )</a><script src="https://unpkg.com/viz.js@2.1.2/viz.js"></script><script src="https://unpkg.com/viz.js@2.1.2/full.render.js"></script><textarea id="graphviz-0-code" style="display: none">digraph graphname {
+  
+  Promise [label="Promise" color=Block, fontcolor=Block, fontsize=24, ]      
+  
+  then [label=".then()" color=Blue, fontcolor=ForestGreen, fontsize=24, shape=box]  
+ 
+  catch [label=".catch()" color=Blue, fontcolor=Red, fontsize=24, shape=box]
+  
+  Promise->then [label="  fulfilled     ", fontcolor=block, ] 
+
+  Promise->catch [label="   rejected", fontcolor=block]
+}</textarea><script>  var viz = new Viz();  var code = document.getElementById("graphviz-0-code").value;  viz.renderSVGElement(code)  .then(function(element) {    document.getElementById("graphviz-0").append(element)  });</script></li>
 </ol>
 </blockquote>
 ]]></content>
