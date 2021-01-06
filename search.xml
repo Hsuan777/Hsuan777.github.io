@@ -140,6 +140,40 @@
       </categories>
   </entry>
   <entry>
+    <title>Hexo教學(三) 主題匯入</title>
+    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
+<ul>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
+</ul>
+</li>
+<li>NexT<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
+</ul>
+</li>
+</ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo教學(六) 文章標籤與分類</title>
     <url>/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
     <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
@@ -199,40 +233,6 @@
 </ul>
 </li>
 </ul>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學(三) 主題匯入</title>
-    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
-<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
-<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
-<ul>
-<li>hueman<ul>
-<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
-</ul>
-</li>
-<li>NexT<ul>
-<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
-<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
-</ul>
-</li>
-</ul>
-<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
-<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
-<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
-</ol>
-</blockquote>
 ]]></content>
       <categories>
         <category>hexo教學</category>
@@ -760,74 +760,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6變數宣告與全域環境</title>
-    <url>/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
-<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
-<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
-<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
-<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>只在某區塊(例如函式)中有作用</li>
-<li>無法重複宣告同樣變數名稱</li>
-<li>變數的值可改變</li>
-</ul>
-<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>無法重複宣告</li>
-<li>變數的值不可改變</li>
-<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
-</ul>
-<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
-<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
-<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
-<ul>
-<li>物件環境 Object Environment</li>
-<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-以表格來看的話，類似像這樣 : <table>
-<thead>
-<tr>
-<th>聲明環境</th>
-<th>物件環境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a</td>
-<td>10</td>
-</tr>
-<tr>
-<td>b</td>
-<td>funciton()</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<p>而 JS是物件導向，以物件來看的話，</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
-<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
-<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
-<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ES6語法糖 - 解構賦值與其餘參數</title>
     <url>/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/</url>
     <content><![CDATA[<h2 id="解構賦值"><a href="#解構賦值" class="headerlink" title="解構賦值"></a>解構賦值</h2><blockquote>
@@ -938,6 +870,232 @@
 <li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/destructuring.html">從ES6開始的JavaScript學習生活 - 解構賦值</a></li>
 <li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/rest_spread.html">從ES6開始的JavaScript學習生活 - 展開運算符與其餘運算符</a></li>
 <li><a href="https://medium.com/@realdennis/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-%E8%A8%AD%E8%A8%88%E5%87%BD%E6%95%B8%E6%99%82%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7-javascript-1466f37d24f0">realdennis - 解構賦值 — 設計函數時的小技巧 JavaScript</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS地下城 - 3F - 計算機</title>
+    <url>/2021/01/06/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E3F-%E8%A8%88%E7%AE%97%E6%A9%9F/</url>
+    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__3F/">JS地下城 - 3F - 計算機</a></p>
+<h2 id="主體架構"><a href="#主體架構" class="headerlink" title="主體架構"></a>主體架構</h2><p>利用建構式函式做為主架構，在此建構函式內增加要用的函式來處理不同功能。其函式內包含 : </p>
+<ul>
+<li><code>this</code> ，可以賦予給變數確保指向自己<ul>
+<li>例如 <code> let vm = this</code> </li>
+</ul>
+</li>
+<li>運算用的暫存資料，初始值為空陣列<ul>
+<li>後續加入資料時，例如 <code> [&#39;1&#39;, &#39;+&#39;, &#39;1&#39;]</code></li>
+</ul>
+</li>
+<li>實際要顯示的暫存資料，初始值為空陣列<ul>
+<li>後續加入資料時，例如 <code> [&#39;1&#39;, &#39;÷&#39;, &#39;1&#39;]</code></li>
+<li><code>eval( )</code> 無法處理特殊符號 <code>÷</code></li>
+</ul>
+</li>
+<li>計算函式，用來產生最終結果</li>
+<li>運算符號函式，條件判斷後，將數字與符號加入暫存陣列</li>
+<li>顯示用函式，將輸入的數字產生累加數字字串</li>
+<li>其他格式化函式，例如千分位與小數點判斷</li>
+<li>按鈕與按鍵函式，提供給事件監聽用</li>
+</ul>
+<hr>
+<h2 id="目標功能"><a href="#目標功能" class="headerlink" title="目標功能"></a>目標功能</h2><ul>
+<li>連續輸入數字<ul>
+<li>按下或點擊數字鍵時，數字字串累加</li>
+<li><code>Array.from()</code> : 將對象轉為陣列</li>
+<li><code>join()</code> : 將陣列內資料作為字串串接</li>
+<li><code>.toString()</code> : 將對象轉成字串</li>
+</ul>
+</li>
+<li>移除最後一個數字<ul>
+<li>一樣將對象轉為陣列，利用 <code>.pop()</code> 將最後一個資料移除後，再利用 <code>join()</code> 組合</li>
+</ul>
+</li>
+<li>紀錄輸入數字與運算符號<ul>
+<li>按下或點擊運算符號時，紀錄所輸入數字與運算符號</li>
+</ul>
+</li>
+<li>計算輸入數字<ul>
+<li>按下等於時，計算結果</li>
+<li><code>eval()</code> : 將一連串的字串作為數學式計算</li>
+</ul>
+</li>
+</ul>
+<h3 id="功能範例"><a href="#功能範例" class="headerlink" title="功能範例"></a>功能範例</h3><p>節錄與簡化所做功能，主要先了解方法的使用，當監聽事件輸入數字時，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 取得 DOM，其為 html 的 &lt;input&gt;，具有 value</span></span><br><span class="line"><span class="keyword">const</span> input = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.js-displayNum&#x27;</span>)</span><br><span class="line"><span class="comment">// 要計算的暫存顯示資料</span></span><br><span class="line"><span class="keyword">const</span> sumTemp = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.js-sumTemp&#x27;</span>)</span><br><span class="line"><span class="comment">// 建構函式</span></span><br><span class="line"><span class="keyword">const</span> cal = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> vm = <span class="built_in">this</span>       <span class="comment">// 確保指向此物件</span></span><br><span class="line">  <span class="keyword">let</span> storageAry = [] <span class="comment">// 暫存資料</span></span><br><span class="line">  <span class="keyword">let</span> displayAry = [] <span class="comment">// 暫存資料實際顯示</span></span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 計算輸入數字</span></span><br><span class="line">  <span class="built_in">this</span>.sum = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    storageAry.push( vm.numberStr() )</span><br><span class="line">    input.value = <span class="string">&#x27;&#x27;</span></span><br><span class="line">    vm.display(<span class="built_in">eval</span>(storageAry.join(<span class="string">&#x27;&#x27;</span>)))</span><br><span class="line">    vm.displayFontSize()</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 紀錄輸入數字與運算符號</span></span><br><span class="line">  <span class="built_in">this</span>.arithmetic = <span class="function">(<span class="params">operator</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">// 計算用資料</span></span><br><span class="line">    <span class="keyword">switch</span> (operator) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span> : storageAry.push( vm.numberStr() , <span class="string">&#x27;+&#x27;</span> )</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;−&#x27;</span> : storageAry.push( vm.numberStr() , <span class="string">&#x27;-&#x27;</span> )</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;×&#x27;</span> : storageAry.push( vm.numberStr() , <span class="string">&#x27;*&#x27;</span> )</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;÷&#x27;</span> : storageAry.push( vm.numberStr() , <span class="string">&#x27;/&#x27;</span> )</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 顯示用資料</span></span><br><span class="line">    displayAry.push( vm.numberStr() , operator )</span><br><span class="line">    sumTemp.value = displayAry.join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="comment">// 清空顯示欄</span></span><br><span class="line">    input.value = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 連續輸入數字，累加字串</span></span><br><span class="line">  <span class="built_in">this</span>.dispay = <span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span><br><span class="line">    input.value += num.toString()</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 移除最後一個數字</span></span><br><span class="line">  <span class="built_in">this</span>.backspace = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> str = <span class="built_in">Array</span>.from( input.value )</span><br><span class="line">    str.pop()</span><br><span class="line">    input.value = str.join(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 格式化輸入數字為字串與小數點判斷</span></span><br><span class="line">  <span class="built_in">this</span>.numberStr = <span class="function">() =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 判斷字體大小</span></span><br><span class="line">  <span class="built_in">this</span>.displayFontSize = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 監聽事件</span></span><br><span class="line">  <span class="built_in">this</span>.keydown = <span class="function">(<span class="params">e</span>) =&gt;</span> &#123;&#125;</span><br><span class="line">    <span class="keyword">switch</span>(e.code)&#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">&quot;backspace&quot;</span>:</span><br><span class="line">        vm.backspace</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">      <span class="keyword">case</span> <span class="string">&#x27;Numpad1&#x27;</span>: </span><br><span class="line">        vm.display(<span class="number">1</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 將函式轉為物件，也就是建構式函式</span></span><br><span class="line"><span class="keyword">const</span> jsCal = <span class="keyword">new</span> cal()</span><br><span class="line"></span><br><span class="line"><span class="comment">// 監聽事件，當輸入對應的鍵盤按鍵時，會執行該功能</span></span><br><span class="line"><span class="built_in">window</span>.addEventListener( <span class="string">&#x27;keydown&#x27;</span>, jsCal.keydown )</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="畫面顯示"><a href="#畫面顯示" class="headerlink" title="畫面顯示"></a>畫面顯示</h2><h3 id="數字千分位"><a href="#數字千分位" class="headerlink" title="數字千分位"></a>數字千分位</h3><ul>
+<li>正規表達式<ul>
+<li><code>數字字串.replace(/\B(?&lt;!\.\d*)(?=(\d&#123;3&#125;)+(?!\d))/g, &quot;,&quot;)</code></li>
+</ul>
+</li>
+<li>取得本地字串格式<ul>
+<li><code>數字.toLocaleString(&#39;en-US&#39;)</code></li>
+<li>會被截取為整數</li>
+</ul>
+</li>
+</ul>
+<h3 id="數字長度縮放"><a href="#數字長度縮放" class="headerlink" title="數字長度縮放"></a>數字長度縮放</h3><ul>
+<li>JavaScript，判斷字串長度，當超過一定長度時增加與移除 class </li>
+<li>CSS，字體大小調整，並固定欄位高度，否則高度會隨著字體大小做變化</li>
+</ul>
+<hr>
+<h2 id="按鍵功能"><a href="#按鍵功能" class="headerlink" title="按鍵功能"></a>按鍵功能</h2><p>計算機上分別有數字鍵、運算符號鍵以及 Enter / 等於鍵，按下或點擊它們會執行不同的功能。</p>
+<h3 id="數字鍵-x1f522"><a href="#數字鍵-x1f522" class="headerlink" title="數字鍵 &#x1f522;"></a>數字鍵 <span class="github-emoji" alias="1234" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f522.png?v8">&#x1f522;</span></h3><p>按下數字鍵時，目前已寫的功能有 : </p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 按下數字鍵後，字串相加，渲染畫面</li>
+<li><input checked="" disabled="" type="checkbox"> 小數點格式判斷， ‘.1’ 則變成為 ‘0.1’</li>
+<li><input checked="" disabled="" type="checkbox"> 顯示欄為 0 ，不得執行 ‘00’，若鍵入新數字則為新數字<ul>
+<li><del>00</del> 、<del>001</del></li>
+<li>0.1、0.00001、100</li>
+<li>第一個字串為 0<ul>
+<li>前面沒有數字，不得連續輸入 0</li>
+<li>若顯示欄為 0 ，按下其他數字改為其他數字開頭</li>
+<li>若顯示欄為 0 ，按下小數點正常串接</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="運算符號"><a href="#運算符號" class="headerlink" title="運算符號  +-*/"></a>運算符號  <code>+-*/</code></h3><p>按下 <code>+-*/</code> 時，</p>
+<ul>
+<li>改變目前顯示的運算符號</li>
+<li>根據按下的運算符號將現值與運算符號加入暫存陣列</li>
+</ul>
+<h3 id="Enter-等號"><a href="#Enter-等號" class="headerlink" title="Enter / 等號 ="></a>Enter / 等號 <code>=</code></h3><p>按下 Enter / 等號時，<br>將暫存陣列內的所有資料，轉成字串後，利用 <code>eval()</code> 做運算並清空暫存陣列，接著再判斷下一個行為 : </p>
+<ul>
+<li>若按下 <code>+-*/</code><ul>
+<li>將現值結果儲存進暫存陣列</li>
+</ul>
+</li>
+<li>按 <code>=</code> 後再次按 <code>=</code><ul>
+<li>維持現狀 return</li>
+<li>若顯示欄為空則給 0</li>
+</ul>
+</li>
+<li>按下新數字鍵 <span class="github-emoji" alias="1234" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f522.png?v8">&#x1f522;</span> <ul>
+<li>鍵入新數字，清空顯示欄後顯示新數字</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="問題處理"><a href="#問題處理" class="headerlink" title="問題處理"></a>問題處理</h2><h3 id="小數點問題"><a href="#小數點問題" class="headerlink" title="小數點問題"></a>小數點問題</h3><p>0.1 + 0.2 = 0.30000000000000004</p>
+<ul>
+<li>以 64 位浮點數形式儲存</li>
+<li>0.3 之二進位轉成十進位永遠不會等於 0.3</li>
+</ul>
+<h4 id="解決方式"><a href="#解決方式" class="headerlink" title="解決方式"></a>解決方式</h4><ul>
+<li><input checked="" disabled="" type="checkbox"> <code>parseFloat(數字.toPrecision(12))</code><ul>
+<li><code>parseFloat(&#39;0.123455&#39;)</code> <ul>
+<li>將字串或數字浮點數轉成數字浮點數</li>
+</ul>
+</li>
+<li><code>.toPrecision(數字)</code><ul>
+<li>顯示小數點後指定位數</li>
+<li>若有大於 0 的位數，則優先顯示</li>
+<li>最後一位數會根據下一位數四捨五入</li>
+<li>123.456.toPrecision(4) -&gt; 123.5</li>
+<li>0.123456.toPrecision(4) -&gt; 0.1235</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>parseInt(&#39;123456&#39;)</code> <ul>
+<li>將字串或數字轉成整數</li>
+<li><code>parseInt(&#39;0.1&#39;)</code> -&gt; 0</li>
+<li><code>parseInt(&#39;0.11234564&#39;)</code> -&gt; 0</li>
+</ul>
+</li>
+<li><code>.toFixed(指定位數)</code><ul>
+<li>結果為字串且為四捨五入</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://github.com/camsong/blog/issues/9">camsong - JavaScript 浮点数陷阱及解法 </a></li>
+<li><a href="https://cythilya.github.io/2018/10/12/values-array-string-number/">Summer。桑莫。夏天 - 你懂 JavaScript 嗎？#5 值（Values）Part 1 - 陣列、字串、數字</a></li>
+<li><a href="https://dotblogs.com.tw/AlenWu_coding_blog/2017/08/11/js_number_to_currency_comma">AlenWu - [Javascrpt]轉換數字成含千分位的文字</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">MDN - Number.prototype.toLocaleString()</a></li>
+<li><a href="http://slashview.com/archive2020/20200712.html">SlashView - Javascript之數值千分位符號（Comma）的顯示</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>JS地下城</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6變數宣告與全域環境</title>
+    <url>/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
+<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
+<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
+<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>只在某區塊(例如函式)中有作用</li>
+<li>無法重複宣告同樣變數名稱</li>
+<li>變數的值可改變</li>
+</ul>
+<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>無法重複宣告</li>
+<li>變數的值不可改變</li>
+<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
+</ul>
+<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
+<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
+<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
+<ul>
+<li>物件環境 Object Environment</li>
+<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+以表格來看的話，類似像這樣 : <table>
+<thead>
+<tr>
+<th>聲明環境</th>
+<th>物件環境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>10</td>
+</tr>
+<tr>
+<td>b</td>
+<td>funciton()</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>而 JS是物件導向，以物件來看的話，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
+<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
+<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
+<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
 </ol>
 </blockquote>
 ]]></content>
