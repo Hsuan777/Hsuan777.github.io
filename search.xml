@@ -140,6 +140,35 @@
       </categories>
   </entry>
   <entry>
+    <title>Hexo教學(六) 文章標籤與分類</title>
+    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
+    <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
+<h2 id="建立分類"><a href="#建立分類" class="headerlink" title="建立分類"></a>建立分類</h2><ol>
+<li>輸入 <code>hexo new page &#39;categories&#39;</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
+<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories中的 index.md檔案，插入 <code>type: &quot;categories&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>重新產生靜態檔案，可以在導覽列看到多了一個分類分頁</li>
+</ol>
+<h2 id="建立標籤"><a href="#建立標籤" class="headerlink" title="建立標籤"></a>建立標籤</h2><p>與分類的步驟一樣，但內容改變。</p>
+<ol>
+<li>輸入 <code>hexo new page &#39;tags&#39;</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
+<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> tags index.md檔案，插入 <code>type: &quot;tags&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+若需要多個標籤，可以這樣輸入<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">教學文</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>重新產生靜態檔案，可以在導覽列看到多了一個標籤分頁</li>
+</ol>
+<p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo教學(一) 使用 Hexo寫部落格</title>
     <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
     <content><![CDATA[<h2 id="為什麼要使用-Hexo寫部落格"><a href="#為什麼要使用-Hexo寫部落格" class="headerlink" title="為什麼要使用 Hexo寫部落格?"></a>為什麼要使用 Hexo寫部落格?</h2><p>現在有很多線上服務都能當成部落格，不管寫在 github、medium或者 wordpress等等，同樣是寫文章，心得也好，技術文也罷，學著使用 markdown寫文，最起碼自己的電腦有初始檔案，不怕線上服務突然關閉或者改變使用條款，而且只要有網頁伺服器，就能發布自己的部落格。</p>
@@ -179,27 +208,32 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學(六) 文章標籤與分類</title>
-    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
-    <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
-<h2 id="建立分類"><a href="#建立分類" class="headerlink" title="建立分類"></a>建立分類</h2><ol>
-<li>輸入 <code>hexo new page &#39;categories&#39;</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
-<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories中的 index.md檔案，插入 <code>type: &quot;categories&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>重新產生靜態檔案，可以在導覽列看到多了一個分類分頁</li>
-</ol>
-<h2 id="建立標籤"><a href="#建立標籤" class="headerlink" title="建立標籤"></a>建立標籤</h2><p>與分類的步驟一樣，但內容改變。</p>
+    <title>Hexo教學(三) 主題匯入</title>
+    <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
+<ul>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
+</ul>
+</li>
+<li>NexT<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
+</ul>
+</li>
+</ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li>輸入 <code>hexo new page &#39;tags&#39;</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
-<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> tags index.md檔案，插入 <code>type: &quot;tags&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-若需要多個標籤，可以這樣輸入<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">教學文</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>重新產生靜態檔案，可以在導覽列看到多了一個標籤分頁</li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
 </ol>
-<p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
+</blockquote>
+]]></content>
       <categories>
         <category>hexo教學</category>
       </categories>
@@ -279,29 +313,33 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學(三) 主題匯入</title>
-    <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
-<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
-<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
-<ul>
-<li>hueman<ul>
-<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
-</ul>
-</li>
-<li>NexT<ul>
-<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
-<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
-</ul>
-</li>
-</ul>
-<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
-<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+    <title>Hexo教學(五) 部署文章至 Github Page</title>
+    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%94)%E9%83%A8%E7%BD%B2%E6%96%87%E7%AB%A0%E8%87%B3%20Github%20Page/</url>
+    <content><![CDATA[<h2 id="建立-github資料庫"><a href="#建立-github資料庫" class="headerlink" title="建立 github資料庫"></a>建立 github資料庫</h2><p>登入 github.com後，新增一個資料庫做為 hexo的儲存空間，我們會使用這個資料庫發布部落格。</p>
+<ol>
+<li>右上方點擊 New repository</li>
+<li>在 Repository name欄位中輸入 <code>你的github帳號.github.io</code></li>
+<li>選擇 Public</li>
+<li>點擊 Creat repository</li>
+<li>點擊此資料庫的 <strong>Setting</strong></li>
+<li>在 Setting的頁面中找到名為 GitHub Pages的標題</li>
+<li>在 GitHub Pages的選項中，找到子標題 Source，將第一個選項改為 master</li>
+<li>選擇 master後，會發現上面一則通知，它會是<br>Your site is published at https://你的github帳號.github.io</li>
+</ol>
+<h2 id="修改-hexo設定檔"><a href="#修改-hexo設定檔" class="headerlink" title="修改 hexo設定檔"></a>修改 hexo設定檔</h2><p>建立好 github的資料庫後，接著我們回到 hexo底下的 <code>_config.yml</code>，我們要修改發布時會用到的資訊。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https:<span class="regexp">//</span>你的github帳號.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/你的github帳號/</span>你的github帳號.github.io.git </span><br><span class="line">  branch: master </span><br><span class="line">  message: <span class="string">&#x27;hexoblog&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="部屬-Deploy"><a href="#部屬-Deploy" class="headerlink" title="部屬 (Deploy)"></a>部屬 (Deploy)</h2><p>完成上述兩個部分後，讓我們重新產生 hexo的靜態檔案，就能將寫好的文章上傳了。<br>這裡還需要再輸入一個指令，<code>npm install --save hexo-deployer-git</code>，這樣才能將 hexo一鍵部屬到 github上。</p>
+<ol>
+<li>輸入 <code>hexo clean</code>，可縮寫 <code>hexo cl</code></li>
+<li>輸入 <code>hexo generate</code>，可縮寫 <code>hexo g</code></li>
+<li>輸入 <code>hexo server</code>，可縮寫 <code>hexo s</code></li>
+<li>輸入 <code>hexo deploy</code>，正式將文章上傳至網路空間</li>
+<li>在網址列輸入 https://你的github帳號.github.io，看是否成功</li>
+</ol>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
-<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10242893">Ray - 試著學 Hexo - 部署你的第一個部落格</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -447,33 +485,34 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學(五) 部署文章至 Github Page</title>
-    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%94)%E9%83%A8%E7%BD%B2%E6%96%87%E7%AB%A0%E8%87%B3%20Github%20Page/</url>
-    <content><![CDATA[<h2 id="建立-github資料庫"><a href="#建立-github資料庫" class="headerlink" title="建立 github資料庫"></a>建立 github資料庫</h2><p>登入 github.com後，新增一個資料庫做為 hexo的儲存空間，我們會使用這個資料庫發布部落格。</p>
-<ol>
-<li>右上方點擊 New repository</li>
-<li>在 Repository name欄位中輸入 <code>你的github帳號.github.io</code></li>
-<li>選擇 Public</li>
-<li>點擊 Creat repository</li>
-<li>點擊此資料庫的 <strong>Setting</strong></li>
-<li>在 Setting的頁面中找到名為 GitHub Pages的標題</li>
-<li>在 GitHub Pages的選項中，找到子標題 Source，將第一個選項改為 master</li>
-<li>選擇 master後，會發現上面一則通知，它會是<br>Your site is published at https://你的github帳號.github.io</li>
+    <title>Hexo教學 404頁面</title>
+    <url>/blog/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8404/</url>
+    <content><![CDATA[<h2 id="建立-404頁面"><a href="#建立-404頁面" class="headerlink" title="建立 404頁面"></a>建立 404頁面</h2><ol>
+<li>輸入 <code>hexo new page 404</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source\404\index.md 增加以下資訊<ul>
+<li>comments，若之後有開啟評論功能，在這邊先將它關閉</li>
+<li>permalink，網站中的固定連結<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span> <span class="bullet">-</span> <span class="string">您似乎來到不對的地方~</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-27 13:45:41</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">/404</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>增加頁面說明文字。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 您要找的網頁不存在。</span></span><br><span class="line"></span><br><span class="line">很抱歉，您目前存取的頁面不存在。</span><br><span class="line"></span><br><span class="line">請點擊[<span class="string">這裡</span>](<span class="link">https://您的帳號.github.io/</span>)回首頁。</span><br></pre></td></tr></table></figure>
+建立好上述資訊後重新建立靜態檔案，github的預設 404頁面就會使用我們新建的 404頁面了。</li>
 </ol>
-<h2 id="修改-hexo設定檔"><a href="#修改-hexo設定檔" class="headerlink" title="修改 hexo設定檔"></a>修改 hexo設定檔</h2><p>建立好 github的資料庫後，接著我們回到 hexo底下的 <code>_config.yml</code>，我們要修改發布時會用到的資訊。</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https:<span class="regexp">//</span>你的github帳號.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/你的github帳號/</span>你的github帳號.github.io.git </span><br><span class="line">  branch: master </span><br><span class="line">  message: <span class="string">&#x27;hexoblog&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="部屬-Deploy"><a href="#部屬-Deploy" class="headerlink" title="部屬 (Deploy)"></a>部屬 (Deploy)</h2><p>完成上述兩個部分後，讓我們重新產生 hexo的靜態檔案，就能將寫好的文章上傳了。<br>這裡還需要再輸入一個指令，<code>npm install --save hexo-deployer-git</code>，這樣才能將 hexo一鍵部屬到 github上。</p>
-<ol>
-<li>輸入 <code>hexo clean</code>，可縮寫 <code>hexo cl</code></li>
-<li>輸入 <code>hexo generate</code>，可縮寫 <code>hexo g</code></li>
-<li>輸入 <code>hexo server</code>，可縮寫 <code>hexo s</code></li>
-<li>輸入 <code>hexo deploy</code>，正式將文章上傳至網路空間</li>
-<li>在網址列輸入 https://你的github帳號.github.io，看是否成功</li>
-</ol>
+<p>另外，在 github中有兩種方式都能讀取到 404頁面，</p>
+<ul>
+<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404\index.md<ul>
+<li>permalink就設定為 <code>permalink: /404</code></li>
+</ul>
+</li>
+<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404.md <ul>
+<li>permalink就設定為 <code>permalink: /404.html</code> </li>
+</ul>
+</li>
+</ul>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10242893">Ray - 試著學 Hexo - 部署你的第一個部落格</a></li>
+<li><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">Creating a custom 404 page for your GitHub Pages site</a></li>
+<li><a href="https://hexo.io/zh-tw/docs/permalinks.html">Hexo - Permalinks</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10249685">Ray - 試著學 Hexo - SEO 篇 - 新增你的 404 頁面</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -576,42 +615,86 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學 404頁面</title>
-    <url>/blog/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8404/</url>
-    <content><![CDATA[<h2 id="建立-404頁面"><a href="#建立-404頁面" class="headerlink" title="建立 404頁面"></a>建立 404頁面</h2><ol>
-<li>輸入 <code>hexo new page 404</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source\404\index.md 增加以下資訊<ul>
-<li>comments，若之後有開啟評論功能，在這邊先將它關閉</li>
-<li>permalink，網站中的固定連結<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span> <span class="bullet">-</span> <span class="string">您似乎來到不對的地方~</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-27 13:45:41</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">/404</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>增加頁面說明文字。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 您要找的網頁不存在。</span></span><br><span class="line"></span><br><span class="line">很抱歉，您目前存取的頁面不存在。</span><br><span class="line"></span><br><span class="line">請點擊[<span class="string">這裡</span>](<span class="link">https://您的帳號.github.io/</span>)回首頁。</span><br></pre></td></tr></table></figure>
-建立好上述資訊後重新建立靜態檔案，github的預設 404頁面就會使用我們新建的 404頁面了。</li>
-</ol>
-<p>另外，在 github中有兩種方式都能讀取到 404頁面，</p>
+    <title>ES6語法糖 - 箭頭函式與this(上)</title>
+    <url>/blog/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
+    <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一般函式寫法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為具名函式 - 函式陳述式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為匿名函式 - 函式表達式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭頭函式</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若函式只有單一變數，參數括號可以簡化</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  str = <span class="string">&#x27;簡化參數括號&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若函式內只有單一陳述行，大括號可以簡化，但沒有參數時，括號必須存在</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式簡易寫法。&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="箭頭函式與一般函式的差異"><a href="#箭頭函式與一般函式的差異" class="headerlink" title="箭頭函式與一般函式的差異"></a>箭頭函式與一般函式的差異</h3><p>箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 每當搜尋相關介紹時，總會說明它沒有這些 : </p>
 <ul>
-<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404\index.md<ul>
-<li>permalink就設定為 <code>permalink: /404</code></li>
+<li><code>this</code></li>
+<li><code>arguments</code> </li>
+<li><code>call()</code></li>
+<li><code>apply()</code></li>
+<li><code>bind()</code></li>
 </ul>
+<p>而這些到底是甚麼? 為什麼那三個內建函式又是甚麼? 為什麼它們看起來很陌生? 在下集會來介紹，在上集中會先介紹 <code>this</code>。</p>
+<p>先簡易說明一下，<code>call()</code>、<code>apply()</code>、<code>bind()</code> 這三種 JS內建函式，可以影響 <code>this</code> 的運作，若使用箭頭函式的話，由於 ES6的規則，連帶的那三個函式也跟著無法使用。<br>而 <code>arguments</code>，它為一般函式的內建參數，在箭頭函式中無此內建參數可運用，但是可以改用 ES6的其餘參數來達到同樣效果。</p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>看到箭頭函式的介紹時，常會看到一句話，箭頭函式沒有自己的 <code>this</code>，而 <code>this</code> 從何而來，又指向誰，為什麼會用到它? </p>
+<h3 id="this是甚麼"><a href="#this是甚麼" class="headerlink" title="this是甚麼 ?"></a>this是甚麼 ?</h3><ul>
+<li>this 是 JavaScript的內建關鍵字之一</li>
+<li>通常會用在函式或物件中，來呼叫自身的擁有的屬性或值等等…</li>
+</ul>
+<h3 id="this從何而來"><a href="#this從何而來" class="headerlink" title="this從何而來 ?"></a>this從何而來 ?</h3><p>先來看個範例 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span>.a) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>當我們將瀏覽器打開時，就已經建立好全域環境與執行環境，而程式碼就是寫在執行環境中，而 <code>this</code> 與全域環境一起被建立。</p>
+<ul>
+<li>全域環境</li>
+<li><code>this</code></li>
+<li>執行環境</li>
+</ul>
+<p>當我們要呼叫 a這個變數時，由上述範例可以知道，有三種呼叫變數 a的方式 :</p>
+<ul>
+<li>直接呼叫</li>
+<li>透過全域物件呼叫</li>
+<li>透過 JS內建關鍵字 <code>this</code> 呼叫</li>
+</ul>
+<p>變數 a是由 var宣告的，而它的執行環境在全域環境中，於是變數 a就被建立在全域環境，接著就能透過全域物件 window找到它。</p>
+<h3 id="this指向誰"><a href="#this指向誰" class="headerlink" title="this指向誰 ?"></a>this指向誰 ?</h3><p>通常我們寫程式碼時，習慣在全域環境下作業，而 <code>this</code> 在呼叫自身時，<strong>必須留意在哪個環境被呼叫，而不看在哪裡被使用</strong>，像是以下這些例子 :</p>
+<ul>
+<li>簡易呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行函式，`this`會呼叫全域下的變數</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nameFn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&#x27;漂亮阿姨&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">nameFn() <span class="comment">// &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>物件中呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行物件中的函式，`this`則指向物件本身</span></span><br><span class="line"><span class="keyword">const</span> obj =&#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>物件裡呼叫函式並執行函式中的函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callFn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// 相當於直接執行 callFn2() -&gt; &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure>
+
 </li>
-<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404.md <ul>
-<li>permalink就設定為 <code>permalink: /404.html</code> </li>
+</ul>
+<h3 id="為什麼會用-this"><a href="#為什麼會用-this" class="headerlink" title="為什麼會用 this ?"></a>為什麼會用 this ?</h3><p>在 <code>this</code> 一開始有提到，它可以用在函式或物件中，來呼叫自身的擁有的屬性或值，來看以下例子 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> personA = &#123;</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params">number</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;number&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personA.sayHello(personA.age)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> personB = &#123;</span><br><span class="line">  age: <span class="number">10</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personB.sayHello()</span><br></pre></td></tr></table></figure>
+<p>使用 <code>this</code> 可以讓程式碼簡化不少。</p>
+<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>上述範例中，物件裡呼叫函式並執行函式中的函式，<code>this</code> 會指向全域，而我們可以使用箭頭函式來解決這樣的問題，因為 : </p>
+<ul>
+<li>箭頭函式沒有自己的 <code>this</code></li>
+<li>當箭頭函式中使用 <code>this</code>時，它會往上一層尋找</li>
+<li>也就是說，<strong>在哪邊被使用，它就會往上一層尋找，而不看環境</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn () &#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="keyword">const</span> callFn2 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="回想"><a href="#回想" class="headerlink" title="回想"></a>回想</h2><ul>
+<li>箭頭函式怎麼寫 ?</li>
+<li>如何知道箭頭函式沒有自己的 <code>this</code> ?</li>
+<li>甚麼時候會用到 <code>this</code> ?</li>
+<li><code>this</code> 在不同地方會指向誰 ?<ul>
+<li>在全域環境下，若創造一個箭頭函式並使用了 <code>this</code> ，它會指向誰 ?</li>
+<li>在物件中新增了一個函式並使用了 <code>this</code> ，最後在全域環境下呼叫物件內的函式，它會指向誰 ?</li>
 </ul>
 </li>
 </ul>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">Creating a custom 404 page for your GitHub Pages site</a></li>
-<li><a href="https://hexo.io/zh-tw/docs/permalinks.html">Hexo - Permalinks</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10249685">Ray - 試著學 Hexo - SEO 篇 - 新增你的 404 頁面</a></li>
+<li><a href="https://medium.com/schaoss-blog/%E5%89%8D%E7%AB%AF%E4%B8%89%E5%8D%81-10-js-%E4%B8%80%E8%88%AC%E5%87%BD%E5%BC%8F%E8%88%87%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E7%9A%84%E5%B7%AE%E7%95%B0-32ce9455ff1a">Schaos - 前端三十｜10. [JS] 一般函式與箭頭函式的差異？</a></li>
+<li><a href="https://blog.techbridge.cc/2019/02/23/javascript-this/">胡立 - 淺談 JavaScript 頭號難題 this：絕對不完整，但保證好懂</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10218937">Mooji - JS 原力覺醒 Day07 - 陳述式 表達式</a></li>
+<li><a href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">卡斯伯 - 鐵人賽：箭頭函式 (Arrow functions)</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN - 箭頭函式</a></li>
+<li>六角學院 - JS核心篇</li>
 </ol>
 </blockquote>
 ]]></content>
       <categories>
-        <category>hexo教學</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>hexo教學</tag>
+        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -798,157 +881,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6語法糖 - 箭頭函式與this(上)</title>
-    <url>/blog/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
-    <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一般函式寫法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為具名函式 - 函式陳述式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為匿名函式 - 函式表達式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭頭函式</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若函式只有單一變數，參數括號可以簡化</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  str = <span class="string">&#x27;簡化參數括號&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若函式內只有單一陳述行，大括號可以簡化，但沒有參數時，括號必須存在</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式簡易寫法。&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="箭頭函式與一般函式的差異"><a href="#箭頭函式與一般函式的差異" class="headerlink" title="箭頭函式與一般函式的差異"></a>箭頭函式與一般函式的差異</h3><p>箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 每當搜尋相關介紹時，總會說明它沒有這些 : </p>
-<ul>
-<li><code>this</code></li>
-<li><code>arguments</code> </li>
-<li><code>call()</code></li>
-<li><code>apply()</code></li>
-<li><code>bind()</code></li>
-</ul>
-<p>而這些到底是甚麼? 為什麼那三個內建函式又是甚麼? 為什麼它們看起來很陌生? 在下集會來介紹，在上集中會先介紹 <code>this</code>。</p>
-<p>先簡易說明一下，<code>call()</code>、<code>apply()</code>、<code>bind()</code> 這三種 JS內建函式，可以影響 <code>this</code> 的運作，若使用箭頭函式的話，由於 ES6的規則，連帶的那三個函式也跟著無法使用。<br>而 <code>arguments</code>，它為一般函式的內建參數，在箭頭函式中無此內建參數可運用，但是可以改用 ES6的其餘參數來達到同樣效果。</p>
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>看到箭頭函式的介紹時，常會看到一句話，箭頭函式沒有自己的 <code>this</code>，而 <code>this</code> 從何而來，又指向誰，為什麼會用到它? </p>
-<h3 id="this是甚麼"><a href="#this是甚麼" class="headerlink" title="this是甚麼 ?"></a>this是甚麼 ?</h3><ul>
-<li>this 是 JavaScript的內建關鍵字之一</li>
-<li>通常會用在函式或物件中，來呼叫自身的擁有的屬性或值等等…</li>
-</ul>
-<h3 id="this從何而來"><a href="#this從何而來" class="headerlink" title="this從何而來 ?"></a>this從何而來 ?</h3><p>先來看個範例 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span>.a) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<p>當我們將瀏覽器打開時，就已經建立好全域環境與執行環境，而程式碼就是寫在執行環境中，而 <code>this</code> 與全域環境一起被建立。</p>
-<ul>
-<li>全域環境</li>
-<li><code>this</code></li>
-<li>執行環境</li>
-</ul>
-<p>當我們要呼叫 a這個變數時，由上述範例可以知道，有三種呼叫變數 a的方式 :</p>
-<ul>
-<li>直接呼叫</li>
-<li>透過全域物件呼叫</li>
-<li>透過 JS內建關鍵字 <code>this</code> 呼叫</li>
-</ul>
-<p>變數 a是由 var宣告的，而它的執行環境在全域環境中，於是變數 a就被建立在全域環境，接著就能透過全域物件 window找到它。</p>
-<h3 id="this指向誰"><a href="#this指向誰" class="headerlink" title="this指向誰 ?"></a>this指向誰 ?</h3><p>通常我們寫程式碼時，習慣在全域環境下作業，而 <code>this</code> 在呼叫自身時，<strong>必須留意在哪個環境被呼叫，而不看在哪裡被使用</strong>，像是以下這些例子 :</p>
-<ul>
-<li>簡易呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行函式，`this`會呼叫全域下的變數</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nameFn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&#x27;漂亮阿姨&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">nameFn() <span class="comment">// &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure></li>
-<li>物件中呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行物件中的函式，`this`則指向物件本身</span></span><br><span class="line"><span class="keyword">const</span> obj =&#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure></li>
-<li>物件裡呼叫函式並執行函式中的函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callFn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// 相當於直接執行 callFn2() -&gt; &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="為什麼會用-this"><a href="#為什麼會用-this" class="headerlink" title="為什麼會用 this ?"></a>為什麼會用 this ?</h3><p>在 <code>this</code> 一開始有提到，它可以用在函式或物件中，來呼叫自身的擁有的屬性或值，來看以下例子 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> personA = &#123;</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params">number</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;number&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personA.sayHello(personA.age)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> personB = &#123;</span><br><span class="line">  age: <span class="number">10</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personB.sayHello()</span><br></pre></td></tr></table></figure>
-<p>使用 <code>this</code> 可以讓程式碼簡化不少。</p>
-<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>上述範例中，物件裡呼叫函式並執行函式中的函式，<code>this</code> 會指向全域，而我們可以使用箭頭函式來解決這樣的問題，因為 : </p>
-<ul>
-<li>箭頭函式沒有自己的 <code>this</code></li>
-<li>當箭頭函式中使用 <code>this</code>時，它會往上一層尋找</li>
-<li>也就是說，<strong>在哪邊被使用，它就會往上一層尋找，而不看環境</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn () &#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="keyword">const</span> callFn2 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="回想"><a href="#回想" class="headerlink" title="回想"></a>回想</h2><ul>
-<li>箭頭函式怎麼寫 ?</li>
-<li>如何知道箭頭函式沒有自己的 <code>this</code> ?</li>
-<li>甚麼時候會用到 <code>this</code> ?</li>
-<li><code>this</code> 在不同地方會指向誰 ?<ul>
-<li>在全域環境下，若創造一個箭頭函式並使用了 <code>this</code> ，它會指向誰 ?</li>
-<li>在物件中新增了一個函式並使用了 <code>this</code> ，最後在全域環境下呼叫物件內的函式，它會指向誰 ?</li>
-</ul>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/schaoss-blog/%E5%89%8D%E7%AB%AF%E4%B8%89%E5%8D%81-10-js-%E4%B8%80%E8%88%AC%E5%87%BD%E5%BC%8F%E8%88%87%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E7%9A%84%E5%B7%AE%E7%95%B0-32ce9455ff1a">Schaos - 前端三十｜10. [JS] 一般函式與箭頭函式的差異？</a></li>
-<li><a href="https://blog.techbridge.cc/2019/02/23/javascript-this/">胡立 - 淺談 JavaScript 頭號難題 this：絕對不完整，但保證好懂</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10218937">Mooji - JS 原力覺醒 Day07 - 陳述式 表達式</a></li>
-<li><a href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">卡斯伯 - 鐵人賽：箭頭函式 (Arrow functions)</a></li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN - 箭頭函式</a></li>
-<li>六角學院 - JS核心篇</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ES6變數宣告與全域環境</title>
-    <url>/blog/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
-<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
-<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
-<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
-<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>只在某區塊(例如函式)中有作用</li>
-<li>無法重複宣告同樣變數名稱</li>
-<li>變數的值可改變</li>
-</ul>
-<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>無法重複宣告</li>
-<li>變數的值不可改變</li>
-<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
-</ul>
-<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
-<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
-<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
-<ul>
-<li>物件環境 Object Environment</li>
-<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-以表格來看的話，類似像這樣 : <table>
-<thead>
-<tr>
-<th>聲明環境</th>
-<th>物件環境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a</td>
-<td>10</td>
-</tr>
-<tr>
-<td>b</td>
-<td>funciton()</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<p>而 JS是物件導向，以物件來看的話，</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
-<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
-<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
-<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS地下城 - 3F - 計算機</title>
     <url>/blog/2021/01/06/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E3F-%E8%A8%88%E7%AE%97%E6%A9%9F/</url>
     <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__3F/">JS地下城 - 3F - 計算機</a></p>
@@ -1095,6 +1027,135 @@
 <li><a href="https://dotblogs.com.tw/AlenWu_coding_blog/2017/08/11/js_number_to_currency_comma">AlenWu - [Javascrpt]轉換數字成含千分位的文字</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">MDN - Number.prototype.toLocaleString()</a></li>
 <li><a href="http://slashview.com/archive2020/20200712.html">SlashView - Javascript之數值千分位符號（Comma）的顯示</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>JS地下城</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6變數宣告與全域環境</title>
+    <url>/blog/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
+<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
+<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
+<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>只在某區塊(例如函式)中有作用</li>
+<li>無法重複宣告同樣變數名稱</li>
+<li>變數的值可改變</li>
+</ul>
+<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>無法重複宣告</li>
+<li>變數的值不可改變</li>
+<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
+</ul>
+<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
+<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
+<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
+<ul>
+<li>物件環境 Object Environment</li>
+<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+以表格來看的話，類似像這樣 : <table>
+<thead>
+<tr>
+<th>聲明環境</th>
+<th>物件環境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>10</td>
+</tr>
+<tr>
+<td>b</td>
+<td>funciton()</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<p>而 JS是物件導向，以物件來看的話，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
+<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
+<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
+<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS地下城 - 4F- 世界時鐘</title>
+    <url>/blog/2021/01/07/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E4F-%E4%B8%96%E7%95%8C%E6%99%82%E9%90%98/</url>
+    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__4F/">WORLD CLOCK</a></p>
+<h2 id="世界時鐘"><a href="#世界時鐘" class="headerlink" title="世界時鐘"></a>世界時鐘</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>主要語法 <code>.toLocaleString( )</code></p>
+<ul>
+<li><code>.toLocaleString(&#39;en-US&#39;, 物件形式選項)</code></li>
+<li>利用不同選項產生要的資訊</li>
+<li>建立陣列，放入不同國家名稱以及 timeZone 名稱 </li>
+<li>利用 forEach，將此資料陣列組成字串<ul>
+<li>.toLocaleString(‘en-US’, 日期資訊)</li>
+<li>.toLocaleString(‘en-US’, 時間資訊)<h4 id="參考範例"><a href="#參考範例" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">  hour: <span class="string">&#x27;2-digit&#x27;</span>,   <span class="comment">//(e.g., 02)</span></span><br><span class="line">  minute: <span class="string">&#x27;2-digit&#x27;</span>, <span class="comment">//(e.g., 02)          </span></span><br><span class="line">  hour12: <span class="literal">false</span>,     <span class="comment">// 24 小時制</span></span><br><span class="line">  day: <span class="string">&#x27;numeric&#x27;</span>,    <span class="comment">//(e.g., 1)</span></span><br><span class="line">  month: <span class="string">&#x27;short&#x27;</span>,    <span class="comment">//(e.g., Oct)</span></span><br><span class="line">  year: <span class="string">&#x27;numeric&#x27;</span>,   <span class="comment">//(e.g., 2020)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> countries = &#123;</span><br><span class="line">  country: <span class="string">&#x27;New York&#x27;</span>, </span><br><span class="line">  timeZone: <span class="string">&#x27;America/New_York&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;...countries, ...options&#125;))</span><br><span class="line"><span class="comment">// &quot;Jan 6, 2021, 03:30&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3>利用 <code>:first-child</code> 與 <code>:last-child</code> 覆蓋原有配色</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="時間-Data"><a href="#時間-Data" class="headerlink" title="時間 Data()"></a>時間 <code>Data()</code></h2><p>將 <code>Date()</code>作為建構物件後，可以取用內建的方法，像是 : </p>
+<ul>
+<li><code>getFullYear()</code></li>
+<li><code>getMonth()</code>，月份從 0 開始，因此得+1才能正確顯示</li>
+<li><code>getDate()</code></li>
+<li><code>toLocaleString()</code>，本地時間</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`<span class="subst">$&#123;date.getFullYear()+<span class="number">1</span>&#125;</span>年 <span class="subst">$&#123;date.getMonth()+<span class="number">1</span>&#125;</span>月 <span class="subst">$&#123;date.getDate()&#125;</span>日`</span></span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString())</span><br><span class="line"><span class="comment">// &quot;2021年 1月 7日&quot;</span></span><br><span class="line"><span class="comment">// &quot;2021/1/7 上午9:55:56&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="格林威治平均時間（Greenwich-Mean-Time-GMT）"><a href="#格林威治平均時間（Greenwich-Mean-Time-GMT）" class="headerlink" title="格林威治平均時間（Greenwich Mean Time, GMT）"></a>格林威治平均時間（Greenwich Mean Time, GMT）</h3><p>以前不是有聽過電台撥放，中原標準時間，其實 GMT 是藉由在地球上觀測太陽的結果，算出一天多久後，再細分成小時、分、秒，再依照世界地區劃分，最終我們所在的台灣則是在 GMT +8 的時區內，而中原標準時間則是跟中華民國歷史有關，它所劃分的地區，就是 GMT +8。 </p>
+<h3 id="世界協調時間（Coordinated-Universal-Time-UTC）"><a href="#世界協調時間（Coordinated-Universal-Time-UTC）" class="headerlink" title="世界協調時間（Coordinated Universal Time, UTC）"></a>世界協調時間（Coordinated Universal Time, UTC）</h3><blockquote>
+<p>利用宇宙中穩定一致的無線電波源週期性的訊號，搭配電波源抵達地球時觀測的角度，直接計算地球的自轉與公轉速率，再以此計算一年、一天、時分秒的平均長度。<br>縮寫為世界一致的 Universal Time Coordinated, UTC<br>與國際度量衡標準相聯繫，所以目前所有的國際通訊系統，像是衛星、航空、GPS 等等，全部都協議採用 UTC 時間。</p>
+</blockquote>
+<p>科學界使用更加穩定的 UTC。</p>
+<h3 id="TimeStamp"><a href="#TimeStamp" class="headerlink" title="TimeStamp"></a>TimeStamp</h3><p>1970年， <a href="https://zh.wikipedia.org/wiki/UNIX%E6%97%B6%E9%97%B4">Unix正式誕生</a>，也因此 TimeStamp 由 1970/01/01 開始計算，網路上有很多轉換器，都可以算出年月日。 </p>
+<ul>
+<li><a href="https://www.unixtimestamp.com/">Unix TimeStamp 為秒數</a></li>
+<li><strong>JavaScript TimeStamp 為毫秒數</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.now())</span><br><span class="line"><span class="comment">// 產生毫秒數，到現在的時間為止</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.UTC(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"><span class="comment">// 1609459200000</span></span><br><span class="line"><span class="comment">// 月份從 0 開始</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="為什麼需要-TimeStamp"><a href="#為什麼需要-TimeStamp" class="headerlink" title="為什麼需要 TimeStamp ?"></a>為什麼需要 TimeStamp ?</h4><p>雖然可以使用內建的方法取得年月日，但是所顯示的時間格式可能會不一致，若儲存為 TimeStamp，不僅較為單純也統一格式為數字，不論哪個語言都能使用。除了統一格式外，也可以利用 TimeStamp做出倒數計時、比對時間等等功能。</p>
+<h4 id="參考範例-1"><a href="#參考範例-1" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dateFn = <span class="function">(<span class="params">time</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(time)</span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    date.getTime(),     <span class="comment">// 毫秒數</span></span><br><span class="line">    date.getFullYear(), <span class="comment">// 年</span></span><br><span class="line">    date.getMonth(),    <span class="comment">// 月</span></span><br><span class="line">    date.getDate(),     <span class="comment">// 日</span></span><br><span class="line">    date.getHours(),    <span class="comment">// 小時</span></span><br><span class="line">    date.getMinutes(),  <span class="comment">// 分</span></span><br><span class="line">    date.getSeconds(),  <span class="comment">// 秒</span></span><br><span class="line">    date.toUTCString(), <span class="comment">// 格林威治標準時間 +0</span></span><br><span class="line">    date.toString(), <span class="comment">// 本地時間(台北標準時間) +8</span></span><br><span class="line">    <span class="comment">// 可以更改地點取得該時區時間</span></span><br><span class="line">    date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;<span class="attr">timeZone</span>: <span class="string">&#x27;America/New_York&#x27;</span>&#125;) </span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 被視為本地時區，正常取得時間</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-1-1&#x27;</span>)  </span><br><span class="line"><span class="comment">// 1609430400000 ，毫秒數</span></span><br><span class="line"><span class="comment">// 2021 0 1 0 0 0 ，年月日時分秒</span></span><br><span class="line"><span class="comment">// &quot;Thu, 31 Dec 2020 16:00:00 GMT&quot; ，格林威治標準時間，也就是 UTC時間</span></span><br><span class="line"><span class="comment">// &quot;Fri Jan 01 2021 00:00:00 GMT+0800 (台北標準時間)&quot; </span></span><br><span class="line"><span class="comment">// &quot;12/31/2020, 11:00:00 AM&quot; ，美國紐約時間</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 被視為格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-01-01&#x27;</span>)         </span><br><span class="line"></span><br><span class="line"><span class="comment">// ISO-8601 格式，被視為格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-01-01T00:00:00Z&#x27;</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">// Date() 內建日期字串轉毫秒數，但不同瀏覽器會有差異，不推薦</span></span><br><span class="line">dateFn(<span class="built_in">Date</span>.parse(<span class="string">&#x27;2021-1-1&#x27;</span>)) </span><br><span class="line"></span><br><span class="line"><span class="comment">// 格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="built_in">Date</span>.UTC(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>))   </span><br><span class="line"></span><br><span class="line"><span class="comment">// 被視為本地時區，正常取得時間</span></span><br><span class="line">dateFn(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>)) </span><br></pre></td></tr></table></figure>
+
+
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://www.muji.dev/2019/02/12/world-time/">Mujing Tsai - JS世界時間表</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia - List of tz database time zones</a></li>
+<li><a href="https://w3c.hexschool.com/blog/e69d8619">Charles Hong - JavaScript 取得各國的日期與時間</a></li>
+<li><a href="https://pansci.asia/archives/84978">泛科學 - 到底是 GMT+8 還是 UTC+8 ?</a></li>
+<li><a href="https://blog.miniasp.com/post/2016/09/25/JavaScript-Date-usage-in-details">Will - 前端工程研究：關於 JavaScript 中 Date 型別的常見地雷與建議作法</a></li>
+<li><a href="https://segmentfault.com/a/1190000007581722">JavaScript 时间与日期处理实战:你肯定被坑过</a></li>
 </ol>
 </blockquote>
 ]]></content>
