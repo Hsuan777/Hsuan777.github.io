@@ -33,7 +33,7 @@
 <meta property="og:description" content="利用 Date() 內建方法，取得各地時間。">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2021-01-07T07:25:38.000Z">
-<meta property="article:modified_time" content="2021-01-07T07:31:52.426Z">
+<meta property="article:modified_time" content="2021-01-07T07:33:23.514Z">
 <meta property="article:author" content="Vic">
 <meta property="article:tag" content="JavaScript">
 <meta property="article:tag" content="JS地下城">
@@ -223,7 +223,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/blog/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">29</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -301,7 +301,7 @@
       <span class="post-meta-item-text">發表於</span>
       
 
-      <time title="創建時間：2021-01-07 15:25:38 / 修改時間：15:31:52" itemprop="dateCreated datePublished" datetime="2021-01-07T15:25:38+08:00">2021-01-07</time>
+      <time title="創建時間：2021-01-07 15:25:38 / 修改時間：15:33:23" itemprop="dateCreated datePublished" datetime="2021-01-07T15:25:38+08:00">2021-01-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -331,12 +331,13 @@
 <li>利用不同選項產生要的資訊</li>
 <li>建立陣列，放入不同國家名稱以及 timeZone 名稱 </li>
 <li>利用 forEach，將此資料陣列組成字串<ul>
-<li>.toLocaleString(‘en-US’, 日期資訊)</li>
-<li>.toLocaleString(‘en-US’, 時間資訊)<h4 id="參考範例"><a href="#參考範例" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">  hour: <span class="string">&#x27;2-digit&#x27;</span>,   <span class="comment">//(e.g., 02)</span></span><br><span class="line">  minute: <span class="string">&#x27;2-digit&#x27;</span>, <span class="comment">//(e.g., 02)          </span></span><br><span class="line">  hour12: <span class="literal">false</span>,     <span class="comment">// 24 小時制</span></span><br><span class="line">  day: <span class="string">&#x27;numeric&#x27;</span>,    <span class="comment">//(e.g., 1)</span></span><br><span class="line">  month: <span class="string">&#x27;short&#x27;</span>,    <span class="comment">//(e.g., Oct)</span></span><br><span class="line">  year: <span class="string">&#x27;numeric&#x27;</span>,   <span class="comment">//(e.g., 2020)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> countries = &#123;</span><br><span class="line">  country: <span class="string">&#x27;New York&#x27;</span>, </span><br><span class="line">  timeZone: <span class="string">&#x27;America/New_York&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;...countries, ...options&#125;))</span><br><span class="line"><span class="comment">// &quot;Jan 6, 2021, 03:30&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3>利用 <code>:first-child</code> 與 <code>:last-child</code> 覆蓋原有配色</li>
+<li><code>.toLocaleString(&#39;en-US&#39;, 日期資訊)</code></li>
+<li><code>.toLocaleString(&#39;en-US&#39;, 時間資訊)</code></li>
 </ul>
 </li>
 </ul>
+<h4 id="參考範例"><a href="#參考範例" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">  hour: <span class="string">&#x27;2-digit&#x27;</span>,   <span class="comment">//(e.g., 02)</span></span><br><span class="line">  minute: <span class="string">&#x27;2-digit&#x27;</span>, <span class="comment">//(e.g., 02)          </span></span><br><span class="line">  hour12: <span class="literal">false</span>,     <span class="comment">// 24 小時制</span></span><br><span class="line">  day: <span class="string">&#x27;numeric&#x27;</span>,    <span class="comment">//(e.g., 1)</span></span><br><span class="line">  month: <span class="string">&#x27;short&#x27;</span>,    <span class="comment">//(e.g., Oct)</span></span><br><span class="line">  year: <span class="string">&#x27;numeric&#x27;</span>,   <span class="comment">//(e.g., 2020)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> countries = &#123;</span><br><span class="line">  country: <span class="string">&#x27;New York&#x27;</span>, </span><br><span class="line">  timeZone: <span class="string">&#x27;America/New_York&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;...countries, ...options&#125;))</span><br><span class="line"><span class="comment">// &quot;Jan 6, 2021, 03:30&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>利用 <code>:first-child</code> 與 <code>:last-child</code> 覆蓋原有配色</p>
 <hr>
 <h2 id="時間-Data"><a href="#時間-Data" class="headerlink" title="時間 Data()"></a>時間 <code>Data()</code></h2><p>將 <code>Date()</code>作為建構物件後，可以取用內建的方法，像是 : </p>
 <ul>
@@ -395,6 +396,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/blog/2021/01/16/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E5F-%E5%85%A8%E5%8F%B0%E7%A9%BA%E6%B0%A3%E6%8C%87%E6%A8%99/" rel="next" title="JS地下城-5F全台空氣指標">
+                  JS地下城-5F全台空氣指標 <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
