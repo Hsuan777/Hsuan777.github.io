@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>為什麼想寫部落格?</title>
-    <url>/blog/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
-    <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
-<p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
-<p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
-]]></content>
-      <categories>
-        <category>閒聊</category>
-      </categories>
-  </entry>
-  <entry>
     <title>Google試算表作為線上資料庫 - 讀取資料</title>
     <url>/blog/2020/11/18/Google%E8%A9%A6%E7%AE%97%E8%A1%A8%E4%BD%9C%E7%82%BA%E7%B7%9A%E4%B8%8A%E8%B3%87%E6%96%99%E5%BA%AB-%E8%AE%80%E5%8F%96%E8%B3%87%E6%96%99/</url>
     <content><![CDATA[<p>想要弄自己的資料庫，卻又不知道該怎麼做，只知道要建立欄位，而Google的試算表就能達成這件事。只要 : </p>
@@ -131,6 +120,17 @@
       </tags>
   </entry>
   <entry>
+    <title>為什麼想寫部落格?</title>
+    <url>/blog/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
+    <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
+<p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
+<p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
+]]></content>
+      <categories>
+        <category>閒聊</category>
+      </categories>
+  </entry>
+  <entry>
     <title>記錄自己的成長，那怕是1%也好</title>
     <url>/blog/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/</url>
     <content><![CDATA[<p>利用 Hexo寫技術部落格，那怕是第一篇，或者只有一篇，只怕自己停佇不前。</p>
@@ -200,40 +200,6 @@
 </ol>
 <p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
 <figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學(三) 主題匯入</title>
-    <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
-<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
-<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
-<ul>
-<li>hueman<ul>
-<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
-</ul>
-</li>
-<li>NexT<ul>
-<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
-<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
-</ul>
-</li>
-</ul>
-<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
-<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
-<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
-</ol>
-</blockquote>
-]]></content>
       <categories>
         <category>hexo教學</category>
       </categories>
@@ -313,33 +279,29 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學(五) 部署文章至 Github Page</title>
-    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%94)%E9%83%A8%E7%BD%B2%E6%96%87%E7%AB%A0%E8%87%B3%20Github%20Page/</url>
-    <content><![CDATA[<h2 id="建立-github資料庫"><a href="#建立-github資料庫" class="headerlink" title="建立 github資料庫"></a>建立 github資料庫</h2><p>登入 github.com後，新增一個資料庫做為 hexo的儲存空間，我們會使用這個資料庫發布部落格。</p>
-<ol>
-<li>右上方點擊 New repository</li>
-<li>在 Repository name欄位中輸入 <code>你的github帳號.github.io</code></li>
-<li>選擇 Public</li>
-<li>點擊 Creat repository</li>
-<li>點擊此資料庫的 <strong>Setting</strong></li>
-<li>在 Setting的頁面中找到名為 GitHub Pages的標題</li>
-<li>在 GitHub Pages的選項中，找到子標題 Source，將第一個選項改為 master</li>
-<li>選擇 master後，會發現上面一則通知，它會是<br>Your site is published at https://你的github帳號.github.io</li>
-</ol>
-<h2 id="修改-hexo設定檔"><a href="#修改-hexo設定檔" class="headerlink" title="修改 hexo設定檔"></a>修改 hexo設定檔</h2><p>建立好 github的資料庫後，接著我們回到 hexo底下的 <code>_config.yml</code>，我們要修改發布時會用到的資訊。</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https:<span class="regexp">//</span>你的github帳號.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/你的github帳號/</span>你的github帳號.github.io.git </span><br><span class="line">  branch: master </span><br><span class="line">  message: <span class="string">&#x27;hexoblog&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="部屬-Deploy"><a href="#部屬-Deploy" class="headerlink" title="部屬 (Deploy)"></a>部屬 (Deploy)</h2><p>完成上述兩個部分後，讓我們重新產生 hexo的靜態檔案，就能將寫好的文章上傳了。<br>這裡還需要再輸入一個指令，<code>npm install --save hexo-deployer-git</code>，這樣才能將 hexo一鍵部屬到 github上。</p>
-<ol>
-<li>輸入 <code>hexo clean</code>，可縮寫 <code>hexo cl</code></li>
-<li>輸入 <code>hexo generate</code>，可縮寫 <code>hexo g</code></li>
-<li>輸入 <code>hexo server</code>，可縮寫 <code>hexo s</code></li>
-<li>輸入 <code>hexo deploy</code>，正式將文章上傳至網路空間</li>
-<li>在網址列輸入 https://你的github帳號.github.io，看是否成功</li>
-</ol>
+    <title>Hexo教學(三) 主題匯入</title>
+    <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
+<ul>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
+</ul>
+</li>
+<li>NexT<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
+</ul>
+</li>
+</ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10242893">Ray - 試著學 Hexo - 部署你的第一個部落格</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -485,6 +447,83 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo教學 404頁面</title>
+    <url>/blog/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8404/</url>
+    <content><![CDATA[<h2 id="建立-404頁面"><a href="#建立-404頁面" class="headerlink" title="建立 404頁面"></a>建立 404頁面</h2><ol>
+<li>輸入 <code>hexo new page 404</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source\404\index.md 增加以下資訊<ul>
+<li>comments，若之後有開啟評論功能，在這邊先將它關閉</li>
+<li>permalink，網站中的固定連結<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span> <span class="bullet">-</span> <span class="string">您似乎來到不對的地方~</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-27 13:45:41</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">/404</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>增加頁面說明文字。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 您要找的網頁不存在。</span></span><br><span class="line"></span><br><span class="line">很抱歉，您目前存取的頁面不存在。</span><br><span class="line"></span><br><span class="line">請點擊[<span class="string">這裡</span>](<span class="link">https://您的帳號.github.io/</span>)回首頁。</span><br></pre></td></tr></table></figure>
+建立好上述資訊後重新建立靜態檔案，github的預設 404頁面就會使用我們新建的 404頁面了。</li>
+</ol>
+<p>另外，在 github中有兩種方式都能讀取到 404頁面，</p>
+<ul>
+<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404\index.md<ul>
+<li>permalink就設定為 <code>permalink: /404</code></li>
+</ul>
+</li>
+<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404.md <ul>
+<li>permalink就設定為 <code>permalink: /404.html</code> </li>
+</ul>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">Creating a custom 404 page for your GitHub Pages site</a></li>
+<li><a href="https://hexo.io/zh-tw/docs/permalinks.html">Hexo - Permalinks</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10249685">Ray - 試著學 Hexo - SEO 篇 - 新增你的 404 頁面</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(五) 部署文章至 Github Page</title>
+    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%94)%E9%83%A8%E7%BD%B2%E6%96%87%E7%AB%A0%E8%87%B3%20Github%20Page/</url>
+    <content><![CDATA[<h2 id="建立-github資料庫"><a href="#建立-github資料庫" class="headerlink" title="建立 github資料庫"></a>建立 github資料庫</h2><p>登入 github.com後，新增一個資料庫做為 hexo的儲存空間，我們會使用這個資料庫發布部落格。</p>
+<ol>
+<li>右上方點擊 New repository</li>
+<li>在 Repository name欄位中輸入 <code>你的github帳號.github.io</code></li>
+<li>選擇 Public</li>
+<li>點擊 Creat repository</li>
+<li>點擊此資料庫的 <strong>Setting</strong></li>
+<li>在 Setting的頁面中找到名為 GitHub Pages的標題</li>
+<li>在 GitHub Pages的選項中，找到子標題 Source，將第一個選項改為 master</li>
+<li>選擇 master後，會發現上面一則通知，它會是<br>Your site is published at https://你的github帳號.github.io</li>
+</ol>
+<h2 id="修改-hexo設定檔"><a href="#修改-hexo設定檔" class="headerlink" title="修改 hexo設定檔"></a>修改 hexo設定檔</h2><p>建立好 github的資料庫後，接著我們回到 hexo底下的 <code>_config.yml</code>，我們要修改發布時會用到的資訊。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https:<span class="regexp">//</span>你的github帳號.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/你的github帳號/</span>你的github帳號.github.io.git </span><br><span class="line">  branch: master </span><br><span class="line">  message: <span class="string">&#x27;hexoblog&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="部屬-Deploy"><a href="#部屬-Deploy" class="headerlink" title="部屬 (Deploy)"></a>部屬 (Deploy)</h2><p>完成上述兩個部分後，讓我們重新產生 hexo的靜態檔案，就能將寫好的文章上傳了。<br>這裡還需要再輸入一個指令，<code>npm install --save hexo-deployer-git</code>，這樣才能將 hexo一鍵部屬到 github上。</p>
+<ol>
+<li>輸入 <code>hexo clean</code>，可縮寫 <code>hexo cl</code></li>
+<li>輸入 <code>hexo generate</code>，可縮寫 <code>hexo g</code></li>
+<li>輸入 <code>hexo server</code>，可縮寫 <code>hexo s</code></li>
+<li>輸入 <code>hexo deploy</code>，正式將文章上傳至網路空間</li>
+<li>在網址列輸入 https://你的github帳號.github.io，看是否成功</li>
+</ol>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10242893">Ray - 試著學 Hexo - 部署你的第一個部落格</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo教學 Next主題設定與頁面功能(Ver. 8)</title>
     <url>/blog/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/</url>
     <content><![CDATA[<p>由於自己選擇了 NexT主題匯入，這邊就以 NexT的設定做介紹。<br>請找到 <code>themes/next/_config.yml</code> 這隻檔案。</p>
@@ -576,102 +615,64 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學 404頁面</title>
-    <url>/blog/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8404/</url>
-    <content><![CDATA[<h2 id="建立-404頁面"><a href="#建立-404頁面" class="headerlink" title="建立 404頁面"></a>建立 404頁面</h2><ol>
-<li>輸入 <code>hexo new page 404</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source\404\index.md 增加以下資訊<ul>
-<li>comments，若之後有開啟評論功能，在這邊先將它關閉</li>
-<li>permalink，網站中的固定連結<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span> <span class="bullet">-</span> <span class="string">您似乎來到不對的地方~</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-27 13:45:41</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">/404</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>增加頁面說明文字。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 您要找的網頁不存在。</span></span><br><span class="line"></span><br><span class="line">很抱歉，您目前存取的頁面不存在。</span><br><span class="line"></span><br><span class="line">請點擊[<span class="string">這裡</span>](<span class="link">https://您的帳號.github.io/</span>)回首頁。</span><br></pre></td></tr></table></figure>
-建立好上述資訊後重新建立靜態檔案，github的預設 404頁面就會使用我們新建的 404頁面了。</li>
-</ol>
-<p>另外，在 github中有兩種方式都能讀取到 404頁面，</p>
+    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
+    <url>/blog/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
+    <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
 <ul>
-<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404\index.md<ul>
-<li>permalink就設定為 <code>permalink: /404</code></li>
+<li><code>this</code></li>
+<li><code>arguments</code> </li>
+<li><code>call()</code></li>
+<li><code>apply()</code></li>
+<li><code>bind()</code></li>
 </ul>
-</li>
-<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404.md <ul>
-<li>permalink就設定為 <code>permalink: /404.html</code> </li>
+<p>這篇我們要來看這些東西原本是怎麼運作的。</p>
+<h3 id="關鍵字-this"><a href="#關鍵字-this" class="headerlink" title="關鍵字 this"></a>關鍵字 this</h3><p>複習一下 <code>this</code> 的運作 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  whoAmI: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>，今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.whoAmI()</span><br><span class="line"><span class="comment">// 由於是在物件呼叫此函式的，所以往上一層尋找時(非箭頭函式)，會找到此物件的屬性值</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="關鍵字-arguments"><a href="#關鍵字-arguments" class="headerlink" title="關鍵字 arguments"></a>關鍵字 arguments</h3><ul>
+<li>一般函式內建的關鍵字之一</li>
+<li>可以將傳入的參數值抓取出來形成一個類陣列<strong>物件</strong></li>
 </ul>
-</li>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>])</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內建函式-call、apply、bind的共通點"><a href="#內建函式-call、apply、bind的共通點" class="headerlink" title="內建函式 call、apply、bind的共通點"></a>內建函式 call、apply、bind的共通點</h3><ul>
+<li>JS的內建函式</li>
+<li>它們都與 <code>this</code> 有所關聯</li>
+<li>不需要在函式中自訂參數就能將變數塞進 <code>this</code></li>
+<li>若有多個值，函式的第一個參數位置為 <code>this</code></li>
+<li>也就是說<code>(this, 參數1, 參數2, 以此類推)</code></li>
 </ul>
+<p>接下來，我們來看，<code>call()</code>、<code>apply()</code>以及 <code>bind()</code> 如何與 <code>this</code> 運作。</p>
+<h3 id="內建函式-call"><a href="#內建函式-call" class="headerlink" title="內建函式 call"></a>內建函式 call</h3><ul>
+<li>單純將參數值傳入</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line">sum.call(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// &quot;this為2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<h3 id="內建函式-apply"><a href="#內建函式-apply" class="headerlink" title="內建函式 apply"></a>內建函式 apply</h3><ul>
+<li>傳入的型態必須是陣列</li>
+<li>功能上與 <code>call</code> 無異</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第一個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第二個是<span class="subst">$&#123;b&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">sum.apply(<span class="number">1</span>, array)</span><br><span class="line"><span class="comment">// &quot;陣列中第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;this為1&quot;</span></span><br><span class="line"><span class="comment">// &quot;陣列中第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內建函式-bind"><a href="#內建函式-bind" class="headerlink" title="內建函式 bind"></a>內建函式 bind</h3><ul>
+<li><strong><code>bind()</code> 將建立一個新的函式</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例一</span></span><br><span class="line"><span class="comment">// bind會建立一個新的函式</span></span><br><span class="line"><span class="comment">// this會對應傳入的參數 newPerson</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Jay&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newDisplay = display.bind(newPerson)</span><br><span class="line">display() <span class="comment">// Jay</span></span><br><span class="line">newDisplay() <span class="comment">// Vic</span></span><br><span class="line"><span class="comment">// 新的函式會執行 console.log(newPerson.name)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例二</span></span><br><span class="line"><span class="comment">// 若有多個值，bind的參數第一順位為 &#x27;this&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第一個是<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> plusTwo = sum.bind(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plusTwo()</span><br><span class="line"><span class="comment">// &quot;第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>我們了解到箭頭函式沒有自己的 <code>this</code>，相對的也就沒有上述的那三種內建函式可供使用，也無法使用 <code>arguments</code>，但可以改用其餘參數來達成目的。箭頭函式與一般函式的運用，還是得看實際情況來做使用。</p>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">Creating a custom 404 page for your GitHub Pages site</a></li>
-<li><a href="https://hexo.io/zh-tw/docs/permalinks.html">Hexo - Permalinks</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10249685">Ray - 試著學 Hexo - SEO 篇 - 新增你的 404 頁面</a></li>
+<li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
+<li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
 </ol>
 </blockquote>
 ]]></content>
       <categories>
-        <category>hexo教學</category>
+        <category>JavaScript</category>
       </categories>
       <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>演算法入門(一) 演算法與大 O 符號</title>
-    <url>/blog/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/</url>
-    <content><![CDATA[<h2 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h2><blockquote>
-<p>演算法三步驟，它是明確的、有限的且有效率的</p>
-</blockquote>
-<ol>
-<li>輸入</li>
-<li>計算步驟</li>
-<li>輸出</li>
-</ol>
-<h2 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h2><p>假設現在目標是砍倒一棵樹，且不限時間，使用斧頭會需要很多時間也浪費力氣，使用電鋸省力也省時，換成步驟來看的話，斧頭需要很多砍很多下才會倒，且需要的時間非常多，換成電鋸後，省時省力。</p>
-<p>再假設你買了一部90萬的車輛，朋友問你這部車買了多少? 你只能打字回答，這時你會怎麼回覆呢? 9000百元? 900千元?  或者90萬元? 顯然是90萬元最符合答案也能最快回答。</p>
-<h2 id="如何描述程式中時間與空間的關係呢"><a href="#如何描述程式中時間與空間的關係呢" class="headerlink" title="如何描述程式中時間與空間的關係呢?"></a>如何描述程式中時間與空間的關係呢?</h2><p>我們會以數學符號之<strong>漸進符號</strong> $O$，其表示為函數增長關係。</p>
-<ul>
-<li>漸進符號 $O$<ul>
-<li>bigO，通常會寫成 $O()$</li>
-</ul>
-</li>
-<li>時間複雜度<ul>
-<li>隨著輸入值成長之執行步驟</li>
-</ul>
-</li>
-<li>空間複雜度<ul>
-<li>隨著輸入值成長之記憶體暫用空間</li>
-</ul>
-</li>
-</ul>
-<p>而通常我們為了簡化表達方式，會取其極限值，以下為一些例子 :</p>
-<ul>
-<li>常數 $\rightarrow$ 1</li>
-<li>$n、2n、3n \rightarrow n$</li>
-<li>$n^2+2n \rightarrow n^2$</li>
-<li>以此類推</li>
-</ul>
-<h2 id="執行複雜度表示方式"><a href="#執行複雜度表示方式" class="headerlink" title="執行複雜度表示方式"></a>執行複雜度表示方式</h2><p>來看以下的例子，小杰被師父指派去賣漢堡，每個漢堡50元 :</p>
-<ul>
-<li><p>範例一</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>此函式一共執行 2個步驟，也就是說輸入無窮大時，也只會執行 2個步驟，那麼它的時間複雜度則為 $O(1)$，空間複雜度為 $O(1)$，因為只使用了 total這個變數。</p>
-</li>
-<li><p>範例二</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`小杰累計賣出<span class="subst">$&#123;i&#125;</span>個漢堡~`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br><span class="line">sell(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-<p>for迴圈執行了 n次再加上前後兩個步驟共 n+2次，以時間複雜度來表示則為 $O(n)$，空間複雜度為 $O(1)$，使用了 total與 i兩個變數</p>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://break0344.medium.com/data-structures-and-algorithms-0-720c04cb8082">Long - 用JavaScript學習資料結構與演算法</a></li>
-<li><a href="https://medium.com/appworks-school/%E5%88%9D%E5%AD%B8%E8%80%85%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E6%B3%95%E5%85%A5%E9%96%80-%E9%81%B8%E6%93%87%E6%8E%92%E5%BA%8F%E8%88%87%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%B3%95-23d4bc7085ff">胡程維 - 初學者學演算法</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>演算法入門</category>
-      </categories>
-      <tags>
-        <tag>演算法入門</tag>
         <tag>JavaScript</tag>
       </tags>
   </entry>
@@ -748,136 +749,6 @@
 <li><a href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">卡斯伯 - 鐵人賽：箭頭函式 (Arrow functions)</a></li>
 <li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN - 箭頭函式</a></li>
 <li>六角學院 - JS核心篇</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
-    <url>/blog/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
-    <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
-<ul>
-<li><code>this</code></li>
-<li><code>arguments</code> </li>
-<li><code>call()</code></li>
-<li><code>apply()</code></li>
-<li><code>bind()</code></li>
-</ul>
-<p>這篇我們要來看這些東西原本是怎麼運作的。</p>
-<h3 id="關鍵字-this"><a href="#關鍵字-this" class="headerlink" title="關鍵字 this"></a>關鍵字 this</h3><p>複習一下 <code>this</code> 的運作 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  whoAmI: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>，今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.whoAmI()</span><br><span class="line"><span class="comment">// 由於是在物件呼叫此函式的，所以往上一層尋找時(非箭頭函式)，會找到此物件的屬性值</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="關鍵字-arguments"><a href="#關鍵字-arguments" class="headerlink" title="關鍵字 arguments"></a>關鍵字 arguments</h3><ul>
-<li>一般函式內建的關鍵字之一</li>
-<li>可以將傳入的參數值抓取出來形成一個類陣列<strong>物件</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>])</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內建函式-call、apply、bind的共通點"><a href="#內建函式-call、apply、bind的共通點" class="headerlink" title="內建函式 call、apply、bind的共通點"></a>內建函式 call、apply、bind的共通點</h3><ul>
-<li>JS的內建函式</li>
-<li>它們都與 <code>this</code> 有所關聯</li>
-<li>不需要在函式中自訂參數就能將變數塞進 <code>this</code></li>
-<li>若有多個值，函式的第一個參數位置為 <code>this</code></li>
-<li>也就是說<code>(this, 參數1, 參數2, 以此類推)</code></li>
-</ul>
-<p>接下來，我們來看，<code>call()</code>、<code>apply()</code>以及 <code>bind()</code> 如何與 <code>this</code> 運作。</p>
-<h3 id="內建函式-call"><a href="#內建函式-call" class="headerlink" title="內建函式 call"></a>內建函式 call</h3><ul>
-<li>單純將參數值傳入</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line">sum.call(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// &quot;this為2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-<h3 id="內建函式-apply"><a href="#內建函式-apply" class="headerlink" title="內建函式 apply"></a>內建函式 apply</h3><ul>
-<li>傳入的型態必須是陣列</li>
-<li>功能上與 <code>call</code> 無異</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第一個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第二個是<span class="subst">$&#123;b&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">sum.apply(<span class="number">1</span>, array)</span><br><span class="line"><span class="comment">// &quot;陣列中第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;this為1&quot;</span></span><br><span class="line"><span class="comment">// &quot;陣列中第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內建函式-bind"><a href="#內建函式-bind" class="headerlink" title="內建函式 bind"></a>內建函式 bind</h3><ul>
-<li><strong><code>bind()</code> 將建立一個新的函式</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例一</span></span><br><span class="line"><span class="comment">// bind會建立一個新的函式</span></span><br><span class="line"><span class="comment">// this會對應傳入的參數 newPerson</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Jay&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newDisplay = display.bind(newPerson)</span><br><span class="line">display() <span class="comment">// Jay</span></span><br><span class="line">newDisplay() <span class="comment">// Vic</span></span><br><span class="line"><span class="comment">// 新的函式會執行 console.log(newPerson.name)</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例二</span></span><br><span class="line"><span class="comment">// 若有多個值，bind的參數第一順位為 &#x27;this&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第一個是<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> plusTwo = sum.bind(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plusTwo()</span><br><span class="line"><span class="comment">// &quot;第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>我們了解到箭頭函式沒有自己的 <code>this</code>，相對的也就沒有上述的那三種內建函式可供使用，也無法使用 <code>arguments</code>，但可以改用其餘參數來達成目的。箭頭函式與一般函式的運用，還是得看實際情況來做使用。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
-<li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ES6變數宣告與全域環境</title>
-    <url>/blog/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
-    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
-<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
-<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
-<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
-<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>只在某區塊(例如函式)中有作用</li>
-<li>無法重複宣告同樣變數名稱</li>
-<li>變數的值可改變</li>
-</ul>
-<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
-<li>無法重複宣告</li>
-<li>變數的值不可改變</li>
-<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
-</ul>
-<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
-<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
-<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
-<ul>
-<li>物件環境 Object Environment</li>
-<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-以表格來看的話，類似像這樣 : <table>
-<thead>
-<tr>
-<th>聲明環境</th>
-<th>物件環境</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>a</td>
-<td>10</td>
-</tr>
-<tr>
-<td>b</td>
-<td>funciton()</td>
-</tr>
-</tbody></table>
-</li>
-</ul>
-<p>而 JS是物件導向，以物件來看的話，</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
-<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
-<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
-<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -1010,56 +881,63 @@
       </tags>
   </entry>
   <entry>
-    <title>JS地下城 - 4F- 世界時鐘</title>
-    <url>/blog/2021/01/07/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E4F-%E4%B8%96%E7%95%8C%E6%99%82%E9%90%98/</url>
-    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__4F/">WORLD CLOCK</a></p>
-<h2 id="世界時鐘"><a href="#世界時鐘" class="headerlink" title="世界時鐘"></a>世界時鐘</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>主要語法 <code>.toLocaleString( )</code></p>
-<ul>
-<li><code>.toLocaleString(&#39;en-US&#39;, 物件形式選項)</code></li>
-<li>利用不同選項產生要的資訊</li>
-<li>建立陣列，放入不同國家名稱以及 timeZone 名稱 </li>
-<li>利用 forEach，將此資料陣列組成字串<ul>
-<li><code>.toLocaleString(&#39;en-US&#39;, 日期資訊)</code></li>
-<li><code>.toLocaleString(&#39;en-US&#39;, 時間資訊)</code></li>
+    <title>ES6變數宣告與全域環境</title>
+    <url>/blog/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
+    <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
+<h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
+<p>透過瀏覽器(開發者模式)來看，會發現在 window中找得到 a這個變數，這很可能讓後續寫下的變數或者函式抓到同樣的變數(註1)，進而造成不必要的錯誤。不過，它不是不能用，根據實際情況改變寫法才是我們要的。<br>順帶一提，若有安裝 ESLint這類的檢查工具，這個宣告方式還是會被建議改成 let。</p>
+<p>註1 : 若函式裏頭未宣告且命名一個變數並賦予值，那麼此變數就會在全域環境中建立一個該變數的名稱(這個行為是 <strong>Hoisting</strong>，中文名為提升)。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  a = <span class="number">2</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">22</span></span><br><span class="line">&#125;</span><br><span class="line">b()</span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 2 </span></span><br><span class="line"><span class="built_in">console</span>.log(c) <span class="comment">// c is not defined</span></span><br><span class="line"><span class="comment">// 執行 b函式時，全域環境中建立了名為 a的變數</span></span><br><span class="line"><span class="comment">// 而變數 c是在函式內宣告，因此在&quot;全域環境&quot;中找不到變數 c</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="let"><a href="#let" class="headerlink" title="let"></a>let</h3><p>在 ES6中，新增了 let與 const，這邊先介紹 let。</p>
+<h4 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>只在某區塊(例如函式)中有作用</li>
+<li>無法重複宣告同樣變數名稱</li>
+<li>變數的值可改變</li>
 </ul>
+<h4 id="範例"><a href="#範例" class="headerlink" title="範例"></a>範例</h4><p>為了解決 var所帶來的困擾，使用 let來做為變數宣告會是一個比較好的方式，它的作用範圍被限制在某個區塊中，就算不在函式中宣告，在 window中也找不到利用 let所宣告的變數。以下為範例 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><h4 id="特性-1"><a href="#特性-1" class="headerlink" title="特性"></a>特性</h4><ul>
+<li>無法重複宣告</li>
+<li>變數的值不可改變</li>
+<li>若賦予的值為陣列或物件，可以改變其內部屬性</li>
+</ul>
+<p>使用 const宣告的變數為<strong>常數</strong>，無法改變其值，類似唯讀。</p>
+<h2 id="全域環境"><a href="#全域環境" class="headerlink" title="全域環境"></a>全域環境</h2><p>上述的範例中會看到 window.a，這其實是物件的寫法，利用 var來宣告變數時，會在 window中新增一個物件屬性，為什麼會提到物件? 因為在說明 let時，自己不禁有個疑問，<code>let a</code> 有宣告，但在全域中卻找不到，那它去哪裡了?</p>
+<h3 id="全域之複合環境"><a href="#全域之複合環境" class="headerlink" title="全域之複合環境"></a>全域之複合環境</h3><p><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">這裡</a>似乎有相關的說明。目前自己的理解是，全域環境中是一個複合環境，包含 : </p>
+<ul>
+<li>物件環境 Object Environment</li>
+<li>聲明環境 Declarative Environment<h4 id="範例-1"><a href="#範例-1" class="headerlink" title="範例"></a>範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span></span><br><span class="line"><span class="keyword">var</span> b = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+以表格來看的話，類似像這樣 : <table>
+<thead>
+<tr>
+<th>聲明環境</th>
+<th>物件環境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>10</td>
+</tr>
+<tr>
+<td>b</td>
+<td>funciton()</td>
+</tr>
+</tbody></table>
 </li>
 </ul>
-<h4 id="參考範例"><a href="#參考範例" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">  hour: <span class="string">&#x27;2-digit&#x27;</span>,   <span class="comment">//(e.g., 02)</span></span><br><span class="line">  minute: <span class="string">&#x27;2-digit&#x27;</span>, <span class="comment">//(e.g., 02)          </span></span><br><span class="line">  hour12: <span class="literal">false</span>,     <span class="comment">// 24 小時制</span></span><br><span class="line">  day: <span class="string">&#x27;numeric&#x27;</span>,    <span class="comment">//(e.g., 1)</span></span><br><span class="line">  month: <span class="string">&#x27;short&#x27;</span>,    <span class="comment">//(e.g., Oct)</span></span><br><span class="line">  year: <span class="string">&#x27;numeric&#x27;</span>,   <span class="comment">//(e.g., 2020)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> countries = &#123;</span><br><span class="line">  country: <span class="string">&#x27;New York&#x27;</span>, </span><br><span class="line">  timeZone: <span class="string">&#x27;America/New_York&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;...countries, ...options&#125;))</span><br><span class="line"><span class="comment">// &quot;Jan 6, 2021, 03:30&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>利用 <code>:first-child</code> 與 <code>:last-child</code> 覆蓋原有配色</p>
-<hr>
-<h2 id="時間-Data"><a href="#時間-Data" class="headerlink" title="時間 Data()"></a>時間 <code>Data()</code></h2><p>將 <code>Date()</code>作為建構物件後，可以取用內建的方法，像是 : </p>
-<ul>
-<li><code>getFullYear()</code></li>
-<li><code>getMonth()</code>，月份從 0 開始，因此得+1才能正確顯示</li>
-<li><code>getDate()</code></li>
-<li><code>toLocaleString()</code>，本地時間</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`<span class="subst">$&#123;date.getFullYear()+<span class="number">1</span>&#125;</span>年 <span class="subst">$&#123;date.getMonth()+<span class="number">1</span>&#125;</span>月 <span class="subst">$&#123;date.getDate()&#125;</span>日`</span></span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString())</span><br><span class="line"><span class="comment">// &quot;2021年 1月 7日&quot;</span></span><br><span class="line"><span class="comment">// &quot;2021/1/7 上午9:55:56&quot;</span></span><br></pre></td></tr></table></figure>
+<p>而 JS是物件導向，以物件來看的話，</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 會在 Global內發現它們</span></span><br><span class="line">&#123;</span><br><span class="line">  a: <span class="number">10</span></span><br><span class="line">  b: f()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="格林威治平均時間（Greenwich-Mean-Time-GMT）"><a href="#格林威治平均時間（Greenwich-Mean-Time-GMT）" class="headerlink" title="格林威治平均時間（Greenwich Mean Time, GMT）"></a>格林威治平均時間（Greenwich Mean Time, GMT）</h3><p>以前不是有聽過電台撥放，中原標準時間，其實 GMT 是藉由在地球上觀測太陽的結果，算出一天多久後，再細分成小時、分、秒，再依照世界地區劃分，最終我們所在的台灣則是在 GMT +8 的時區內，而中原標準時間則是跟中華民國歷史有關，它所劃分的地區，就是 GMT +8。 </p>
-<h3 id="世界協調時間（Coordinated-Universal-Time-UTC）"><a href="#世界協調時間（Coordinated-Universal-Time-UTC）" class="headerlink" title="世界協調時間（Coordinated Universal Time, UTC）"></a>世界協調時間（Coordinated Universal Time, UTC）</h3><blockquote>
-<p>利用宇宙中穩定一致的無線電波源週期性的訊號，搭配電波源抵達地球時觀測的角度，直接計算地球的自轉與公轉速率，再以此計算一年、一天、時分秒的平均長度。<br>縮寫為世界一致的 Universal Time Coordinated, UTC<br>與國際度量衡標準相聯繫，所以目前所有的國際通訊系統，像是衛星、航空、GPS 等等，全部都協議採用 UTC 時間。</p>
-</blockquote>
-<p>科學界使用更加穩定的 UTC。</p>
-<h3 id="TimeStamp"><a href="#TimeStamp" class="headerlink" title="TimeStamp"></a>TimeStamp</h3><p>1970年， <a href="https://zh.wikipedia.org/wiki/UNIX%E6%97%B6%E9%97%B4">Unix正式誕生</a>，也因此 TimeStamp 由 1970/01/01 開始計算，網路上有很多轉換器，都可以算出年月日。 </p>
-<ul>
-<li><a href="https://www.unixtimestamp.com/">Unix TimeStamp 為秒數</a></li>
-<li><strong>JavaScript TimeStamp 為毫秒數</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.now())</span><br><span class="line"><span class="comment">// 產生毫秒數，到現在的時間為止</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.UTC(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"><span class="comment">// 1609459200000</span></span><br><span class="line"><span class="comment">// 月份從 0 開始</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="為什麼需要-TimeStamp"><a href="#為什麼需要-TimeStamp" class="headerlink" title="為什麼需要 TimeStamp ?"></a>為什麼需要 TimeStamp ?</h4><p>雖然可以使用內建的方法取得年月日，但是所顯示的時間格式可能會不一致，若儲存為 TimeStamp，不僅較為單純也統一格式為數字，不論哪個語言都能使用。除了統一格式外，也可以利用 TimeStamp做出倒數計時、比對時間等等功能。</p>
-<h4 id="參考範例-1"><a href="#參考範例-1" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dateFn = <span class="function">(<span class="params">time</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(time)</span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    date.getTime(),     <span class="comment">// 毫秒數</span></span><br><span class="line">    date.getFullYear(), <span class="comment">// 年</span></span><br><span class="line">    date.getMonth(),    <span class="comment">// 月</span></span><br><span class="line">    date.getDate(),     <span class="comment">// 日</span></span><br><span class="line">    date.getHours(),    <span class="comment">// 小時</span></span><br><span class="line">    date.getMinutes(),  <span class="comment">// 分</span></span><br><span class="line">    date.getSeconds(),  <span class="comment">// 秒</span></span><br><span class="line">    date.toUTCString(), <span class="comment">// 格林威治標準時間 +0</span></span><br><span class="line">    date.toString(), <span class="comment">// 本地時間(台北標準時間) +8</span></span><br><span class="line">    <span class="comment">// 可以更改地點取得該時區時間</span></span><br><span class="line">    date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;<span class="attr">timeZone</span>: <span class="string">&#x27;America/New_York&#x27;</span>&#125;) </span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 被視為本地時區，正常取得時間</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-1-1&#x27;</span>)  </span><br><span class="line"><span class="comment">// 1609430400000 ，毫秒數</span></span><br><span class="line"><span class="comment">// 2021 0 1 0 0 0 ，年月日時分秒</span></span><br><span class="line"><span class="comment">// &quot;Thu, 31 Dec 2020 16:00:00 GMT&quot; ，格林威治標準時間，也就是 UTC時間</span></span><br><span class="line"><span class="comment">// &quot;Fri Jan 01 2021 00:00:00 GMT+0800 (台北標準時間)&quot; </span></span><br><span class="line"><span class="comment">// &quot;12/31/2020, 11:00:00 AM&quot; ，美國紐約時間</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 被視為格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-01-01&#x27;</span>)         </span><br><span class="line"></span><br><span class="line"><span class="comment">// ISO-8601 格式，被視為格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-01-01T00:00:00Z&#x27;</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">// Date() 內建日期字串轉毫秒數，但不同瀏覽器會有差異，不推薦</span></span><br><span class="line">dateFn(<span class="built_in">Date</span>.parse(<span class="string">&#x27;2021-1-1&#x27;</span>)) </span><br><span class="line"></span><br><span class="line"><span class="comment">// 格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="built_in">Date</span>.UTC(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>))   </span><br><span class="line"></span><br><span class="line"><span class="comment">// 被視為本地時區，正常取得時間</span></span><br><span class="line">dateFn(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>)) </span><br></pre></td></tr></table></figure>
-
-
+<h3 id="瀏覽器中的-Scope"><a href="#瀏覽器中的-Scope" class="headerlink" title="瀏覽器中的 Scope"></a>瀏覽器中的 Scope</h3><p>對於瀏覽器來說，當執行環境執行程式碼時，會在瀏覽器的 Scope產生 Global與 Script，而範例的執行環境就是全域環境，所以當變數沒有被告知用哪一種變數宣告，那麼就會根據 JS規則將此變數建立在 Global，若在全域環境下也用 var宣告，那麼就會是建立在 Global。<br>而使用 let與 const宣告時，它們會被建立在 Script，這就是為什麼無法在 window中找到的原因，因為它們的建立規則不是建立在 Global。</p>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li><a href="https://www.muji.dev/2019/02/12/world-time/">Mujing Tsai - JS世界時間表</a></li>
-<li><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia - List of tz database time zones</a></li>
-<li><a href="https://w3c.hexschool.com/blog/e69d8619">Charles Hong - JavaScript 取得各國的日期與時間</a></li>
-<li><a href="https://pansci.asia/archives/84978">泛科學 - 到底是 GMT+8 還是 UTC+8 ?</a></li>
-<li><a href="https://blog.miniasp.com/post/2016/09/25/JavaScript-Date-usage-in-details">Will - 前端工程研究：關於 JavaScript 中 Date 型別的常見地雷與建議作法</a></li>
-<li><a href="https://segmentfault.com/a/1190000007581722">JavaScript 时间与日期处理实战:你肯定被坑过</a></li>
+<li><a href="https://medium.com/pvt5r486/javascript-weird-day-2-%E5%85%A8%E5%9F%9F%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83%E8%88%87%E5%85%A8%E5%9F%9F%E7%89%A9%E4%BB%B6-428bc0d61085">pvt5r486 - [JavaScript Weird] Day 2 — 全域執行環境與全域物件</a></li>
+<li><a href="https://hsiangfeng.github.io/javascript/20200425/539985371/">Ray - 淺談 var 與 let 的差異以及有無宣告變數的差異</a></li>
+<li><a href="https://medium.com/@realdennis/%E4%B8%80%E6%AC%A1%E8%AA%AA%E6%B8%85%E6%A5%9A-javascript-%E4%B8%AD%E5%AE%A3%E5%91%8A%E7%9A%84%E5%90%84%E7%A8%AE%E6%8F%90%E5%8D%87%E8%A1%8C%E7%82%BA-var-function-let-const-dd9175d063f0">realdennis - 一次說清楚 JavaScript 中宣告的各種提升行為（var、function、let/const）</a></li>
+<li><a href="https://github.com/Advanced-Frontend/Daily-Interview-Question/issues/30">Fun Lee - 关于 const 和 let 声明的变量不在 window 上</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -1068,7 +946,6 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
-        <tag>JS地下城</tag>
       </tags>
   </entry>
   <entry>
@@ -1304,6 +1181,68 @@
 <li><a href="https://dotblogs.com.tw/AlenWu_coding_blog/2017/08/11/js_number_to_currency_comma">AlenWu - [Javascrpt]轉換數字成含千分位的文字</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">MDN - Number.prototype.toLocaleString()</a></li>
 <li><a href="http://slashview.com/archive2020/20200712.html">SlashView - Javascript之數值千分位符號（Comma）的顯示</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>JS地下城</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS地下城 - 4F- 世界時鐘</title>
+    <url>/blog/2021/01/07/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E4F-%E4%B8%96%E7%95%8C%E6%99%82%E9%90%98/</url>
+    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__4F/">WORLD CLOCK</a></p>
+<h2 id="世界時鐘"><a href="#世界時鐘" class="headerlink" title="世界時鐘"></a>世界時鐘</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>主要語法 <code>.toLocaleString( )</code></p>
+<ul>
+<li><code>.toLocaleString(&#39;en-US&#39;, 物件形式選項)</code></li>
+<li>利用不同選項產生要的資訊</li>
+<li>建立陣列，放入不同國家名稱以及 timeZone 名稱 </li>
+<li>利用 forEach，將此資料陣列組成字串<ul>
+<li><code>.toLocaleString(&#39;en-US&#39;, 日期資訊)</code></li>
+<li><code>.toLocaleString(&#39;en-US&#39;, 時間資訊)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="參考範例"><a href="#參考範例" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">  hour: <span class="string">&#x27;2-digit&#x27;</span>,   <span class="comment">//(e.g., 02)</span></span><br><span class="line">  minute: <span class="string">&#x27;2-digit&#x27;</span>, <span class="comment">//(e.g., 02)          </span></span><br><span class="line">  hour12: <span class="literal">false</span>,     <span class="comment">// 24 小時制</span></span><br><span class="line">  day: <span class="string">&#x27;numeric&#x27;</span>,    <span class="comment">//(e.g., 1)</span></span><br><span class="line">  month: <span class="string">&#x27;short&#x27;</span>,    <span class="comment">//(e.g., Oct)</span></span><br><span class="line">  year: <span class="string">&#x27;numeric&#x27;</span>,   <span class="comment">//(e.g., 2020)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> countries = &#123;</span><br><span class="line">  country: <span class="string">&#x27;New York&#x27;</span>, </span><br><span class="line">  timeZone: <span class="string">&#x27;America/New_York&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;...countries, ...options&#125;))</span><br><span class="line"><span class="comment">// &quot;Jan 6, 2021, 03:30&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>利用 <code>:first-child</code> 與 <code>:last-child</code> 覆蓋原有配色</p>
+<hr>
+<h2 id="時間-Data"><a href="#時間-Data" class="headerlink" title="時間 Data()"></a>時間 <code>Data()</code></h2><p>將 <code>Date()</code>作為建構物件後，可以取用內建的方法，像是 : </p>
+<ul>
+<li><code>getFullYear()</code></li>
+<li><code>getMonth()</code>，月份從 0 開始，因此得+1才能正確顯示</li>
+<li><code>getDate()</code></li>
+<li><code>toLocaleString()</code>，本地時間</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`<span class="subst">$&#123;date.getFullYear()+<span class="number">1</span>&#125;</span>年 <span class="subst">$&#123;date.getMonth()+<span class="number">1</span>&#125;</span>月 <span class="subst">$&#123;date.getDate()&#125;</span>日`</span></span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString())</span><br><span class="line"><span class="comment">// &quot;2021年 1月 7日&quot;</span></span><br><span class="line"><span class="comment">// &quot;2021/1/7 上午9:55:56&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="格林威治平均時間（Greenwich-Mean-Time-GMT）"><a href="#格林威治平均時間（Greenwich-Mean-Time-GMT）" class="headerlink" title="格林威治平均時間（Greenwich Mean Time, GMT）"></a>格林威治平均時間（Greenwich Mean Time, GMT）</h3><p>以前不是有聽過電台撥放，中原標準時間，其實 GMT 是藉由在地球上觀測太陽的結果，算出一天多久後，再細分成小時、分、秒，再依照世界地區劃分，最終我們所在的台灣則是在 GMT +8 的時區內，而中原標準時間則是跟中華民國歷史有關，它所劃分的地區，就是 GMT +8。 </p>
+<h3 id="世界協調時間（Coordinated-Universal-Time-UTC）"><a href="#世界協調時間（Coordinated-Universal-Time-UTC）" class="headerlink" title="世界協調時間（Coordinated Universal Time, UTC）"></a>世界協調時間（Coordinated Universal Time, UTC）</h3><blockquote>
+<p>利用宇宙中穩定一致的無線電波源週期性的訊號，搭配電波源抵達地球時觀測的角度，直接計算地球的自轉與公轉速率，再以此計算一年、一天、時分秒的平均長度。<br>縮寫為世界一致的 Universal Time Coordinated, UTC<br>與國際度量衡標準相聯繫，所以目前所有的國際通訊系統，像是衛星、航空、GPS 等等，全部都協議採用 UTC 時間。</p>
+</blockquote>
+<p>科學界使用更加穩定的 UTC。</p>
+<h3 id="TimeStamp"><a href="#TimeStamp" class="headerlink" title="TimeStamp"></a>TimeStamp</h3><p>1970年， <a href="https://zh.wikipedia.org/wiki/UNIX%E6%97%B6%E9%97%B4">Unix正式誕生</a>，也因此 TimeStamp 由 1970/01/01 開始計算，網路上有很多轉換器，都可以算出年月日。 </p>
+<ul>
+<li><a href="https://www.unixtimestamp.com/">Unix TimeStamp 為秒數</a></li>
+<li><strong>JavaScript TimeStamp 為毫秒數</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.now())</span><br><span class="line"><span class="comment">// 產生毫秒數，到現在的時間為止</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.UTC(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"><span class="comment">// 1609459200000</span></span><br><span class="line"><span class="comment">// 月份從 0 開始</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="為什麼需要-TimeStamp"><a href="#為什麼需要-TimeStamp" class="headerlink" title="為什麼需要 TimeStamp ?"></a>為什麼需要 TimeStamp ?</h4><p>雖然可以使用內建的方法取得年月日，但是所顯示的時間格式可能會不一致，若儲存為 TimeStamp，不僅較為單純也統一格式為數字，不論哪個語言都能使用。除了統一格式外，也可以利用 TimeStamp做出倒數計時、比對時間等等功能。</p>
+<h4 id="參考範例-1"><a href="#參考範例-1" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dateFn = <span class="function">(<span class="params">time</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(time)</span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    date.getTime(),     <span class="comment">// 毫秒數</span></span><br><span class="line">    date.getFullYear(), <span class="comment">// 年</span></span><br><span class="line">    date.getMonth(),    <span class="comment">// 月</span></span><br><span class="line">    date.getDate(),     <span class="comment">// 日</span></span><br><span class="line">    date.getHours(),    <span class="comment">// 小時</span></span><br><span class="line">    date.getMinutes(),  <span class="comment">// 分</span></span><br><span class="line">    date.getSeconds(),  <span class="comment">// 秒</span></span><br><span class="line">    date.toUTCString(), <span class="comment">// 格林威治標準時間 +0</span></span><br><span class="line">    date.toString(), <span class="comment">// 本地時間(台北標準時間) +8</span></span><br><span class="line">    <span class="comment">// 可以更改地點取得該時區時間</span></span><br><span class="line">    date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;<span class="attr">timeZone</span>: <span class="string">&#x27;America/New_York&#x27;</span>&#125;) </span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 被視為本地時區，正常取得時間</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-1-1&#x27;</span>)  </span><br><span class="line"><span class="comment">// 1609430400000 ，毫秒數</span></span><br><span class="line"><span class="comment">// 2021 0 1 0 0 0 ，年月日時分秒</span></span><br><span class="line"><span class="comment">// &quot;Thu, 31 Dec 2020 16:00:00 GMT&quot; ，格林威治標準時間，也就是 UTC時間</span></span><br><span class="line"><span class="comment">// &quot;Fri Jan 01 2021 00:00:00 GMT+0800 (台北標準時間)&quot; </span></span><br><span class="line"><span class="comment">// &quot;12/31/2020, 11:00:00 AM&quot; ，美國紐約時間</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 被視為格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-01-01&#x27;</span>)         </span><br><span class="line"></span><br><span class="line"><span class="comment">// ISO-8601 格式，被視為格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-01-01T00:00:00Z&#x27;</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">// Date() 內建日期字串轉毫秒數，但不同瀏覽器會有差異，不推薦</span></span><br><span class="line">dateFn(<span class="built_in">Date</span>.parse(<span class="string">&#x27;2021-1-1&#x27;</span>)) </span><br><span class="line"></span><br><span class="line"><span class="comment">// 格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="built_in">Date</span>.UTC(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>))   </span><br><span class="line"></span><br><span class="line"><span class="comment">// 被視為本地時區，正常取得時間</span></span><br><span class="line">dateFn(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>)) </span><br></pre></td></tr></table></figure>
+
+
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://www.muji.dev/2019/02/12/world-time/">Mujing Tsai - JS世界時間表</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia - List of tz database time zones</a></li>
+<li><a href="https://w3c.hexschool.com/blog/e69d8619">Charles Hong - JavaScript 取得各國的日期與時間</a></li>
+<li><a href="https://pansci.asia/archives/84978">泛科學 - 到底是 GMT+8 還是 UTC+8 ?</a></li>
+<li><a href="https://blog.miniasp.com/post/2016/09/25/JavaScript-Date-usage-in-details">Will - 前端工程研究：關於 JavaScript 中 Date 型別的常見地雷與建議作法</a></li>
+<li><a href="https://segmentfault.com/a/1190000007581722">JavaScript 时间与日期处理实战:你肯定被坑过</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -1610,7 +1549,7 @@
       </tags>
   </entry>
   <entry>
-    <title>JS地下城8F</title>
+    <title>JS地下城8F-井字遊戲</title>
     <url>/blog/2021/02/22/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E8F-%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2/</url>
     <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__8F/">作品</a></p>
 <h2 id="井字遊戲"><a href="#井字遊戲" class="headerlink" title="井字遊戲"></a>井字遊戲</h2><h3 id="規則"><a href="#規則" class="headerlink" title="規則"></a>規則</h3><ol>
@@ -1659,7 +1598,7 @@
 </li>
 <li>螢幕解析度 RWD <ul>
 <li>320px、375px、414px (題目要求)</li>
-<li>sm、md、lg、xl(依據 Bootstarp 5)</li>
+<li>sm、md、lg、xl (依據 Bootstarp 5)</li>
 </ul>
 </li>
 <li>離線紀錄<ul>
@@ -1695,12 +1634,12 @@
 </li>
 </ul>
 <h3 id="第二種想法-多個暫存陣列"><a href="#第二種想法-多個暫存陣列" class="headerlink" title="第二種想法 - 多個暫存陣列"></a>第二種想法 - 多個暫存陣列</h3><ul>
-<li>建立 8 個陣列，根據規則 top、center、bottom等等</li>
+<li>建立 8 個陣列，根據規則 top、center`、bottom等等</li>
 <li>根據按鈕所帶的值分類，將按鈕分類到 8 個陣列中<ul>
 <li>例如按鈕一會有三個連線規則 top、rignt、backslash</li>
 </ul>
 </li>
-<li>再從該陣列中，利用 every()對比該陣列中的值是否相同，若否，則無連線</li>
+<li>再從該陣列中，利用 <code>every()</code> 對比該陣列中的值是否相同，若否，則無連線</li>
 <li>若比對值均相同，代表連線成功，下一步則顯示贏家或平手</li>
 <li>缺點是 code 很長</li>
 </ul>
@@ -1726,7 +1665,9 @@
 <li><code>localstorage.setItem(&#39;test&#39;, JSON.string(物件))</code></li>
 </ul>
 </li>
-<li>取得 localstorage<pre><code>  - 建立變數存放 `JSON.parse(localstorage.getItem(&#39;test&#39;))`</code></pre>
+<li>取得 localstorage<ul>
+<li>建立變數存放 <code>JSON.parse(localstorage.getItem(&#39;test&#39;))</code></li>
+</ul>
 </li>
 </ul>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
@@ -2043,89 +1984,6 @@
       </tags>
   </entry>
   <entry>
-    <title>提升</title>
-    <url>/blog/2020/12/11/javascript/%E6%8F%90%E5%8D%87/</url>
-    <content><![CDATA[<p>分別呼叫這些例子，會產生甚麼結果?</p>
-<p>E.g. 1. : console.log 結果會是?</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
-<p>E.g. 2 : console.log 結果會是?</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
-
-<p>E.g. 3 : fnA() 是否執行? 又會產生甚麼?</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fn()</span><br><span class="line"><span class="keyword">var</span> fn = <span class="function">() =&gt;</span> <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
-
-<p>E.g. 4 : console.log 結果會是?</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fn)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="變數提升"><a href="#變數提升" class="headerlink" title="變數提升"></a>變數提升</h2><p>當我們宣告變數時，JS就會先開一個記憶體位置來存放，而它的預設值為 ‘undefined’，最後賦予我們給這個變數的值。<br>而 JS的執行順序為由上至下且依序執行，所以範例1與範例2的樣子就會是 :<br>E.g. 1 : console.log 結果會是 a is not defined</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) </span><br></pre></td></tr></table></figure>
-<p>E.g. 2 : console.log 結果會是 undefined</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<p>實際上它的執行順序是這樣 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line">a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="函式提升"><a href="#函式提升" class="headerlink" title="函式提升"></a>函式提升</h2><p>在 JS中，它會依據函式定義的位置順序，依序將函式提升到最上方，但在函式內的不會移動到外層。<br>E.g. 3 : fnA() 會執行並 return 1</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fn()</span><br><span class="line"><span class="keyword">var</span> fn = <span class="function">() =&gt;</span> <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
-<p>實際上它的執行順序是這樣 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function">() =&gt;</span> <span class="number">1</span></span><br><span class="line">fn()</span><br></pre></td></tr></table></figure>
-<p>而在函式內的函式不會提升到外層，但是可以呼叫外層的函式 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line"> fnB()</span><br><span class="line"> fnC()</span><br><span class="line"> <span class="keyword">var</span> fnB = <span class="function">() =&gt;</span> <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fnC = <span class="function">() =&gt;</span> <span class="number">3</span></span><br><span class="line">fnA()</span><br></pre></td></tr></table></figure>
-<p>不過，如果將匿名函式賦予到一個變數上，就會根據變數的規則走。</p>
-<hr>
-<h2 id="變數與函式提升的優先程度"><a href="#變數與函式提升的優先程度" class="headerlink" title="變數與函式提升的優先程度"></a>變數與函式提升的優先程度</h2><p>在 JS中，會將優先將函式提升到最上方，接著再宣告變數，而函式的參數傳遞限於函式內並且是最優先，重新宣告它無任何意義。<br>E.g. 4 : console.log 結果會是 function fn( ){}</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fn)</span><br><span class="line"><span class="comment">// 第一次 console.log(fn) 為 function fn()&#123;&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(fn)</span><br><span class="line"><span class="comment">// 第二次 console.log(fn) 為 1</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  fnB(<span class="number">10</span>)</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a+<span class="number">3</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">5</span></span><br><span class="line">&#125;</span><br><span class="line">fnA(<span class="number">1</span>) </span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 13</span></span><br><span class="line"><span class="comment">// 若使用 let 宣告 a會報錯，因為 a為參數</span></span><br><span class="line"><span class="comment">// Identifier &#x27;a&#x27; has already been declared </span></span><br><span class="line"><span class="comment">// fnB() 的參數其實跟 fnA的參數 a無關，只看 fnB()真正執行時傳了甚麼值進去</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="Hosting-做了甚麼事"><a href="#Hosting-做了甚麼事" class="headerlink" title="Hosting 做了甚麼事"></a>Hosting 做了甚麼事</h2><p>我們打開編輯器撰寫 JS時，其實是在一個全域環境底下開始寫程式，它同時是全域也是執行環境，當我們宣告一個 function時，也會同時建立 : </p>
-<ul>
-<li>獨立的執行環境 ( Execution Contexts )</li>
-<li>獨立的變數物件 ( Variable Object )</li>
-</ul>
-<p>以下的例子有不同情況 : </p>
-<ol>
-<li><p>多餘的變數，其預設為 undefined</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 建立執行環境 Execution Contexts</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a, b, c</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c)</span><br><span class="line">&#125;</span><br><span class="line">fnA(<span class="number">10</span>)</span><br><span class="line"><span class="comment">// 10 undefined undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 建立變數物件 VO </span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   a:10</span></span><br><span class="line"><span class="comment">//   b:undefined</span></span><br><span class="line"><span class="comment">//   c:undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>函式內建立函式，函式若與參數同名會被覆蓋</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 執行環境 Execution Contexts</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">1</span>&#125;</span><br><span class="line">fnA(fnB)</span><br><span class="line"><span class="comment">// function a()&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 參數 a 被函式覆蓋掉</span></span><br><span class="line"><span class="comment">// VO variable object</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   a: function a()&#123;&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></li>
-<li><p>總合以上情況並再次宣告參數然後賦予值</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a, b, c</span>)</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c)</span><br><span class="line">  <span class="comment">// 10 function b()&#123;&#125; undefined</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">5</span></span><br><span class="line">  <span class="built_in">console</span>.log(c)</span><br><span class="line">  <span class="comment">// 5</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">1</span>&#125;</span><br><span class="line">fnA(<span class="number">10</span>, fnB)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 為什麼 c不是 5? 因為它宣告被忽略且呼叫時未被設定成 5</span></span><br><span class="line"><span class="comment">// 在第二次呼叫 c 時，已被設定成 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// VO variable object</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   a: 10,</span></span><br><span class="line"><span class="comment">//   b: function b()&#123;&#125;,</span></span><br><span class="line"><span class="comment">//   c: undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ol>
-<p>透過以上例子可以發現，當有執行環境後，就會有變數物件，而它在函式中會做以下三件事 : </p>
-<ul>
-<li>若參數值為函式且參數名稱同名則覆蓋成函式</li>
-<li>若函式內宣告且與參數名稱同名則忽略</li>
-<li>參數名稱若有設定，預設值為 undefined</li>
-</ul>
-<p>回到全域環境後，就更加單純，使用 var宣告的函式與變數會被覆蓋，若該變數未賦予值時，預設值為 undefined。</p>
-<p>再回想一下，當我們寫好 JS程式碼後，透過瀏覽器執行，其實是開始創建接著執行，在創建(包含編譯)的過程中，<strong>Hosting 就是在建立變數物件的過程。</strong></p>
-<hr>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 撰寫 &gt; 創建(包含建立變數物件) &gt; 執行</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="Temporal-Dead-Zone"><a href="#Temporal-Dead-Zone" class="headerlink" title="Temporal Dead Zone"></a>Temporal Dead Zone</h2><p>目前的範例都是使用 var 來宣告，ES6開始就推薦以 let或 const 來宣告變數，那麼 let 與 const 所宣告的變數與函式也具有提升特性嗎?</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span> </span><br><span class="line"><span class="comment">// Uncaught ReferenceError: Cannot access &#x27;a&#x27; before initialization </span></span><br></pre></td></tr></table></figure>
-<p>上面錯誤的意義是，未初始化變數 a前，無法存取它的值，為什麼會這樣?</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 執行環境</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span> </span><br><span class="line"><span class="comment">// VO，在變數物件中還是有建立名稱，</span></span><br><span class="line"><span class="comment">// 但按照依序執行的規則變成了未賦予值</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//  a: ?</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-<p>為了解釋這個空窗期，於是就有了這個名詞 Temporal Dead Zone。拋出錯誤的目的還是希望開發者的撰寫習慣能改變吧?! </p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://blog.techbridge.cc/2018/11/10/javascript-hoisting/">Huli - 我知道你懂 hoisting，可是你了解到多深？</a></li>
-<li><a href="https://shawnlin0201.github.io/JavaScript/JavaScript-Variable-Object-and-Activation-Object/">ShawnL - JavaScript 深入淺出 Variable Object &amp; Activation Object</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10219518">江江好 - Day22【ES6 小筆記】變數提升（Hoisting）與暫時死區（TDZ）</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JS核心篇-物件屬性特徵</title>
     <url>/blog/2020/12/10/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E7%89%B9%E5%BE%B5/</url>
     <content><![CDATA[<p>本文快速導覽 : </p>
@@ -2282,6 +2140,89 @@
       </tags>
   </entry>
   <entry>
+    <title>提升</title>
+    <url>/blog/2020/12/11/javascript/%E6%8F%90%E5%8D%87/</url>
+    <content><![CDATA[<p>分別呼叫這些例子，會產生甚麼結果?</p>
+<p>E.g. 1. : console.log 結果會是?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+<p>E.g. 2 : console.log 結果會是?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+
+<p>E.g. 3 : fnA() 是否執行? 又會產生甚麼?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fn()</span><br><span class="line"><span class="keyword">var</span> fn = <span class="function">() =&gt;</span> <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+
+<p>E.g. 4 : console.log 結果會是?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fn)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="變數提升"><a href="#變數提升" class="headerlink" title="變數提升"></a>變數提升</h2><p>當我們宣告變數時，JS就會先開一個記憶體位置來存放，而它的預設值為 ‘undefined’，最後賦予我們給這個變數的值。<br>而 JS的執行順序為由上至下且依序執行，所以範例1與範例2的樣子就會是 :<br>E.g. 1 : console.log 結果會是 a is not defined</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a) </span><br></pre></td></tr></table></figure>
+<p>E.g. 2 : console.log 結果會是 undefined</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<p>實際上它的執行順序是這樣 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a</span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line">a = <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="函式提升"><a href="#函式提升" class="headerlink" title="函式提升"></a>函式提升</h2><p>在 JS中，它會依據函式定義的位置順序，依序將函式提升到最上方，但在函式內的不會移動到外層。<br>E.g. 3 : fnA() 會執行並 return 1</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">fn()</span><br><span class="line"><span class="keyword">var</span> fn = <span class="function">() =&gt;</span> <span class="number">1</span></span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+<p>實際上它的執行順序是這樣 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="function">() =&gt;</span> <span class="number">1</span></span><br><span class="line">fn()</span><br></pre></td></tr></table></figure>
+<p>而在函式內的函式不會提升到外層，但是可以呼叫外層的函式 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line"> fnB()</span><br><span class="line"> fnC()</span><br><span class="line"> <span class="keyword">var</span> fnB = <span class="function">() =&gt;</span> <span class="number">2</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> fnC = <span class="function">() =&gt;</span> <span class="number">3</span></span><br><span class="line">fnA()</span><br></pre></td></tr></table></figure>
+<p>不過，如果將匿名函式賦予到一個變數上，就會根據變數的規則走。</p>
+<hr>
+<h2 id="變數與函式提升的優先程度"><a href="#變數與函式提升的優先程度" class="headerlink" title="變數與函式提升的優先程度"></a>變數與函式提升的優先程度</h2><p>在 JS中，會將優先將函式提升到最上方，接著再宣告變數，而函式的參數傳遞限於函式內並且是最優先，重新宣告它無任何意義。<br>E.g. 4 : console.log 結果會是 function fn( ){}</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fn)</span><br><span class="line"><span class="comment">// 第一次 console.log(fn) 為 function fn()&#123;&#125;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> fn = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(fn)</span><br><span class="line"><span class="comment">// 第二次 console.log(fn) 為 1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">  fnB(<span class="number">10</span>)</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a+<span class="number">3</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">var</span> a = <span class="number">5</span></span><br><span class="line">&#125;</span><br><span class="line">fnA(<span class="number">1</span>) </span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 13</span></span><br><span class="line"><span class="comment">// 若使用 let 宣告 a會報錯，因為 a為參數</span></span><br><span class="line"><span class="comment">// Identifier &#x27;a&#x27; has already been declared </span></span><br><span class="line"><span class="comment">// fnB() 的參數其實跟 fnA的參數 a無關，只看 fnB()真正執行時傳了甚麼值進去</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="Hosting-做了甚麼事"><a href="#Hosting-做了甚麼事" class="headerlink" title="Hosting 做了甚麼事"></a>Hosting 做了甚麼事</h2><p>我們打開編輯器撰寫 JS時，其實是在一個全域環境底下開始寫程式，它同時是全域也是執行環境，當我們宣告一個 function時，也會同時建立 : </p>
+<ul>
+<li>獨立的執行環境 ( Execution Contexts )</li>
+<li>獨立的變數物件 ( Variable Object )</li>
+</ul>
+<p>以下的例子有不同情況 : </p>
+<ol>
+<li><p>多餘的變數，其預設為 undefined</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 建立執行環境 Execution Contexts</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a, b, c</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c)</span><br><span class="line">&#125;</span><br><span class="line">fnA(<span class="number">10</span>)</span><br><span class="line"><span class="comment">// 10 undefined undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 建立變數物件 VO </span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   a:10</span></span><br><span class="line"><span class="comment">//   b:undefined</span></span><br><span class="line"><span class="comment">//   c:undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函式內建立函式，函式若與參數同名會被覆蓋</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 執行環境 Execution Contexts</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a</span>)</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">a</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">  <span class="built_in">console</span>.log(a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">1</span>&#125;</span><br><span class="line">fnA(fnB)</span><br><span class="line"><span class="comment">// function a()&#123;&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 參數 a 被函式覆蓋掉</span></span><br><span class="line"><span class="comment">// VO variable object</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   a: function a()&#123;&#125;</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure></li>
+<li><p>總合以上情況並再次宣告參數然後賦予值</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnA</span>(<span class="params">a, b, c</span>)</span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">b</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">  <span class="built_in">console</span>.log(a, b, c)</span><br><span class="line">  <span class="comment">// 10 function b()&#123;&#125; undefined</span></span><br><span class="line">  <span class="keyword">var</span> c = <span class="number">5</span></span><br><span class="line">  <span class="built_in">console</span>.log(c)</span><br><span class="line">  <span class="comment">// 5</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fnB</span>(<span class="params"></span>)</span>&#123;<span class="keyword">return</span> <span class="number">1</span>&#125;</span><br><span class="line">fnA(<span class="number">10</span>, fnB)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 為什麼 c不是 5? 因為它宣告被忽略且呼叫時未被設定成 5</span></span><br><span class="line"><span class="comment">// 在第二次呼叫 c 時，已被設定成 5</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// VO variable object</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//   a: 10,</span></span><br><span class="line"><span class="comment">//   b: function b()&#123;&#125;,</span></span><br><span class="line"><span class="comment">//   c: undefined</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<p>透過以上例子可以發現，當有執行環境後，就會有變數物件，而它在函式中會做以下三件事 : </p>
+<ul>
+<li>若參數值為函式且參數名稱同名則覆蓋成函式</li>
+<li>若函式內宣告且與參數名稱同名則忽略</li>
+<li>參數名稱若有設定，預設值為 undefined</li>
+</ul>
+<p>回到全域環境後，就更加單純，使用 var宣告的函式與變數會被覆蓋，若該變數未賦予值時，預設值為 undefined。</p>
+<p>再回想一下，當我們寫好 JS程式碼後，透過瀏覽器執行，其實是開始創建接著執行，在創建(包含編譯)的過程中，<strong>Hosting 就是在建立變數物件的過程。</strong></p>
+<hr>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 撰寫 &gt; 創建(包含建立變數物件) &gt; 執行</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Temporal-Dead-Zone"><a href="#Temporal-Dead-Zone" class="headerlink" title="Temporal Dead Zone"></a>Temporal Dead Zone</h2><p>目前的範例都是使用 var 來宣告，ES6開始就推薦以 let或 const 來宣告變數，那麼 let 與 const 所宣告的變數與函式也具有提升特性嗎?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span> </span><br><span class="line"><span class="comment">// Uncaught ReferenceError: Cannot access &#x27;a&#x27; before initialization </span></span><br></pre></td></tr></table></figure>
+<p>上面錯誤的意義是，未初始化變數 a前，無法存取它的值，為什麼會這樣?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 執行環境</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span> </span><br><span class="line"><span class="comment">// VO，在變數物件中還是有建立名稱，</span></span><br><span class="line"><span class="comment">// 但按照依序執行的規則變成了未賦予值</span></span><br><span class="line"><span class="comment">// &#123;</span></span><br><span class="line"><span class="comment">//  a: ?</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+<p>為了解釋這個空窗期，於是就有了這個名詞 Temporal Dead Zone。拋出錯誤的目的還是希望開發者的撰寫習慣能改變吧?! </p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://blog.techbridge.cc/2018/11/10/javascript-hoisting/">Huli - 我知道你懂 hoisting，可是你了解到多深？</a></li>
+<li><a href="https://shawnlin0201.github.io/JavaScript/JavaScript-Variable-Object-and-Activation-Object/">ShawnL - JavaScript 深入淺出 Variable Object &amp; Activation Object</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10219518">江江好 - Day22【ES6 小筆記】變數提升（Hoisting）與暫時死區（TDZ）</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>物件</title>
     <url>/blog/2020/11/25/javascript/%E7%89%A9%E4%BB%B6/</url>
     <content><![CDATA[<h2 id="物件結構"><a href="#物件結構" class="headerlink" title="物件結構"></a>物件結構</h2><p>建立物件有兩個方式 : </p>
@@ -2398,6 +2339,193 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JavaScript 運算子</title>
+    <url>/blog/2020/11/20/javascript/%E9%81%8B%E7%AE%97%E5%AD%90/</url>
+    <content><![CDATA[<h2 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h2><p>舉凡加減乘除都是運算子，等號也是運算子之一。<br>(詳細可參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators">MDN-運算子</a>)。</p>
+<ul>
+<li>運算子均為表達式，一定會回傳值</li>
+<li>一元運算子<ul>
+<li><code>let a = 1</code></li>
+</ul>
+</li>
+<li>二元運算子<ul>
+<li><code>let b = 1 + 2</code></li>
+</ul>
+</li>
+<li>三元運算子<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> c = <span class="literal">true</span></span><br><span class="line"><span class="built_in">console</span>.log(c ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
+<li>物件增加屬性的方法 <code>.</code> ，也是一個運算子，<code>.</code>、<code>[]</code> 在運算子中為<strong>最優先</strong>。</li>
+</ul>
+<h3 id="優先性、相依性"><a href="#優先性、相依性" class="headerlink" title="優先性、相依性"></a>優先性、相依性</h3><ul>
+<li>運算子有其優先順序<ul>
+<li>乘除的優先序大於加減的優先序</li>
+</ul>
+</li>
+<li>相依性則決定了運算方向<ul>
+<li>絕大多數的運算子都是從左至右</li>
+<li>等號賦值為從右至左</li>
+</ul>
+</li>
+<li>經典題目 : <code>6/2(2+1) = ?</code></li>
+</ul>
+<h4 id="比較運算子"><a href="#比較運算子" class="headerlink" title="比較運算子"></a>比較運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 從左至右，逐一比較</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span> &gt; <span class="number">2</span> &gt; <span class="number">1</span>)</span><br><span class="line"><span class="comment">// 3 &gt; 2 為 true</span></span><br><span class="line"><span class="comment">// true &gt; 1 為 false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &gt; <span class="number">2</span> &gt; <span class="number">3</span>)</span><br><span class="line"><span class="comment">// 1 &lt; 2 為 false</span></span><br><span class="line"><span class="comment">// false &gt; 3 為 false</span></span><br></pre></td></tr></table></figure>
+<h4 id="賦值運算子"><a href="#賦值運算子" class="headerlink" title="賦值運算子"></a>賦值運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 從右至左，逐一賦值</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">a = b = <span class="number">3</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
+
+<h4 id="Member-Access"><a href="#Member-Access" class="headerlink" title="Member Access ."></a>Member Access <code>.</code></h4><p>這縮寫為點的運算子，可以尋找/賦予物件的屬性。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 物件屬性賦值</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> b ;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.defineProperty 可以定義物件中某個屬性的內建屬性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;a&#x27;</span>, &#123;</span><br><span class="line">  value: <span class="number">3</span>,</span><br><span class="line">  writable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line">b = obj.a </span><br><span class="line">obj.c = b = <span class="number">5</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.a, b, obj.c)</span><br><span class="line"><span class="comment">// 3 5 5</span></span><br><span class="line"><span class="comment">// obj.a 無法被修改</span></span><br><span class="line"><span class="comment">// b 再度被&quot;賦予值&quot; </span></span><br><span class="line"><span class="comment">// 依據運算子的優先順序，物件的成員也就是屬性，它的優先順序大於等號</span></span><br><span class="line"><span class="comment">// 物件 obj，會先建立了 c這個屬性，之後才被等號賦予值</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="物件傳參考賦予值"><a href="#物件傳參考賦予值" class="headerlink" title="物件傳參考賦予值"></a>物件傳參考賦予值</h4><p>運算子與物件傳參考綜合使用。</p>
+<ol>
+<li>物件 e會先建立屬性名稱 x</li>
+<li>接著依照等號運作從右至左賦值</li>
+<li>物件 e另開了一個位址</li>
+<li>原先的物件 e的確有新增屬性名稱 x，且被賦予物件</li>
+<li>原先的物件 e依然被 f參考</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> e = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">let</span> f = e</span><br><span class="line">e.x = e = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(e.x) </span><br><span class="line"><span class="built_in">console</span>.log(e.q) </span><br><span class="line"><span class="built_in">console</span>.log(f.x)</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined 物件已存在，可以直接增加屬性名稱</span></span><br><span class="line"><span class="comment">// 呼叫 e.q時，不會是 &#x27;q is not defined&#x27;，所以呼叫 e.x也是一樣的，只不過物件 e已新開參考位址</span></span><br><span class="line"><span class="comment">// &#123;x:2&#125;</span></span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="寬鬆與嚴謹模式"><a href="#寬鬆與嚴謹模式" class="headerlink" title="寬鬆與嚴謹模式"></a>寬鬆與嚴謹模式</h3><p>一個等號為賦值，兩個等號為寬鬆判斷，三個等號為嚴謹判斷。</p>
+<ul>
+<li>寬鬆判斷<ul>
+<li>當兩者型別不同時，JS會嘗試轉換型別。</li>
+</ul>
+</li>
+<li>嚴謹判斷<ul>
+<li>當兩者型別不同時，JS不會轉換型別。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> == <span class="number">1</span>)    <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> == <span class="string">&#x27;1&#x27;</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> === <span class="string">&#x27;1&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> != <span class="string">&#x27;1&#x27;</span>)  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> !== <span class="string">&#x27;1&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="隱藏型別-自動轉型"><a href="#隱藏型別-自動轉型" class="headerlink" title="隱藏型別 / 自動轉型"></a>隱藏型別 / 自動轉型</h3><p>在判斷是否相等時，根據模式 JS會將型別自動轉型(踩地雷~砰!)。</p>
+<h4 id="寬鬆判斷時"><a href="#寬鬆判斷時" class="headerlink" title="寬鬆判斷時"></a>寬鬆判斷時</h4><ul>
+<li>字串與數字</li>
+<li>布林與數字</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 字串與數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> == <span class="number">1</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 布林與數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> == <span class="number">1</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;N&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">false</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"><span class="comment">// JS會嘗試將布林值轉成數字</span></span><br><span class="line"><span class="comment">// Number(true)，1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字串與數字 ???</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;false&#x27;</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;N&#x27;</span></span><br><span class="line"><span class="comment">// JS會嘗試將字串轉成數字</span></span><br><span class="line"><span class="comment">// Number(&#x27;false&#x27;)，NaN</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="算數運算子"><a href="#算數運算子" class="headerlink" title="算數運算子"></a>算數運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> + <span class="number">1</span>) <span class="comment">// 字串</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> - <span class="number">1</span>) <span class="comment">// 數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> * <span class="number">2</span>) <span class="comment">// 數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> / <span class="number">2</span>) <span class="comment">// 數字</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="包裹物件"><a href="#包裹物件" class="headerlink" title="包裹物件"></a>包裹物件</h4><p>它們的型別為物件，JS在寬鬆相等判斷時會利用這些來轉型，像是這些 : </p>
+<ul>
+<li>Number()</li>
+<li>String()</li>
+<li>Boolean()</li>
+</ul>
+<hr>
+<h3 id="Truthy-amp-Falthy"><a href="#Truthy-amp-Falthy" class="headerlink" title="Truthy &amp; Falthy"></a>Truthy &amp; Falthy</h3><p>這邊指得是在某個函式中的參數，若放入以下其中一種<strong>單一值</strong>，其值被判定後的結果，與相等判斷、邏輯判斷概念不太一樣。</p>
+<ul>
+<li>參數其值為單一數字、字串、物件、陣列、建構函式、Infinity、-Infinity以及 <code>true</code>，均為<strong>真值</strong>。</li>
+<li>參數其值為 <code>false</code>、<code>0</code>、<code>&quot;&quot;</code>、<code>null</code>、<code>undefined</code> 和 <code>NaN</code> 均為<strong>假值</strong>。</li>
+<li>也就是說，除了假值之外，其餘均為真值。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">1</span> <span class="comment">// 可自由替換</span></span><br><span class="line"><span class="keyword">if</span> (x) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;被判定為 true，故為真值&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;被判定為 false，故為假值&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(x))</span><br></pre></td></tr></table></figure>
+
+<h3 id="邏輯運算子"><a href="#邏輯運算子" class="headerlink" title="邏輯運算子"></a>邏輯運算子</h3><p>共有三種，優先順序為 <code>!</code> 大於 <code>&amp;&amp;</code> 大於 <code>||</code>，相依性為由左至右，而且在邏輯判斷時，<strong>型別不會自動轉換。</strong></p>
+<h4 id="AND-amp-amp"><a href="#AND-amp-amp" class="headerlink" title="AND &amp;&amp;"></a>AND <code>&amp;&amp;</code></h4><ul>
+<li>當前者可被轉型成 false時，會回傳前者結果</li>
+<li>若否，回傳後者結果</li>
+<li>也因此若兩者皆為布林值，根據規則剛好與”真值表”相同</li>
+</ul>
+<h4 id="OR"><a href="#OR" class="headerlink" title="OR ||"></a>OR <code>||</code></h4><ul>
+<li>當前者可被轉型成 true，會回傳前者結果</li>
+<li>若否，回傳後者結果</li>
+<li>也因此若兩者皆為布林值，根據規則剛好與”真值表”相同</li>
+</ul>
+<h4 id="NOT"><a href="#NOT" class="headerlink" title="NOT !"></a>NOT <code>!</code></h4><ul>
+<li>會將布林值反轉</li>
+<li>可以將 Truthy &amp; Falthy的結果反轉</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// AND `&amp;&amp;`</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="number">0</span> &amp;&amp; <span class="number">1</span>)        <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;0&#x27;</span> &amp;&amp; <span class="number">1</span>)       <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> &amp;&amp; <span class="number">1</span>&lt;<span class="number">2</span>)  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="string">&#x27;&#x27;</span> &amp;&amp; <span class="number">1</span>)       <span class="comment">// &#x27;&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">true</span> &amp;&amp; <span class="number">3</span>&gt;<span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="number">3</span>&gt;<span class="number">2</span> &amp;&amp;  <span class="literal">false</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// OR `||`</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0</span> || <span class="number">1</span>)         <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;0&#x27;</span> || <span class="number">1</span>)       <span class="comment">// &#x27;0&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> || <span class="number">1</span>&lt;<span class="number">2</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="string">&#x27;&#x27;</span> || <span class="literal">null</span>)    <span class="comment">// null</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">true</span> || <span class="number">3</span>&gt;<span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> || <span class="number">3</span>&gt;<span class="number">2</span> ) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NOT `!`</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="number">1</span> || <span class="number">2</span>)      <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> || <span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> &amp;&amp; !<span class="string">&#x27;&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> &amp;&amp; [])  <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="綜合練習-函式預設值"><a href="#綜合練習-函式預設值" class="headerlink" title="綜合練習 - 函式預設值"></a>綜合練習 - 函式預設值</h3><p>請修改以下函式，當函式未給值時，不讓它成為假值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">500</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  x += y</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`本次儲存 <span class="subst">$&#123;y&#125;</span> 元!，您共有 <span class="subst">$&#123;x&#125;</span> 元。`</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn() </span><br><span class="line"><span class="comment">// 本次儲存 undefined 元!，您共有 NaN 元。&quot;</span></span><br><span class="line"><span class="comment">// undefined，其為函式參數預設值</span></span><br><span class="line"><span class="comment">// 數值與 undefined相加，會變成 NaN</span></span><br></pre></td></tr></table></figure>
+
+<p>修改函式後</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">500</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  y = (y || y === <span class="number">0</span>) ? y: <span class="number">500</span>;</span><br><span class="line">  x += y</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`本次儲存 <span class="subst">$&#123;y&#125;</span> 元!，您共有 <span class="subst">$&#123;x&#125;</span> 元。`</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn() </span><br><span class="line"><span class="comment">// &quot;本次儲存 500 元!，您共有 1000 元。&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li>六角學院 JS核心篇 - 運算子章節</li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">MDN - Object.defineProperty()</a></li>
+<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy">MDN - Truthy（真值）</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Default_parameters">MDN - 預設參數( Default parameters )</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10192342">SimonAllen - Day17 傳值by value與傳址by reference</a></li>
+<li><a href="https://medium.com/@yining1204/javascript-%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-chap-33-%E6%9C%AA%E5%AE%9A%E7%BE%A9%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E9%A0%90%E8%A8%AD%E5%80%BC-59406399c521">Yi-Ning - JavaScript 核心篇 學習筆記: Chap.33 — 未定義的物件屬性預設值</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10205918">Jimmy - Day 13 物件與點</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10191343">Kuro Hsu - 重新認識 JavaScript: Day 08 Boolean 的真假判斷</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>演算法入門(一) 演算法與大 O 符號</title>
+    <url>/blog/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/</url>
+    <content><![CDATA[<h2 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h2><blockquote>
+<p>演算法三步驟，它是明確的、有限的且有效率的</p>
+</blockquote>
+<ol>
+<li>輸入</li>
+<li>計算步驟</li>
+<li>輸出</li>
+</ol>
+<h2 id="工欲善其事，必先利其器"><a href="#工欲善其事，必先利其器" class="headerlink" title="工欲善其事，必先利其器"></a>工欲善其事，必先利其器</h2><p>假設現在目標是砍倒一棵樹，且不限時間，使用斧頭會需要很多時間也浪費力氣，使用電鋸省力也省時，換成步驟來看的話，斧頭需要很多砍很多下才會倒，且需要的時間非常多，換成電鋸後，省時省力。</p>
+<p>再假設你買了一部90萬的車輛，朋友問你這部車買了多少? 你只能打字回答，這時你會怎麼回覆呢? 9000百元? 900千元?  或者90萬元? 顯然是90萬元最符合答案也能最快回答。</p>
+<h2 id="如何描述程式中時間與空間的關係呢"><a href="#如何描述程式中時間與空間的關係呢" class="headerlink" title="如何描述程式中時間與空間的關係呢?"></a>如何描述程式中時間與空間的關係呢?</h2><p>我們會以數學符號之<strong>漸進符號</strong> $O$，其表示為函數增長關係。</p>
+<ul>
+<li>漸進符號 $O$<ul>
+<li>bigO，通常會寫成 $O()$</li>
+</ul>
+</li>
+<li>時間複雜度<ul>
+<li>隨著輸入值成長之執行步驟</li>
+</ul>
+</li>
+<li>空間複雜度<ul>
+<li>隨著輸入值成長之記憶體暫用空間</li>
+</ul>
+</li>
+</ul>
+<p>而通常我們為了簡化表達方式，會取其極限值，以下為一些例子 :</p>
+<ul>
+<li>常數 $\rightarrow$ 1</li>
+<li>$n、2n、3n \rightarrow n$</li>
+<li>$n^2+2n \rightarrow n^2$</li>
+<li>以此類推</li>
+</ul>
+<h2 id="執行複雜度表示方式"><a href="#執行複雜度表示方式" class="headerlink" title="執行複雜度表示方式"></a>執行複雜度表示方式</h2><p>來看以下的例子，小杰被師父指派去賣漢堡，每個漢堡50元 :</p>
+<ul>
+<li><p>範例一</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此函式一共執行 2個步驟，也就是說輸入無窮大時，也只會執行 2個步驟，那麼它的時間複雜度則為 $O(1)$，空間複雜度為 $O(1)$，因為只使用了 total這個變數。</p>
+</li>
+<li><p>範例二</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> sell = <span class="function">(<span class="params">n</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> total = n*<span class="number">50</span></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`小杰累計賣出<span class="subst">$&#123;i&#125;</span>個漢堡~`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> total</span><br><span class="line">&#125;</span><br><span class="line">sell(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
+<p>for迴圈執行了 n次再加上前後兩個步驟共 n+2次，以時間複雜度來表示則為 $O(n)$，空間複雜度為 $O(1)$，使用了 total與 i兩個變數</p>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://break0344.medium.com/data-structures-and-algorithms-0-720c04cb8082">Long - 用JavaScript學習資料結構與演算法</a></li>
+<li><a href="https://medium.com/appworks-school/%E5%88%9D%E5%AD%B8%E8%80%85%E5%AD%B8%E6%BC%94%E7%AE%97%E6%B3%95-%E6%8E%92%E5%BA%8F%E6%B3%95%E5%85%A5%E9%96%80-%E9%81%B8%E6%93%87%E6%8E%92%E5%BA%8F%E8%88%87%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%E6%B3%95-23d4bc7085ff">胡程維 - 初學者學演算法</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>演算法入門</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>演算法入門</tag>
       </tags>
   </entry>
   <entry>
@@ -2525,132 +2653,6 @@
 <li><a href="https://ithelp.ithome.com.tw/articles/10192739">Kuro Hsu - 重新認識 JavaScript: Day 18 Callback Function 與 IIFE</a></li>
 <li><a href="https://ithelp.ithome.com.tw/articles/10193009">Kuro Hsu - 重新認識 JavaScript: Day 19 閉包 Closure</a></li>
 <li><a href="https://pjchender.blogspot.com/2017/08/javascript-learn-event-loop-stack-queue.html">PJCHENder那些沒告訴你的小細節 - [筆記] 理解 JavaScript 中的事件循環、堆疊、佇列和併發模式（Learn event loop, stack, queue, and concurrency mode of JavaScript in depth）</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JavaScript 運算子</title>
-    <url>/blog/2020/11/20/javascript/%E9%81%8B%E7%AE%97%E5%AD%90/</url>
-    <content><![CDATA[<h2 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h2><p>舉凡加減乘除都是運算子，等號也是運算子之一。<br>(詳細可參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators">MDN-運算子</a>)。</p>
-<ul>
-<li>運算子均為表達式，一定會回傳值</li>
-<li>一元運算子<ul>
-<li><code>let a = 1</code></li>
-</ul>
-</li>
-<li>二元運算子<ul>
-<li><code>let b = 1 + 2</code></li>
-</ul>
-</li>
-<li>三元運算子<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> c = <span class="literal">true</span></span><br><span class="line"><span class="built_in">console</span>.log(c ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>)</span><br></pre></td></tr></table></figure></li>
-<li>物件增加屬性的方法 <code>.</code> ，也是一個運算子，<code>.</code>、<code>[]</code> 在運算子中為<strong>最優先</strong>。</li>
-</ul>
-<h3 id="優先性、相依性"><a href="#優先性、相依性" class="headerlink" title="優先性、相依性"></a>優先性、相依性</h3><ul>
-<li>運算子有其優先順序<ul>
-<li>乘除的優先序大於加減的優先序</li>
-</ul>
-</li>
-<li>相依性則決定了運算方向<ul>
-<li>絕大多數的運算子都是從左至右</li>
-<li>等號賦值為從右至左</li>
-</ul>
-</li>
-<li>經典題目 : <code>6/2(2+1) = ?</code></li>
-</ul>
-<h4 id="比較運算子"><a href="#比較運算子" class="headerlink" title="比較運算子"></a>比較運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 從左至右，逐一比較</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span> &gt; <span class="number">2</span> &gt; <span class="number">1</span>)</span><br><span class="line"><span class="comment">// 3 &gt; 2 為 true</span></span><br><span class="line"><span class="comment">// true &gt; 1 為 false</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> &gt; <span class="number">2</span> &gt; <span class="number">3</span>)</span><br><span class="line"><span class="comment">// 1 &lt; 2 為 false</span></span><br><span class="line"><span class="comment">// false &gt; 3 為 false</span></span><br></pre></td></tr></table></figure>
-<h4 id="賦值運算子"><a href="#賦值運算子" class="headerlink" title="賦值運算子"></a>賦值運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 從右至左，逐一賦值</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">a = b = <span class="number">3</span></span><br><span class="line"><span class="built_in">console</span>.log(a)</span><br></pre></td></tr></table></figure>
-
-<h4 id="Member-Access"><a href="#Member-Access" class="headerlink" title="Member Access ."></a>Member Access <code>.</code></h4><p>這縮寫為點的運算子，可以尋找/賦予物件的屬性。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 物件屬性賦值</span></span><br><span class="line"><span class="keyword">let</span> obj = &#123;&#125;</span><br><span class="line"><span class="keyword">let</span> b ;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Object.defineProperty 可以定義物件中某個屬性的內建屬性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;a&#x27;</span>, &#123;</span><br><span class="line">  value: <span class="number">3</span>,</span><br><span class="line">  writable: <span class="literal">false</span></span><br><span class="line">&#125;)</span><br><span class="line">b = obj.a </span><br><span class="line">obj.c = b = <span class="number">5</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.a, b, obj.c)</span><br><span class="line"><span class="comment">// 3 5 5</span></span><br><span class="line"><span class="comment">// obj.a 無法被修改</span></span><br><span class="line"><span class="comment">// b 再度被&quot;賦予值&quot; </span></span><br><span class="line"><span class="comment">// 依據運算子的優先順序，物件的成員也就是屬性，它的優先順序大於等號</span></span><br><span class="line"><span class="comment">// 物件 obj，會先建立了 c這個屬性，之後才被等號賦予值</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="物件傳參考賦予值"><a href="#物件傳參考賦予值" class="headerlink" title="物件傳參考賦予值"></a>物件傳參考賦予值</h4><p>運算子與物件傳參考綜合使用。</p>
-<ol>
-<li>物件 e會先建立屬性名稱 x</li>
-<li>接著依照等號運作從右至左賦值</li>
-<li>物件 e另開了一個位址</li>
-<li>原先的物件 e的確有新增屬性名稱 x，且被賦予物件</li>
-<li>原先的物件 e依然被 f參考</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> e = &#123;<span class="attr">n</span>:<span class="number">1</span>&#125;</span><br><span class="line"><span class="keyword">let</span> f = e</span><br><span class="line">e.x = e = &#123;<span class="attr">n</span>:<span class="number">2</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(e.x) </span><br><span class="line"><span class="built_in">console</span>.log(e.q) </span><br><span class="line"><span class="built_in">console</span>.log(f.x)</span><br><span class="line"><span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// undefined 物件已存在，可以直接增加屬性名稱</span></span><br><span class="line"><span class="comment">// 呼叫 e.q時，不會是 &#x27;q is not defined&#x27;，所以呼叫 e.x也是一樣的，只不過物件 e已新開參考位址</span></span><br><span class="line"><span class="comment">// &#123;x:2&#125;</span></span><br></pre></td></tr></table></figure>
-<hr>
-<h3 id="寬鬆與嚴謹模式"><a href="#寬鬆與嚴謹模式" class="headerlink" title="寬鬆與嚴謹模式"></a>寬鬆與嚴謹模式</h3><p>一個等號為賦值，兩個等號為寬鬆判斷，三個等號為嚴謹判斷。</p>
-<ul>
-<li>寬鬆判斷<ul>
-<li>當兩者型別不同時，JS會嘗試轉換型別。</li>
-</ul>
-</li>
-<li>嚴謹判斷<ul>
-<li>當兩者型別不同時，JS不會轉換型別。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> == <span class="number">1</span>)    <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> == <span class="string">&#x27;1&#x27;</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> === <span class="string">&#x27;1&#x27;</span>) <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> != <span class="string">&#x27;1&#x27;</span>)  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span> !== <span class="string">&#x27;1&#x27;</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="隱藏型別-自動轉型"><a href="#隱藏型別-自動轉型" class="headerlink" title="隱藏型別 / 自動轉型"></a>隱藏型別 / 自動轉型</h3><p>在判斷是否相等時，根據模式 JS會將型別自動轉型(踩地雷~砰!)。</p>
-<h4 id="寬鬆判斷時"><a href="#寬鬆判斷時" class="headerlink" title="寬鬆判斷時"></a>寬鬆判斷時</h4><ul>
-<li>字串與數字</li>
-<li>布林與數字</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 字串與數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> == <span class="number">1</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 布林與數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> == <span class="number">1</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">true</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;N&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="literal">false</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;Y&#x27;</span></span><br><span class="line"><span class="comment">// JS會嘗試將布林值轉成數字</span></span><br><span class="line"><span class="comment">// Number(true)，1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 字串與數字 ???</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;false&#x27;</span> == <span class="number">0</span> ? <span class="string">&#x27;Y&#x27;</span> : <span class="string">&#x27;N&#x27;</span>) <span class="comment">// &#x27;N&#x27;</span></span><br><span class="line"><span class="comment">// JS會嘗試將字串轉成數字</span></span><br><span class="line"><span class="comment">// Number(&#x27;false&#x27;)，NaN</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="算數運算子"><a href="#算數運算子" class="headerlink" title="算數運算子"></a>算數運算子</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> + <span class="number">1</span>) <span class="comment">// 字串</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> - <span class="number">1</span>) <span class="comment">// 數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> * <span class="number">2</span>) <span class="comment">// 數字</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span> / <span class="number">2</span>) <span class="comment">// 數字</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="包裹物件"><a href="#包裹物件" class="headerlink" title="包裹物件"></a>包裹物件</h4><p>它們的型別為物件，JS在寬鬆相等判斷時會利用這些來轉型，像是這些 : </p>
-<ul>
-<li>Number()</li>
-<li>String()</li>
-<li>Boolean()</li>
-</ul>
-<hr>
-<h3 id="Truthy-amp-Falthy"><a href="#Truthy-amp-Falthy" class="headerlink" title="Truthy &amp; Falthy"></a>Truthy &amp; Falthy</h3><p>這邊指得是在某個函式中的參數，若放入以下其中一種<strong>單一值</strong>，其值被判定後的結果，與相等判斷、邏輯判斷概念不太一樣。</p>
-<ul>
-<li>參數其值為單一數字、字串、物件、陣列、建構函式、Infinity、-Infinity以及 <code>true</code>，均為<strong>真值</strong>。</li>
-<li>參數其值為 <code>false</code>、<code>0</code>、<code>&quot;&quot;</code>、<code>null</code>、<code>undefined</code> 和 <code>NaN</code> 均為<strong>假值</strong>。</li>
-<li>也就是說，除了假值之外，其餘均為真值。</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">1</span> <span class="comment">// 可自由替換</span></span><br><span class="line"><span class="keyword">if</span> (x) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;被判定為 true，故為真值&#x27;</span>)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;被判定為 false，故為假值&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Boolean</span>(x))</span><br></pre></td></tr></table></figure>
-
-<h3 id="邏輯運算子"><a href="#邏輯運算子" class="headerlink" title="邏輯運算子"></a>邏輯運算子</h3><p>共有三種，優先順序為 <code>!</code> 大於 <code>&amp;&amp;</code> 大於 <code>||</code>，相依性為由左至右，而且在邏輯判斷時，<strong>型別不會自動轉換。</strong></p>
-<h4 id="AND-amp-amp"><a href="#AND-amp-amp" class="headerlink" title="AND &amp;&amp;"></a>AND <code>&amp;&amp;</code></h4><ul>
-<li>當前者可被轉型成 false時，會回傳前者結果</li>
-<li>若否，回傳後者結果</li>
-<li>也因此若兩者皆為布林值，根據規則剛好與”真值表”相同</li>
-</ul>
-<h4 id="OR"><a href="#OR" class="headerlink" title="OR ||"></a>OR <code>||</code></h4><ul>
-<li>當前者可被轉型成 true，會回傳前者結果</li>
-<li>若否，回傳後者結果</li>
-<li>也因此若兩者皆為布林值，根據規則剛好與”真值表”相同</li>
-</ul>
-<h4 id="NOT"><a href="#NOT" class="headerlink" title="NOT !"></a>NOT <code>!</code></h4><ul>
-<li>會將布林值反轉</li>
-<li>可以將 Truthy &amp; Falthy的結果反轉</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// AND `&amp;&amp;`</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="number">0</span> &amp;&amp; <span class="number">1</span>)        <span class="comment">// 0</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;0&#x27;</span> &amp;&amp; <span class="number">1</span>)       <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> &amp;&amp; <span class="number">1</span>&lt;<span class="number">2</span>)  <span class="comment">// false</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="string">&#x27;&#x27;</span> &amp;&amp; <span class="number">1</span>)       <span class="comment">// &#x27;&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">true</span> &amp;&amp; <span class="number">3</span>&gt;<span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="number">3</span>&gt;<span class="number">2</span> &amp;&amp;  <span class="literal">false</span>) <span class="comment">// false</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// OR `||`</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">0</span> || <span class="number">1</span>)         <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;0&#x27;</span> || <span class="number">1</span>)       <span class="comment">// &#x27;0&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> || <span class="number">1</span>&lt;<span class="number">2</span>)  <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="string">&#x27;&#x27;</span> || <span class="literal">null</span>)    <span class="comment">// null</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">true</span> || <span class="number">3</span>&gt;<span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( <span class="literal">false</span> || <span class="number">3</span>&gt;<span class="number">2</span> ) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// NOT `!`</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="number">1</span> || <span class="number">2</span>)      <span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> || <span class="number">2</span>)   <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> &amp;&amp; !<span class="string">&#x27;&#x27;</span>) <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log( !<span class="literal">null</span> &amp;&amp; [])  <span class="comment">// []</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="綜合練習-函式預設值"><a href="#綜合練習-函式預設值" class="headerlink" title="綜合練習 - 函式預設值"></a>綜合練習 - 函式預設值</h3><p>請修改以下函式，當函式未給值時，不讓它成為假值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">500</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  x += y</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`本次儲存 <span class="subst">$&#123;y&#125;</span> 元!，您共有 <span class="subst">$&#123;x&#125;</span> 元。`</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn() </span><br><span class="line"><span class="comment">// 本次儲存 undefined 元!，您共有 NaN 元。&quot;</span></span><br><span class="line"><span class="comment">// undefined，其為函式參數預設值</span></span><br><span class="line"><span class="comment">// 數值與 undefined相加，會變成 NaN</span></span><br></pre></td></tr></table></figure>
-
-<p>修改函式後</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> x = <span class="number">500</span></span><br><span class="line"><span class="keyword">const</span> fn = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  y = (y || y === <span class="number">0</span>) ? y: <span class="number">500</span>;</span><br><span class="line">  x += y</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`本次儲存 <span class="subst">$&#123;y&#125;</span> 元!，您共有 <span class="subst">$&#123;x&#125;</span> 元。`</span>)</span><br><span class="line">&#125;</span><br><span class="line">fn() </span><br><span class="line"><span class="comment">// &quot;本次儲存 500 元!，您共有 1000 元。&quot;</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li>六角學院 JS核心篇 - 運算子章節</li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">MDN - Object.defineProperty()</a></li>
-<li><a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Truthy">MDN - Truthy（真值）</a></li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Default_parameters">MDN - 預設參數( Default parameters )</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10192342">SimonAllen - Day17 傳值by value與傳址by reference</a></li>
-<li><a href="https://medium.com/@yining1204/javascript-%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%AD%B8%E7%BF%92%E7%AD%86%E8%A8%98-chap-33-%E6%9C%AA%E5%AE%9A%E7%BE%A9%E7%9A%84%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E9%A0%90%E8%A8%AD%E5%80%BC-59406399c521">Yi-Ning - JavaScript 核心篇 學習筆記: Chap.33 — 未定義的物件屬性預設值</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10205918">Jimmy - Day 13 物件與點</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10191343">Kuro Hsu - 重新認識 JavaScript: Day 08 Boolean 的真假判斷</a></li>
 </ol>
 </blockquote>
 ]]></content>
