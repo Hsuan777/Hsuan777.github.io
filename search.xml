@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Google試算表作為線上資料庫 - 讀取資料</title>
-    <url>/blog/2020/11/18/Google%E8%A9%A6%E7%AE%97%E8%A1%A8%E4%BD%9C%E7%82%BA%E7%B7%9A%E4%B8%8A%E8%B3%87%E6%96%99%E5%BA%AB-%E8%AE%80%E5%8F%96%E8%B3%87%E6%96%99/</url>
+    <url>/root/2020/11/18/Google%E8%A9%A6%E7%AE%97%E8%A1%A8%E4%BD%9C%E7%82%BA%E7%B7%9A%E4%B8%8A%E8%B3%87%E6%96%99%E5%BA%AB-%E8%AE%80%E5%8F%96%E8%B3%87%E6%96%99/</url>
     <content><![CDATA[<p>想要弄自己的資料庫，卻又不知道該怎麼做，只知道要建立欄位，而Google的試算表就能達成這件事。只要 : </p>
 <ul>
 <li>建立欄位名稱</li>
@@ -121,7 +121,7 @@
   </entry>
   <entry>
     <title>為什麼想寫部落格?</title>
-    <url>/blog/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
+    <url>/root/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
     <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
 <p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
 <p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
@@ -131,492 +131,8 @@
       </categories>
   </entry>
   <entry>
-    <title>記錄自己的成長，那怕是1%也好</title>
-    <url>/blog/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/</url>
-    <content><![CDATA[<p>利用 Hexo寫技術部落格，那怕是第一篇，或者只有一篇，只怕自己停佇不前。</p>
-]]></content>
-      <categories>
-        <category>閒聊</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo教學(六) 文章標籤與分類</title>
-    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
-    <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
-<h2 id="建立分類"><a href="#建立分類" class="headerlink" title="建立分類"></a>建立分類</h2><ol>
-<li>輸入 <code>hexo new page &#39;categories&#39;</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
-<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories中的 index.md檔案，插入 <code>type: &quot;categories&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>重新產生靜態檔案，可以在導覽列看到多了一個分類分頁</li>
-</ol>
-<h2 id="建立標籤"><a href="#建立標籤" class="headerlink" title="建立標籤"></a>建立標籤</h2><p>與分類的步驟一樣，但內容改變。</p>
-<ol>
-<li>輸入 <code>hexo new page &#39;tags&#39;</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
-<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> tags index.md檔案，插入 <code>type: &quot;tags&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-若需要多個標籤，可以這樣輸入<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">教學文</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>重新產生靜態檔案，可以在導覽列看到多了一個標籤分頁</li>
-</ol>
-<p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學(一) 使用 Hexo寫部落格</title>
-    <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
-    <content><![CDATA[<h2 id="為什麼要使用-Hexo寫部落格"><a href="#為什麼要使用-Hexo寫部落格" class="headerlink" title="為什麼要使用 Hexo寫部落格?"></a>為什麼要使用 Hexo寫部落格?</h2><p>現在有很多線上服務都能當成部落格，不管寫在 github、medium或者 wordpress等等，同樣是寫文章，心得也好，技術文也罷，學著使用 markdown寫文，最起碼自己的電腦有初始檔案，不怕線上服務突然關閉或者改變使用條款，而且只要有網頁伺服器，就能發布自己的部落格。</p>
-<h2 id="教學連結"><a href="#教學連結" class="headerlink" title="教學連結"></a>教學連結</h2><p>後續 hexo教學會說明這些主題並建立連結 :</p>
-<ul>
-<li>環境建立與安裝</li>
-<li>匯入主題 (themes)</li>
-<li>部屬到網頁 (使用 github page)</li>
-<li>分類與標籤</li>
-<li>Next主題相關設定 - 開啟數學符號以及更改字體</li>
-</ul>
-<h2 id="撰寫工具與線上服務"><a href="#撰寫工具與線上服務" class="headerlink" title="撰寫工具與線上服務"></a>撰寫工具與線上服務</h2><p>我們會使用到的軟體或服務如下，可以先點連結下載安裝或者先建立帳號</p>
-<ul>
-<li><a href="https://code.visualstudio.com/">VSCode</a> <ul>
-<li>程式編輯器，我們會使用 VScode來編輯  hexo的資源</li>
-</ul>
-</li>
-<li><a href="https://nodejs.org/en/">node.js</a><ul>
-<li>後續安裝 hexo環境會用到，LTS是穩定的版本，Current是最新的，推薦使用 <strong>LTS版本</strong></li>
-</ul>
-</li>
-<li><a href="https://github.com/">github.com</a><ul>
-<li>程式碼版控，其中一項服務可以用來發布 hexo</li>
-</ul>
-</li>
-<li><a href="https://hackmd.io/">HackMD</a><ul>
-<li>線上筆記之一， hexo的撰寫方式為 markdown，使用 HackMD的服務可以快速編輯與即時預覽，不怕文章編輯到一半當掉。</li>
-</ul>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學(三) 主題匯入</title>
-    <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
-<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
-<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
-<ul>
-<li>hueman<ul>
-<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
-</ul>
-</li>
-<li>NexT<ul>
-<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
-<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
-</ul>
-</li>
-</ul>
-<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
-<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
-<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學(二) 環境建立與安裝 hexo</title>
-    <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/</url>
-    <content><![CDATA[<h2 id="基礎環境建立"><a href="#基礎環境建立" class="headerlink" title="基礎環境建立"></a>基礎環境建立</h2><ol>
-<li>開啟 VScode後，按下快捷鍵 <code>ctrl+~</code>，會打開終端機</li>
-<li>輸入 <code>node -v</code><ul>
-<li>確認 node.js，若成功會出現版本編號</li>
-</ul>
-</li>
-<li>輸入 <code>npm -v</code> <ul>
-<li>確認 npm，若成功會出現版本編號</li>
-</ul>
-</li>
-<li>輸入 <code>npm install -g hexo-cli</code><ul>
-<li>正式安裝 hexo</li>
-</ul>
-</li>
-</ol>
-<h3 id="node-js與-npm"><a href="#node-js與-npm" class="headerlink" title="node.js與 npm"></a>node.js與 npm</h3><p>自己對它們的了解， node.js是一個執行 JavaScript的環境，如同要運作 python時必須安裝 python的執行檔，npm則是一個線上的套件資源庫，可以輸入指令 <code>npm install 套件名稱</code> 來安裝額外套件，可以在網路上搜尋這兩個<a href="https://www.google.com/search?ei=j06SX_bNB5G9mAXOkoSgBw&q=node.js+npm&oq=node.js+npm&gs_lcp=CgZwc3ktYWIQAzICCAAyAggAMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjoFCAAQzQJQzGFYu25glHJoAHAAeACAAYoBiAHcApIBAzMuMZgBAKABAaoBB2d3cy13aXrAAQE&sclient=psy-ab&ved=0ahUKEwi20d2548nsAhWRHqYKHU4JAXQQ4dUDCA0&uact=5">關鍵字</a>，會有更多開發者的說明。</p>
-<h2 id="初始化-hexo"><a href="#初始化-hexo" class="headerlink" title="初始化 hexo"></a>初始化 hexo</h2><p>上一階段已安裝完 hexo所需的基礎環境，接著要在電腦中新增一個空的資料夾來存放 hexo的檔案。</p>
-<ol>
-<li>新增資料夾<ul>
-<li>可以直接在桌面上新增一個資料夾，接著將它拖曳至 VScode，終端機的路徑就會是該資料夾的路徑了</li>
-<li>或者輸入終端機指令來新增一個空的資料夾並進入該資料夾中</li>
-</ul>
-</li>
-<li>輸入 <code>hexo init 自訂部落格名稱</code><ul>
-<li>為了方便說明自訂部落格名稱簡化為 hexoblog</li>
-<li>確認終端機路徑已在新建立的空資料夾中，我們要在這個資料夾中下載 hexo的初始檔案，也就是 hexo的初始化</li>
-<li>資料夾名稱可以跟部落格名稱不同，可以在 hexo的設定檔中更改部落格名稱</li>
-<li>若只輸入 <code>hexo init</code>，很可能會遇到安裝錯誤</li>
-</ul>
-</li>
-<li>確認 hexo初始資源<ul>
-<li>此時資料夾結構應該會是 <code>桌面\新增資料夾\hexobolg</code></li>
-<li>輸入 <code>cd hexobolg</code>，路徑會從 <code>桌面桌面\新增資料夾</code> 變更為 <code>桌面桌面\新增資料夾\hexobolg</code></li>
-<li>可以在 VScode的左邊檔案視窗檢查，確認 hexobolg的資料夾已有 hexo的初始相關檔案</li>
-</ul>
-</li>
-</ol>
-<p>舉個範例，若在桌面上新增了一個資料夾，那麼最終資料夾結構應該會是 <code>桌面\新增資料夾\hexoblog</code></p>
-<h2 id="修改基礎設定"><a href="#修改基礎設定" class="headerlink" title="修改基礎設定"></a>修改基礎設定</h2><p>剛下載好的 hexo有些設定是預設的，所以我們要修改成自己的。<br>找到 <code>hexoblog\_config.yml</code>這隻檔案，可以先修改以下資訊</p>
-<figure class="highlight ldif"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attribute">title</span>: Help One Percent</span><br><span class="line"><span class="attribute">subtitle</span>: &#x27;遺忘x回想x自動化&#x27;</span><br><span class="line"><span class="attribute">description</span>: &#x27;哪怕是1%也好，只怕自己停佇不前&#x27;</span><br><span class="line"><span class="attribute">keywords</span>: 前端,CSS,JavaScript,Vue.js,git,演算法入門</span><br><span class="line"><span class="attribute">author</span>: Vic</span><br><span class="line"><span class="attribute">language</span>: zh-TW</span><br><span class="line"><span class="attribute">timezone</span>: &#x27;&#x27;</span><br></pre></td></tr></table></figure>
-<h2 id="啟動-hexo"><a href="#啟動-hexo" class="headerlink" title="啟動 hexo"></a>啟動 hexo</h2><p>接下來，我們可以先使用預設主題模擬上線情況。</p>
-<ol>
-<li>輸入 <code>hexo generate</code><ul>
-<li>會產生靜態檔案</li>
-</ul>
-</li>
-<li>輸入 <code>hexo server</code><ul>
-<li>啟動 hexo內建的模擬網頁伺服器</li>
-</ul>
-</li>
-<li>在網址列輸入提供的網址，預設會是 <code>http://localhost:4000</code></li>
-</ol>
-<p>若成功看到預設主題以及第一篇文章標題 “Hello World”，恭喜你已經完成一半了! </p>
-<p>接下來我們要新增一篇文章並調整主題以及其他設定。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10236936">Ray - (3)試著學 Hexo - 如何安裝 Hexo</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4)試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學(五) 部署文章至 Github Page</title>
-    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%94)%E9%83%A8%E7%BD%B2%E6%96%87%E7%AB%A0%E8%87%B3%20Github%20Page/</url>
-    <content><![CDATA[<h2 id="建立-github資料庫"><a href="#建立-github資料庫" class="headerlink" title="建立 github資料庫"></a>建立 github資料庫</h2><p>登入 github.com後，新增一個資料庫做為 hexo的儲存空間，我們會使用這個資料庫發布部落格。</p>
-<ol>
-<li>右上方點擊 New repository</li>
-<li>在 Repository name欄位中輸入 <code>你的github帳號.github.io</code></li>
-<li>選擇 Public</li>
-<li>點擊 Creat repository</li>
-<li>點擊此資料庫的 <strong>Setting</strong></li>
-<li>在 Setting的頁面中找到名為 GitHub Pages的標題</li>
-<li>在 GitHub Pages的選項中，找到子標題 Source，將第一個選項改為 master</li>
-<li>選擇 master後，會發現上面一則通知，它會是<br>Your site is published at https://你的github帳號.github.io</li>
-</ol>
-<h2 id="修改-hexo設定檔"><a href="#修改-hexo設定檔" class="headerlink" title="修改 hexo設定檔"></a>修改 hexo設定檔</h2><p>建立好 github的資料庫後，接著我們回到 hexo底下的 <code>_config.yml</code>，我們要修改發布時會用到的資訊。</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https:<span class="regexp">//</span>你的github帳號.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/你的github帳號/</span>你的github帳號.github.io.git </span><br><span class="line">  branch: master </span><br><span class="line">  message: <span class="string">&#x27;hexoblog&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="部屬-Deploy"><a href="#部屬-Deploy" class="headerlink" title="部屬 (Deploy)"></a>部屬 (Deploy)</h2><p>完成上述兩個部分後，讓我們重新產生 hexo的靜態檔案，就能將寫好的文章上傳了。<br>這裡還需要再輸入一個指令，<code>npm install --save hexo-deployer-git</code>，這樣才能將 hexo一鍵部屬到 github上。</p>
-<ol>
-<li>輸入 <code>hexo clean</code>，可縮寫 <code>hexo cl</code></li>
-<li>輸入 <code>hexo generate</code>，可縮寫 <code>hexo g</code></li>
-<li>輸入 <code>hexo server</code>，可縮寫 <code>hexo s</code></li>
-<li>輸入 <code>hexo deploy</code>，正式將文章上傳至網路空間</li>
-<li>在網址列輸入 https://你的github帳號.github.io，看是否成功</li>
-</ol>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10242893">Ray - 試著學 Hexo - 部署你的第一個部落格</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo教學(四) 新增文章與常用指令</title>
-    <url>/blog/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E5%9B%9B)%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
-    <content><![CDATA[<h2 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h2><p>在上一篇匯入主題後，這篇我們來新增一篇文章，輸入指令後，會在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post 中看到我們新建立的檔案。<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ *.md</p>
-<ul>
-<li>輸入 <code>hexo new &#39;文章標題&#39;</code></li>
-<li>檔案格式為 *.md</li>
-<li>寫法為 markdown</li>
-</ul>
-<h3 id="文章與樣板-scaffolds"><a href="#文章與樣板-scaffolds" class="headerlink" title="文章與樣板 scaffolds"></a>文章與樣板 scaffolds</h3><p>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ _drafts.md<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ _page.md<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─  _post.md<br>通常 hexo新增文章時，預設利用 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _source內的 _post.md新增一篇文章，其三份檔案的功能如下 :</p>
-<ul>
-<li>_drafts.md，指令為 <code>hexo new drafts &#39;文章標題&#39;</code>，用於存放草稿且不會產生靜態檔案。</li>
-<li>_page.md，指令為 <code>hexo new page &#39;文章標題&#39;</code>，新開一個導覽頁面，像是關於我、歸檔以及標籤等網站分頁。</li>
-<li>_post.md，指令為 <code>hexo new post &#39;文章標題&#39;</code>，用於新增文章且會產生靜態檔案。</li>
-</ul>
-<p>可以在這些樣板檔案中規劃需要的標籤或者分類以及其他的資訊，如以下區塊 :</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> &#123;&#123; <span class="string">title</span> &#125;&#125;</span><br><span class="line"><span class="attr">date:</span> &#123;&#123; <span class="string">date</span> &#125;&#125;</span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="attr">description:</span> </span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-<p>標籤與分類，會在其他篇說明。</p>
-<h2 id="常見-markdown語法"><a href="#常見-markdown語法" class="headerlink" title="常見 markdown語法"></a>常見 markdown語法</h2><p>Markdown語法有非常多，這邊例舉幾個常用語法。</p>
-<h3 id="標題類"><a href="#標題類" class="headerlink" title="標題類"></a>標題類</h3><table>
-<thead>
-<tr>
-<th>符號</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>#</td>
-<td>h1標題~h6標題</td>
-</tr>
-<tr>
-<td>######</td>
-<td>h1標題~h6標題</td>
-</tr>
-<tr>
-<td>- + 空格</td>
-<td>無序清單</td>
-</tr>
-<tr>
-<td>1. + 空格</td>
-<td>有序清單</td>
-</tr>
-<tr>
-<td><code>&gt;</code></td>
-<td>引用</td>
-</tr>
-<tr>
-<td><code>``</code></td>
-<td>程式碼註解</td>
-</tr>
-<tr>
-<td><code>```</code></td>
-<td>程式碼區塊(上面三個下面三個)</td>
-</tr>
-</tbody></table>
-<h3 id="文字類"><a href="#文字類" class="headerlink" title="文字類"></a>文字類</h3><table>
-<thead>
-<tr>
-<th>符號</th>
-<th>功能</th>
-<th>實際效果</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>**文字**</code></td>
-<td>粗體</td>
-<td><strong>文字</strong></td>
-</tr>
-<tr>
-<td><code>*文字*</code></td>
-<td>斜體</td>
-<td><em>文字</em></td>
-</tr>
-<tr>
-<td><code>&lt;u&gt;文字&lt;u&gt;</code></td>
-<td>底線</td>
-<td><u>文字<u></td>
-</tr>
-<tr>
-<td><code>~~文字~~</code></td>
-<td>刪節線</td>
-<td><del>文字</del></td>
-</tr>
-<tr>
-<td><code>&lt;font color=#FF0000&gt;紅色&lt;/font&gt;</code></td>
-<td>文字顏色</td>
-<td><font color=#FF0000>紅色</font></td>
-</tr>
-<tr>
-<td><code>[連結文字](網址)</code></td>
-<td>超連結文字</td>
-<td><a href="%E7%B6%B2%E5%9D%80">連結文字</a></td>
-</tr>
-<tr>
-<td><code>![圖片文字](網址)</code></td>
-<td>圖片</td>
-<td><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google"></td>
-</tr>
-</tbody></table>
-<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">// :---  靠左對齊</span><br><span class="line">// ---:  靠右對齊</span><br><span class="line">// :---: 置中對齊</span><br><span class="line">|<span class="string"> 標題一 </span>|<span class="string"> 標題二 </span>|<span class="string"> 標題三 </span>|</span><br><span class="line">|<span class="string"> -------- </span>|<span class="string"> -------- </span>|<span class="string">-------</span>|</span><br><span class="line">|<span class="string"> 文字 </span>|<span class="string"> 文字 </span>|<span class="string"> 文字</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="hexo常用指令"><a href="#hexo常用指令" class="headerlink" title="hexo常用指令"></a>hexo常用指令</h2><p>之後會輸入以下數次，其實多打幾次就會記住了。</p>
-<table>
-<thead>
-<tr>
-<th>指令</th>
-<th>功能</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>hexo generate</code></td>
-<td>產生靜態檔案</td>
-</tr>
-<tr>
-<td><code>hexo server</code></td>
-<td>啟動模擬網頁伺服器</td>
-</tr>
-<tr>
-<td><code>hexo clean</code></td>
-<td>刪除編譯完成的靜態檔案</td>
-</tr>
-<tr>
-<td><code>hexo deploy</code></td>
-<td>部屬檔案至 github page</td>
-</tr>
-</tbody></table>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學 404頁面</title>
-    <url>/blog/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8404/</url>
-    <content><![CDATA[<h2 id="建立-404頁面"><a href="#建立-404頁面" class="headerlink" title="建立 404頁面"></a>建立 404頁面</h2><ol>
-<li>輸入 <code>hexo new page 404</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source\404\index.md 增加以下資訊<ul>
-<li>comments，若之後有開啟評論功能，在這邊先將它關閉</li>
-<li>permalink，網站中的固定連結<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span> <span class="bullet">-</span> <span class="string">您似乎來到不對的地方~</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-27 13:45:41</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">/404</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-</ul>
-</li>
-<li>增加頁面說明文字。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 您要找的網頁不存在。</span></span><br><span class="line"></span><br><span class="line">很抱歉，您目前存取的頁面不存在。</span><br><span class="line"></span><br><span class="line">請點擊[<span class="string">這裡</span>](<span class="link">https://您的帳號.github.io/</span>)回首頁。</span><br></pre></td></tr></table></figure>
-建立好上述資訊後重新建立靜態檔案，github的預設 404頁面就會使用我們新建的 404頁面了。</li>
-</ol>
-<p>另外，在 github中有兩種方式都能讀取到 404頁面，</p>
-<ul>
-<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404\index.md<ul>
-<li>permalink就設定為 <code>permalink: /404</code></li>
-</ul>
-</li>
-<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404.md <ul>
-<li>permalink就設定為 <code>permalink: /404.html</code> </li>
-</ul>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">Creating a custom 404 page for your GitHub Pages site</a></li>
-<li><a href="https://hexo.io/zh-tw/docs/permalinks.html">Hexo - Permalinks</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10249685">Ray - 試著學 Hexo - SEO 篇 - 新增你的 404 頁面</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo教學 Next主題設定與頁面功能(Ver. 8)</title>
-    <url>/blog/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/</url>
-    <content><![CDATA[<p>由於自己選擇了 NexT主題匯入，這邊就以 NexT的設定做介紹。<br>請找到 <code>themes/next/_config.yml</code> 這隻檔案。</p>
-<h2 id="全域設定"><a href="#全域設定" class="headerlink" title="全域設定"></a>全域設定</h2><h3 id="菜單導覽"><a href="#菜單導覽" class="headerlink" title="菜單導覽"></a>菜單導覽</h3><p>可以根據實際需求開啟，<code>#</code> 移除為關閉，反之則開。</p>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="comment"># about: /about/ || fa fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="comment"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="搜尋"><a href="#搜尋" class="headerlink" title="搜尋"></a>搜尋</h3><p>請輸入以下指令，會開始安裝額外套件。</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
-<p>接著搜尋 local_search的設定，將它設為 true</p>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="字體"><a href="#字體" class="headerlink" title="字體"></a>字體</h3><p>修改 Next主題的字體，預設為 Google font的字體資源。</p>
-<ul>
-<li>font $\rightarrow$ 記得開啟</li>
-<li>font &gt; host $\rightarrow$ 若有其他字體資源，可將網址放這</li>
-<li>global $\rightarrow$ 網站文字全部修改</li>
-<li>其餘部分均能修改成不同字體</li>
-</ul>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">font:</span></span><br><span class="line">  <span class="comment"># enable: false</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">host:</span></span><br><span class="line">  <span class="attr">global:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># family: Lato</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">&quot;Noto Sans TC&quot;</span></span><br><span class="line">    <span class="attr">size:</span> </span><br><span class="line">  <span class="attr">title:</span></span><br><span class="line">  <span class="attr">headings:</span></span><br><span class="line">  <span class="attr">posts:</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="閱讀全文-More"><a href="#閱讀全文-More" class="headerlink" title="閱讀全文 More"></a>閱讀全文 More</h3><div class="tabs" id="閱讀全文"><ul class="nav-tabs"><li class="tab"><a href="#閱讀全文-1">1. 手動截斷</a></li><li class="tab active"><a href="#閱讀全文-2">2. 加入 description</a></li></ul><div class="tab-content"><div class="tab-pane" id="閱讀全文-1"><p>在文章中某的地方加入 <code>&lt;!--more--&gt;</code></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文字文字文字文字文字文字文字<span class="comment">&lt;!--more--&gt;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane active" id="閱讀全文-2"><p>在檔案 header部分加上 description，會根據其內容呈現。</p>
-<figure class="highlight yaml"><figcaption><span>source/_posts/頁面.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">description:</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></div></div></div>
-
-
-<h2 id="撰寫相關功能"><a href="#撰寫相關功能" class="headerlink" title="撰寫相關功能"></a>撰寫相關功能</h2><h3 id="程式碼區塊"><a href="#程式碼區塊" class="headerlink" title="程式碼區塊"></a>程式碼區塊</h3><h4 id="區塊複製"><a href="#區塊複製" class="headerlink" title="區塊複製"></a>區塊複製</h4><figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add copy button on codeblock</span></span><br><span class="line"><span class="attr">copy_button:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="區塊主題"><a href="#區塊主題" class="headerlink" title="區塊主題"></a>區塊主題</h4><p><a href="https://theme-next.js.org/highlight/">主題預覽</a></p>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line"><span class="attr">theme:</span></span><br><span class="line">  <span class="comment"># light: default</span></span><br><span class="line">  <span class="attr">light:</span> <span class="string">tomorrow-night</span></span><br><span class="line">  <span class="attr">dark:</span> <span class="string">tomorrow-night</span></span><br><span class="line"><span class="attr">prism:</span></span><br><span class="line">  <span class="attr">light:</span> <span class="string">prism</span></span><br><span class="line">  <span class="attr">dark:</span> <span class="string">prism-dark</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="區塊標題"><a href="#區塊標題" class="headerlink" title="區塊標題"></a>區塊標題</h4><p>標題前方可以加上該程式碼為何種語言，<br>例如，.yal為 yaml，.js 為 javascript</p>
-<figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line">```yaml 標題文字</span><br><span class="line">title: </span><br><span class="line"><span class="keyword">tags:</span> </span><br><span class="line">``` ```</span><br></pre></td></tr></table></figure>
-
-<h3 id="數學符號"><a href="#數學符號" class="headerlink" title="數學符號"></a>數學符號</h3><table>
-<thead>
-<tr>
-<th>功能名稱</th>
-<th>功能描述</th>
-</tr>
-</thead>
-<tbody><tr>
-<td><code>every_page</code></td>
-<td>是否讓每一頁都開啟數學符號功能</td>
-</tr>
-<tr>
-<td><code>mathjax</code></td>
-<td>是否讓 mathjax寫在檔案開頭才開啟數學符號功能</td>
-</tr>
-</tbody></table>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p>回到撰寫頁面</p>
-<figure class="highlight yaml"><figcaption><span>source/_post/頁面.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo教學</span> <span class="string">Next主題</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">Next主題相關設定</span> <span class="bullet">-</span> <span class="string">開啟數學符號以及更改字體</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內容分頁-tabs"><a href="#內容分頁-tabs" class="headerlink" title="內容分頁 tabs"></a>內容分頁 tabs</h3><p>預設就能使用，設定為 true時，切換時較為平滑</p>
-<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Tabs tag</span></span><br><span class="line"><span class="attr">tabs:</span></span><br><span class="line">  <span class="attr">transition:</span></span><br><span class="line">    <span class="attr">tabs:</span> <span class="literal">true</span> </span><br><span class="line">    <span class="attr">labels:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>回到頁面撰寫時，加入以下字串</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 區塊標題, 預設顯示區塊索引值 %&#125;</span><br><span class="line">&lt;!-- tab 可單獨寫分頁標題 --&gt;</span><br><span class="line">Any content (support inline tags too).</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
-
-<p>用上面的範例可以這樣寫 :</p>
-<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">tabs</span> 閱讀全文, 2 %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab 手動截斷--&gt;</span></span></span><br><span class="line"><span class="xml">在文章中某的地方加入 `<span class="comment">&lt;!--more--&gt;</span>`</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab 加入 description--&gt;</span></span></span><br><span class="line"><span class="xml">在檔案 header部分加上 description，會根據其內容呈現。</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endtabs</span> %&#125;</span></span><br></pre></td></tr></table></figure>
-
-<p>若 <code>&lt;!-- tab 手動截斷--&gt;</code> 不加上該分頁標題，只有單純 <code>&lt;!-- tab --&gt;</code>，<br>則會根據區塊標題的文字自動加上索引值然後在分頁標題上顯示 <code>分頁標題 1</code> <code>分頁標題 2</code>。</p>
-<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">tabs</span> First unique name %&#125;</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 1**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 2**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 3**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endtabs</span> %&#125;</span></span><br></pre></td></tr></table></figure>
-<p>自動加入分頁標題 : </p>
-<div class="tabs" id="first-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#first-unique-name-1">First unique name 1</a></li><li class="tab"><a href="#first-unique-name-2">First unique name 2</a></li><li class="tab"><a href="#first-unique-name-3">First unique name 3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="first-unique-name-1"><p><strong>這是分頁 1</strong></p></div><div class="tab-pane" id="first-unique-name-2"><p><strong>這是分頁 2</strong></p></div><div class="tab-pane" id="first-unique-name-3"><p><strong>這是分頁 3</strong></p></div></div></div>
-
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="關閉-Powered-by-Hexo-amp-NexT"><a href="#關閉-Powered-by-Hexo-amp-NexT" class="headerlink" title="關閉 Powered by Hexo &amp; NexT"></a>關閉 Powered by Hexo &amp; NexT</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 Powered可以自由關閉，</p>
-<h3 id="版權宣告"><a href="#版權宣告" class="headerlink" title="版權宣告"></a>版權宣告</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 copyright，可以加入版權宣告的文字敘述。</p>
-<h3 id="footer-icon"><a href="#footer-icon" class="headerlink" title="footer icon"></a>footer icon</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 “# Icon name in Font Awesome.” ，可以在 <a href="https://fontawesome.com/icons">fontawesome</a>找到喜歡的 icon，將 “name”的文字更換即可，當然也可以修改 “animated”與 “color”。</p>
-<h2 id="後續功能"><a href="#後續功能" class="headerlink" title="後續功能"></a>後續功能</h2><ul>
-<li>摺疊</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://theme-next.js.org/docs/third-party-services/math-equations">NexT說明 - math-equations</a></li>
-<li><a href="https://theme-next.js.org/docs/tag-plugins/tabs.html">NexT說明 - tabs</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10248682">Ray - 試著學 Hexo - NexT 主題篇 - NexT 還有哪些設定？</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10248214">Ray - 試著學 Hexo - 試著學 Hexo - NexT 主題篇 - 可以安裝的套件 </a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-        <tag>hexo Next</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ES6語法糖 - 箭頭函式與this(上)</title>
-    <url>/blog/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
+    <url>/root/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
     <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一般函式寫法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為具名函式 - 函式陳述式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為匿名函式 - 函式表達式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭頭函式</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若函式只有單一變數，參數括號可以簡化</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  str = <span class="string">&#x27;簡化參數括號&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若函式內只有單一陳述行，大括號可以簡化，但沒有參數時，括號必須存在</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式簡易寫法。&#x27;</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="箭頭函式與一般函式的差異"><a href="#箭頭函式與一般函式的差異" class="headerlink" title="箭頭函式與一般函式的差異"></a>箭頭函式與一般函式的差異</h3><p>箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 每當搜尋相關介紹時，總會說明它沒有這些 : </p>
@@ -698,70 +214,17 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
-    <url>/blog/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
-    <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
-<ul>
-<li><code>this</code></li>
-<li><code>arguments</code> </li>
-<li><code>call()</code></li>
-<li><code>apply()</code></li>
-<li><code>bind()</code></li>
-</ul>
-<p>這篇我們要來看這些東西原本是怎麼運作的。</p>
-<h3 id="關鍵字-this"><a href="#關鍵字-this" class="headerlink" title="關鍵字 this"></a>關鍵字 this</h3><p>複習一下 <code>this</code> 的運作 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  whoAmI: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>，今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.whoAmI()</span><br><span class="line"><span class="comment">// 由於是在物件呼叫此函式的，所以往上一層尋找時(非箭頭函式)，會找到此物件的屬性值</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="關鍵字-arguments"><a href="#關鍵字-arguments" class="headerlink" title="關鍵字 arguments"></a>關鍵字 arguments</h3><ul>
-<li>一般函式內建的關鍵字之一</li>
-<li>可以將傳入的參數值抓取出來形成一個類陣列<strong>物件</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>])</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內建函式-call、apply、bind的共通點"><a href="#內建函式-call、apply、bind的共通點" class="headerlink" title="內建函式 call、apply、bind的共通點"></a>內建函式 call、apply、bind的共通點</h3><ul>
-<li>JS的內建函式</li>
-<li>它們都與 <code>this</code> 有所關聯</li>
-<li>不需要在函式中自訂參數就能將變數塞進 <code>this</code></li>
-<li>若有多個值，函式的第一個參數位置為 <code>this</code></li>
-<li>也就是說<code>(this, 參數1, 參數2, 以此類推)</code></li>
-</ul>
-<p>接下來，我們來看，<code>call()</code>、<code>apply()</code>以及 <code>bind()</code> 如何與 <code>this</code> 運作。</p>
-<h3 id="內建函式-call"><a href="#內建函式-call" class="headerlink" title="內建函式 call"></a>內建函式 call</h3><ul>
-<li>單純將參數值傳入</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line">sum.call(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// &quot;this為2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-<h3 id="內建函式-apply"><a href="#內建函式-apply" class="headerlink" title="內建函式 apply"></a>內建函式 apply</h3><ul>
-<li>傳入的型態必須是陣列</li>
-<li>功能上與 <code>call</code> 無異</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第一個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第二個是<span class="subst">$&#123;b&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">sum.apply(<span class="number">1</span>, array)</span><br><span class="line"><span class="comment">// &quot;陣列中第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;this為1&quot;</span></span><br><span class="line"><span class="comment">// &quot;陣列中第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內建函式-bind"><a href="#內建函式-bind" class="headerlink" title="內建函式 bind"></a>內建函式 bind</h3><ul>
-<li><strong><code>bind()</code> 將建立一個新的函式</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例一</span></span><br><span class="line"><span class="comment">// bind會建立一個新的函式</span></span><br><span class="line"><span class="comment">// this會對應傳入的參數 newPerson</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Jay&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newDisplay = display.bind(newPerson)</span><br><span class="line">display() <span class="comment">// Jay</span></span><br><span class="line">newDisplay() <span class="comment">// Vic</span></span><br><span class="line"><span class="comment">// 新的函式會執行 console.log(newPerson.name)</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例二</span></span><br><span class="line"><span class="comment">// 若有多個值，bind的參數第一順位為 &#x27;this&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第一個是<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> plusTwo = sum.bind(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plusTwo()</span><br><span class="line"><span class="comment">// &quot;第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>我們了解到箭頭函式沒有自己的 <code>this</code>，相對的也就沒有上述的那三種內建函式可供使用，也無法使用 <code>arguments</code>，但可以改用其餘參數來達成目的。箭頭函式與一般函式的運用，還是得看實際情況來做使用。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
-<li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
-</ol>
-</blockquote>
+    <title>記錄自己的成長，那怕是1%也好</title>
+    <url>/root/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/</url>
+    <content><![CDATA[<p>利用 Hexo寫技術部落格，那怕是第一篇，或者只有一篇，只怕自己停佇不前。</p>
 ]]></content>
       <categories>
-        <category>JavaScript</category>
+        <category>閒聊</category>
       </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
   </entry>
   <entry>
     <title>ES6語法糖 - 解構賦值與其餘參數</title>
-    <url>/blog/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/</url>
+    <url>/root/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/</url>
     <content><![CDATA[<h2 id="解構賦值"><a href="#解構賦值" class="headerlink" title="解構賦值"></a>解構賦值</h2><blockquote>
 <p>解構賦值 (Destructuring assignment) 語法是一種 JavaScript 運算式，可以把陣列或物件中的資料解開擷取成為獨立變數。</p>
 </blockquote>
@@ -881,8 +344,70 @@
       </tags>
   </entry>
   <entry>
+    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
+    <url>/root/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
+    <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
+<ul>
+<li><code>this</code></li>
+<li><code>arguments</code> </li>
+<li><code>call()</code></li>
+<li><code>apply()</code></li>
+<li><code>bind()</code></li>
+</ul>
+<p>這篇我們要來看這些東西原本是怎麼運作的。</p>
+<h3 id="關鍵字-this"><a href="#關鍵字-this" class="headerlink" title="關鍵字 this"></a>關鍵字 this</h3><p>複習一下 <code>this</code> 的運作 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  whoAmI: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>，今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.whoAmI()</span><br><span class="line"><span class="comment">// 由於是在物件呼叫此函式的，所以往上一層尋找時(非箭頭函式)，會找到此物件的屬性值</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="關鍵字-arguments"><a href="#關鍵字-arguments" class="headerlink" title="關鍵字 arguments"></a>關鍵字 arguments</h3><ul>
+<li>一般函式內建的關鍵字之一</li>
+<li>可以將傳入的參數值抓取出來形成一個類陣列<strong>物件</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>])</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內建函式-call、apply、bind的共通點"><a href="#內建函式-call、apply、bind的共通點" class="headerlink" title="內建函式 call、apply、bind的共通點"></a>內建函式 call、apply、bind的共通點</h3><ul>
+<li>JS的內建函式</li>
+<li>它們都與 <code>this</code> 有所關聯</li>
+<li>不需要在函式中自訂參數就能將變數塞進 <code>this</code></li>
+<li>若有多個值，函式的第一個參數位置為 <code>this</code></li>
+<li>也就是說<code>(this, 參數1, 參數2, 以此類推)</code></li>
+</ul>
+<p>接下來，我們來看，<code>call()</code>、<code>apply()</code>以及 <code>bind()</code> 如何與 <code>this</code> 運作。</p>
+<h3 id="內建函式-call"><a href="#內建函式-call" class="headerlink" title="內建函式 call"></a>內建函式 call</h3><ul>
+<li>單純將參數值傳入</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line">sum.call(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// &quot;this為2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<h3 id="內建函式-apply"><a href="#內建函式-apply" class="headerlink" title="內建函式 apply"></a>內建函式 apply</h3><ul>
+<li>傳入的型態必須是陣列</li>
+<li>功能上與 <code>call</code> 無異</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第一個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第二個是<span class="subst">$&#123;b&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">sum.apply(<span class="number">1</span>, array)</span><br><span class="line"><span class="comment">// &quot;陣列中第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;this為1&quot;</span></span><br><span class="line"><span class="comment">// &quot;陣列中第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內建函式-bind"><a href="#內建函式-bind" class="headerlink" title="內建函式 bind"></a>內建函式 bind</h3><ul>
+<li><strong><code>bind()</code> 將建立一個新的函式</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例一</span></span><br><span class="line"><span class="comment">// bind會建立一個新的函式</span></span><br><span class="line"><span class="comment">// this會對應傳入的參數 newPerson</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Jay&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newDisplay = display.bind(newPerson)</span><br><span class="line">display() <span class="comment">// Jay</span></span><br><span class="line">newDisplay() <span class="comment">// Vic</span></span><br><span class="line"><span class="comment">// 新的函式會執行 console.log(newPerson.name)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例二</span></span><br><span class="line"><span class="comment">// 若有多個值，bind的參數第一順位為 &#x27;this&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第一個是<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> plusTwo = sum.bind(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plusTwo()</span><br><span class="line"><span class="comment">// &quot;第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>我們了解到箭頭函式沒有自己的 <code>this</code>，相對的也就沒有上述的那三種內建函式可供使用，也無法使用 <code>arguments</code>，但可以改用其餘參數來達成目的。箭頭函式與一般函式的運用，還是得看實際情況來做使用。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
+<li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ES6變數宣告與全域環境</title>
-    <url>/blog/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
+    <url>/root/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
     <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
 <h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="comment">// window是 JS的最上層，也就是全域</span></span><br><span class="line"><span class="comment">// 它有很多 JS內建的事件與函式</span></span><br></pre></td></tr></table></figure>
@@ -950,7 +475,7 @@
   </entry>
   <entry>
     <title>JS地下城 - 3F - 計算機</title>
-    <url>/blog/2021/01/06/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E3F-%E8%A8%88%E7%AE%97%E6%A9%9F/</url>
+    <url>/root/2021/01/06/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E3F-%E8%A8%88%E7%AE%97%E6%A9%9F/</url>
     <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__3F/">JS地下城 - 3F - 計算機</a></p>
 <h2 id="主體架構"><a href="#主體架構" class="headerlink" title="主體架構"></a>主體架構</h2><p>利用建構式函式做為主架構，在此建構函式內增加要用的函式來處理不同功能。其函式內包含 : </p>
 <ul>
@@ -1108,7 +633,7 @@
   </entry>
   <entry>
     <title>JS地下城 - 4F- 世界時鐘</title>
-    <url>/blog/2021/01/07/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E4F-%E4%B8%96%E7%95%8C%E6%99%82%E9%90%98/</url>
+    <url>/root/2021/01/07/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E4F-%E4%B8%96%E7%95%8C%E6%99%82%E9%90%98/</url>
     <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__4F/">WORLD CLOCK</a></p>
 <h2 id="世界時鐘"><a href="#世界時鐘" class="headerlink" title="世界時鐘"></a>世界時鐘</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>主要語法 <code>.toLocaleString( )</code></p>
 <ul>
@@ -1170,7 +695,7 @@
   </entry>
   <entry>
     <title>JS地下城-5F全台空氣指標</title>
-    <url>/blog/2021/01/16/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E5F-%E5%85%A8%E5%8F%B0%E7%A9%BA%E6%B0%A3%E6%8C%87%E6%A8%99/</url>
+    <url>/root/2021/01/16/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E5F-%E5%85%A8%E5%8F%B0%E7%A9%BA%E6%B0%A3%E6%8C%87%E6%A8%99/</url>
     <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__5F/">JS地下城5F-全台空氣指標</a></p>
 <h2 id="全台空氣指標"><a href="#全台空氣指標" class="headerlink" title="全台空氣指標"></a>全台空氣指標</h2><h3 id="拆分目標"><a href="#拆分目標" class="headerlink" title="拆分目標"></a>拆分目標</h3><p>規劃目標，主要解決 : </p>
 <ul>
@@ -1256,7 +781,7 @@
   </entry>
   <entry>
     <title>JS地下城6F-60秒算數</title>
-    <url>/blog/2021/01/27/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E6F-60%E7%A7%92%E7%AE%97%E6%95%B8/</url>
+    <url>/root/2021/01/27/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E6F-60%E7%A7%92%E7%AE%97%E6%95%B8/</url>
     <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__6F/">60秒算數</a></p>
 <h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul>
 <li>亂數出題</li>
@@ -1394,7 +919,7 @@
   </entry>
   <entry>
     <title>JS地下城7F-畫版</title>
-    <url>/blog/2021/02/05/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E7F-%E7%95%AB%E7%89%88/</url>
+    <url>/root/2021/02/05/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E7F-%E7%95%AB%E7%89%88/</url>
     <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__7F/">畫版</a></p>
 <h2 id="畫板"><a href="#畫板" class="headerlink" title="畫板"></a>畫板</h2><h3 id="規則"><a href="#規則" class="headerlink" title="規則"></a>規則</h3><ol>
 <li>繪圖區請使用 Canvas 來設計，上方的控制列與下方的畫筆調整可不用</li>
@@ -1550,7 +1075,7 @@
   </entry>
   <entry>
     <title>JS地下城8F-井字遊戲</title>
-    <url>/blog/2021/02/22/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E8F-%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2/</url>
+    <url>/root/2021/02/22/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E8F-%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2/</url>
     <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__8F/">作品</a></p>
 <h2 id="井字遊戲"><a href="#井字遊戲" class="headerlink" title="井字遊戲"></a>井字遊戲</h2><h3 id="規則"><a href="#規則" class="headerlink" title="規則"></a>規則</h3><ol>
 <li>【特定技術】先手為 O，後手為 X，某方獲勝時，上方會紀錄各方的獲勝戰績</li>
@@ -1686,7 +1211,7 @@
   </entry>
   <entry>
     <title>Promise</title>
-    <url>/blog/2020/12/15/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-Promise/</url>
+    <url>/root/2020/12/15/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-Promise/</url>
     <content><![CDATA[<p>快速導覽 : </p>
 <ul>
 <li>Promise 例子<ul>
@@ -1829,7 +1354,7 @@
   </entry>
   <entry>
     <title>JS核心篇-原型鏈</title>
-    <url>/blog/2020/12/08/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%8E%9F%E5%9E%8B%E9%8F%88/</url>
+    <url>/root/2020/12/08/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%8E%9F%E5%9E%8B%E9%8F%88/</url>
     <content><![CDATA[<p>當我們撰寫 JavaScript的程式碼時，為什麼會有那麼多的內建方法可以用? 例如一組陣列可以使用 <code>.length</code> 來得知陣列有多少位址資料，陣列內建的方式又是從何而來?</p>
 <p>這裡紀錄一些關於原型的筆記 : </p>
 <ul>
@@ -1985,7 +1510,7 @@
   </entry>
   <entry>
     <title>JS核心篇-物件屬性特徵</title>
-    <url>/blog/2020/12/10/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E7%89%B9%E5%BE%B5/</url>
+    <url>/root/2020/12/10/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E7%89%A9%E4%BB%B6%E5%B1%AC%E6%80%A7%E7%89%B9%E5%BE%B5/</url>
     <content><![CDATA[<p>本文快速導覽 : </p>
 <ul>
 <li>物件屬性設定<ul>
@@ -2141,7 +1666,7 @@
   </entry>
   <entry>
     <title>提升</title>
-    <url>/blog/2020/12/11/javascript/%E6%8F%90%E5%8D%87/</url>
+    <url>/root/2020/12/11/javascript/%E6%8F%90%E5%8D%87/</url>
     <content><![CDATA[<p>分別呼叫這些例子，會產生甚麼結果?</p>
 <p>E.g. 1. : console.log 結果會是?</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a)</span><br><span class="line"><span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
@@ -2224,7 +1749,7 @@
   </entry>
   <entry>
     <title>物件</title>
-    <url>/blog/2020/11/25/javascript/%E7%89%A9%E4%BB%B6/</url>
+    <url>/root/2020/11/25/javascript/%E7%89%A9%E4%BB%B6/</url>
     <content><![CDATA[<h2 id="物件結構"><a href="#物件結構" class="headerlink" title="物件結構"></a>物件結構</h2><p>建立物件有兩個方式 : </p>
 <ul>
 <li>物件實字</li>
@@ -2343,7 +1868,7 @@
   </entry>
   <entry>
     <title>迴圈之變數作用域</title>
-    <url>/blog/2020/11/13/javascript/%E8%BF%B4%E5%9C%88%E8%AE%8A%E6%95%B8%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
+    <url>/root/2020/11/13/javascript/%E8%BF%B4%E5%9C%88%E8%AE%8A%E6%95%B8%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
     <content><![CDATA[<p>很多技術筆記說明 JS變數的作用域時，都會使用迴圈與一個 JS內建函式來說明作用域的不同之處，但為什麼使用了 <code>setTimeout()</code> 這個語法，可以讓結果不同?<br>主要是因為以下的運作方式與觀念，會讓結果不同 : </p>
 <ul>
 <li>變數宣告影響作用域</li>
@@ -2478,7 +2003,7 @@
   </entry>
   <entry>
     <title>JavaScript 運算子</title>
-    <url>/blog/2020/11/20/javascript/%E9%81%8B%E7%AE%97%E5%AD%90/</url>
+    <url>/root/2020/11/20/javascript/%E9%81%8B%E7%AE%97%E5%AD%90/</url>
     <content><![CDATA[<h2 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h2><p>舉凡加減乘除都是運算子，等號也是運算子之一。<br>(詳細可參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators">MDN-運算子</a>)。</p>
 <ul>
 <li>運算子均為表達式，一定會回傳值</li>
@@ -2603,8 +2128,483 @@
       </tags>
   </entry>
   <entry>
+    <title>Hexo教學(一) 使用 Hexo寫部落格</title>
+    <url>/root/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
+    <content><![CDATA[<h2 id="為什麼要使用-Hexo寫部落格"><a href="#為什麼要使用-Hexo寫部落格" class="headerlink" title="為什麼要使用 Hexo寫部落格?"></a>為什麼要使用 Hexo寫部落格?</h2><p>現在有很多線上服務都能當成部落格，不管寫在 github、medium或者 wordpress等等，同樣是寫文章，心得也好，技術文也罷，學著使用 markdown寫文，最起碼自己的電腦有初始檔案，不怕線上服務突然關閉或者改變使用條款，而且只要有網頁伺服器，就能發布自己的部落格。</p>
+<h2 id="教學連結"><a href="#教學連結" class="headerlink" title="教學連結"></a>教學連結</h2><p>後續 hexo教學會說明這些主題並建立連結 :</p>
+<ul>
+<li>環境建立與安裝</li>
+<li>匯入主題 (themes)</li>
+<li>部屬到網頁 (使用 github page)</li>
+<li>分類與標籤</li>
+<li>Next主題相關設定 - 開啟數學符號以及更改字體</li>
+</ul>
+<h2 id="撰寫工具與線上服務"><a href="#撰寫工具與線上服務" class="headerlink" title="撰寫工具與線上服務"></a>撰寫工具與線上服務</h2><p>我們會使用到的軟體或服務如下，可以先點連結下載安裝或者先建立帳號</p>
+<ul>
+<li><a href="https://code.visualstudio.com/">VSCode</a> <ul>
+<li>程式編輯器，我們會使用 VScode來編輯  hexo的資源</li>
+</ul>
+</li>
+<li><a href="https://nodejs.org/en/">node.js</a><ul>
+<li>後續安裝 hexo環境會用到，LTS是穩定的版本，Current是最新的，推薦使用 <strong>LTS版本</strong></li>
+</ul>
+</li>
+<li><a href="https://github.com/">github.com</a><ul>
+<li>程式碼版控，其中一項服務可以用來發布 hexo</li>
+</ul>
+</li>
+<li><a href="https://hackmd.io/">HackMD</a><ul>
+<li>線上筆記之一， hexo的撰寫方式為 markdown，使用 HackMD的服務可以快速編輯與即時預覽，不怕文章編輯到一半當掉。</li>
+</ul>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(六) 文章標籤與分類</title>
+    <url>/root/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
+    <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
+<h2 id="建立分類"><a href="#建立分類" class="headerlink" title="建立分類"></a>建立分類</h2><ol>
+<li>輸入 <code>hexo new page &#39;categories&#39;</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
+<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories中的 index.md檔案，插入 <code>type: &quot;categories&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>重新產生靜態檔案，可以在導覽列看到多了一個分類分頁</li>
+</ol>
+<h2 id="建立標籤"><a href="#建立標籤" class="headerlink" title="建立標籤"></a>建立標籤</h2><p>與分類的步驟一樣，但內容改變。</p>
+<ol>
+<li>輸入 <code>hexo new page &#39;tags&#39;</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
+<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> tags index.md檔案，插入 <code>type: &quot;tags&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+若需要多個標籤，可以這樣輸入<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">教學文</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>重新產生靜態檔案，可以在導覽列看到多了一個標籤分頁</li>
+</ol>
+<p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(三) 主題匯入</title>
+    <url>/root/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
+<ul>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
+</ul>
+</li>
+<li>NexT<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
+</ul>
+</li>
+</ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(五) 部署文章至 Github Page</title>
+    <url>/root/2020/10/26/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%94)%E9%83%A8%E7%BD%B2%E6%96%87%E7%AB%A0%E8%87%B3%20Github%20Page/</url>
+    <content><![CDATA[<h2 id="建立-github資料庫"><a href="#建立-github資料庫" class="headerlink" title="建立 github資料庫"></a>建立 github資料庫</h2><p>登入 github.com後，新增一個資料庫做為 hexo的儲存空間，我們會使用這個資料庫發布部落格。</p>
+<ol>
+<li>右上方點擊 New repository</li>
+<li>在 Repository name欄位中輸入 <code>你的github帳號.github.io</code></li>
+<li>選擇 Public</li>
+<li>點擊 Creat repository</li>
+<li>點擊此資料庫的 <strong>Setting</strong></li>
+<li>在 Setting的頁面中找到名為 GitHub Pages的標題</li>
+<li>在 GitHub Pages的選項中，找到子標題 Source，將第一個選項改為 master</li>
+<li>選擇 master後，會發現上面一則通知，它會是<br>Your site is published at https://你的github帳號.github.io</li>
+</ol>
+<h2 id="修改-hexo設定檔"><a href="#修改-hexo設定檔" class="headerlink" title="修改 hexo設定檔"></a>修改 hexo設定檔</h2><p>建立好 github的資料庫後，接著我們回到 hexo底下的 <code>_config.yml</code>，我們要修改發布時會用到的資訊。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https:<span class="regexp">//</span>你的github帳號.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/你的github帳號/</span>你的github帳號.github.io.git </span><br><span class="line">  branch: master </span><br><span class="line">  message: <span class="string">&#x27;hexoblog&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="部屬-Deploy"><a href="#部屬-Deploy" class="headerlink" title="部屬 (Deploy)"></a>部屬 (Deploy)</h2><p>完成上述兩個部分後，讓我們重新產生 hexo的靜態檔案，就能將寫好的文章上傳了。<br>這裡還需要再輸入一個指令，<code>npm install --save hexo-deployer-git</code>，這樣才能將 hexo一鍵部屬到 github上。</p>
+<ol>
+<li>輸入 <code>hexo clean</code>，可縮寫 <code>hexo cl</code></li>
+<li>輸入 <code>hexo generate</code>，可縮寫 <code>hexo g</code></li>
+<li>輸入 <code>hexo server</code>，可縮寫 <code>hexo s</code></li>
+<li>輸入 <code>hexo deploy</code>，正式將文章上傳至網路空間</li>
+<li>在網址列輸入 https://你的github帳號.github.io，看是否成功</li>
+</ol>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10242893">Ray - 試著學 Hexo - 部署你的第一個部落格</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(二) 環境建立與安裝 hexo</title>
+    <url>/root/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/</url>
+    <content><![CDATA[<h2 id="基礎環境建立"><a href="#基礎環境建立" class="headerlink" title="基礎環境建立"></a>基礎環境建立</h2><ol>
+<li>開啟 VScode後，按下快捷鍵 <code>ctrl+~</code>，會打開終端機</li>
+<li>輸入 <code>node -v</code><ul>
+<li>確認 node.js，若成功會出現版本編號</li>
+</ul>
+</li>
+<li>輸入 <code>npm -v</code> <ul>
+<li>確認 npm，若成功會出現版本編號</li>
+</ul>
+</li>
+<li>輸入 <code>npm install -g hexo-cli</code><ul>
+<li>正式安裝 hexo</li>
+</ul>
+</li>
+</ol>
+<h3 id="node-js與-npm"><a href="#node-js與-npm" class="headerlink" title="node.js與 npm"></a>node.js與 npm</h3><p>自己對它們的了解， node.js是一個執行 JavaScript的環境，如同要運作 python時必須安裝 python的執行檔，npm則是一個線上的套件資源庫，可以輸入指令 <code>npm install 套件名稱</code> 來安裝額外套件，可以在網路上搜尋這兩個<a href="https://www.google.com/search?ei=j06SX_bNB5G9mAXOkoSgBw&q=node.js+npm&oq=node.js+npm&gs_lcp=CgZwc3ktYWIQAzICCAAyAggAMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjIGCAAQBxAeMgYIABAHEB4yBggAEAcQHjoFCAAQzQJQzGFYu25glHJoAHAAeACAAYoBiAHcApIBAzMuMZgBAKABAaoBB2d3cy13aXrAAQE&sclient=psy-ab&ved=0ahUKEwi20d2548nsAhWRHqYKHU4JAXQQ4dUDCA0&uact=5">關鍵字</a>，會有更多開發者的說明。</p>
+<h2 id="初始化-hexo"><a href="#初始化-hexo" class="headerlink" title="初始化 hexo"></a>初始化 hexo</h2><p>上一階段已安裝完 hexo所需的基礎環境，接著要在電腦中新增一個空的資料夾來存放 hexo的檔案。</p>
+<ol>
+<li>新增資料夾<ul>
+<li>可以直接在桌面上新增一個資料夾，接著將它拖曳至 VScode，終端機的路徑就會是該資料夾的路徑了</li>
+<li>或者輸入終端機指令來新增一個空的資料夾並進入該資料夾中</li>
+</ul>
+</li>
+<li>輸入 <code>hexo init 自訂部落格名稱</code><ul>
+<li>為了方便說明自訂部落格名稱簡化為 hexoblog</li>
+<li>確認終端機路徑已在新建立的空資料夾中，我們要在這個資料夾中下載 hexo的初始檔案，也就是 hexo的初始化</li>
+<li>資料夾名稱可以跟部落格名稱不同，可以在 hexo的設定檔中更改部落格名稱</li>
+<li>若只輸入 <code>hexo init</code>，很可能會遇到安裝錯誤</li>
+</ul>
+</li>
+<li>確認 hexo初始資源<ul>
+<li>此時資料夾結構應該會是 <code>桌面\新增資料夾\hexobolg</code></li>
+<li>輸入 <code>cd hexobolg</code>，路徑會從 <code>桌面桌面\新增資料夾</code> 變更為 <code>桌面桌面\新增資料夾\hexobolg</code></li>
+<li>可以在 VScode的左邊檔案視窗檢查，確認 hexobolg的資料夾已有 hexo的初始相關檔案</li>
+</ul>
+</li>
+</ol>
+<p>舉個範例，若在桌面上新增了一個資料夾，那麼最終資料夾結構應該會是 <code>桌面\新增資料夾\hexoblog</code></p>
+<h2 id="修改基礎設定"><a href="#修改基礎設定" class="headerlink" title="修改基礎設定"></a>修改基礎設定</h2><p>剛下載好的 hexo有些設定是預設的，所以我們要修改成自己的。<br>找到 <code>hexoblog\_config.yml</code>這隻檔案，可以先修改以下資訊</p>
+<figure class="highlight ldif"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attribute">title</span>: Help One Percent</span><br><span class="line"><span class="attribute">subtitle</span>: &#x27;遺忘x回想x自動化&#x27;</span><br><span class="line"><span class="attribute">description</span>: &#x27;哪怕是1%也好，只怕自己停佇不前&#x27;</span><br><span class="line"><span class="attribute">keywords</span>: 前端,CSS,JavaScript,Vue.js,git,演算法入門</span><br><span class="line"><span class="attribute">author</span>: Vic</span><br><span class="line"><span class="attribute">language</span>: zh-TW</span><br><span class="line"><span class="attribute">timezone</span>: &#x27;&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="啟動-hexo"><a href="#啟動-hexo" class="headerlink" title="啟動 hexo"></a>啟動 hexo</h2><p>接下來，我們可以先使用預設主題模擬上線情況。</p>
+<ol>
+<li>輸入 <code>hexo generate</code><ul>
+<li>會產生靜態檔案</li>
+</ul>
+</li>
+<li>輸入 <code>hexo server</code><ul>
+<li>啟動 hexo內建的模擬網頁伺服器</li>
+</ul>
+</li>
+<li>在網址列輸入提供的網址，預設會是 <code>http://localhost:4000</code></li>
+</ol>
+<p>若成功看到預設主題以及第一篇文章標題 “Hello World”，恭喜你已經完成一半了! </p>
+<p>接下來我們要新增一篇文章並調整主題以及其他設定。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10236936">Ray - (3)試著學 Hexo - 如何安裝 Hexo</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4)試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo教學(四) 新增文章與常用指令</title>
+    <url>/root/2020/10/23/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E5%9B%9B)%E6%96%B0%E5%A2%9E%E6%96%87%E7%AB%A0%E8%88%87%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</url>
+    <content><![CDATA[<h2 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h2><p>在上一篇匯入主題後，這篇我們來新增一篇文章，輸入指令後，會在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post 中看到我們新建立的檔案。<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _post<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ *.md</p>
+<ul>
+<li>輸入 <code>hexo new &#39;文章標題&#39;</code></li>
+<li>檔案格式為 *.md</li>
+<li>寫法為 markdown</li>
+</ul>
+<h3 id="文章與樣板-scaffolds"><a href="#文章與樣板-scaffolds" class="headerlink" title="文章與樣板 scaffolds"></a>文章與樣板 scaffolds</h3><p>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ _drafts.md<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;├─ _page.md<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─  _post.md<br>通常 hexo新增文章時，預設利用 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _source內的 _post.md新增一篇文章，其三份檔案的功能如下 :</p>
+<ul>
+<li>_drafts.md，指令為 <code>hexo new drafts &#39;文章標題&#39;</code>，用於存放草稿且不會產生靜態檔案。</li>
+<li>_page.md，指令為 <code>hexo new page &#39;文章標題&#39;</code>，新開一個導覽頁面，像是關於我、歸檔以及標籤等網站分頁。</li>
+<li>_post.md，指令為 <code>hexo new post &#39;文章標題&#39;</code>，用於新增文章且會產生靜態檔案。</li>
+</ul>
+<p>可以在這些樣板檔案中規劃需要的標籤或者分類以及其他的資訊，如以下區塊 :</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> &#123;&#123; <span class="string">title</span> &#125;&#125;</span><br><span class="line"><span class="attr">date:</span> &#123;&#123; <span class="string">date</span> &#125;&#125;</span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="attr">description:</span> </span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+<p>標籤與分類，會在其他篇說明。</p>
+<h2 id="常見-markdown語法"><a href="#常見-markdown語法" class="headerlink" title="常見 markdown語法"></a>常見 markdown語法</h2><p>Markdown語法有非常多，這邊例舉幾個常用語法。</p>
+<h3 id="標題類"><a href="#標題類" class="headerlink" title="標題類"></a>標題類</h3><table>
+<thead>
+<tr>
+<th>符號</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>#</td>
+<td>h1標題~h6標題</td>
+</tr>
+<tr>
+<td>######</td>
+<td>h1標題~h6標題</td>
+</tr>
+<tr>
+<td>- + 空格</td>
+<td>無序清單</td>
+</tr>
+<tr>
+<td>1. + 空格</td>
+<td>有序清單</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>引用</td>
+</tr>
+<tr>
+<td><code>``</code></td>
+<td>程式碼註解</td>
+</tr>
+<tr>
+<td><code>```</code></td>
+<td>程式碼區塊(上面三個下面三個)</td>
+</tr>
+</tbody></table>
+<h3 id="文字類"><a href="#文字類" class="headerlink" title="文字類"></a>文字類</h3><table>
+<thead>
+<tr>
+<th>符號</th>
+<th>功能</th>
+<th>實際效果</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>**文字**</code></td>
+<td>粗體</td>
+<td><strong>文字</strong></td>
+</tr>
+<tr>
+<td><code>*文字*</code></td>
+<td>斜體</td>
+<td><em>文字</em></td>
+</tr>
+<tr>
+<td><code>&lt;u&gt;文字&lt;u&gt;</code></td>
+<td>底線</td>
+<td><u>文字<u></td>
+</tr>
+<tr>
+<td><code>~~文字~~</code></td>
+<td>刪節線</td>
+<td><del>文字</del></td>
+</tr>
+<tr>
+<td><code>&lt;font color=#FF0000&gt;紅色&lt;/font&gt;</code></td>
+<td>文字顏色</td>
+<td><font color=#FF0000>紅色</font></td>
+</tr>
+<tr>
+<td><code>[連結文字](網址)</code></td>
+<td>超連結文字</td>
+<td><a href="%E7%B6%B2%E5%9D%80">連結文字</a></td>
+</tr>
+<tr>
+<td><code>![圖片文字](網址)</code></td>
+<td>圖片</td>
+<td><img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google"></td>
+</tr>
+</tbody></table>
+<h3 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h3><figure class="highlight gherkin"><table><tr><td class="code"><pre><span class="line">// :---  靠左對齊</span><br><span class="line">// ---:  靠右對齊</span><br><span class="line">// :---: 置中對齊</span><br><span class="line">|<span class="string"> 標題一 </span>|<span class="string"> 標題二 </span>|<span class="string"> 標題三 </span>|</span><br><span class="line">|<span class="string"> -------- </span>|<span class="string"> -------- </span>|<span class="string">-------</span>|</span><br><span class="line">|<span class="string"> 文字 </span>|<span class="string"> 文字 </span>|<span class="string"> 文字</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="hexo常用指令"><a href="#hexo常用指令" class="headerlink" title="hexo常用指令"></a>hexo常用指令</h2><p>之後會輸入以下數次，其實多打幾次就會記住了。</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>hexo generate</code></td>
+<td>產生靜態檔案</td>
+</tr>
+<tr>
+<td><code>hexo server</code></td>
+<td>啟動模擬網頁伺服器</td>
+</tr>
+<tr>
+<td><code>hexo clean</code></td>
+<td>刪除編譯完成的靜態檔案</td>
+</tr>
+<tr>
+<td><code>hexo deploy</code></td>
+<td>部屬檔案至 github page</td>
+</tr>
+</tbody></table>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學 404頁面</title>
+    <url>/root/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8404/</url>
+    <content><![CDATA[<h2 id="建立-404頁面"><a href="#建立-404頁面" class="headerlink" title="建立 404頁面"></a>建立 404頁面</h2><ol>
+<li>輸入 <code>hexo new page 404</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source\404\index.md 增加以下資訊<ul>
+<li>comments，若之後有開啟評論功能，在這邊先將它關閉</li>
+<li>permalink，網站中的固定連結<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="number">404</span> <span class="bullet">-</span> <span class="string">您似乎來到不對的地方~</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-27 13:45:41</span></span><br><span class="line"><span class="attr">comments:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">/404</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li>增加頁面說明文字。<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section">## 您要找的網頁不存在。</span></span><br><span class="line"></span><br><span class="line">很抱歉，您目前存取的頁面不存在。</span><br><span class="line"></span><br><span class="line">請點擊[<span class="string">這裡</span>](<span class="link">https://您的帳號.github.io/</span>)回首頁。</span><br></pre></td></tr></table></figure>
+建立好上述資訊後重新建立靜態檔案，github的預設 404頁面就會使用我們新建的 404頁面了。</li>
+</ol>
+<p>另外，在 github中有兩種方式都能讀取到 404頁面，</p>
+<ul>
+<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404\index.md<ul>
+<li>permalink就設定為 <code>permalink: /404</code></li>
+</ul>
+</li>
+<li>若 404路徑為 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span>source\404.md <ul>
+<li>permalink就設定為 <code>permalink: /404.html</code> </li>
+</ul>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-custom-404-page-for-your-github-pages-site">Creating a custom 404 page for your GitHub Pages site</a></li>
+<li><a href="https://hexo.io/zh-tw/docs/permalinks.html">Hexo - Permalinks</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10249685">Ray - 試著學 Hexo - SEO 篇 - 新增你的 404 頁面</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學 Next主題設定與頁面功能(Ver. 8)</title>
+    <url>/root/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/</url>
+    <content><![CDATA[<p>由於自己選擇了 NexT主題匯入，這邊就以 NexT的設定做介紹。<br>請找到 <code>themes/next/_config.yml</code> 這隻檔案。</p>
+<h2 id="全域設定"><a href="#全域設定" class="headerlink" title="全域設定"></a>全域設定</h2><h3 id="菜單導覽"><a href="#菜單導覽" class="headerlink" title="菜單導覽"></a>菜單導覽</h3><p>可以根據實際需求開啟，<code>#</code> 移除為關閉，反之則開。</p>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="comment"># about: /about/ || fa fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="comment"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="搜尋"><a href="#搜尋" class="headerlink" title="搜尋"></a>搜尋</h3><p>請輸入以下指令，會開始安裝額外套件。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">npm <span class="keyword">install</span> hexo-generator-searchdb <span class="comment">--save</span></span><br></pre></td></tr></table></figure>
+<p>接著搜尋 local_search的設定，將它設為 true</p>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字體"><a href="#字體" class="headerlink" title="字體"></a>字體</h3><p>修改 Next主題的字體，預設為 Google font的字體資源。</p>
+<ul>
+<li>font $\rightarrow$ 記得開啟</li>
+<li>font &gt; host $\rightarrow$ 若有其他字體資源，可將網址放這</li>
+<li>global $\rightarrow$ 網站文字全部修改</li>
+<li>其餘部分均能修改成不同字體</li>
+</ul>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">font:</span></span><br><span class="line">  <span class="comment"># enable: false</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">host:</span></span><br><span class="line">  <span class="attr">global:</span></span><br><span class="line">    <span class="attr">external:</span> <span class="literal">true</span></span><br><span class="line">    <span class="comment"># family: Lato</span></span><br><span class="line">    <span class="attr">family:</span> <span class="string">&quot;Noto Sans TC&quot;</span></span><br><span class="line">    <span class="attr">size:</span> </span><br><span class="line">  <span class="attr">title:</span></span><br><span class="line">  <span class="attr">headings:</span></span><br><span class="line">  <span class="attr">posts:</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="閱讀全文-More"><a href="#閱讀全文-More" class="headerlink" title="閱讀全文 More"></a>閱讀全文 More</h3><div class="tabs" id="閱讀全文"><ul class="nav-tabs"><li class="tab"><a href="#閱讀全文-1">1. 手動截斷</a></li><li class="tab active"><a href="#閱讀全文-2">2. 加入 description</a></li></ul><div class="tab-content"><div class="tab-pane" id="閱讀全文-1"><p>在文章中某的地方加入 <code>&lt;!--more--&gt;</code></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">文字文字文字文字文字文字文字<span class="comment">&lt;!--more--&gt;</span></span><br></pre></td></tr></table></figure></div><div class="tab-pane active" id="閱讀全文-2"><p>在檔案 header部分加上 description，會根據其內容呈現。</p>
+<figure class="highlight yaml"><figcaption><span>source/_posts/頁面.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">description:</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></div></div></div>
+
+
+<h2 id="撰寫相關功能"><a href="#撰寫相關功能" class="headerlink" title="撰寫相關功能"></a>撰寫相關功能</h2><h3 id="程式碼區塊"><a href="#程式碼區塊" class="headerlink" title="程式碼區塊"></a>程式碼區塊</h3><h4 id="區塊複製"><a href="#區塊複製" class="headerlink" title="區塊複製"></a>區塊複製</h4><figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Add copy button on codeblock</span></span><br><span class="line"><span class="attr">copy_button:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="區塊主題"><a href="#區塊主題" class="headerlink" title="區塊主題"></a>區塊主題</h4><p><a href="https://theme-next.js.org/highlight/">主題預覽</a></p>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># All available themes: https://theme-next.js.org/highlight/</span></span><br><span class="line"><span class="attr">theme:</span></span><br><span class="line">  <span class="comment"># light: default</span></span><br><span class="line">  <span class="attr">light:</span> <span class="string">tomorrow-night</span></span><br><span class="line">  <span class="attr">dark:</span> <span class="string">tomorrow-night</span></span><br><span class="line"><span class="attr">prism:</span></span><br><span class="line">  <span class="attr">light:</span> <span class="string">prism</span></span><br><span class="line">  <span class="attr">dark:</span> <span class="string">prism-dark</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="區塊標題"><a href="#區塊標題" class="headerlink" title="區塊標題"></a>區塊標題</h4><p>標題前方可以加上該程式碼為何種語言，<br>例如，.yal為 yaml，.js 為 javascript</p>
+<figure class="highlight subunit"><table><tr><td class="code"><pre><span class="line">```yaml 標題文字</span><br><span class="line">title: </span><br><span class="line"><span class="keyword">tags:</span> </span><br><span class="line">``` ```</span><br></pre></td></tr></table></figure>
+
+<h3 id="數學符號"><a href="#數學符號" class="headerlink" title="數學符號"></a>數學符號</h3><table>
+<thead>
+<tr>
+<th>功能名稱</th>
+<th>功能描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>every_page</code></td>
+<td>是否讓每一頁都開啟數學符號功能</td>
+</tr>
+<tr>
+<td><code>mathjax</code></td>
+<td>是否讓 mathjax寫在檔案開頭才開啟數學符號功能</td>
+</tr>
+</tbody></table>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">math:</span></span><br><span class="line">  <span class="attr">every_page:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">mathjax:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+<p>回到撰寫頁面</p>
+<figure class="highlight yaml"><figcaption><span>source/_post/頁面.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo教學</span> <span class="string">Next主題</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">Next主題相關設定</span> <span class="bullet">-</span> <span class="string">開啟數學符號以及更改字體</span></span><br><span class="line"><span class="attr">mathjax:</span> <span class="literal">true</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內容分頁-tabs"><a href="#內容分頁-tabs" class="headerlink" title="內容分頁 tabs"></a>內容分頁 tabs</h3><p>預設就能使用，設定為 true時，切換時較為平滑</p>
+<figure class="highlight yaml"><figcaption><span>themes/next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Tabs tag</span></span><br><span class="line"><span class="attr">tabs:</span></span><br><span class="line">  <span class="attr">transition:</span></span><br><span class="line">    <span class="attr">tabs:</span> <span class="literal">true</span> </span><br><span class="line">    <span class="attr">labels:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>回到頁面撰寫時，加入以下字串</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% tabs 區塊標題, 預設顯示區塊索引值 %&#125;</span><br><span class="line">&lt;!-- tab 可單獨寫分頁標題 --&gt;</span><br><span class="line">Any content (support inline tags too).</span><br><span class="line">&lt;!-- endtab --&gt;</span><br><span class="line">&#123;% endtabs %&#125;</span><br></pre></td></tr></table></figure>
+
+<p>用上面的範例可以這樣寫 :</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">tabs</span> 閱讀全文, 2 %&#125;</span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab 手動截斷--&gt;</span></span></span><br><span class="line"><span class="xml">在文章中某的地方加入 `<span class="comment">&lt;!--more--&gt;</span>`</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab 加入 description--&gt;</span></span></span><br><span class="line"><span class="xml">在檔案 header部分加上 description，會根據其內容呈現。</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endtabs</span> %&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>若 <code>&lt;!-- tab 手動截斷--&gt;</code> 不加上該分頁標題，只有單純 <code>&lt;!-- tab --&gt;</code>，<br>則會根據區塊標題的文字自動加上索引值然後在分頁標題上顯示 <code>分頁標題 1</code> <code>分頁標題 2</code>。</p>
+<figure class="highlight django"><table><tr><td class="code"><pre><span class="line"><span class="template-tag">&#123;% <span class="name">tabs</span> First unique name %&#125;</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 1**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 2**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- tab --&gt;</span></span></span><br><span class="line"><span class="xml">**這是分頁 3**</span></span><br><span class="line"><span class="xml"><span class="comment">&lt;!-- endtab --&gt;</span></span></span><br><span class="line"><span class="template-tag">&#123;% <span class="name">endtabs</span> %&#125;</span></span><br></pre></td></tr></table></figure>
+<p>自動加入分頁標題 : </p>
+<div class="tabs" id="first-unique-name"><ul class="nav-tabs"><li class="tab active"><a href="#first-unique-name-1">First unique name 1</a></li><li class="tab"><a href="#first-unique-name-2">First unique name 2</a></li><li class="tab"><a href="#first-unique-name-3">First unique name 3</a></li></ul><div class="tab-content"><div class="tab-pane active" id="first-unique-name-1"><p><strong>這是分頁 1</strong></p></div><div class="tab-pane" id="first-unique-name-2"><p><strong>這是分頁 2</strong></p></div><div class="tab-pane" id="first-unique-name-3"><p><strong>這是分頁 3</strong></p></div></div></div>
+
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="關閉-Powered-by-Hexo-amp-NexT"><a href="#關閉-Powered-by-Hexo-amp-NexT" class="headerlink" title="關閉 Powered by Hexo &amp; NexT"></a>關閉 Powered by Hexo &amp; NexT</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 Powered可以自由關閉，</p>
+<h3 id="版權宣告"><a href="#版權宣告" class="headerlink" title="版權宣告"></a>版權宣告</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 copyright，可以加入版權宣告的文字敘述。</p>
+<h3 id="footer-icon"><a href="#footer-icon" class="headerlink" title="footer icon"></a>footer icon</h3><p>在 <code>themes/next/_config.yml</code>中，尋找 “# Icon name in Font Awesome.” ，可以在 <a href="https://fontawesome.com/icons">fontawesome</a>找到喜歡的 icon，將 “name”的文字更換即可，當然也可以修改 “animated”與 “color”。</p>
+<h2 id="後續功能"><a href="#後續功能" class="headerlink" title="後續功能"></a>後續功能</h2><ul>
+<li>摺疊</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://theme-next.js.org/docs/third-party-services/math-equations">NexT說明 - math-equations</a></li>
+<li><a href="https://theme-next.js.org/docs/tag-plugins/tabs.html">NexT說明 - tabs</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10248682">Ray - 試著學 Hexo - NexT 主題篇 - NexT 還有哪些設定？</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10248214">Ray - 試著學 Hexo - 試著學 Hexo - NexT 主題篇 - 可以安裝的套件 </a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+        <tag>hexo Next</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>演算法入門(一) 演算法與大 O 符號</title>
-    <url>/blog/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/</url>
+    <url>/root/2020/10/19/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80/%E6%BC%94%E7%AE%97%E6%B3%95%E5%85%A5%E9%96%80(%E4%B8%80)%E6%BC%94%E7%AE%97%E6%B3%95%E8%88%87%E5%A4%A7%20O%20%E7%AC%A6%E8%99%9F/</url>
     <content><![CDATA[<h2 id="演算法"><a href="#演算法" class="headerlink" title="演算法"></a>演算法</h2><blockquote>
 <p>演算法三步驟，它是明確的、有限的且有效率的</p>
 </blockquote>
@@ -2665,7 +2665,7 @@
   </entry>
   <entry>
     <title>JS核心篇-函式</title>
-    <url>/blog/2020/12/02/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%87%BD%E5%BC%8F/</url>
+    <url>/root/2020/12/02/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-%E5%87%BD%E5%BC%8F/</url>
     <content><![CDATA[<p>若要有效的處理資料，就一定會用到函式，這篇記錄函式有怎樣的特性與閉包運用概念。<br>目前有整理到的如下 :</p>
 <ul>
 <li>函式型別</li>
