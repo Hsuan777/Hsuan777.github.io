@@ -140,35 +140,6 @@
       </categories>
   </entry>
   <entry>
-    <title>Hexo教學(六) 文章標籤與分類</title>
-    <url>/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
-    <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
-<h2 id="建立分類"><a href="#建立分類" class="headerlink" title="建立分類"></a>建立分類</h2><ol>
-<li>輸入 <code>hexo new page &#39;categories&#39;</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
-<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories中的 index.md檔案，插入 <code>type: &quot;categories&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>重新產生靜態檔案，可以在導覽列看到多了一個分類分頁</li>
-</ol>
-<h2 id="建立標籤"><a href="#建立標籤" class="headerlink" title="建立標籤"></a>建立標籤</h2><p>與分類的步驟一樣，但內容改變。</p>
-<ol>
-<li>輸入 <code>hexo new page &#39;tags&#39;</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
-<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> tags index.md檔案，插入 <code>type: &quot;tags&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-若需要多個標籤，可以這樣輸入<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">教學文</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>重新產生靜態檔案，可以在導覽列看到多了一個標籤分頁</li>
-</ol>
-<p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo教學(一) 使用 Hexo寫部落格</title>
     <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
     <content><![CDATA[<h2 id="為什麼要使用-Hexo寫部落格"><a href="#為什麼要使用-Hexo寫部落格" class="headerlink" title="為什麼要使用 Hexo寫部落格?"></a>為什麼要使用 Hexo寫部落格?</h2><p>現在有很多線上服務都能當成部落格，不管寫在 github、medium或者 wordpress等等，同樣是寫文章，心得也好，技術文也罷，學著使用 markdown寫文，最起碼自己的電腦有初始檔案，不怕線上服務突然關閉或者改變使用條款，而且只要有網頁伺服器，就能發布自己的部落格。</p>
@@ -200,6 +171,35 @@
 </li>
 </ul>
 ]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(六) 文章標籤與分類</title>
+    <url>/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
+    <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
+<h2 id="建立分類"><a href="#建立分類" class="headerlink" title="建立分類"></a>建立分類</h2><ol>
+<li>輸入 <code>hexo new page &#39;categories&#39;</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
+<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories中的 index.md檔案，插入 <code>type: &quot;categories&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>重新產生靜態檔案，可以在導覽列看到多了一個分類分頁</li>
+</ol>
+<h2 id="建立標籤"><a href="#建立標籤" class="headerlink" title="建立標籤"></a>建立標籤</h2><p>與分類的步驟一樣，但內容改變。</p>
+<ol>
+<li>輸入 <code>hexo new page &#39;tags&#39;</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
+<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> tags index.md檔案，插入 <code>type: &quot;tags&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+若需要多個標籤，可以這樣輸入<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">教學文</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>重新產生靜態檔案，可以在導覽列看到多了一個標籤分頁</li>
+</ol>
+<p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>hexo教學</category>
       </categories>
@@ -698,68 +698,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
-    <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
-    <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
-<ul>
-<li><code>this</code></li>
-<li><code>arguments</code> </li>
-<li><code>call()</code></li>
-<li><code>apply()</code></li>
-<li><code>bind()</code></li>
-</ul>
-<p>這篇我們要來看這些東西原本是怎麼運作的。</p>
-<h3 id="關鍵字-this"><a href="#關鍵字-this" class="headerlink" title="關鍵字 this"></a>關鍵字 this</h3><p>複習一下 <code>this</code> 的運作 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  whoAmI: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>，今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.whoAmI()</span><br><span class="line"><span class="comment">// 由於是在物件呼叫此函式的，所以往上一層尋找時(非箭頭函式)，會找到此物件的屬性值</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="關鍵字-arguments"><a href="#關鍵字-arguments" class="headerlink" title="關鍵字 arguments"></a>關鍵字 arguments</h3><ul>
-<li>一般函式內建的關鍵字之一</li>
-<li>可以將傳入的參數值抓取出來形成一個類陣列<strong>物件</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>])</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內建函式-call、apply、bind的共通點"><a href="#內建函式-call、apply、bind的共通點" class="headerlink" title="內建函式 call、apply、bind的共通點"></a>內建函式 call、apply、bind的共通點</h3><ul>
-<li>JS的內建函式</li>
-<li>它們都與 <code>this</code> 有所關聯</li>
-<li>不需要在函式中自訂參數就能將變數塞進 <code>this</code></li>
-<li>若有多個值，函式的第一個參數位置為 <code>this</code></li>
-<li>也就是說<code>(this, 參數1, 參數2, 以此類推)</code></li>
-</ul>
-<p>接下來，我們來看，<code>call()</code>、<code>apply()</code>以及 <code>bind()</code> 如何與 <code>this</code> 運作。</p>
-<h3 id="內建函式-call"><a href="#內建函式-call" class="headerlink" title="內建函式 call"></a>內建函式 call</h3><ul>
-<li>單純將參數值傳入</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line">sum.call(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// &quot;this為2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-<h3 id="內建函式-apply"><a href="#內建函式-apply" class="headerlink" title="內建函式 apply"></a>內建函式 apply</h3><ul>
-<li>傳入的型態必須是陣列</li>
-<li>功能上與 <code>call</code> 無異</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第一個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第二個是<span class="subst">$&#123;b&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">sum.apply(<span class="number">1</span>, array)</span><br><span class="line"><span class="comment">// &quot;陣列中第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;this為1&quot;</span></span><br><span class="line"><span class="comment">// &quot;陣列中第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內建函式-bind"><a href="#內建函式-bind" class="headerlink" title="內建函式 bind"></a>內建函式 bind</h3><ul>
-<li><strong><code>bind()</code> 將建立一個新的函式</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例一</span></span><br><span class="line"><span class="comment">// bind會建立一個新的函式</span></span><br><span class="line"><span class="comment">// this會對應傳入的參數 newPerson</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Jay&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newDisplay = display.bind(newPerson)</span><br><span class="line">display() <span class="comment">// Jay</span></span><br><span class="line">newDisplay() <span class="comment">// Vic</span></span><br><span class="line"><span class="comment">// 新的函式會執行 console.log(newPerson.name)</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例二</span></span><br><span class="line"><span class="comment">// 若有多個值，bind的參數第一順位為 &#x27;this&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第一個是<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> plusTwo = sum.bind(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plusTwo()</span><br><span class="line"><span class="comment">// &quot;第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>我們了解到箭頭函式沒有自己的 <code>this</code>，相對的也就沒有上述的那三種內建函式可供使用，也無法使用 <code>arguments</code>，但可以改用其餘參數來達成目的。箭頭函式與一般函式的運用，還是得看實際情況來做使用。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
-<li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ES6語法糖 - 解構賦值與其餘參數</title>
     <url>/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/</url>
     <content><![CDATA[<h2 id="解構賦值"><a href="#解構賦值" class="headerlink" title="解構賦值"></a>解構賦值</h2><blockquote>
@@ -870,6 +808,68 @@
 <li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/destructuring.html">從ES6開始的JavaScript學習生活 - 解構賦值</a></li>
 <li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/rest_spread.html">從ES6開始的JavaScript學習生活 - 展開運算符與其餘運算符</a></li>
 <li><a href="https://medium.com/@realdennis/%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC-%E8%A8%AD%E8%A8%88%E5%87%BD%E6%95%B8%E6%99%82%E7%9A%84%E5%B0%8F%E6%8A%80%E5%B7%A7-javascript-1466f37d24f0">realdennis - 解構賦值 — 設計函數時的小技巧 JavaScript</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
+    <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
+    <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
+<ul>
+<li><code>this</code></li>
+<li><code>arguments</code> </li>
+<li><code>call()</code></li>
+<li><code>apply()</code></li>
+<li><code>bind()</code></li>
+</ul>
+<p>這篇我們要來看這些東西原本是怎麼運作的。</p>
+<h3 id="關鍵字-this"><a href="#關鍵字-this" class="headerlink" title="關鍵字 this"></a>關鍵字 this</h3><p>複習一下 <code>this</code> 的運作 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  whoAmI: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>，今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.whoAmI()</span><br><span class="line"><span class="comment">// 由於是在物件呼叫此函式的，所以往上一層尋找時(非箭頭函式)，會找到此物件的屬性值</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="關鍵字-arguments"><a href="#關鍵字-arguments" class="headerlink" title="關鍵字 arguments"></a>關鍵字 arguments</h3><ul>
+<li>一般函式內建的關鍵字之一</li>
+<li>可以將傳入的參數值抓取出來形成一個類陣列<strong>物件</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>])</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內建函式-call、apply、bind的共通點"><a href="#內建函式-call、apply、bind的共通點" class="headerlink" title="內建函式 call、apply、bind的共通點"></a>內建函式 call、apply、bind的共通點</h3><ul>
+<li>JS的內建函式</li>
+<li>它們都與 <code>this</code> 有所關聯</li>
+<li>不需要在函式中自訂參數就能將變數塞進 <code>this</code></li>
+<li>若有多個值，函式的第一個參數位置為 <code>this</code></li>
+<li>也就是說<code>(this, 參數1, 參數2, 以此類推)</code></li>
+</ul>
+<p>接下來，我們來看，<code>call()</code>、<code>apply()</code>以及 <code>bind()</code> 如何與 <code>this</code> 運作。</p>
+<h3 id="內建函式-call"><a href="#內建函式-call" class="headerlink" title="內建函式 call"></a>內建函式 call</h3><ul>
+<li>單純將參數值傳入</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line">sum.call(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// &quot;this為2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<h3 id="內建函式-apply"><a href="#內建函式-apply" class="headerlink" title="內建函式 apply"></a>內建函式 apply</h3><ul>
+<li>傳入的型態必須是陣列</li>
+<li>功能上與 <code>call</code> 無異</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第一個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第二個是<span class="subst">$&#123;b&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">sum.apply(<span class="number">1</span>, array)</span><br><span class="line"><span class="comment">// &quot;陣列中第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;this為1&quot;</span></span><br><span class="line"><span class="comment">// &quot;陣列中第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內建函式-bind"><a href="#內建函式-bind" class="headerlink" title="內建函式 bind"></a>內建函式 bind</h3><ul>
+<li><strong><code>bind()</code> 將建立一個新的函式</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例一</span></span><br><span class="line"><span class="comment">// bind會建立一個新的函式</span></span><br><span class="line"><span class="comment">// this會對應傳入的參數 newPerson</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Jay&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newDisplay = display.bind(newPerson)</span><br><span class="line">display() <span class="comment">// Jay</span></span><br><span class="line">newDisplay() <span class="comment">// Vic</span></span><br><span class="line"><span class="comment">// 新的函式會執行 console.log(newPerson.name)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例二</span></span><br><span class="line"><span class="comment">// 若有多個值，bind的參數第一順位為 &#x27;this&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第一個是<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> plusTwo = sum.bind(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plusTwo()</span><br><span class="line"><span class="comment">// &quot;第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>我們了解到箭頭函式沒有自己的 <code>this</code>，相對的也就沒有上述的那三種內建函式可供使用，也無法使用 <code>arguments</code>，但可以改用其餘參數來達成目的。箭頭函式與一般函式的運用，還是得看實際情況來做使用。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
+<li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -1255,6 +1255,144 @@
       </tags>
   </entry>
   <entry>
+    <title>JS地下城6F-60秒算數</title>
+    <url>/2021/01/27/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E6F-60%E7%A7%92%E7%AE%97%E6%95%B8/</url>
+    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__6F/">60秒算數</a></p>
+<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul>
+<li>亂數出題</li>
+<li>答案檢查</li>
+<li>分數累計</li>
+<li>秒數區間判斷<ul>
+<li>對應不同位數</li>
+<li>累計不同分數</li>
+</ul>
+</li>
+<li>線上排行榜</li>
+<li>畫面切換</li>
+</ul>
+<hr>
+<h3 id="亂數出題"><a href="#亂數出題" class="headerlink" title="亂數出題"></a>亂數出題</h3><h4 id="規則"><a href="#規則" class="headerlink" title="規則"></a>規則</h4><ol>
+<li>00~20秒，一位數，e.g. <code>1+1</code>、<code>5-3</code></li>
+<li>21~40秒，二位數，e.g. <code>11+11</code>、<code>55-33</code></li>
+<li>41~60秒，三位數，e.g. <code>111+111</code>、<code>555-333</code></li>
+<li>隨機產生數字以及加減乘除</li>
+<li>不論正確與否，皆新增題目</li>
+</ol>
+<h4 id="已達成目標"><a href="#已達成目標" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
+<li><input checked="" disabled="" type="checkbox"> 隨機亂數 <code>Math.random()</code></li>
+<li><input checked="" disabled="" type="checkbox"> 隨機產生不同位數</li>
+<li><input checked="" disabled="" type="checkbox"> 隨機產生 <code>+-*/</code></li>
+<li><input checked="" disabled="" type="checkbox"> 0/0，答案為 NaN，重置題目</li>
+<li><input checked="" disabled="" type="checkbox"> 1/0，答案為 無限，重置題目</li>
+</ul>
+<p>一開始單純只產生 0~9，幾位數就放幾次函式，後來爬文學到利用亂數乘以最大減最小再加上最小值就能產生一～三位數。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 產生單一隨機亂數 */</span></span><br><span class="line"><span class="comment">// const randomNumber = () =&gt;&#123;</span></span><br><span class="line"><span class="comment">//   return Math.floor(Math.random() * 10 )</span></span><br><span class="line"><span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改寫產生方式</span></span><br><span class="line"><span class="keyword">const</span> randomNumber = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * ( max - min) + min )</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 產生一到三位數 */</span></span><br><span class="line"><span class="comment">// let thirdType = `$&#123;randomNumber&#125;$&#123;randomNumber&#125;$&#123;randomNumber&#125;`</span></span><br><span class="line"><span class="keyword">let</span> firstType     = randomNumber(<span class="number">10</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">let</span> secondaryType = randomNumber(<span class="number">100</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">let</span> thirdType     = randomNumber(<span class="number">1000</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="答案檢查"><a href="#答案檢查" class="headerlink" title="答案檢查"></a>答案檢查</h3><h4 id="已達成目標-1"><a href="#已達成目標-1" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
+<li><input checked="" disabled="" type="checkbox"> 取得輸入欄之值</li>
+<li><input checked="" disabled="" type="checkbox"> 比對暫存題目之結果</li>
+<li><input checked="" disabled="" type="checkbox"> 除法由於會有小數點，預設計算為整數並四捨五入</li>
+</ul>
+<p>在不同的時間區間內產生不同位數題目，當玩家在輸入欄按下 “Enter” 輸入答案後，此時判斷輸入值是否為正確答案，以及是否為空值，因為空值在比對時會可能會自動轉型為 0，要是題目答案剛好為 0，會造成不正常增加分數。</p>
+<p>而除法會有小數點的問題，嘗試重置題目，若一時找不到沒有小數點的題目就會造成畫面延遲，待想到更好的解法再來更新。</p>
+<hr>
+<h3 id="分數累計"><a href="#分數累計" class="headerlink" title="分數累計"></a>分數累計</h3><h4 id="規則-1"><a href="#規則-1" class="headerlink" title="規則"></a>規則</h4><ol>
+<li>00~40秒，每答對一題 +1 分，錯誤 -1 分，最多扣到 0 分</li>
+<li>41~60秒，每答對一題 +5 分，錯誤 -1 分，最多扣到 0 分</li>
+</ol>
+<h4 id="已達成目標-2"><a href="#已達成目標-2" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
+<li><input checked="" disabled="" type="checkbox"> 設定變數來暫存分數</li>
+<li><input checked="" disabled="" type="checkbox"> 檢查答案正確與否後，累計該變數值並重新渲染目前已累計分數內容</li>
+<li><input checked="" disabled="" type="checkbox"> 結果顯示時抓取該變數值</li>
+</ul>
+<hr>
+<h3 id="時間依據"><a href="#時間依據" class="headerlink" title="時間依據"></a>時間依據</h3><h4 id="已達成目標-3"><a href="#已達成目標-3" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
+<li><input checked="" disabled="" type="checkbox"> 每秒鐘顯示一次秒數</li>
+<li><input checked="" disabled="" type="checkbox"> 第 60 秒時，顯示 1:00</li>
+<li><input checked="" disabled="" type="checkbox"> 取得現在時間毫秒數 <code>Ｄate.now()</code> ，作為 timestamp</li>
+<li><input checked="" disabled="" type="checkbox"> 取得 60 秒後 <code>Date.now() + 60*1000</code></li>
+<li><input checked="" disabled="" type="checkbox"> 建立陣列儲存 <code>[當下時間，60秒後時間]</code>，作為後續檢查用</li>
+</ul>
+<p>利用 <code>Ｄate.now()</code> 作為 timestamp，檢查遊戲是否開始，若利用 console 去執行開始函式，會檢查 <code>Ｄate.now()</code> 是否在遊戲開始後的時間區間內。若在區間內 ：</p>
+<ul>
+<li>執行內部變數值初始化</li>
+<li>時間開始計時</li>
+<li>出題</li>
+</ul>
+<h3 id="畫面切換"><a href="#畫面切換" class="headerlink" title="畫面切換"></a>畫面切換</h3><h4 id="規則-2"><a href="#規則-2" class="headerlink" title="規則"></a>規則</h4><ol>
+<li>點擊遊戲主畫面按鈕後，顯示題目畫面</li>
+<li>遊戲時間結束後，顯示結果畫面</li>
+<li>結果畫面顯示最後分數與再玩一次按鈕</li>
+<li>延伸功能，結果畫面顯示排行榜按鈕</li>
+</ol>
+<h4 id="已達成目標-4"><a href="#已達成目標-4" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
+<li>遊戲開始時 :<ul>
+<li><input checked="" disabled="" type="checkbox"> 渲染時間</li>
+<li><input checked="" disabled="" type="checkbox"> 渲染分數</li>
+<li><input checked="" disabled="" type="checkbox"> 渲染題目</li>
+<li><input checked="" disabled="" type="checkbox"> 答案輸入欄位，換題時清空</li>
+</ul>
+</li>
+<li>遊戲結束後 :<ul>
+<li><input checked="" disabled="" type="checkbox"> 顯示結果頁</li>
+<li><input checked="" disabled="" type="checkbox"> 再玩一次按鈕，按下後回到題目畫面</li>
+<li><input checked="" disabled="" type="checkbox"> 排行榜按鈕，按下後顯示排行榜</li>
+</ul>
+</li>
+<li>按下再玩一次按鈕時 : <ul>
+<li><input checked="" disabled="" type="checkbox"> 初始化所有暫存變數值(像是分數、暫存時間戳等)</li>
+</ul>
+</li>
+<li>顯示排行榜時 :<ul>
+<li><input checked="" disabled="" type="checkbox"> 讀取試算表資料</li>
+<li><input checked="" disabled="" type="checkbox"> 若在時間區間外且未上傳，可輸入姓名上傳至試算表。</li>
+<li><input checked="" disabled="" type="checkbox"> 若要上傳姓名與分數，上傳欄位填完姓名並按下送出後自動消失，剩餘再玩一次按鈕。</li>
+</ul>
+</li>
+</ul>
+<h2 id="安全問題"><a href="#安全問題" class="headerlink" title="安全問題"></a>安全問題</h2><p>在初次寫完函式功能後，測試是否能利用開發者模式去執行函式，發現有需要傳入參數值的函式，直接取用該函式並傳入值，就會影響現有畫面內容，像是這樣 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> game = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 時間秒數，當遊戲開始時秒數開始增加</span></span><br><span class="line">  <span class="keyword">let</span> time = <span class="number">0</span></span><br><span class="line">  <span class="keyword">let</span> vm = <span class="built_in">this</span></span><br><span class="line">  <span class="built_in">this</span>.start = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    time = <span class="number">0</span> </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> x = <span class="number">1</span>; x &lt;= <span class="number">59</span> ; x++) &#123;</span><br><span class="line">      <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        time++</span><br><span class="line">      &#125;, <span class="number">1000</span>*z)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.render(time)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 判斷目前秒數並渲染題目至畫面</span></span><br><span class="line">  <span class="built_in">this</span>.render = <span class="function">(<span class="params">number</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> ( number &lt;= <span class="number">20</span>) &#123;</span><br><span class="line">      <span class="comment">// 產生一位數，並改變題目</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( number &gt;= <span class="number">21</span> &amp;&amp; number &lt;= <span class="number">40</span>) &#123;</span><br><span class="line">      <span class="comment">// 產生二位數，並改變題目</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( number &lt;= <span class="number">59</span>) &#123;</span><br><span class="line">      <span class="comment">// 產生三位數，並改變題目</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> newGame = <span class="keyword">new</span> game()</span><br><span class="line"><span class="comment">// 在開發者模式中直接執行該函式，就會不斷的產生一位數題目</span></span><br><span class="line">newGamer.render(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<p>因此 ：</p>
+<ul>
+<li>修正會影響暫存值之函式改為無參數傳入，皆利用閉包特性讀取變數值。</li>
+<li>利用變數宣告為 false，若不輸入答案並檢查，就無法讓題目重置。</li>
+<li>利用變數宣告為 false，當玩家已上傳紀錄後，必須是暫存時間外或是重新開始改變狀態後才能再次上傳。</li>
+</ul>
+<h2 id="延伸擴充功能"><a href="#延伸擴充功能" class="headerlink" title="延伸擴充功能"></a>延伸擴充功能</h2><h3 id="排行榜"><a href="#排行榜" class="headerlink" title="排行榜"></a>排行榜</h3><h4 id="已達成目標-5"><a href="#已達成目標-5" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
+<li><input checked="" disabled="" type="checkbox"> 建立 Google 試算表之資料欄位</li>
+<li><input checked="" disabled="" type="checkbox"> 利用 fetch get 建立讀取函式<ul>
+<li><input checked="" disabled="" type="checkbox"> 判斷是否在暫存時間外才能執行</li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 利用 fetch post 建立送出函式<ul>
+<li><input checked="" disabled="" type="checkbox"> 判斷是否在暫存時間外且布林狀態為 false 才能執行</li>
+<li><input checked="" disabled="" type="checkbox"> 測試資料送出</li>
+<li><input checked="" disabled="" type="checkbox"> 線上資料表建立 token，隨著讀取函式抓回來</li>
+<li><input checked="" disabled="" type="checkbox"> 將 token 雜湊後傳送</li>
+</ul>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10209673?sc=iThelpR">Henry - JS30 Day 29 - Countdown Timer</a></li>
+<li><a href="https://mtwmt.github.io/JSBOSS/6f/">Mandy - JS地下城：6F-60秒算數遊戲</a></li>
+<li><a href="https://www.marketersgo.com/marketing/google-sheets/202005/google-sheets-script/">行銷人 ; 梅問題教學網 - 【Google Sheets】進階技巧：利用Google Script將Google試算表變成簡易資料庫</a></li>
+<li><a href="https://www.labnol.org/code/19871-get-post-requests-google-script">Amit Agarwal - How to Handle GET and POST HTTP Requests in Google Apps Script</a></li>
+<li><a href="https://developers.google.com/apps-script/reference/utilities/utilities#base64decodewebsafeencoded">Google Apps Script - Class Utilities</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>JS地下城</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JS地下城7F-畫版</title>
     <url>/2021/02/05/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E7F-%E7%95%AB%E7%89%88/</url>
     <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__7F/">畫版</a></p>
@@ -1399,144 +1537,6 @@
 </a></li>
 <li><a href="https://www.kirupa.com/html5/dom_vs_canvas.htm">Kirupa - DOM vs. Canvas</a></li>
 <li><a href="https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/gg193983(v=vs.85)?redirectedfrom=MSDN">SVG vs canvas: how to choose</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>JS地下城</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS地下城6F-60秒算數</title>
-    <url>/2021/01/27/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E6F-60%E7%A7%92%E7%AE%97%E6%95%B8/</url>
-    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__6F/">60秒算數</a></p>
-<h2 id="主要功能"><a href="#主要功能" class="headerlink" title="主要功能"></a>主要功能</h2><ul>
-<li>亂數出題</li>
-<li>答案檢查</li>
-<li>分數累計</li>
-<li>秒數區間判斷<ul>
-<li>對應不同位數</li>
-<li>累計不同分數</li>
-</ul>
-</li>
-<li>線上排行榜</li>
-<li>畫面切換</li>
-</ul>
-<hr>
-<h3 id="亂數出題"><a href="#亂數出題" class="headerlink" title="亂數出題"></a>亂數出題</h3><h4 id="規則"><a href="#規則" class="headerlink" title="規則"></a>規則</h4><ol>
-<li>00~20秒，一位數，e.g. <code>1+1</code>、<code>5-3</code></li>
-<li>21~40秒，二位數，e.g. <code>11+11</code>、<code>55-33</code></li>
-<li>41~60秒，三位數，e.g. <code>111+111</code>、<code>555-333</code></li>
-<li>隨機產生數字以及加減乘除</li>
-<li>不論正確與否，皆新增題目</li>
-</ol>
-<h4 id="已達成目標"><a href="#已達成目標" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
-<li><input checked="" disabled="" type="checkbox"> 隨機亂數 <code>Math.random()</code></li>
-<li><input checked="" disabled="" type="checkbox"> 隨機產生不同位數</li>
-<li><input checked="" disabled="" type="checkbox"> 隨機產生 <code>+-*/</code></li>
-<li><input checked="" disabled="" type="checkbox"> 0/0，答案為 NaN，重置題目</li>
-<li><input checked="" disabled="" type="checkbox"> 1/0，答案為 無限，重置題目</li>
-</ul>
-<p>一開始單純只產生 0~9，幾位數就放幾次函式，後來爬文學到利用亂數乘以最大減最小再加上最小值就能產生一～三位數。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 產生單一隨機亂數 */</span></span><br><span class="line"><span class="comment">// const randomNumber = () =&gt;&#123;</span></span><br><span class="line"><span class="comment">//   return Math.floor(Math.random() * 10 )</span></span><br><span class="line"><span class="comment">// &#125; </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 改寫產生方式</span></span><br><span class="line"><span class="keyword">const</span> randomNumber = <span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * ( max - min) + min )</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 產生一到三位數 */</span></span><br><span class="line"><span class="comment">// let thirdType = `$&#123;randomNumber&#125;$&#123;randomNumber&#125;$&#123;randomNumber&#125;`</span></span><br><span class="line"><span class="keyword">let</span> firstType     = randomNumber(<span class="number">10</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">let</span> secondaryType = randomNumber(<span class="number">100</span>, <span class="number">0</span>)</span><br><span class="line"><span class="keyword">let</span> thirdType     = randomNumber(<span class="number">1000</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="答案檢查"><a href="#答案檢查" class="headerlink" title="答案檢查"></a>答案檢查</h3><h4 id="已達成目標-1"><a href="#已達成目標-1" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
-<li><input checked="" disabled="" type="checkbox"> 取得輸入欄之值</li>
-<li><input checked="" disabled="" type="checkbox"> 比對暫存題目之結果</li>
-<li><input checked="" disabled="" type="checkbox"> 除法由於會有小數點，預設計算為整數並四捨五入</li>
-</ul>
-<p>在不同的時間區間內產生不同位數題目，當玩家在輸入欄按下 “Enter” 輸入答案後，此時判斷輸入值是否為正確答案，以及是否為空值，因為空值在比對時會可能會自動轉型為 0，要是題目答案剛好為 0，會造成不正常增加分數。</p>
-<p>而除法會有小數點的問題，嘗試重置題目，若一時找不到沒有小數點的題目就會造成畫面延遲，待想到更好的解法再來更新。</p>
-<hr>
-<h3 id="分數累計"><a href="#分數累計" class="headerlink" title="分數累計"></a>分數累計</h3><h4 id="規則-1"><a href="#規則-1" class="headerlink" title="規則"></a>規則</h4><ol>
-<li>00~40秒，每答對一題 +1 分，錯誤 -1 分，最多扣到 0 分</li>
-<li>41~60秒，每答對一題 +5 分，錯誤 -1 分，最多扣到 0 分</li>
-</ol>
-<h4 id="已達成目標-2"><a href="#已達成目標-2" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
-<li><input checked="" disabled="" type="checkbox"> 設定變數來暫存分數</li>
-<li><input checked="" disabled="" type="checkbox"> 檢查答案正確與否後，累計該變數值並重新渲染目前已累計分數內容</li>
-<li><input checked="" disabled="" type="checkbox"> 結果顯示時抓取該變數值</li>
-</ul>
-<hr>
-<h3 id="時間依據"><a href="#時間依據" class="headerlink" title="時間依據"></a>時間依據</h3><h4 id="已達成目標-3"><a href="#已達成目標-3" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
-<li><input checked="" disabled="" type="checkbox"> 每秒鐘顯示一次秒數</li>
-<li><input checked="" disabled="" type="checkbox"> 第 60 秒時，顯示 1:00</li>
-<li><input checked="" disabled="" type="checkbox"> 取得現在時間毫秒數 <code>Ｄate.now()</code> ，作為 timestamp</li>
-<li><input checked="" disabled="" type="checkbox"> 取得 60 秒後 <code>Date.now() + 60*1000</code></li>
-<li><input checked="" disabled="" type="checkbox"> 建立陣列儲存 <code>[當下時間，60秒後時間]</code>，作為後續檢查用</li>
-</ul>
-<p>利用 <code>Ｄate.now()</code> 作為 timestamp，檢查遊戲是否開始，若利用 console 去執行開始函式，會檢查 <code>Ｄate.now()</code> 是否在遊戲開始後的時間區間內。若在區間內 ：</p>
-<ul>
-<li>執行內部變數值初始化</li>
-<li>時間開始計時</li>
-<li>出題</li>
-</ul>
-<h3 id="畫面切換"><a href="#畫面切換" class="headerlink" title="畫面切換"></a>畫面切換</h3><h4 id="規則-2"><a href="#規則-2" class="headerlink" title="規則"></a>規則</h4><ol>
-<li>點擊遊戲主畫面按鈕後，顯示題目畫面</li>
-<li>遊戲時間結束後，顯示結果畫面</li>
-<li>結果畫面顯示最後分數與再玩一次按鈕</li>
-<li>延伸功能，結果畫面顯示排行榜按鈕</li>
-</ol>
-<h4 id="已達成目標-4"><a href="#已達成目標-4" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
-<li>遊戲開始時 :<ul>
-<li><input checked="" disabled="" type="checkbox"> 渲染時間</li>
-<li><input checked="" disabled="" type="checkbox"> 渲染分數</li>
-<li><input checked="" disabled="" type="checkbox"> 渲染題目</li>
-<li><input checked="" disabled="" type="checkbox"> 答案輸入欄位，換題時清空</li>
-</ul>
-</li>
-<li>遊戲結束後 :<ul>
-<li><input checked="" disabled="" type="checkbox"> 顯示結果頁</li>
-<li><input checked="" disabled="" type="checkbox"> 再玩一次按鈕，按下後回到題目畫面</li>
-<li><input checked="" disabled="" type="checkbox"> 排行榜按鈕，按下後顯示排行榜</li>
-</ul>
-</li>
-<li>按下再玩一次按鈕時 : <ul>
-<li><input checked="" disabled="" type="checkbox"> 初始化所有暫存變數值(像是分數、暫存時間戳等)</li>
-</ul>
-</li>
-<li>顯示排行榜時 :<ul>
-<li><input checked="" disabled="" type="checkbox"> 讀取試算表資料</li>
-<li><input checked="" disabled="" type="checkbox"> 若在時間區間外且未上傳，可輸入姓名上傳至試算表。</li>
-<li><input checked="" disabled="" type="checkbox"> 若要上傳姓名與分數，上傳欄位填完姓名並按下送出後自動消失，剩餘再玩一次按鈕。</li>
-</ul>
-</li>
-</ul>
-<h2 id="安全問題"><a href="#安全問題" class="headerlink" title="安全問題"></a>安全問題</h2><p>在初次寫完函式功能後，測試是否能利用開發者模式去執行函式，發現有需要傳入參數值的函式，直接取用該函式並傳入值，就會影響現有畫面內容，像是這樣 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> game = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 時間秒數，當遊戲開始時秒數開始增加</span></span><br><span class="line">  <span class="keyword">let</span> time = <span class="number">0</span></span><br><span class="line">  <span class="keyword">let</span> vm = <span class="built_in">this</span></span><br><span class="line">  <span class="built_in">this</span>.start = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    time = <span class="number">0</span> </span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> x = <span class="number">1</span>; x &lt;= <span class="number">59</span> ; x++) &#123;</span><br><span class="line">      <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">        time++</span><br><span class="line">      &#125;, <span class="number">1000</span>*z)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">this</span>.render(time)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 判斷目前秒數並渲染題目至畫面</span></span><br><span class="line">  <span class="built_in">this</span>.render = <span class="function">(<span class="params">number</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> ( number &lt;= <span class="number">20</span>) &#123;</span><br><span class="line">      <span class="comment">// 產生一位數，並改變題目</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( number &gt;= <span class="number">21</span> &amp;&amp; number &lt;= <span class="number">40</span>) &#123;</span><br><span class="line">      <span class="comment">// 產生二位數，並改變題目</span></span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> ( number &lt;= <span class="number">59</span>) &#123;</span><br><span class="line">      <span class="comment">// 產生三位數，並改變題目</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> newGame = <span class="keyword">new</span> game()</span><br><span class="line"><span class="comment">// 在開發者模式中直接執行該函式，就會不斷的產生一位數題目</span></span><br><span class="line">newGamer.render(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<p>因此 ：</p>
-<ul>
-<li>修正會影響暫存值之函式改為無參數傳入，皆利用閉包特性讀取變數值。</li>
-<li>利用變數宣告為 false，若不輸入答案並檢查，就無法讓題目重置。</li>
-<li>利用變數宣告為 false，當玩家已上傳紀錄後，必須是暫存時間外或是重新開始改變狀態後才能再次上傳。</li>
-</ul>
-<h2 id="延伸擴充功能"><a href="#延伸擴充功能" class="headerlink" title="延伸擴充功能"></a>延伸擴充功能</h2><h3 id="排行榜"><a href="#排行榜" class="headerlink" title="排行榜"></a>排行榜</h3><h4 id="已達成目標-5"><a href="#已達成目標-5" class="headerlink" title="已達成目標"></a>已達成目標</h4><ul>
-<li><input checked="" disabled="" type="checkbox"> 建立 Google 試算表之資料欄位</li>
-<li><input checked="" disabled="" type="checkbox"> 利用 fetch get 建立讀取函式<ul>
-<li><input checked="" disabled="" type="checkbox"> 判斷是否在暫存時間外才能執行</li>
-</ul>
-</li>
-<li><input checked="" disabled="" type="checkbox"> 利用 fetch post 建立送出函式<ul>
-<li><input checked="" disabled="" type="checkbox"> 判斷是否在暫存時間外且布林狀態為 false 才能執行</li>
-<li><input checked="" disabled="" type="checkbox"> 測試資料送出</li>
-<li><input checked="" disabled="" type="checkbox"> 線上資料表建立 token，隨著讀取函式抓回來</li>
-<li><input checked="" disabled="" type="checkbox"> 將 token 雜湊後傳送</li>
-</ul>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10209673?sc=iThelpR">Henry - JS30 Day 29 - Countdown Timer</a></li>
-<li><a href="https://mtwmt.github.io/JSBOSS/6f/">Mandy - JS地下城：6F-60秒算數遊戲</a></li>
-<li><a href="https://www.marketersgo.com/marketing/google-sheets/202005/google-sheets-script/">行銷人 ; 梅問題教學網 - 【Google Sheets】進階技巧：利用Google Script將Google試算表變成簡易資料庫</a></li>
-<li><a href="https://www.labnol.org/code/19871-get-post-requests-google-script">Amit Agarwal - How to Handle GET and POST HTTP Requests in Google Apps Script</a></li>
-<li><a href="https://developers.google.com/apps-script/reference/utilities/utilities#base64decodewebsafeencoded">Google Apps Script - Class Utilities</a></li>
 </ol>
 </blockquote>
 ]]></content>
