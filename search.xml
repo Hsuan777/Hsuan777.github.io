@@ -140,6 +140,35 @@
       </categories>
   </entry>
   <entry>
+    <title>Hexo教學(六) 文章標籤與分類</title>
+    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
+    <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
+<h2 id="建立分類"><a href="#建立分類" class="headerlink" title="建立分類"></a>建立分類</h2><ol>
+<li>輸入 <code>hexo new page &#39;categories&#39;</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
+<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories中的 index.md檔案，插入 <code>type: &quot;categories&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>重新產生靜態檔案，可以在導覽列看到多了一個分類分頁</li>
+</ol>
+<h2 id="建立標籤"><a href="#建立標籤" class="headerlink" title="建立標籤"></a>建立標籤</h2><p>與分類的步驟一樣，但內容改變。</p>
+<ol>
+<li>輸入 <code>hexo new page &#39;tags&#39;</code></li>
+<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
+<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> tags index.md檔案，插入 <code>type: &quot;tags&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+若需要多個標籤，可以這樣輸入<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">教學文</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
+<li>重新產生靜態檔案，可以在導覽列看到多了一個標籤分頁</li>
+</ol>
+<p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
+<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo教學(一) 使用 Hexo寫部落格</title>
     <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%80)%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E4%BD%BF%E7%94%A8Hexo%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
     <content><![CDATA[<h2 id="為什麼要使用-Hexo寫部落格"><a href="#為什麼要使用-Hexo寫部落格" class="headerlink" title="為什麼要使用 Hexo寫部落格?"></a>為什麼要使用 Hexo寫部落格?</h2><p>現在有很多線上服務都能當成部落格，不管寫在 github、medium或者 wordpress等等，同樣是寫文章，心得也好，技術文也罷，學著使用 markdown寫文，最起碼自己的電腦有初始檔案，不怕線上服務突然關閉或者改變使用條款，而且只要有網頁伺服器，就能發布自己的部落格。</p>
@@ -179,27 +208,32 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學(六) 文章標籤與分類</title>
-    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/Hexo%E6%95%99%E5%AD%B8(%E5%85%AD)%E6%96%87%E7%AB%A0%E6%A8%99%E7%B1%A4%E8%88%87%E5%88%86%E9%A1%9E/</url>
-    <content><![CDATA[<p>先前我們學到如何新增一篇文章，這篇會說明如何將文章上標籤與分類管理。</p>
-<h2 id="建立分類"><a href="#建立分類" class="headerlink" title="建立分類"></a>建立分類</h2><ol>
-<li>輸入 <code>hexo new page &#39;categories&#39;</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
-<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories中的 index.md檔案，插入 <code>type: &quot;categories&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Categories</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">categories:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>重新產生靜態檔案，可以在導覽列看到多了一個分類分頁</li>
-</ol>
-<h2 id="建立標籤"><a href="#建立標籤" class="headerlink" title="建立標籤"></a>建立標籤</h2><p>與分類的步驟一樣，但內容改變。</p>
+    <title>Hexo教學(三) 主題匯入</title>
+    <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
+<ul>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
+</ul>
+</li>
+<li>NexT<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
+</ul>
+</li>
+</ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li>輸入 <code>hexo new page &#39;tags&#39;</code></li>
-<li>在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source中會看到 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> categories</li>
-<li>修改 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> tags index.md檔案，插入 <code>type: &quot;tags&quot;</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Tags</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2020-10-22 11:16:05</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">&quot;categories&quot;</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>在 _post內的其中一份檔案插入 <code>categories: hexo教學</code><figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">文章標題</span></span><br><span class="line"><span class="attr">data:</span></span><br><span class="line"><span class="attr">tags:</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-若需要多個標籤，可以這樣輸入<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">tags:</span> </span><br><span class="line"><span class="bullet">-</span> <span class="string">hexo教學</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">教學文</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure></li>
-<li>重新產生靜態檔案，可以在導覽列看到多了一個標籤分頁</li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
 </ol>
-<p>若沒看到分頁出現，可能是 Next主題的設定沒有開啟，可以在 Next主題的設定檔中開啟，路徑為 themes\next_config.yml，</p>
-<figure class="highlight dts"><table><tr><td class="code"><pre><span class="line"><span class="symbol">menu:</span></span><br><span class="line"><span class="symbol">  home:</span> / || fa fa-home</span><br><span class="line">  <span class="meta">#about: /about/ || fa fa-user</span></span><br><span class="line"><span class="symbol">  tags:</span> <span class="meta-keyword">/tags/</span> || fa fa-tags</span><br><span class="line"><span class="symbol">  categories:</span> <span class="meta-keyword">/categories/</span> || fa fa-th</span><br><span class="line"><span class="symbol">  archives:</span> <span class="meta-keyword">/archives/</span> || fa fa-archive</span><br><span class="line">  <span class="meta"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="meta"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="meta"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>]]></content>
+</blockquote>
+]]></content>
       <categories>
         <category>hexo教學</category>
       </categories>
@@ -279,29 +313,33 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學(三) 主題匯入</title>
-    <url>/blog/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
-<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
-<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
-<ul>
-<li>hueman<ul>
-<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
-</ul>
-</li>
-<li>NexT<ul>
-<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
-<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
-</ul>
-</li>
-</ul>
-<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
-<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+    <title>Hexo教學(五) 部署文章至 Github Page</title>
+    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%94)%E9%83%A8%E7%BD%B2%E6%96%87%E7%AB%A0%E8%87%B3%20Github%20Page/</url>
+    <content><![CDATA[<h2 id="建立-github資料庫"><a href="#建立-github資料庫" class="headerlink" title="建立 github資料庫"></a>建立 github資料庫</h2><p>登入 github.com後，新增一個資料庫做為 hexo的儲存空間，我們會使用這個資料庫發布部落格。</p>
+<ol>
+<li>右上方點擊 New repository</li>
+<li>在 Repository name欄位中輸入 <code>你的github帳號.github.io</code></li>
+<li>選擇 Public</li>
+<li>點擊 Creat repository</li>
+<li>點擊此資料庫的 <strong>Setting</strong></li>
+<li>在 Setting的頁面中找到名為 GitHub Pages的標題</li>
+<li>在 GitHub Pages的選項中，找到子標題 Source，將第一個選項改為 master</li>
+<li>選擇 master後，會發現上面一則通知，它會是<br>Your site is published at https://你的github帳號.github.io</li>
+</ol>
+<h2 id="修改-hexo設定檔"><a href="#修改-hexo設定檔" class="headerlink" title="修改 hexo設定檔"></a>修改 hexo設定檔</h2><p>建立好 github的資料庫後，接著我們回到 hexo底下的 <code>_config.yml</code>，我們要修改發布時會用到的資訊。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https:<span class="regexp">//</span>你的github帳號.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/你的github帳號/</span>你的github帳號.github.io.git </span><br><span class="line">  branch: master </span><br><span class="line">  message: <span class="string">&#x27;hexoblog&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="部屬-Deploy"><a href="#部屬-Deploy" class="headerlink" title="部屬 (Deploy)"></a>部屬 (Deploy)</h2><p>完成上述兩個部分後，讓我們重新產生 hexo的靜態檔案，就能將寫好的文章上傳了。<br>這裡還需要再輸入一個指令，<code>npm install --save hexo-deployer-git</code>，這樣才能將 hexo一鍵部屬到 github上。</p>
+<ol>
+<li>輸入 <code>hexo clean</code>，可縮寫 <code>hexo cl</code></li>
+<li>輸入 <code>hexo generate</code>，可縮寫 <code>hexo g</code></li>
+<li>輸入 <code>hexo server</code>，可縮寫 <code>hexo s</code></li>
+<li>輸入 <code>hexo deploy</code>，正式將文章上傳至網路空間</li>
+<li>在網址列輸入 https://你的github帳號.github.io，看是否成功</li>
+</ol>
 <h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
 <ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
-<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10242893">Ray - 試著學 Hexo - 部署你的第一個部落格</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -486,44 +524,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學(五) 部署文章至 Github Page</title>
-    <url>/blog/2020/10/26/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%94)%E9%83%A8%E7%BD%B2%E6%96%87%E7%AB%A0%E8%87%B3%20Github%20Page/</url>
-    <content><![CDATA[<h2 id="建立-github資料庫"><a href="#建立-github資料庫" class="headerlink" title="建立 github資料庫"></a>建立 github資料庫</h2><p>登入 github.com後，新增一個資料庫做為 hexo的儲存空間，我們會使用這個資料庫發布部落格。</p>
-<ol>
-<li>右上方點擊 New repository</li>
-<li>在 Repository name欄位中輸入 <code>你的github帳號.github.io</code></li>
-<li>選擇 Public</li>
-<li>點擊 Creat repository</li>
-<li>點擊此資料庫的 <strong>Setting</strong></li>
-<li>在 Setting的頁面中找到名為 GitHub Pages的標題</li>
-<li>在 GitHub Pages的選項中，找到子標題 Source，將第一個選項改為 master</li>
-<li>選擇 master後，會發現上面一則通知，它會是<br>Your site is published at https://你的github帳號.github.io</li>
-</ol>
-<h2 id="修改-hexo設定檔"><a href="#修改-hexo設定檔" class="headerlink" title="修改 hexo設定檔"></a>修改 hexo設定檔</h2><p>建立好 github的資料庫後，接著我們回到 hexo底下的 <code>_config.yml</code>，我們要修改發布時會用到的資訊。</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="comment"># URL</span></span><br><span class="line">url: https:<span class="regexp">//</span>你的github帳號.github.io</span><br><span class="line"></span><br><span class="line"><span class="comment"># Deployment</span></span><br><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https:<span class="regexp">//gi</span>thub.com<span class="regexp">/你的github帳號/</span>你的github帳號.github.io.git </span><br><span class="line">  branch: master </span><br><span class="line">  message: <span class="string">&#x27;hexoblog&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="部屬-Deploy"><a href="#部屬-Deploy" class="headerlink" title="部屬 (Deploy)"></a>部屬 (Deploy)</h2><p>完成上述兩個部分後，讓我們重新產生 hexo的靜態檔案，就能將寫好的文章上傳了。<br>這裡還需要再輸入一個指令，<code>npm install --save hexo-deployer-git</code>，這樣才能將 hexo一鍵部屬到 github上。</p>
-<ol>
-<li>輸入 <code>hexo clean</code>，可縮寫 <code>hexo cl</code></li>
-<li>輸入 <code>hexo generate</code>，可縮寫 <code>hexo g</code></li>
-<li>輸入 <code>hexo server</code>，可縮寫 <code>hexo s</code></li>
-<li>輸入 <code>hexo deploy</code>，正式將文章上傳至網路空間</li>
-<li>在網址列輸入 https://你的github帳號.github.io，看是否成功</li>
-</ol>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10242893">Ray - 試著學 Hexo - 部署你的第一個部落格</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo教學 Next主題設定與頁面功能(Ver. 8)</title>
     <url>/blog/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/</url>
     <content><![CDATA[<p>由於自己選擇了 NexT主題匯入，這邊就以 NexT的設定做介紹。<br>請找到 <code>themes/next/_config.yml</code> 這隻檔案。</p>
@@ -615,68 +615,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
-    <url>/blog/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
-    <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
-<ul>
-<li><code>this</code></li>
-<li><code>arguments</code> </li>
-<li><code>call()</code></li>
-<li><code>apply()</code></li>
-<li><code>bind()</code></li>
-</ul>
-<p>這篇我們要來看這些東西原本是怎麼運作的。</p>
-<h3 id="關鍵字-this"><a href="#關鍵字-this" class="headerlink" title="關鍵字 this"></a>關鍵字 this</h3><p>複習一下 <code>this</code> 的運作 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  whoAmI: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>，今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.whoAmI()</span><br><span class="line"><span class="comment">// 由於是在物件呼叫此函式的，所以往上一層尋找時(非箭頭函式)，會找到此物件的屬性值</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="關鍵字-arguments"><a href="#關鍵字-arguments" class="headerlink" title="關鍵字 arguments"></a>關鍵字 arguments</h3><ul>
-<li>一般函式內建的關鍵字之一</li>
-<li>可以將傳入的參數值抓取出來形成一個類陣列<strong>物件</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>])</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內建函式-call、apply、bind的共通點"><a href="#內建函式-call、apply、bind的共通點" class="headerlink" title="內建函式 call、apply、bind的共通點"></a>內建函式 call、apply、bind的共通點</h3><ul>
-<li>JS的內建函式</li>
-<li>它們都與 <code>this</code> 有所關聯</li>
-<li>不需要在函式中自訂參數就能將變數塞進 <code>this</code></li>
-<li>若有多個值，函式的第一個參數位置為 <code>this</code></li>
-<li>也就是說<code>(this, 參數1, 參數2, 以此類推)</code></li>
-</ul>
-<p>接下來，我們來看，<code>call()</code>、<code>apply()</code>以及 <code>bind()</code> 如何與 <code>this</code> 運作。</p>
-<h3 id="內建函式-call"><a href="#內建函式-call" class="headerlink" title="內建函式 call"></a>內建函式 call</h3><ul>
-<li>單純將參數值傳入</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line">sum.call(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// &quot;this為2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-<h3 id="內建函式-apply"><a href="#內建函式-apply" class="headerlink" title="內建函式 apply"></a>內建函式 apply</h3><ul>
-<li>傳入的型態必須是陣列</li>
-<li>功能上與 <code>call</code> 無異</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第一個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第二個是<span class="subst">$&#123;b&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">sum.apply(<span class="number">1</span>, array)</span><br><span class="line"><span class="comment">// &quot;陣列中第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;this為1&quot;</span></span><br><span class="line"><span class="comment">// &quot;陣列中第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="內建函式-bind"><a href="#內建函式-bind" class="headerlink" title="內建函式 bind"></a>內建函式 bind</h3><ul>
-<li><strong><code>bind()</code> 將建立一個新的函式</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例一</span></span><br><span class="line"><span class="comment">// bind會建立一個新的函式</span></span><br><span class="line"><span class="comment">// this會對應傳入的參數 newPerson</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Jay&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newDisplay = display.bind(newPerson)</span><br><span class="line">display() <span class="comment">// Jay</span></span><br><span class="line">newDisplay() <span class="comment">// Vic</span></span><br><span class="line"><span class="comment">// 新的函式會執行 console.log(newPerson.name)</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例二</span></span><br><span class="line"><span class="comment">// 若有多個值，bind的參數第一順位為 &#x27;this&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第一個是<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> plusTwo = sum.bind(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plusTwo()</span><br><span class="line"><span class="comment">// &quot;第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>我們了解到箭頭函式沒有自己的 <code>this</code>，相對的也就沒有上述的那三種內建函式可供使用，也無法使用 <code>arguments</code>，但可以改用其餘參數來達成目的。箭頭函式與一般函式的運用，還是得看實際情況來做使用。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
-<li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ES6語法糖 - 箭頭函式與this(上)</title>
     <url>/blog/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
     <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
@@ -749,6 +687,68 @@
 <li><a href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">卡斯伯 - 鐵人賽：箭頭函式 (Arrow functions)</a></li>
 <li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN - 箭頭函式</a></li>
 <li>六角學院 - JS核心篇</li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
+    <url>/blog/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
+    <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
+<ul>
+<li><code>this</code></li>
+<li><code>arguments</code> </li>
+<li><code>call()</code></li>
+<li><code>apply()</code></li>
+<li><code>bind()</code></li>
+</ul>
+<p>這篇我們要來看這些東西原本是怎麼運作的。</p>
+<h3 id="關鍵字-this"><a href="#關鍵字-this" class="headerlink" title="關鍵字 this"></a>關鍵字 this</h3><p>複習一下 <code>this</code> 的運作 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> person = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span>,</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  whoAmI: <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我是<span class="subst">$&#123;<span class="built_in">this</span>.name&#125;</span>，今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">person.whoAmI()</span><br><span class="line"><span class="comment">// 由於是在物件呼叫此函式的，所以往上一層尋找時(非箭頭函式)，會找到此物件的屬性值</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="關鍵字-arguments"><a href="#關鍵字-arguments" class="headerlink" title="關鍵字 arguments"></a>關鍵字 arguments</h3><ul>
+<li>一般函式內建的關鍵字之一</li>
+<li>可以將傳入的參數值抓取出來形成一個類陣列<strong>物件</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">arguments</span>[<span class="number">0</span>])</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">typeof</span>(<span class="built_in">arguments</span>))</span><br><span class="line">&#125;</span><br><span class="line">sum(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// &quot;object&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內建函式-call、apply、bind的共通點"><a href="#內建函式-call、apply、bind的共通點" class="headerlink" title="內建函式 call、apply、bind的共通點"></a>內建函式 call、apply、bind的共通點</h3><ul>
+<li>JS的內建函式</li>
+<li>它們都與 <code>this</code> 有所關聯</li>
+<li>不需要在函式中自訂參數就能將變數塞進 <code>this</code></li>
+<li>若有多個值，函式的第一個參數位置為 <code>this</code></li>
+<li>也就是說<code>(this, 參數1, 參數2, 以此類推)</code></li>
+</ul>
+<p>接下來，我們來看，<code>call()</code>、<code>apply()</code>以及 <code>bind()</code> 如何與 <code>this</code> 運作。</p>
+<h3 id="內建函式-call"><a href="#內建函式-call" class="headerlink" title="內建函式 call"></a>內建函式 call</h3><ul>
+<li>單純將參數值傳入</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line">sum.call(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line"><span class="comment">// &quot;this為2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+<h3 id="內建函式-apply"><a href="#內建函式-apply" class="headerlink" title="內建函式 apply"></a>內建函式 apply</h3><ul>
+<li>傳入的型態必須是陣列</li>
+<li>功能上與 <code>call</code> 無異</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第一個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`this為<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`陣列中第二個是<span class="subst">$&#123;b&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a + b)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> array = [<span class="number">2</span>, <span class="number">4</span>]</span><br><span class="line">sum.apply(<span class="number">1</span>, array)</span><br><span class="line"><span class="comment">// &quot;陣列中第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;this為1&quot;</span></span><br><span class="line"><span class="comment">// &quot;陣列中第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 7</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="內建函式-bind"><a href="#內建函式-bind" class="headerlink" title="內建函式 bind"></a>內建函式 bind</h3><ul>
+<li><strong><code>bind()</code> 將建立一個新的函式</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例一</span></span><br><span class="line"><span class="comment">// bind會建立一個新的函式</span></span><br><span class="line"><span class="comment">// this會對應傳入的參數 newPerson</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;Jay&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">display</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newPerson = &#123;</span><br><span class="line">  name: <span class="string">&#x27;Vic&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newDisplay = display.bind(newPerson)</span><br><span class="line">display() <span class="comment">// Jay</span></span><br><span class="line">newDisplay() <span class="comment">// Vic</span></span><br><span class="line"><span class="comment">// 新的函式會執行 console.log(newPerson.name)</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 範例二</span></span><br><span class="line"><span class="comment">// 若有多個值，bind的參數第一順位為 &#x27;this&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sum</span>(<span class="params">a</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第一個是<span class="subst">$&#123;<span class="built_in">this</span>&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">`第二個是<span class="subst">$&#123;a&#125;</span>`</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span> + a)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> plusTwo = sum.bind(<span class="number">2</span>, <span class="number">4</span>)</span><br><span class="line">plusTwo()</span><br><span class="line"><span class="comment">// &quot;第一個是2&quot;</span></span><br><span class="line"><span class="comment">// &quot;第二個是4&quot;</span></span><br><span class="line"><span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>我們了解到箭頭函式沒有自己的 <code>this</code>，相對的也就沒有上述的那三種內建函式可供使用，也無法使用 <code>arguments</code>，但可以改用其餘參數來達成目的。箭頭函式與一般函式的運用，還是得看實際情況來做使用。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/@realdennis/javascript-%E8%81%8A%E8%81%8Acall-apply-bind%E7%9A%84%E5%B7%AE%E7%95%B0%E8%88%87%E7%9B%B8%E4%BC%BC%E4%B9%8B%E8%99%95-2f82a4b4dd66">realdennis - [JavaScript] 函數原型最實用的 3 個方法 — call、apply、bind</a></li>
+<li><a href="https://medium.com/schaoss-blog/%E4%B8%80%E6%AC%A1%E6%90%9E%E6%87%82%E5%89%8D%E7%AB%AF%E9%9D%A2%E8%A9%A6%E6%9C%80%E6%84%9B%E5%95%8F%E7%9A%84-apply-bind-call-708f57518776">Schaos - 一次搞懂前端面試最愛問的 apply、bind、call</a> </li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10195896">Henry Chang - JavaScript - call，apply，bind</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -946,92 +946,6 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS地下城-5F全台空氣指標</title>
-    <url>/blog/2021/01/16/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E5F-%E5%85%A8%E5%8F%B0%E7%A9%BA%E6%B0%A3%E6%8C%87%E6%A8%99/</url>
-    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__5F/">JS地下城5F-全台空氣指標</a></p>
-<h2 id="全台空氣指標"><a href="#全台空氣指標" class="headerlink" title="全台空氣指標"></a>全台空氣指標</h2><h3 id="拆分目標"><a href="#拆分目標" class="headerlink" title="拆分目標"></a>拆分目標</h3><p>規劃目標，主要解決 : </p>
-<ul>
-<li>CORS 抓取 JSON 資料問題</li>
-<li>事件綁定</li>
-<li>畫面渲染</li>
-</ul>
-<p>接著按照目標，再拆分細項目標。</p>
-<h4 id="抓取-API-資料"><a href="#抓取-API-資料" class="headerlink" title="抓取 API 資料"></a>抓取 API 資料</h4><ul>
-<li><input checked="" disabled="" type="checkbox"> 利用 Google App Script 解決CORS問題</li>
-<li><input checked="" disabled="" type="checkbox"> 不使用套件抓 API，使用 <strong>fetch</strong><ul>
-<li><input checked="" disabled="" type="checkbox"> 取得縣市資料</li>
-<li><input checked="" disabled="" type="checkbox"> 將縣市資料另存，不用再次抓取資料</li>
-<li><input checked="" disabled="" type="checkbox"> 縣市資料渲染至畫面選單上</li>
-<li><input checked="" disabled="" type="checkbox"> 若取得資料失敗，則顯示”請重新整理。” <h4 id="change-與-click-事件"><a href="#change-與-click-事件" class="headerlink" title="change 與 click 事件"></a>change 與 click 事件</h4></li>
-</ul>
-</li>
-<li><input checked="" disabled="" type="checkbox"> change，更新所選縣市名稱與撈取時間</li>
-<li><input checked="" disabled="" type="checkbox"> change，將站點的詳細資料渲染至畫面上</li>
-<li><input checked="" disabled="" type="checkbox"> change，站點名稱渲染至畫面列表上</li>
-<li><input checked="" disabled="" type="checkbox"> click，點擊站點時，顯示該站點資訊<ul>
-<li>動態綁定 click 事件</li>
-<li>將點擊的站點詳細資料顯示在左方列表，其餘重新排列顯示<h4 id="畫面渲染"><a href="#畫面渲染" class="headerlink" title="畫面渲染"></a>畫面渲染</h4></li>
-</ul>
-</li>
-<li><input checked="" disabled="" type="checkbox"> 站點名稱與數值利用格線一左一右顯示</li>
-<li><input checked="" disabled="" type="checkbox"> 其餘站點照格線欄位排序，由左至右，往下排列</li>
-<li><input checked="" disabled="" type="checkbox"> 站點詳細資訊與列表，一左一右分別顯示</li>
-<li><input checked="" disabled="" type="checkbox"> 利用 <code>setInterval()</code> 讓分隔線顯示長度增減，以達到讀取效果</li>
-</ul>
-<h3 id="資料處理"><a href="#資料處理" class="headerlink" title="資料處理"></a>資料處理</h3><h4 id="取得縣市資料"><a href="#取得縣市資料" class="headerlink" title="取得縣市資料"></a>取得縣市資料</h4><p>已知縣市名稱絕對有重複，故先篩選出不重複的資料。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 利用 indexOf 篩選出不重複的資料 */</span></span><br><span class="line"><span class="comment">// indexOf 若該值在對象陣列中不存在，則回傳 &quot;-1&quot;</span></span><br><span class="line"><span class="keyword">let</span> data = [&#123;A站點&#125;, &#123;B站點&#125;, &#123;C站點&#125;, ...]</span><br><span class="line"><span class="keyword">let</span> areas = []</span><br><span class="line">date.forEach( <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> ( areas.indexOf(item.County) === <span class="number">-1</span> ) &#123;</span><br><span class="line">    areas.push( item.County ) </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h4 id="處理站點資料"><a href="#處理站點資料" class="headerlink" title="處理站點資料"></a>處理站點資料</h4><p>節錄一小段程式碼，主要將撈取回來的資料，利用 forEach 與樣板字面值組合成所需字串。 </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> data = [&#123;A站點&#125;, &#123;B站點&#125;, &#123;C站點&#125;, ...]</span><br><span class="line"><span class="keyword">const</span> render = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> siteDetailStr = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="keyword">let</span> sitesOtherStr = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="comment">// 將第一筆站點資料作為左側詳細資訊</span></span><br><span class="line">  <span class="comment">// shift() 會改變陣列長度，取出第一筆資料後回傳</span></span><br><span class="line">  <span class="keyword">let</span> siteFirst = data.shift()</span><br><span class="line">  siteDetailStr = <span class="string">`&lt;span class=&quot;h2 fw-bolder&quot;&gt;<span class="subst">$&#123;siteFirst.SiteName&#125;</span>&lt;/span&gt;`</span></span><br><span class="line">  <span class="comment">// 將其餘資料作為右側列表</span></span><br><span class="line">  data.forEach( <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    sitesOtherStr += <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;li&gt;</span></span><br><span class="line"><span class="string">      &lt;span class=&quot;h2 fw-bolder&quot;&gt;<span class="subst">$&#123;item.SiteName&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;/li&gt;`</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 最後將取出的資料放回，這邊直接用 push</span></span><br><span class="line"><span class="comment">// 若想放到其他位置也可以使用陣列其他方法</span></span><br><span class="line">data.push(siteFirst)</span><br></pre></td></tr></table></figure>
-<h4 id="分隔線讀取效果"><a href="#分隔線讀取效果" class="headerlink" title="分隔線讀取效果"></a>分隔線讀取效果</h4><p>利用 <code>setInterval()</code>，設定好間隔時間，會重複執行內部程式碼，利用閉包的概念，將值變更，直到指定值後，再重新賦予初始值。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dottedLine = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.custom--dottedLine&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> loadingFn = <span class="function">(<span class="params">loading</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> (loading) &#123;</span><br><span class="line">    <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (x &lt;= <span class="number">7</span>) &#123;</span><br><span class="line">        dottedLine.style.width = <span class="string">`<span class="subst">$&#123;x++&#125;</span>2%`</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x = <span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">500</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">clearInterval</span>(x) </span><br><span class="line">    dottedLine.style.width = <span class="string">`62%`</span>     </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="XMLHttpRequest-與-Fetch-獲取-API-資料的差異"><a href="#XMLHttpRequest-與-Fetch-獲取-API-資料的差異" class="headerlink" title="XMLHttpRequest 與 Fetch 獲取 API 資料的差異"></a>XMLHttpRequest 與 Fetch 獲取 API 資料的差異</h2><p>兩者都能進行 AJAX 行為，最大的差別在於，處理非同步行為時，其可讀性與維護性，來看以下例子 : </p>
-<h3 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* XMLHttpRequest */</span></span><br><span class="line"><span class="keyword">const</span> api = <span class="string">&quot;https://randomuser.me/api/&quot;</span></span><br><span class="line"><span class="keyword">let</span> data = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> req = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">req.open(<span class="string">&#x27;GET&#x27;</span>, api)</span><br><span class="line">req.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(req.status = <span class="number">200</span>)&#123;</span><br><span class="line">    <span class="comment">// 成功時</span></span><br><span class="line">    data = req.response</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> data)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 失敗時</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;取得資料失敗&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">req.send()</span><br><span class="line"><span class="comment">// &quot;string&quot;，未經過處理的 JSON 字串</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h3><p>第一次取回的 response 是被鎖定的物件，其中一個方法會回傳 JSON格式的資料，轉為 JSON 格式後，再利用下一步去接收。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* fetch */</span></span><br><span class="line"><span class="keyword">const</span> api = <span class="string">&quot;https://randomuser.me/api/&quot;</span></span><br><span class="line"><span class="keyword">let</span> data = []</span><br><span class="line"></span><br><span class="line">fetch(api).then( <span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> response.json()</span><br><span class="line">&#125;).then( <span class="function"><span class="params">jsonData</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 成功時，使用 then 取得實際資料</span></span><br><span class="line">  data = jsonData</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">typeof</span> data )</span><br><span class="line">&#125;).catch( <span class="function"><span class="params">error</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 失敗時，使用 catch 回報錯誤資訊</span></span><br><span class="line">  <span class="built_in">console</span>.log( <span class="string">&#x27;資料有誤，請重新整理。&#x27;</span> )</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &quot;object&quot;，JSON 格式的物件</span></span><br></pre></td></tr></table></figure>
-
-<p>XMLHttpRequest 的寫法必須使用多個步驟去取得資料，且取得的資料為 JSON 格式的字串，因為伺服器傳輸必須是字串，還需要轉回 JSON 格式的物件，若接著處理該資料，不僅造成不易閱讀，也不好維護。而 fetch 的方式有使用 Promise 處理，可讀性與維護性提升，只要伺服器有回應，不需要額外寫判斷去處理。</p>
-<hr>
-<h2 id="使用-Promise-來優化-XMLHttpRequest-JAX"><a href="#使用-Promise-來優化-XMLHttpRequest-JAX" class="headerlink" title="使用 Promise 來優化 XMLHttpRequest JAX"></a>使用 Promise 來優化 XMLHttpRequest JAX</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> api = <span class="string">&quot;https://randomuser.me/api/&quot;</span></span><br><span class="line"><span class="keyword">let</span> data = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">url</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>( <span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> req = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">    req.open( <span class="string">&#x27;GET&#x27;</span>, url )</span><br><span class="line">    req.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>( req.status = <span class="number">200</span> )&#123;</span><br><span class="line">        <span class="comment">// 成功時</span></span><br><span class="line">        resolve( req.response )</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 失敗時</span></span><br><span class="line">        reject( <span class="string">&#x27;資料有誤，請重新整理。&#x27;</span> )</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    req.send()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">get(api).then( <span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">  data = response</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">typeof</span> data )</span><br><span class="line">&#125;).catch( <span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &quot;string&quot;</span></span><br><span class="line"><span class="comment">// 若要測試 reject 有沒有回傳給 catch，可以暫時改寫成</span></span><br><span class="line"><span class="comment">// if( req.status = 200 )&#123;</span></span><br><span class="line"><span class="comment">//   reject( &#x27;資料有誤，請重新整理。&#x27; )</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   resolve( req.response )</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
-
-<hr>
-<h2 id="CORS-問題解決方案"><a href="#CORS-問題解決方案" class="headerlink" title="CORS 問題解決方案"></a>CORS 問題解決方案</h2><p>主要看後端有沒有設定跨域資料時，權限有沒有開放，不過還是可以透過 Google App Script 來暫時解決。簡易的方式如下 : </p>
-<ol>
-<li>建立一份新的 Google 試算表</li>
-<li>在工具列中找到 “工具” &gt; “指令碼編輯器”</li>
-<li>將預設函式取代為以下程式碼</li>
-<li>接著部屬為 “網頁應用程式”，複製該連結</li>
-<li>在連結後方找到 “exec”，在其後方補上開源資料的網址<ul>
-<li>e.g. <code>https://一連串的亂碼/exec?url=開源資料的網址</code><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 作為中繼站，跨網域存取開源資料</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doGet</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 取得傳入 URL</span></span><br><span class="line">  <span class="keyword">let</span> url = e.parameter.url</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 發出 GET 請求，並設定 hearder json</span></span><br><span class="line">  <span class="keyword">let</span> response = UrlFetchApp.fetch(<span class="built_in">decodeURIComponent</span>(url),&#123; </span><br><span class="line">    headers: &#123; <span class="string">&quot;Content-type&quot;</span> : <span class="string">&quot;application/json&quot;</span> &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// 取得 json 資料</span></span><br><span class="line">  <span class="keyword">let</span> data = <span class="built_in">JSON</span>.parse(response.getContentText()); </span><br><span class="line">  <span class="keyword">return</span> ContentService.createTextOutput(<span class="built_in">JSON</span>.stringify(data)).setMimeType(ContentService.MimeType.JSON)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若 API 網址無法正確取得資料，將 url 暫時改為開往資料的網址</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-</li>
-</ol>
-<hr>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://opendata.epa.gov.tw/Data/Contents/AQI/">行政院環境保護署開放資料平台</a></li>
-<li><a href="http://opendata.epa.gov.tw/webapi/Data/REWIQA/?$orderby=SiteName&$skip=0&$top=1000&format=json">空氣品質指標 - JSON</a></li>
-<li><a href="https://developers.google.com/apps-script/guides/web#request_parameters">Google Apps Script</a></li>
-<li><a href="https://medium.com/@pvt5r486/%E5%85%B6%E5%AF%A6%E4%BD%A0%E5%B7%B2%E7%B6%93%E6%88%90%E5%8A%9F%E4%BA%86-%E6%88%91%E4%BD%BF%E7%94%A8%E4%BD%A0%E8%B2%BC%E5%9C%A8%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%B6%B2%E5%9D%80-%E5%8F%AF%E4%BB%A5%E5%8F%96%E5%88%B0%E8%B3%87%E6%96%99-81ae9579de66">pvt5r486 - 了解 e.parameter 是什麼</a></li>
-<li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/ajax_fetch.html">從ES6開始的JavaScript學習生活 - AJAX與Fetch API</a></li>
-<li><a href="https://hsuan777.github.io/blog/2020/11/18/Google%E8%A9%A6%E7%AE%97%E8%A1%A8%E4%BD%9C%E7%82%BA%E7%B7%9A%E4%B8%8A%E8%B3%87%E6%96%99%E5%BA%AB-%E8%AE%80%E5%8F%96%E8%B3%87%E6%96%99/?highlight=apps">Vic - Google試算表作為線上資料庫 - 讀取資料</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>JS地下城</tag>
       </tags>
   </entry>
   <entry>
@@ -1243,6 +1157,92 @@
 <li><a href="https://pansci.asia/archives/84978">泛科學 - 到底是 GMT+8 還是 UTC+8 ?</a></li>
 <li><a href="https://blog.miniasp.com/post/2016/09/25/JavaScript-Date-usage-in-details">Will - 前端工程研究：關於 JavaScript 中 Date 型別的常見地雷與建議作法</a></li>
 <li><a href="https://segmentfault.com/a/1190000007581722">JavaScript 时间与日期处理实战:你肯定被坑过</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>JS地下城</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS地下城-5F全台空氣指標</title>
+    <url>/blog/2021/01/16/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E5F-%E5%85%A8%E5%8F%B0%E7%A9%BA%E6%B0%A3%E6%8C%87%E6%A8%99/</url>
+    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__5F/">JS地下城5F-全台空氣指標</a></p>
+<h2 id="全台空氣指標"><a href="#全台空氣指標" class="headerlink" title="全台空氣指標"></a>全台空氣指標</h2><h3 id="拆分目標"><a href="#拆分目標" class="headerlink" title="拆分目標"></a>拆分目標</h3><p>規劃目標，主要解決 : </p>
+<ul>
+<li>CORS 抓取 JSON 資料問題</li>
+<li>事件綁定</li>
+<li>畫面渲染</li>
+</ul>
+<p>接著按照目標，再拆分細項目標。</p>
+<h4 id="抓取-API-資料"><a href="#抓取-API-資料" class="headerlink" title="抓取 API 資料"></a>抓取 API 資料</h4><ul>
+<li><input checked="" disabled="" type="checkbox"> 利用 Google App Script 解決CORS問題</li>
+<li><input checked="" disabled="" type="checkbox"> 不使用套件抓 API，使用 <strong>fetch</strong><ul>
+<li><input checked="" disabled="" type="checkbox"> 取得縣市資料</li>
+<li><input checked="" disabled="" type="checkbox"> 將縣市資料另存，不用再次抓取資料</li>
+<li><input checked="" disabled="" type="checkbox"> 縣市資料渲染至畫面選單上</li>
+<li><input checked="" disabled="" type="checkbox"> 若取得資料失敗，則顯示”請重新整理。” <h4 id="change-與-click-事件"><a href="#change-與-click-事件" class="headerlink" title="change 與 click 事件"></a>change 與 click 事件</h4></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> change，更新所選縣市名稱與撈取時間</li>
+<li><input checked="" disabled="" type="checkbox"> change，將站點的詳細資料渲染至畫面上</li>
+<li><input checked="" disabled="" type="checkbox"> change，站點名稱渲染至畫面列表上</li>
+<li><input checked="" disabled="" type="checkbox"> click，點擊站點時，顯示該站點資訊<ul>
+<li>動態綁定 click 事件</li>
+<li>將點擊的站點詳細資料顯示在左方列表，其餘重新排列顯示<h4 id="畫面渲染"><a href="#畫面渲染" class="headerlink" title="畫面渲染"></a>畫面渲染</h4></li>
+</ul>
+</li>
+<li><input checked="" disabled="" type="checkbox"> 站點名稱與數值利用格線一左一右顯示</li>
+<li><input checked="" disabled="" type="checkbox"> 其餘站點照格線欄位排序，由左至右，往下排列</li>
+<li><input checked="" disabled="" type="checkbox"> 站點詳細資訊與列表，一左一右分別顯示</li>
+<li><input checked="" disabled="" type="checkbox"> 利用 <code>setInterval()</code> 讓分隔線顯示長度增減，以達到讀取效果</li>
+</ul>
+<h3 id="資料處理"><a href="#資料處理" class="headerlink" title="資料處理"></a>資料處理</h3><h4 id="取得縣市資料"><a href="#取得縣市資料" class="headerlink" title="取得縣市資料"></a>取得縣市資料</h4><p>已知縣市名稱絕對有重複，故先篩選出不重複的資料。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 利用 indexOf 篩選出不重複的資料 */</span></span><br><span class="line"><span class="comment">// indexOf 若該值在對象陣列中不存在，則回傳 &quot;-1&quot;</span></span><br><span class="line"><span class="keyword">let</span> data = [&#123;A站點&#125;, &#123;B站點&#125;, &#123;C站點&#125;, ...]</span><br><span class="line"><span class="keyword">let</span> areas = []</span><br><span class="line">date.forEach( <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> ( areas.indexOf(item.County) === <span class="number">-1</span> ) &#123;</span><br><span class="line">    areas.push( item.County ) </span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="處理站點資料"><a href="#處理站點資料" class="headerlink" title="處理站點資料"></a>處理站點資料</h4><p>節錄一小段程式碼，主要將撈取回來的資料，利用 forEach 與樣板字面值組合成所需字串。 </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> data = [&#123;A站點&#125;, &#123;B站點&#125;, &#123;C站點&#125;, ...]</span><br><span class="line"><span class="keyword">const</span> render = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> siteDetailStr = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="keyword">let</span> sitesOtherStr = <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="comment">// 將第一筆站點資料作為左側詳細資訊</span></span><br><span class="line">  <span class="comment">// shift() 會改變陣列長度，取出第一筆資料後回傳</span></span><br><span class="line">  <span class="keyword">let</span> siteFirst = data.shift()</span><br><span class="line">  siteDetailStr = <span class="string">`&lt;span class=&quot;h2 fw-bolder&quot;&gt;<span class="subst">$&#123;siteFirst.SiteName&#125;</span>&lt;/span&gt;`</span></span><br><span class="line">  <span class="comment">// 將其餘資料作為右側列表</span></span><br><span class="line">  data.forEach( <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">    sitesOtherStr += <span class="string">`</span></span><br><span class="line"><span class="string">    &lt;li&gt;</span></span><br><span class="line"><span class="string">      &lt;span class=&quot;h2 fw-bolder&quot;&gt;<span class="subst">$&#123;item.SiteName&#125;</span>&lt;/span&gt;</span></span><br><span class="line"><span class="string">    &lt;/li&gt;`</span></span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 最後將取出的資料放回，這邊直接用 push</span></span><br><span class="line"><span class="comment">// 若想放到其他位置也可以使用陣列其他方法</span></span><br><span class="line">data.push(siteFirst)</span><br></pre></td></tr></table></figure>
+<h4 id="分隔線讀取效果"><a href="#分隔線讀取效果" class="headerlink" title="分隔線讀取效果"></a>分隔線讀取效果</h4><p>利用 <code>setInterval()</code>，設定好間隔時間，會重複執行內部程式碼，利用閉包的概念，將值變更，直到指定值後，再重新賦予初始值。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dottedLine = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;.custom--dottedLine&#x27;</span>)</span><br><span class="line"><span class="keyword">const</span> loadingFn = <span class="function">(<span class="params">loading</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> x = <span class="number">1</span></span><br><span class="line">  <span class="keyword">if</span> (loading) &#123;</span><br><span class="line">    <span class="built_in">setInterval</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (x &lt;= <span class="number">7</span>) &#123;</span><br><span class="line">        dottedLine.style.width = <span class="string">`<span class="subst">$&#123;x++&#125;</span>2%`</span></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        x = <span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;, <span class="number">500</span>)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="built_in">clearInterval</span>(x) </span><br><span class="line">    dottedLine.style.width = <span class="string">`62%`</span>     </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="XMLHttpRequest-與-Fetch-獲取-API-資料的差異"><a href="#XMLHttpRequest-與-Fetch-獲取-API-資料的差異" class="headerlink" title="XMLHttpRequest 與 Fetch 獲取 API 資料的差異"></a>XMLHttpRequest 與 Fetch 獲取 API 資料的差異</h2><p>兩者都能進行 AJAX 行為，最大的差別在於，處理非同步行為時，其可讀性與維護性，來看以下例子 : </p>
+<h3 id="XMLHttpRequest"><a href="#XMLHttpRequest" class="headerlink" title="XMLHttpRequest"></a>XMLHttpRequest</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* XMLHttpRequest */</span></span><br><span class="line"><span class="keyword">const</span> api = <span class="string">&quot;https://randomuser.me/api/&quot;</span></span><br><span class="line"><span class="keyword">let</span> data = <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> req = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">req.open(<span class="string">&#x27;GET&#x27;</span>, api)</span><br><span class="line">req.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(req.status = <span class="number">200</span>)&#123;</span><br><span class="line">    <span class="comment">// 成功時</span></span><br><span class="line">    data = req.response</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">typeof</span> data)</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="comment">// 失敗時</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;取得資料失敗&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">req.send()</span><br><span class="line"><span class="comment">// &quot;string&quot;，未經過處理的 JSON 字串</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="fetch"><a href="#fetch" class="headerlink" title="fetch"></a>fetch</h3><p>第一次取回的 response 是被鎖定的物件，其中一個方法會回傳 JSON格式的資料，轉為 JSON 格式後，再利用下一步去接收。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* fetch */</span></span><br><span class="line"><span class="keyword">const</span> api = <span class="string">&quot;https://randomuser.me/api/&quot;</span></span><br><span class="line"><span class="keyword">let</span> data = []</span><br><span class="line"></span><br><span class="line">fetch(api).then( <span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> response.json()</span><br><span class="line">&#125;).then( <span class="function"><span class="params">jsonData</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 成功時，使用 then 取得實際資料</span></span><br><span class="line">  data = jsonData</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">typeof</span> data )</span><br><span class="line">&#125;).catch( <span class="function"><span class="params">error</span>=&gt;</span>&#123;</span><br><span class="line">  <span class="comment">// 失敗時，使用 catch 回報錯誤資訊</span></span><br><span class="line">  <span class="built_in">console</span>.log( <span class="string">&#x27;資料有誤，請重新整理。&#x27;</span> )</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &quot;object&quot;，JSON 格式的物件</span></span><br></pre></td></tr></table></figure>
+
+<p>XMLHttpRequest 的寫法必須使用多個步驟去取得資料，且取得的資料為 JSON 格式的字串，因為伺服器傳輸必須是字串，還需要轉回 JSON 格式的物件，若接著處理該資料，不僅造成不易閱讀，也不好維護。而 fetch 的方式有使用 Promise 處理，可讀性與維護性提升，只要伺服器有回應，不需要額外寫判斷去處理。</p>
+<hr>
+<h2 id="使用-Promise-來優化-XMLHttpRequest-JAX"><a href="#使用-Promise-來優化-XMLHttpRequest-JAX" class="headerlink" title="使用 Promise 來優化 XMLHttpRequest JAX"></a>使用 Promise 來優化 XMLHttpRequest JAX</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> api = <span class="string">&quot;https://randomuser.me/api/&quot;</span></span><br><span class="line"><span class="keyword">let</span> data = []</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get</span>(<span class="params">url</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>( <span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">var</span> req = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">    req.open( <span class="string">&#x27;GET&#x27;</span>, url )</span><br><span class="line">    req.onload = <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="keyword">if</span>( req.status = <span class="number">200</span> )&#123;</span><br><span class="line">        <span class="comment">// 成功時</span></span><br><span class="line">        resolve( req.response )</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="comment">// 失敗時</span></span><br><span class="line">        reject( <span class="string">&#x27;資料有誤，請重新整理。&#x27;</span> )</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    req.send()</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br><span class="line">get(api).then( <span class="function"><span class="params">response</span> =&gt;</span> &#123;</span><br><span class="line">  data = response</span><br><span class="line">  <span class="built_in">console</span>.log( <span class="keyword">typeof</span> data )</span><br><span class="line">&#125;).catch( <span class="function"><span class="params">error</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(error)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="comment">// &quot;string&quot;</span></span><br><span class="line"><span class="comment">// 若要測試 reject 有沒有回傳給 catch，可以暫時改寫成</span></span><br><span class="line"><span class="comment">// if( req.status = 200 )&#123;</span></span><br><span class="line"><span class="comment">//   reject( &#x27;資料有誤，請重新整理。&#x27; )</span></span><br><span class="line"><span class="comment">// &#125; else &#123;</span></span><br><span class="line"><span class="comment">//   resolve( req.response )</span></span><br><span class="line"><span class="comment">// &#125;</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="CORS-問題解決方案"><a href="#CORS-問題解決方案" class="headerlink" title="CORS 問題解決方案"></a>CORS 問題解決方案</h2><p>主要看後端有沒有設定跨域資料時，權限有沒有開放，不過還是可以透過 Google App Script 來暫時解決。簡易的方式如下 : </p>
+<ol>
+<li>建立一份新的 Google 試算表</li>
+<li>在工具列中找到 “工具” &gt; “指令碼編輯器”</li>
+<li>將預設函式取代為以下程式碼</li>
+<li>接著部屬為 “網頁應用程式”，複製該連結</li>
+<li>在連結後方找到 “exec”，在其後方補上開源資料的網址<ul>
+<li>e.g. <code>https://一連串的亂碼/exec?url=開源資料的網址</code><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 作為中繼站，跨網域存取開源資料</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">doGet</span>(<span class="params">e</span>)</span>&#123;</span><br><span class="line">  <span class="comment">// 取得傳入 URL</span></span><br><span class="line">  <span class="keyword">let</span> url = e.parameter.url</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// 發出 GET 請求，並設定 hearder json</span></span><br><span class="line">  <span class="keyword">let</span> response = UrlFetchApp.fetch(<span class="built_in">decodeURIComponent</span>(url),&#123; </span><br><span class="line">    headers: &#123; <span class="string">&quot;Content-type&quot;</span> : <span class="string">&quot;application/json&quot;</span> &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="comment">// 取得 json 資料</span></span><br><span class="line">  <span class="keyword">let</span> data = <span class="built_in">JSON</span>.parse(response.getContentText()); </span><br><span class="line">  <span class="keyword">return</span> ContentService.createTextOutput(<span class="built_in">JSON</span>.stringify(data)).setMimeType(ContentService.MimeType.JSON)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若 API 網址無法正確取得資料，將 url 暫時改為開往資料的網址</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://opendata.epa.gov.tw/Data/Contents/AQI/">行政院環境保護署開放資料平台</a></li>
+<li><a href="http://opendata.epa.gov.tw/webapi/Data/REWIQA/?$orderby=SiteName&$skip=0&$top=1000&format=json">空氣品質指標 - JSON</a></li>
+<li><a href="https://developers.google.com/apps-script/guides/web#request_parameters">Google Apps Script</a></li>
+<li><a href="https://medium.com/@pvt5r486/%E5%85%B6%E5%AF%A6%E4%BD%A0%E5%B7%B2%E7%B6%93%E6%88%90%E5%8A%9F%E4%BA%86-%E6%88%91%E4%BD%BF%E7%94%A8%E4%BD%A0%E8%B2%BC%E5%9C%A8%E4%B8%8A%E9%9D%A2%E7%9A%84%E7%B6%B2%E5%9D%80-%E5%8F%AF%E4%BB%A5%E5%8F%96%E5%88%B0%E8%B3%87%E6%96%99-81ae9579de66">pvt5r486 - 了解 e.parameter 是什麼</a></li>
+<li><a href="https://eyesofkids.gitbooks.io/javascript-start-from-es6/content/part4/ajax_fetch.html">從ES6開始的JavaScript學習生活 - AJAX與Fetch API</a></li>
+<li><a href="https://hsuan777.github.io/blog/2020/11/18/Google%E8%A9%A6%E7%AE%97%E8%A1%A8%E4%BD%9C%E7%82%BA%E7%B7%9A%E4%B8%8A%E8%B3%87%E6%96%99%E5%BA%AB-%E8%AE%80%E5%8F%96%E8%B3%87%E6%96%99/?highlight=apps">Vic - Google試算表作為線上資料庫 - 讀取資料</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -2342,6 +2342,141 @@
       </tags>
   </entry>
   <entry>
+    <title>迴圈之變數作用域</title>
+    <url>/blog/2020/11/13/javascript/%E8%BF%B4%E5%9C%88%E8%AE%8A%E6%95%B8%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
+    <content><![CDATA[<p>很多技術筆記說明 JS變數的作用域時，都會使用迴圈與一個 JS內建函式來說明作用域的不同之處，但為什麼使用了 <code>setTimeout()</code> 這個語法，可以讓結果不同?<br>主要是因為以下的運作方式與觀念，會讓結果不同 : </p>
+<ul>
+<li>變數宣告影響作用域</li>
+<li>執行緒</li>
+<li>Callback Function </li>
+</ul>
+<h2 id="迴圈與變數作用域"><a href="#迴圈與變數作用域" class="headerlink" title="迴圈與變數作用域"></a>迴圈與變數作用域</h2><p>在以下的例子中，是最常見的 for迴圈，使用不同的變數宣告方式並印出結果，而迴圈宣告的變數會建立在不同地方，假設宣告變數在在全域環境中，那麼</p>
+<ul>
+<li>使用 var宣告的變數，被建立在全域環境底下。</li>
+<li>使用 let宣告的變數，被建立在獨立的區塊中，也就是該函式的執行環境。</li>
+</ul>
+<h3 id="直接印出迴圈結果"><a href="#直接印出迴圈結果" class="headerlink" title="直接印出迴圈結果"></a>直接印出迴圈結果</h3><ul>
+<li>執行結果看不出差異</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; <span class="number">5</span> ; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> y = <span class="number">0</span> ; y &lt; <span class="number">5</span> ; y++) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(y)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 結果都是</span></span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="一秒後印出所有結果"><a href="#一秒後印出所有結果" class="headerlink" title="一秒後印出所有結果"></a>一秒後印出所有結果</h3><ul>
+<li>使用 JS內建函式 <code>setTimeout()</code>，卻讓執行結果改變。</li>
+</ul>
+<ol>
+<li>使用 var宣告變數<ul>
+<li>var的最小作用域為 function</li>
+<li>在全域環境下，for迴圈每跑一次，事件佇列就會多一個 <code>setTimeout()</code>，當 for迴圈跑完換事件佇列內的 <code>setTimeout()</code> 執行時，i 已經改變成 5 了，所以會有五個 5。</li>
+<li><strong>但是，為什麼結果是 5 不是 4 ?</strong></li>
+<li>i 已經在全域環境下建立了，也因此執行第一次迴圈時，i++的關係，i 就變成了 1，總共要執行五次，所以 i 為 5。</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span> ; i&lt;<span class="number">5</span> ; i++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>使用 let宣告變數<ul>
+<li>let的最小作用域為 <code>&#123; &#125;</code> ，例如 <code>for()&#123;&#125;</code>、<code>if()&#123;&#125;</code></li>
+<li>每當進入事件佇列時，當下的 y 值會跟著進去</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> y = <span class="number">0</span> ; y&lt;<span class="number">5</span> ; y++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(y)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+<p>上述的例子，有說到 <code>setTimeout()</code> 會進入<strong>事件佇列</strong>，接著因變數宣告方式不同會改變結果，這跟接下來的說明有關。</p>
+<h2 id="Callback-Function-與執行緒"><a href="#Callback-Function-與執行緒" class="headerlink" title="Callback Function 與執行緒"></a>Callback Function 與執行緒</h2><p>函式的參數不僅可以放單一值、陣列以及物件，也可以放函式，而 JS的執行方式會影響函式的運作時機。</p>
+<h3 id="Callback-Function"><a href="#Callback-Function" class="headerlink" title="Callback Function"></a>Callback Function</h3><ul>
+<li>某個函式做為另一個函式的參數值。</li>
+<li>例如 <code>setTimeout()</code> <ul>
+<li><code>setTimeout( 某函式, 等待多久後印出的時間 )</code></li>
+<li><code>setTimeout( function(), 1000 )</code></li>
+<li>若依賴其他函式過深，也就是重複這種型態，就會變成所謂的波動拳。</li>
+<li>衍伸出 <strong>Promise</strong> 的概念。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// setTimeout()，1秒後印出該函式的結果</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Callback Function&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// &quot;Callback Function&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="執行緒"><a href="#執行緒" class="headerlink" title="執行緒"></a>執行緒</h3><ul>
+<li>JS執行方式為單線程</li>
+<li>執行過程<ul>
+<li>由上到下執行。</li>
+<li>執行函式時，會先放進執行堆疊，直到 return結果後離開(以下範例用 <code>console.log()</code> 代替)。</li>
+<li>執行<strong>事件</strong>時，會等待被觸發，例如點擊，計時器之類的事件，它們會暫時在瀏覽器中等待。</li>
+<li>當事件被觸發時， JS會將它要執行的函式放進事件佇列，等執行堆疊的函式處理完畢後，再處理佇列內的函式。</li>
+<li>為什麼會有事件?<ul>
+<li><code>setTimeout()</code>，可以寫成 <code>window.setTimeout()</code>，也就是說，事件是瀏覽器的 API給 JS使用的。</li>
+</ul>
+</li>
+<li>程式碼的事件 &gt; 等待觸發 &gt; 觸發 &gt; 事件佇列</li>
+</ul>
+</li>
+</ul>
+<h4 id="測試範例"><a href="#測試範例" class="headerlink" title="測試範例"></a>測試範例</h4><ul>
+<li>測試一</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 由上到下執行，函式執行後進入執行堆疊，產生結果後離開</span></span><br><span class="line"><span class="comment">// 預期結果為 &quot;我是函式 A&quot;，接著產生 &quot;我是函式 B&quot;</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line">fnB()</span><br><span class="line"><span class="comment">// 結果與預期相同</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>測試二</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在另一個函式內執行函式，產生結果後離開</span></span><br><span class="line"><span class="comment">// 預期結果為 &quot;我是函式 A&quot;，接著產生 &quot;我是函式 B&quot;</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A&#x27;</span>)</span><br><span class="line">  fnB()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line"><span class="comment">// 結果與預期相同</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>測試三</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在另一個函式內執行函式，產生結果後離開</span></span><br><span class="line"><span class="comment">// 預期結果為 &quot;我是函式 B&quot;，接著產生 &quot;我是函式 A&quot;</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  fnB()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line"><span class="comment">// 結果與預期相同</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>測試四</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在函式內執行事件 setTimeout() </span></span><br><span class="line"><span class="comment">// 預期結果為 &quot;我是函式 A&quot;，接著 3秒後產生 &quot;我是函式 B&quot;</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A&#x27;</span>)</span><br><span class="line">  <span class="built_in">setTimeout</span>(fnB, <span class="number">3000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line"><span class="comment">// 結果與預期相同</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>測試五<ul>
+<li>JS的執行方式若遇到事件時，會等待事件觸發。</li>
+<li>直到執行堆疊處理完畢後，看事件是否觸發，若觸發則放入事件佇列中並執行事件內的函式。</li>
+<li>也就是說，無論 <code>setTimeout()</code> 秒數設為 0秒還是3秒，都會先等待觸發並往下處理執行堆疊內的函式。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 預期結果為 &quot;我是函式 B&quot;，接著 3秒後產生 &quot;我是函式 A&quot;</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(fnB, <span class="number">3000</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line"><span class="comment">// 與預期結果不同 !!!</span></span><br><span class="line"><span class="comment">// &quot;我是函式 A&quot;</span></span><br><span class="line"><span class="comment">// &quot;我是函式 B&quot; &lt;- 3秒後產生</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="回想"><a href="#回想" class="headerlink" title="回想"></a>回想</h2><p>以下面兩個例子來說，它包含了 : </p>
+<ul>
+<li>var的作用域<ul>
+<li>用 function區隔會有不同結果，可以做到與 let相同的事。</li>
+</ul>
+</li>
+<li>執行緒<ul>
+<li>函式的執行堆疊與事件觸發之事件佇列(等待)。</li>
+</ul>
+</li>
+<li>Callback Function<ul>
+<li>在 <code>setTimeout()</code> 中執行另一個函式。</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 變數 z已被 function區隔，因此全域環境中是找不到 z這個變數的，</span></span><br><span class="line"><span class="comment">// 但它還是會存在於函式 fnA內，</span></span><br><span class="line"><span class="comment">// 秒數的 z值屬於 setTimeout 這個函式，也因此被區隔，</span></span><br><span class="line"><span class="comment">// 進入事件佇列後，console.log(z) 執行的是函式 fnA的 z值，也就是 5。</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> z = <span class="number">0</span> ; z &lt; y ; z++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(z)          </span><br><span class="line">   &#125;, <span class="number">1000</span>*z)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A，接著執行函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA(<span class="number">5</span>)</span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 變數 z的值，隨著函式 fnB進入了執行堆疊，</span></span><br><span class="line"><span class="comment">// 執行堆疊內，函式執行了事件，等待事件觸發後，z值一起進入了事件佇列中，</span></span><br><span class="line"><span class="comment">// z值待在 fnB的區塊中，此時 console.log(x) 執行的是函式 fnB所帶來的值。</span></span><br><span class="line"><span class="comment">// 閉包的概念</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> z = <span class="number">0</span> ; z &lt; y ; z++) &#123;</span><br><span class="line">    fnB(z)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A，接著執行函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(x)          </span><br><span class="line">  &#125;, <span class="number">1000</span>*x)</span><br><span class="line">&#125; </span><br><span class="line">fnA(<span class="number">5</span>)</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="延伸概念"><a href="#延伸概念" class="headerlink" title="延伸概念"></a>延伸概念</h3><ul>
+<li>閉包</li>
+<li>Promise</li>
+<li>同步與非同步</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10192739">Kuro Hsu - 重新認識 JavaScript: Day 18 Callback Function 與 IIFE</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10193009">Kuro Hsu - 重新認識 JavaScript: Day 19 閉包 Closure</a></li>
+<li><a href="https://pjchender.blogspot.com/2017/08/javascript-learn-event-loop-stack-queue.html">PJCHENder那些沒告訴你的小細節 - [筆記] 理解 JavaScript 中的事件循環、堆疊、佇列和併發模式（Learn event loop, stack, queue, and concurrency mode of JavaScript in depth）</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>JavaScript 運算子</title>
     <url>/blog/2020/11/20/javascript/%E9%81%8B%E7%AE%97%E5%AD%90/</url>
     <content><![CDATA[<h2 id="運算子"><a href="#運算子" class="headerlink" title="運算子"></a>運算子</h2><p>舉凡加減乘除都是運算子，等號也是運算子之一。<br>(詳細可參考 <a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Guide/Expressions_and_Operators">MDN-運算子</a>)。</p>
@@ -2526,141 +2661,6 @@
       <tags>
         <tag>JavaScript</tag>
         <tag>演算法入門</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>迴圈之變數作用域</title>
-    <url>/blog/2020/11/13/javascript/%E8%BF%B4%E5%9C%88%E8%AE%8A%E6%95%B8%E4%BD%9C%E7%94%A8%E5%9F%9F/</url>
-    <content><![CDATA[<p>很多技術筆記說明 JS變數的作用域時，都會使用迴圈與一個 JS內建函式來說明作用域的不同之處，但為什麼使用了 <code>setTimeout()</code> 這個語法，可以讓結果不同?<br>主要是因為以下的運作方式與觀念，會讓結果不同 : </p>
-<ul>
-<li>變數宣告影響作用域</li>
-<li>執行緒</li>
-<li>Callback Function </li>
-</ul>
-<h2 id="迴圈與變數作用域"><a href="#迴圈與變數作用域" class="headerlink" title="迴圈與變數作用域"></a>迴圈與變數作用域</h2><p>在以下的例子中，是最常見的 for迴圈，使用不同的變數宣告方式並印出結果，而迴圈宣告的變數會建立在不同地方，假設宣告變數在在全域環境中，那麼</p>
-<ul>
-<li>使用 var宣告的變數，被建立在全域環境底下。</li>
-<li>使用 let宣告的變數，被建立在獨立的區塊中，也就是該函式的執行環境。</li>
-</ul>
-<h3 id="直接印出迴圈結果"><a href="#直接印出迴圈結果" class="headerlink" title="直接印出迴圈結果"></a>直接印出迴圈結果</h3><ul>
-<li>執行結果看不出差異</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span> ; i &lt; <span class="number">5</span> ; i++) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> y = <span class="number">0</span> ; y &lt; <span class="number">5</span> ; y++) &#123;</span><br><span class="line">   <span class="built_in">console</span>.log(y)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 結果都是</span></span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="一秒後印出所有結果"><a href="#一秒後印出所有結果" class="headerlink" title="一秒後印出所有結果"></a>一秒後印出所有結果</h3><ul>
-<li>使用 JS內建函式 <code>setTimeout()</code>，卻讓執行結果改變。</li>
-</ul>
-<ol>
-<li>使用 var宣告變數<ul>
-<li>var的最小作用域為 function</li>
-<li>在全域環境下，for迴圈每跑一次，事件佇列就會多一個 <code>setTimeout()</code>，當 for迴圈跑完換事件佇列內的 <code>setTimeout()</code> 執行時，i 已經改變成 5 了，所以會有五個 5。</li>
-<li><strong>但是，為什麼結果是 5 不是 4 ?</strong></li>
-<li>i 已經在全域環境下建立了，也因此執行第一次迴圈時，i++的關係，i 就變成了 1，總共要執行五次，所以 i 為 5。</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span> ; i&lt;<span class="number">5</span> ; i++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li>使用 let宣告變數<ul>
-<li>let的最小作用域為 <code>&#123; &#125;</code> ，例如 <code>for()&#123;&#125;</code>、<code>if()&#123;&#125;</code></li>
-<li>每當進入事件佇列時，當下的 y 值會跟著進去</li>
-</ul>
-</li>
-</ol>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> y = <span class="number">0</span> ; y&lt;<span class="number">5</span> ; y++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(y)</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
-<p>上述的例子，有說到 <code>setTimeout()</code> 會進入<strong>事件佇列</strong>，接著因變數宣告方式不同會改變結果，這跟接下來的說明有關。</p>
-<h2 id="Callback-Function-與執行緒"><a href="#Callback-Function-與執行緒" class="headerlink" title="Callback Function 與執行緒"></a>Callback Function 與執行緒</h2><p>函式的參數不僅可以放單一值、陣列以及物件，也可以放函式，而 JS的執行方式會影響函式的運作時機。</p>
-<h3 id="Callback-Function"><a href="#Callback-Function" class="headerlink" title="Callback Function"></a>Callback Function</h3><ul>
-<li>某個函式做為另一個函式的參數值。</li>
-<li>例如 <code>setTimeout()</code> <ul>
-<li><code>setTimeout( 某函式, 等待多久後印出的時間 )</code></li>
-<li><code>setTimeout( function(), 1000 )</code></li>
-<li>若依賴其他函式過深，也就是重複這種型態，就會變成所謂的波動拳。</li>
-<li>衍伸出 <strong>Promise</strong> 的概念。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// setTimeout()，1秒後印出該函式的結果</span></span><br><span class="line"><span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;Callback Function&#x27;</span>)</span><br><span class="line">&#125;, <span class="number">1000</span>)</span><br><span class="line"><span class="comment">// &quot;Callback Function&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="執行緒"><a href="#執行緒" class="headerlink" title="執行緒"></a>執行緒</h3><ul>
-<li>JS執行方式為單線程</li>
-<li>執行過程<ul>
-<li>由上到下執行。</li>
-<li>執行函式時，會先放進執行堆疊，直到 return結果後離開(以下範例用 <code>console.log()</code> 代替)。</li>
-<li>執行<strong>事件</strong>時，會等待被觸發，例如點擊，計時器之類的事件，它們會暫時在瀏覽器中等待。</li>
-<li>當事件被觸發時， JS會將它要執行的函式放進事件佇列，等執行堆疊的函式處理完畢後，再處理佇列內的函式。</li>
-<li>為什麼會有事件?<ul>
-<li><code>setTimeout()</code>，可以寫成 <code>window.setTimeout()</code>，也就是說，事件是瀏覽器的 API給 JS使用的。</li>
-</ul>
-</li>
-<li>程式碼的事件 &gt; 等待觸發 &gt; 觸發 &gt; 事件佇列</li>
-</ul>
-</li>
-</ul>
-<h4 id="測試範例"><a href="#測試範例" class="headerlink" title="測試範例"></a>測試範例</h4><ul>
-<li>測試一</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 由上到下執行，函式執行後進入執行堆疊，產生結果後離開</span></span><br><span class="line"><span class="comment">// 預期結果為 &quot;我是函式 A&quot;，接著產生 &quot;我是函式 B&quot;</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line">fnB()</span><br><span class="line"><span class="comment">// 結果與預期相同</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>測試二</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在另一個函式內執行函式，產生結果後離開</span></span><br><span class="line"><span class="comment">// 預期結果為 &quot;我是函式 A&quot;，接著產生 &quot;我是函式 B&quot;</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A&#x27;</span>)</span><br><span class="line">  fnB()</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line"><span class="comment">// 結果與預期相同</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>測試三</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在另一個函式內執行函式，產生結果後離開</span></span><br><span class="line"><span class="comment">// 預期結果為 &quot;我是函式 B&quot;，接著產生 &quot;我是函式 A&quot;</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  fnB()</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line"><span class="comment">// 結果與預期相同</span></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>測試四</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在函式內執行事件 setTimeout() </span></span><br><span class="line"><span class="comment">// 預期結果為 &quot;我是函式 A&quot;，接著 3秒後產生 &quot;我是函式 B&quot;</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A&#x27;</span>)</span><br><span class="line">  <span class="built_in">setTimeout</span>(fnB, <span class="number">3000</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line"><span class="comment">// 結果與預期相同</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>測試五<ul>
-<li>JS的執行方式若遇到事件時，會等待事件觸發。</li>
-<li>直到執行堆疊處理完畢後，看事件是否觸發，若觸發則放入事件佇列中並執行事件內的函式。</li>
-<li>也就是說，無論 <code>setTimeout()</code> 秒數設為 0秒還是3秒，都會先等待觸發並往下處理執行堆疊內的函式。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 預期結果為 &quot;我是函式 B&quot;，接著 3秒後產生 &quot;我是函式 A&quot;</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(fnB, <span class="number">3000</span>)</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA()</span><br><span class="line"><span class="comment">// 與預期結果不同 !!!</span></span><br><span class="line"><span class="comment">// &quot;我是函式 A&quot;</span></span><br><span class="line"><span class="comment">// &quot;我是函式 B&quot; &lt;- 3秒後產生</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="回想"><a href="#回想" class="headerlink" title="回想"></a>回想</h2><p>以下面兩個例子來說，它包含了 : </p>
-<ul>
-<li>var的作用域<ul>
-<li>用 function區隔會有不同結果，可以做到與 let相同的事。</li>
-</ul>
-</li>
-<li>執行緒<ul>
-<li>函式的執行堆疊與事件觸發之事件佇列(等待)。</li>
-</ul>
-</li>
-<li>Callback Function<ul>
-<li>在 <code>setTimeout()</code> 中執行另一個函式。</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 變數 z已被 function區隔，因此全域環境中是找不到 z這個變數的，</span></span><br><span class="line"><span class="comment">// 但它還是會存在於函式 fnA內，</span></span><br><span class="line"><span class="comment">// 秒數的 z值屬於 setTimeout 這個函式，也因此被區隔，</span></span><br><span class="line"><span class="comment">// 進入事件佇列後，console.log(z) 執行的是函式 fnA的 z值，也就是 5。</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> z = <span class="number">0</span> ; z &lt; y ; z++) &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(z)          </span><br><span class="line">   &#125;, <span class="number">1000</span>*z)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A，接著執行函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line">fnA(<span class="number">5</span>)</span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br><span class="line"><span class="comment">// 5</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 變數 z的值，隨著函式 fnB進入了執行堆疊，</span></span><br><span class="line"><span class="comment">// 執行堆疊內，函式執行了事件，等待事件觸發後，z值一起進入了事件佇列中，</span></span><br><span class="line"><span class="comment">// z值待在 fnB的區塊中，此時 console.log(x) 執行的是函式 fnB所帶來的值。</span></span><br><span class="line"><span class="comment">// 閉包的概念</span></span><br><span class="line"><span class="keyword">const</span> fnA = <span class="function">(<span class="params">y</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">var</span> z = <span class="number">0</span> ; z &lt; y ; z++) &#123;</span><br><span class="line">    fnB(z)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;我是函式 A，接著執行函式 B&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fnB = <span class="function">(<span class="params">x</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(<span class="function">()=&gt;</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(x)          </span><br><span class="line">  &#125;, <span class="number">1000</span>*x)</span><br><span class="line">&#125; </span><br><span class="line">fnA(<span class="number">5</span>)</span><br><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="comment">// 1</span></span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="延伸概念"><a href="#延伸概念" class="headerlink" title="延伸概念"></a>延伸概念</h3><ul>
-<li>閉包</li>
-<li>Promise</li>
-<li>同步與非同步</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10192739">Kuro Hsu - 重新認識 JavaScript: Day 18 Callback Function 與 IIFE</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10193009">Kuro Hsu - 重新認識 JavaScript: Day 19 閉包 Closure</a></li>
-<li><a href="https://pjchender.blogspot.com/2017/08/javascript-learn-event-loop-stack-queue.html">PJCHENder那些沒告訴你的小細節 - [筆記] 理解 JavaScript 中的事件循環、堆疊、佇列和併發模式（Learn event loop, stack, queue, and concurrency mode of JavaScript in depth）</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
