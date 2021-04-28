@@ -524,6 +524,89 @@
       </tags>
   </entry>
   <entry>
+    <title>ES6語法糖 - 箭頭函式與this(上)</title>
+    <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
+    <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一般函式寫法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為具名函式 - 函式陳述式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為匿名函式 - 函式表達式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭頭函式</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若函式只有單一變數，參數括號可以簡化</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  str = <span class="string">&#x27;簡化參數括號&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若函式內只有單一陳述行，大括號可以簡化，但沒有參數時，括號必須存在</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式簡易寫法。&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="箭頭函式與一般函式的差異"><a href="#箭頭函式與一般函式的差異" class="headerlink" title="箭頭函式與一般函式的差異"></a>箭頭函式與一般函式的差異</h3><p>箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 每當搜尋相關介紹時，總會說明它沒有這些 : </p>
+<ul>
+<li><code>this</code></li>
+<li><code>arguments</code> </li>
+<li><code>call()</code></li>
+<li><code>apply()</code></li>
+<li><code>bind()</code></li>
+</ul>
+<p>而這些到底是甚麼? 為什麼那三個內建函式又是甚麼? 為什麼它們看起來很陌生? 在下集會來介紹，在上集中會先介紹 <code>this</code>。</p>
+<p>先簡易說明一下，<code>call()</code>、<code>apply()</code>、<code>bind()</code> 這三種 JS內建函式，可以影響 <code>this</code> 的運作，若使用箭頭函式的話，由於 ES6的規則，連帶的那三個函式也跟著無法使用。<br>而 <code>arguments</code>，它為一般函式的內建參數，在箭頭函式中無此內建參數可運用，但是可以改用 ES6的其餘參數來達到同樣效果。</p>
+<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>看到箭頭函式的介紹時，常會看到一句話，箭頭函式沒有自己的 <code>this</code>，而 <code>this</code> 從何而來，又指向誰，為什麼會用到它? </p>
+<h3 id="this是甚麼"><a href="#this是甚麼" class="headerlink" title="this是甚麼 ?"></a>this是甚麼 ?</h3><ul>
+<li>this 是 JavaScript的內建關鍵字之一</li>
+<li>通常會用在函式或物件中，來呼叫自身的擁有的屬性或值等等…</li>
+</ul>
+<h3 id="this從何而來"><a href="#this從何而來" class="headerlink" title="this從何而來 ?"></a>this從何而來 ?</h3><p>先來看個範例 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span>.a) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>當我們將瀏覽器打開時，就已經建立好全域環境與執行環境，而程式碼就是寫在執行環境中，而 <code>this</code> 與全域環境一起被建立。</p>
+<ul>
+<li>全域環境</li>
+<li><code>this</code></li>
+<li>執行環境</li>
+</ul>
+<p>當我們要呼叫 a這個變數時，由上述範例可以知道，有三種呼叫變數 a的方式 :</p>
+<ul>
+<li>直接呼叫</li>
+<li>透過全域物件呼叫</li>
+<li>透過 JS內建關鍵字 <code>this</code> 呼叫</li>
+</ul>
+<p>變數 a是由 var宣告的，而它的執行環境在全域環境中，於是變數 a就被建立在全域環境，接著就能透過全域物件 window找到它。</p>
+<h3 id="this指向誰"><a href="#this指向誰" class="headerlink" title="this指向誰 ?"></a>this指向誰 ?</h3><p>通常我們寫程式碼時，習慣在全域環境下作業，而 <code>this</code> 在呼叫自身時，<strong>必須留意在哪個環境被呼叫，而不看在哪裡被使用</strong>，像是以下這些例子 :</p>
+<ul>
+<li>簡易呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行函式，`this`會呼叫全域下的變數</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nameFn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&#x27;漂亮阿姨&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">nameFn() <span class="comment">// &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>物件中呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行物件中的函式，`this`則指向物件本身</span></span><br><span class="line"><span class="keyword">const</span> obj =&#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure></li>
+<li>物件裡呼叫函式並執行函式中的函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callFn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// 相當於直接執行 callFn2() -&gt; &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="為什麼會用-this"><a href="#為什麼會用-this" class="headerlink" title="為什麼會用 this ?"></a>為什麼會用 this ?</h3><p>在 <code>this</code> 一開始有提到，它可以用在函式或物件中，來呼叫自身的擁有的屬性或值，來看以下例子 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> personA = &#123;</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params">number</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;number&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personA.sayHello(personA.age)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> personB = &#123;</span><br><span class="line">  age: <span class="number">10</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personB.sayHello()</span><br></pre></td></tr></table></figure>
+<p>使用 <code>this</code> 可以讓程式碼簡化不少。</p>
+<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>上述範例中，物件裡呼叫函式並執行函式中的函式，<code>this</code> 會指向全域，而我們可以使用箭頭函式來解決這樣的問題，因為 : </p>
+<ul>
+<li>箭頭函式沒有自己的 <code>this</code></li>
+<li>當箭頭函式中使用 <code>this</code>時，它會往上一層尋找</li>
+<li>也就是說，<strong>在哪邊被使用，它就會往上一層尋找，而不看環境</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn () &#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="keyword">const</span> callFn2 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="回想"><a href="#回想" class="headerlink" title="回想"></a>回想</h2><ul>
+<li>箭頭函式怎麼寫 ?</li>
+<li>如何知道箭頭函式沒有自己的 <code>this</code> ?</li>
+<li>甚麼時候會用到 <code>this</code> ?</li>
+<li><code>this</code> 在不同地方會指向誰 ?<ul>
+<li>在全域環境下，若創造一個箭頭函式並使用了 <code>this</code> ，它會指向誰 ?</li>
+<li>在物件中新增了一個函式並使用了 <code>this</code> ，最後在全域環境下呼叫物件內的函式，它會指向誰 ?</li>
+</ul>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/schaoss-blog/%E5%89%8D%E7%AB%AF%E4%B8%89%E5%8D%81-10-js-%E4%B8%80%E8%88%AC%E5%87%BD%E5%BC%8F%E8%88%87%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E7%9A%84%E5%B7%AE%E7%95%B0-32ce9455ff1a">Schaos - 前端三十｜10. [JS] 一般函式與箭頭函式的差異？</a></li>
+<li><a href="https://blog.techbridge.cc/2019/02/23/javascript-this/">胡立 - 淺談 JavaScript 頭號難題 this：絕對不完整，但保證好懂</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10218937">Mooji - JS 原力覺醒 Day07 - 陳述式 表達式</a></li>
+<li><a href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">卡斯伯 - 鐵人賽：箭頭函式 (Arrow functions)</a></li>
+<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN - 箭頭函式</a></li>
+<li>六角學院 - JS核心篇</li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo教學 Next主題設定與頁面功能(Ver. 8)</title>
     <url>/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/</url>
     <content><![CDATA[<p>由於自己選擇了 NexT主題匯入，這邊就以 NexT的設定做介紹。<br>請找到 <code>themes/next/_config.yml</code> 這隻檔案。</p>
@@ -612,89 +695,6 @@
       <tags>
         <tag>hexo教學</tag>
         <tag>hexo Next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ES6語法糖 - 箭頭函式與this(上)</title>
-    <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
-    <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一般函式寫法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為具名函式 - 函式陳述式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為匿名函式 - 函式表達式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭頭函式</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若函式只有單一變數，參數括號可以簡化</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  str = <span class="string">&#x27;簡化參數括號&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若函式內只有單一陳述行，大括號可以簡化，但沒有參數時，括號必須存在</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式簡易寫法。&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="箭頭函式與一般函式的差異"><a href="#箭頭函式與一般函式的差異" class="headerlink" title="箭頭函式與一般函式的差異"></a>箭頭函式與一般函式的差異</h3><p>箭頭函式除了寫法簡潔之外，它跟一般函式有甚麼差異? 每當搜尋相關介紹時，總會說明它沒有這些 : </p>
-<ul>
-<li><code>this</code></li>
-<li><code>arguments</code> </li>
-<li><code>call()</code></li>
-<li><code>apply()</code></li>
-<li><code>bind()</code></li>
-</ul>
-<p>而這些到底是甚麼? 為什麼那三個內建函式又是甚麼? 為什麼它們看起來很陌生? 在下集會來介紹，在上集中會先介紹 <code>this</code>。</p>
-<p>先簡易說明一下，<code>call()</code>、<code>apply()</code>、<code>bind()</code> 這三種 JS內建函式，可以影響 <code>this</code> 的運作，若使用箭頭函式的話，由於 ES6的規則，連帶的那三個函式也跟著無法使用。<br>而 <code>arguments</code>，它為一般函式的內建參數，在箭頭函式中無此內建參數可運用，但是可以改用 ES6的其餘參數來達到同樣效果。</p>
-<h2 id="this"><a href="#this" class="headerlink" title="this"></a>this</h2><p>看到箭頭函式的介紹時，常會看到一句話，箭頭函式沒有自己的 <code>this</code>，而 <code>this</code> 從何而來，又指向誰，為什麼會用到它? </p>
-<h3 id="this是甚麼"><a href="#this是甚麼" class="headerlink" title="this是甚麼 ?"></a>this是甚麼 ?</h3><ul>
-<li>this 是 JavaScript的內建關鍵字之一</li>
-<li>通常會用在函式或物件中，來呼叫自身的擁有的屬性或值等等…</li>
-</ul>
-<h3 id="this從何而來"><a href="#this從何而來" class="headerlink" title="this從何而來 ?"></a>this從何而來 ?</h3><p>先來看個範例 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a) <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">this</span>.a) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
-
-<p>當我們將瀏覽器打開時，就已經建立好全域環境與執行環境，而程式碼就是寫在執行環境中，而 <code>this</code> 與全域環境一起被建立。</p>
-<ul>
-<li>全域環境</li>
-<li><code>this</code></li>
-<li>執行環境</li>
-</ul>
-<p>當我們要呼叫 a這個變數時，由上述範例可以知道，有三種呼叫變數 a的方式 :</p>
-<ul>
-<li>直接呼叫</li>
-<li>透過全域物件呼叫</li>
-<li>透過 JS內建關鍵字 <code>this</code> 呼叫</li>
-</ul>
-<p>變數 a是由 var宣告的，而它的執行環境在全域環境中，於是變數 a就被建立在全域環境，接著就能透過全域物件 window找到它。</p>
-<h3 id="this指向誰"><a href="#this指向誰" class="headerlink" title="this指向誰 ?"></a>this指向誰 ?</h3><p>通常我們寫程式碼時，習慣在全域環境下作業，而 <code>this</code> 在呼叫自身時，<strong>必須留意在哪個環境被呼叫，而不看在哪裡被使用</strong>，像是以下這些例子 :</p>
-<ul>
-<li>簡易呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行函式，`this`會呼叫全域下的變數</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">nameFn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">&#x27;漂亮阿姨&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">&#125;</span><br><span class="line">nameFn() <span class="comment">// &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure></li>
-<li>物件中呼叫函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 在全域的環境下執行物件中的函式，`this`則指向物件本身</span></span><br><span class="line"><span class="keyword">const</span> obj =&#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure></li>
-<li>物件裡呼叫函式並執行函式中的函式<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">&#x27;全域阿婆&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn()&#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">callFn2</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// 相當於直接執行 callFn2() -&gt; &#x27;全域阿婆&#x27;</span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<h3 id="為什麼會用-this"><a href="#為什麼會用-this" class="headerlink" title="為什麼會用 this ?"></a>為什麼會用 this ?</h3><p>在 <code>this</code> 一開始有提到，它可以用在函式或物件中，來呼叫自身的擁有的屬性或值，來看以下例子 : </p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> personA = &#123;</span><br><span class="line">  age: <span class="number">18</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params">number</span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;number&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personA.sayHello(personA.age)</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> personB = &#123;</span><br><span class="line">  age: <span class="number">10</span>,</span><br><span class="line">  sayHello: <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">`我今年<span class="subst">$&#123;<span class="built_in">this</span>.age&#125;</span>歲`</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">personB.sayHello()</span><br></pre></td></tr></table></figure>
-<p>使用 <code>this</code> 可以讓程式碼簡化不少。</p>
-<h2 id="箭頭函式與-this"><a href="#箭頭函式與-this" class="headerlink" title="箭頭函式與 this"></a>箭頭函式與 this</h2><p>上述範例中，物件裡呼叫函式並執行函式中的函式，<code>this</code> 會指向全域，而我們可以使用箭頭函式來解決這樣的問題，因為 : </p>
-<ul>
-<li>箭頭函式沒有自己的 <code>this</code></li>
-<li>當箭頭函式中使用 <code>this</code>時，它會往上一層尋找</li>
-<li>也就是說，<strong>在哪邊被使用，它就會往上一層尋找，而不看環境</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;全域阿婆&#x27;</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123; </span><br><span class="line">  name:<span class="string">&#x27;小杰&#x27;</span>,</span><br><span class="line">  callFn () &#123; <span class="comment">// 物件內函式縮寫</span></span><br><span class="line">    <span class="keyword">const</span> callFn2 = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">    callFn2();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.callFn(); <span class="comment">// &#x27;小杰&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="回想"><a href="#回想" class="headerlink" title="回想"></a>回想</h2><ul>
-<li>箭頭函式怎麼寫 ?</li>
-<li>如何知道箭頭函式沒有自己的 <code>this</code> ?</li>
-<li>甚麼時候會用到 <code>this</code> ?</li>
-<li><code>this</code> 在不同地方會指向誰 ?<ul>
-<li>在全域環境下，若創造一個箭頭函式並使用了 <code>this</code> ，它會指向誰 ?</li>
-<li>在物件中新增了一個函式並使用了 <code>this</code> ，最後在全域環境下呼叫物件內的函式，它會指向誰 ?</li>
-</ul>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/schaoss-blog/%E5%89%8D%E7%AB%AF%E4%B8%89%E5%8D%81-10-js-%E4%B8%80%E8%88%AC%E5%87%BD%E5%BC%8F%E8%88%87%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E7%9A%84%E5%B7%AE%E7%95%B0-32ce9455ff1a">Schaos - 前端三十｜10. [JS] 一般函式與箭頭函式的差異？</a></li>
-<li><a href="https://blog.techbridge.cc/2019/02/23/javascript-this/">胡立 - 淺談 JavaScript 頭號難題 this：絕對不完整，但保證好懂</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10218937">Mooji - JS 原力覺醒 Day07 - 陳述式 表達式</a></li>
-<li><a href="https://wcc723.github.io/javascript/2017/12/21/javascript-es6-arrow-function/">卡斯伯 - 鐵人賽：箭頭函式 (Arrow functions)</a></li>
-<li><a href="https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Functions/Arrow_functions">MDN - 箭頭函式</a></li>
-<li>六角學院 - JS核心篇</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
       </tags>
   </entry>
   <entry>
@@ -2129,6 +2129,67 @@
 <li>六角學院 - JS核心篇</li>
 <li><a href="https://andyyou.github.io/2017/10/28/javascript-object-property/?fbclid=IwAR1Uh6dwUEPz-fl7iJQaFM9dj7elVzCE0QjTdpdSYLq6UY-v4LFAH1Q_ovU">andyyou - 深入 ECMAScript 5 物件屬性</a></li>
 <li><a href="https://ithelp.ithome.com.tw/articles/10197827?sc=pt">Henry Chang - JavaScript - 屬性描述器 (2)</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>傳值與傳址</title>
+    <url>/2021/04/28/javascript/%E5%82%B3%E5%80%BC%E8%88%87%E5%82%B3%E5%9D%80/</url>
+    <content><![CDATA[<h2 id="情況"><a href="#情況" class="headerlink" title="情況"></a>情況</h2><p>某天，自己需要更改陣列資料時，遇到一個莫名其妙的情況。</p>
+<p>修正前 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 原始資料陣列</span></span><br><span class="line"><span class="keyword">let</span> data = [</span><br><span class="line"> &#123;</span><br><span class="line">   name: <span class="string">&#x27;A&#x27;</span></span><br><span class="line"> &#125;,</span><br><span class="line"> &#123;</span><br><span class="line">   name: <span class="string">&#x27;B&#x27;</span></span><br><span class="line"> &#125;</span><br><span class="line">];</span><br><span class="line"><span class="comment">// 暫存資料</span></span><br><span class="line"><span class="keyword">let</span> temp = &#123;</span><br><span class="line">  name: <span class="string">&#x27;C&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">data.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (item.name === <span class="string">&#x27;B&#x27;</span>)&#123;</span><br><span class="line">    item = temp</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(data[<span class="number">1</span>]) <span class="comment">// &#123; name: &#x27;B&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+<p><code>變數 data</code> 內的資料，居然還是原封不動!</p>
+<p>修正後 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">data.forEach(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (item.name === <span class="string">&#x27;B&#x27;</span>)&#123;</span><br><span class="line">    item.name = temp.name</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(data[<span class="number">1</span>]) <span class="comment">// &#123; name: &#x27;C&#x27;&#125;</span></span><br></pre></td></tr></table></figure>
+<p><code>變數 data</code> 內的資料終於修改成功了!</p>
+<p>不過，為什麼會這樣?</p>
+<hr>
+<h2 id="傳值"><a href="#傳值" class="headerlink" title="傳值"></a>傳值</h2><p>當我們宣告一個新的變數時，其預設值會是 <code>undefined</code> ，</p>
+<p>若我們賦予這個變數一個值，後續取用這個變數時，就會是其值，</p>
+<p>像是這樣 : </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(a) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<p>若我們再宣告一個<code>變數 b</code>並賦予其值為<code>變數 a</code>，<code>變數 b</code> 的值會是?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+<p>此時狀態會是”傳遞值”，也就是說<code>變數 b</code>的值會是 1，</p>
+<p>若我們再將<code>變數 a</code>重新賦予值為 100，<code>變數 b</code> 也不會被改變其值。</p>
+<blockquote>
+<p>在 JavaScript 裡，布林值、字串、數值、null、undefined 都是 Pass by value。</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 完整範例</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">1</span></span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">a = <span class="number">100</span></span><br><span class="line"><span class="built_in">console</span>.log(b) <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="傳址-傳參考"><a href="#傳址-傳參考" class="headerlink" title="傳址 / 傳參考"></a>傳址 / 傳參考</h2><p>上面的情況都是純值，換成物件、陣列或是函式呢?</p>
+<p>假設我們程式碼如下 : <code>變數 b</code> 會是?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  name: <span class="string">&#x27;A&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">a = <span class="number">1</span></span><br><span class="line"><span class="built_in">console</span>.log(b.name) <span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+
+<p><code>變數 b</code> 不會受到變動，因為它還是傳值，因此為 <code>&#39;A&#39;</code>。</p>
+<p>若變更物件的屬性值呢? </p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;</span><br><span class="line">  name: <span class="string">&#x27;A&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> b = a</span><br><span class="line">a.name = <span class="string">&#x27;B&#x27;</span></span><br><span class="line"><span class="built_in">console</span>.log(a.name) <span class="comment">// &#x27;B&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>變更物件屬性值時，<code>變數 b</code>連帶的也受到影響，也就是傳參考。</p>
+<blockquote>
+<p>在 JavaScript 裡，物件、陣列、函式都是 Pass by reference。</p>
+</blockquote>
+<p>那我們知道有這樣情況後，使用函式來看看會怎樣?</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 宣告一樣的變數作為範例</span></span><br><span class="line"><span class="keyword">let</span> d = &#123;</span><br><span class="line">  name: <span class="string">&#x27;D&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> e = &#123;</span><br><span class="line">  name: <span class="string">&#x27;E&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> fn = <span class="function"><span class="params">data</span> =&gt;</span> &#123;</span><br><span class="line">  data = e</span><br><span class="line">&#125;</span><br><span class="line">fn(d) </span><br><span class="line"><span class="built_in">console</span>.log(d) <span class="comment">// ?</span></span><br></pre></td></tr></table></figure>
+<p>在上述的範例中，<code>變數 d</code>維持不變，因為它是傳值，</p>
+<p>若改成 <code>data.name = e.name</code>，此時才會是傳參考。</p>
+<h2 id="回歸情況"><a href="#回歸情況" class="headerlink" title="回歸情況"></a>回歸情況</h2><p>回到一開始的程式碼，很單純地想讓資料變更，於是重新賦予其值，</p>
+<p>但事實沒這麼簡單，由於 JavaScript 擁有兩種特性，傳值與傳參考，特別是物件，</p>
+<p>單純的物件複製是傳值，修改物件屬性值則為傳參考，</p>
+<p>於是產生了 Pass by sharing 來稱呼這種情況。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10192342">SimonAllen - Day17 傳值 by value 與傳址 by reference</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10191057">Kuro Hsu - 重新認識 JavaScript: Day 05 JavaScript 是「傳值」或「傳址」？</a> </li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10209104">OneJar - 你不可不知的 JavaScript 二三事#Day26：程式界的哈姆雷特 —— Pass by value, or Pass by reference？</a></li>
 </ol>
 </blockquote>
 ]]></content>
