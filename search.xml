@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>為什麼想寫部落格?</title>
+    <url>/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
+    <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
+<p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
+<p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
+]]></content>
+      <categories>
+        <category>閒聊</category>
+      </categories>
+  </entry>
+  <entry>
     <title>Google試算表作為線上資料庫 - 讀取資料</title>
     <url>/2020/11/18/Google%E8%A9%A6%E7%AE%97%E8%A1%A8%E4%BD%9C%E7%82%BA%E7%B7%9A%E4%B8%8A%E8%B3%87%E6%96%99%E5%BA%AB-%E8%AE%80%E5%8F%96%E8%B3%87%E6%96%99/</url>
     <content><![CDATA[<p>想要弄自己的資料庫，卻又不知道該怎麼做，只知道要建立欄位，而Google的試算表就能達成這件事。只要 : </p>
@@ -120,17 +131,6 @@
       </tags>
   </entry>
   <entry>
-    <title>為什麼想寫部落格?</title>
-    <url>/2020/10/27/%E7%82%BA%E4%BB%80%E9%BA%BC%E6%83%B3%E5%AF%AB%E9%83%A8%E8%90%BD%E6%A0%BC/</url>
-    <content><![CDATA[<p>不知不覺就記錄了10篇文章，以往都是記錄在其他的線上筆記居多，也沒有整理過，看到可能重要的就先寫進再說。</p>
-<p>雖然線上筆記服務也是可以公開分享，Medium也可以寫文章，但總覺得它對於程式碼區塊的顏色看不順眼，HackMD則變成了快速筆記用，最終還是採取建立一個技術性質的部落格。</p>
-<p>而寫文的目的是重新記錄自己學過的技能，不管它是否能幫我轉職，取之於社會用之於社會，於是這個部落格就誕生了，謝謝參考來源的作者不吝分享經驗。</p>
-]]></content>
-      <categories>
-        <category>閒聊</category>
-      </categories>
-  </entry>
-  <entry>
     <title>記錄自己的成長，那怕是1%也好</title>
     <url>/2020/10/16/%E8%A8%98%E9%8C%84%E8%87%AA%E5%B7%B1%E7%9A%84%E6%88%90%E9%95%B7%EF%BC%8C%E9%82%A3%E6%80%95%E6%98%AF1-%E4%B9%9F%E5%A5%BD/</url>
     <content><![CDATA[<p>利用 Hexo寫技術部落格，那怕是第一篇，或者只有一篇，只怕自己停佇不前。</p>
@@ -208,40 +208,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo教學(三) 主題匯入</title>
-    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
-    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
-<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
-<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
-<ul>
-<li>hueman<ul>
-<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
-</ul>
-</li>
-<li>NexT<ul>
-<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
-<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
-</ul>
-</li>
-</ul>
-<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
-<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
-<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
-<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>hexo教學</category>
-      </categories>
-      <tags>
-        <tag>hexo教學</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo教學(二) 環境建立與安裝 hexo</title>
     <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%BA%8C)%E7%92%B0%E5%A2%83%E5%BB%BA%E7%AB%8B%E8%88%87%E5%AE%89%E8%A3%9Dhexo/</url>
     <content><![CDATA[<h2 id="基礎環境建立"><a href="#基礎環境建立" class="headerlink" title="基礎環境建立"></a>基礎環境建立</h2><ol>
@@ -302,6 +268,40 @@
 <ol>
 <li><a href="https://ithelp.ithome.com.tw/articles/10236936">Ray - (3)試著學 Hexo - 如何安裝 Hexo</a></li>
 <li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4)試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>hexo教學</category>
+      </categories>
+      <tags>
+        <tag>hexo教學</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo教學(三) 主題匯入</title>
+    <url>/2020/10/22/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8(%E4%B8%89)%E4%B8%BB%E9%A1%8C%E5%8C%AF%E5%85%A5/</url>
+    <content><![CDATA[<h2 id="Hexo檔案結構"><a href="#Hexo檔案結構" class="headerlink" title="Ｈexo檔案結構"></a>Ｈexo檔案結構</h2><p>Hexo裡面會有一些內層資料夾以及一些單一檔案，敘述如下 :<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> node_modules $\rightarrow$ node.js套件資源包，通常此資料夾容量很大<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> public $\rightarrow$ 經由 <code>hexo generate</code> 指令所發布的靜態檔案都在這<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> scaffolds $\rightarrow$ 當我們新增一篇文章或頁面時，會根據這裡的模板檔案進行初始化<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> source $\rightarrow$ 新增的文章與頁面都會在這<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> _posts $\rightarrow$ 存放 <code>hexo new post/draft/page &#39;文章標題&#39;</code> 指令新增的文章<br>├─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes $\rightarrow$ hexo主題都會放在這裡<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> landscape  $\rightarrow$ 預設主題<br>├─ _config.yml  $\rightarrow$ hexo的設定檔，稍後會到這裡設定<br>├─ .gitignore $\rightarrow$ 會被 git忽略的資料夾或檔案在這裡設定<br>├─ package.json $\rightarrow$ 與 npm相關，管理會用到的套件版本，可修改版本來使用<br>└─  package-lock.json $\rightarrow$ 與 npm相關，此為自動產生，不必修改</p>
+<p>備註 : 可以在  _posts 內增加資料夾進行文章分類</p>
+<h2 id="匯入主題"><a href="#匯入主題" class="headerlink" title="匯入主題"></a>匯入主題</h2><p>官方預設的主題會放在 <span class="github-emoji" alias="file_folder" style="" fallback-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4c1.png?v8">&#x1f4c1;</span> themes中，主題名稱是 landscape，而 Hexo的主題可以自行製作，也可以到<a href="https://hexo.io/themes/">這邊</a>尋找喜歡的，這裡分享如以下 :</p>
+<ul>
+<li>hueman<ul>
+<li><code>git clone https://github.com/ppoffice/hexo-theme-hueman.git themes/hueman</code></li>
+</ul>
+</li>
+<li>NexT<ul>
+<li><a href="https://github.com/next-theme/hexo-theme-next.git">版本 v8 </a></li>
+<li><code>git clone https://github.com/next-theme/hexo-theme-next.git themes/next</code></li>
+</ul>
+</li>
+</ul>
+<p>那麼要如何將主題匯入呢?<br>上面那串指令就是將主題從網路上下載一份回來，並存放在指定的位置，將它簡化就是 <code>git clone 主題存放網址 hexo指定的資料夾位置</code>，記得要在建立好的<code>桌面\新增資料夾\hexoblog</code>中輸入指令，路徑位置為舉例，請根據有上述那些資料夾的 hexo位置輸入。</p>
+<h3 id="NexT主題設定"><a href="#NexT主題設定" class="headerlink" title="NexT主題設定"></a>NexT主題設定</h3><p>由於自己選擇了 NexT主題匯入，<a href="https://hsuan777.github.io/2020/10/27/hexo%E6%95%99%E5%AD%B8/hexo%E6%95%99%E5%AD%B8Next%E4%B8%BB%E9%A1%8C%E8%A8%AD%E5%AE%9A/">這邊</a>有 NexT的設定與說明。</p>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://ithelp.ithome.com.tw/articles/10238330">Ray - (4) 試著學 Hexo - 認識 Hexo 目錄結構</a></li>
+<li><a href="https://ithelp.ithome.com.tw/articles/10246631">Ray - (17) 試著學 Hexo - NexT 主題篇 - NexT</a></li>
+<li><a href="https://ed521.github.io/2020/05/hexo-folder-theme/">瑪利歐 - Hexo 資料夾/檔案架構、佈景主題修改介紹</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -524,7 +524,7 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6語法糖 - 箭頭函式與this(上)</title>
+    <title>箭頭函式與this(上)</title>
     <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8A/</url>
     <content><![CDATA[<h2 id="箭頭函式-Arrow-functions"><a href="#箭頭函式-Arrow-functions" class="headerlink" title="箭頭函式 (Arrow functions)"></a>箭頭函式 (Arrow functions)</h2><p>與一般函式相比，寫法更加簡潔，也避免了某些問題。</p>
 <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 一般函式寫法</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為具名函式 - 函式陳述式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> a = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為匿名函式 - 函式表達式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 箭頭函式</span></span><br><span class="line"><span class="keyword">const</span> b = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式寫法。&#x27;</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 若函式只有單一變數，參數括號可以簡化</span></span><br><span class="line"><span class="keyword">const</span> c = <span class="function"><span class="params">str</span> =&gt;</span> &#123;</span><br><span class="line">  str = <span class="string">&#x27;簡化參數括號&#x27;</span></span><br><span class="line">  <span class="built_in">console</span>.log(str)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 若函式內只有單一陳述行，大括號可以簡化，但沒有參數時，括號必須存在</span></span><br><span class="line"><span class="keyword">const</span> d = <span class="function">() =&gt;</span> <span class="built_in">console</span>.log(<span class="string">&#x27;此為箭頭函式簡易寫法。&#x27;</span>)</span><br></pre></td></tr></table></figure>
@@ -698,7 +698,7 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6語法糖 - 箭頭函式與this(下) - call、apply、bind</title>
+    <title>箭頭函式與this(下) - call、apply、bind</title>
     <url>/2020/11/02/javascript/ES6%E7%AE%AD%E9%A0%AD%E5%87%BD%E5%BC%8F%E8%88%87this%E4%B8%8B/</url>
     <content><![CDATA[<h2 id="函式的內建方法與關鍵字"><a href="#函式的內建方法與關鍵字" class="headerlink" title="函式的內建方法與關鍵字"></a>函式的內建方法與關鍵字</h2><p>在箭頭函式與 this(上)中提到，箭頭函式沒有這些方式可以用 : </p>
 <ul>
@@ -760,7 +760,7 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6語法糖 - 解構賦值與其餘參數</title>
+    <title>ES6 語法糖 - 解構賦值與其餘參數</title>
     <url>/2020/11/04/javascript/ES6%E8%A7%A3%E6%A7%8B%E8%B3%A6%E5%80%BC%E8%88%87%E5%85%B6%E9%A4%98%E5%8F%83%E6%95%B8/</url>
     <content><![CDATA[<h2 id="解構賦值"><a href="#解構賦值" class="headerlink" title="解構賦值"></a>解構賦值</h2><blockquote>
 <p>解構賦值 (Destructuring assignment) 語法是一種 JavaScript 運算式，可以把陣列或物件中的資料解開擷取成為獨立變數。</p>
@@ -881,7 +881,7 @@
       </tags>
   </entry>
   <entry>
-    <title>ES6變數宣告與全域環境</title>
+    <title>ES6 變數宣告與全域環境</title>
     <url>/2020/10/29/javascript/ES6%E8%AE%8A%E6%95%B8%E5%AE%A3%E5%91%8A%E8%88%87%E5%85%A8%E5%9F%9F%E7%92%B0%E5%A2%83/</url>
     <content><![CDATA[<h2 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h2><p>一種被廣泛使用的程式語言，好上手也最容易踩雷，從 ES5進化到 ES6後增加了一些變數宣告方式與不少的語法糖，其歷史沿革已有很多前輩說明，為了方便之後描述，以下 JavaScript簡稱為 JS。</p>
 <h2 id="JS-變數宣告"><a href="#JS-變數宣告" class="headerlink" title="JS 變數宣告"></a>JS 變數宣告</h2><h3 id="var"><a href="#var" class="headerlink" title="var"></a>var</h3><p>在 ES5時期，要宣告一個變數會使用 var作為開頭，但它有個缺點，就是它會建立在全域，在後續開發上會讓造成混淆，像是以下例子:</p>
@@ -946,6 +946,68 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS地下城 - 4F- 世界時鐘</title>
+    <url>/2021/01/07/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E4F-%E4%B8%96%E7%95%8C%E6%99%82%E9%90%98/</url>
+    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__4F/">WORLD CLOCK</a></p>
+<h2 id="世界時鐘"><a href="#世界時鐘" class="headerlink" title="世界時鐘"></a>世界時鐘</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>主要語法 <code>.toLocaleString( )</code></p>
+<ul>
+<li><code>.toLocaleString(&#39;en-US&#39;, 物件形式選項)</code></li>
+<li>利用不同選項產生要的資訊</li>
+<li>建立陣列，放入不同國家名稱以及 timeZone 名稱 </li>
+<li>利用 forEach，將此資料陣列組成字串<ul>
+<li><code>.toLocaleString(&#39;en-US&#39;, 日期資訊)</code></li>
+<li><code>.toLocaleString(&#39;en-US&#39;, 時間資訊)</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="參考範例"><a href="#參考範例" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">  hour: <span class="string">&#x27;2-digit&#x27;</span>,   <span class="comment">//(e.g., 02)</span></span><br><span class="line">  minute: <span class="string">&#x27;2-digit&#x27;</span>, <span class="comment">//(e.g., 02)          </span></span><br><span class="line">  hour12: <span class="literal">false</span>,     <span class="comment">// 24 小時制</span></span><br><span class="line">  day: <span class="string">&#x27;numeric&#x27;</span>,    <span class="comment">//(e.g., 1)</span></span><br><span class="line">  month: <span class="string">&#x27;short&#x27;</span>,    <span class="comment">//(e.g., Oct)</span></span><br><span class="line">  year: <span class="string">&#x27;numeric&#x27;</span>,   <span class="comment">//(e.g., 2020)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> countries = &#123;</span><br><span class="line">  country: <span class="string">&#x27;New York&#x27;</span>, </span><br><span class="line">  timeZone: <span class="string">&#x27;America/New_York&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;...countries, ...options&#125;))</span><br><span class="line"><span class="comment">// &quot;Jan 6, 2021, 03:30&quot;</span></span><br></pre></td></tr></table></figure>
+<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>利用 <code>:first-child</code> 與 <code>:last-child</code> 覆蓋原有配色</p>
+<hr>
+<h2 id="時間-Data"><a href="#時間-Data" class="headerlink" title="時間 Data()"></a>時間 <code>Data()</code></h2><p>將 <code>Date()</code>作為建構物件後，可以取用內建的方法，像是 : </p>
+<ul>
+<li><code>getFullYear()</code></li>
+<li><code>getMonth()</code>，月份從 0 開始，因此得+1才能正確顯示</li>
+<li><code>getDate()</code></li>
+<li><code>toLocaleString()</code>，本地時間</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`<span class="subst">$&#123;date.getFullYear()+<span class="number">1</span>&#125;</span>年 <span class="subst">$&#123;date.getMonth()+<span class="number">1</span>&#125;</span>月 <span class="subst">$&#123;date.getDate()&#125;</span>日`</span></span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString())</span><br><span class="line"><span class="comment">// &quot;2021年 1月 7日&quot;</span></span><br><span class="line"><span class="comment">// &quot;2021/1/7 上午9:55:56&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="格林威治平均時間（Greenwich-Mean-Time-GMT）"><a href="#格林威治平均時間（Greenwich-Mean-Time-GMT）" class="headerlink" title="格林威治平均時間（Greenwich Mean Time, GMT）"></a>格林威治平均時間（Greenwich Mean Time, GMT）</h3><p>以前不是有聽過電台撥放，中原標準時間，其實 GMT 是藉由在地球上觀測太陽的結果，算出一天多久後，再細分成小時、分、秒，再依照世界地區劃分，最終我們所在的台灣則是在 GMT +8 的時區內，而中原標準時間則是跟中華民國歷史有關，它所劃分的地區，就是 GMT +8。 </p>
+<h3 id="世界協調時間（Coordinated-Universal-Time-UTC）"><a href="#世界協調時間（Coordinated-Universal-Time-UTC）" class="headerlink" title="世界協調時間（Coordinated Universal Time, UTC）"></a>世界協調時間（Coordinated Universal Time, UTC）</h3><blockquote>
+<p>利用宇宙中穩定一致的無線電波源週期性的訊號，搭配電波源抵達地球時觀測的角度，直接計算地球的自轉與公轉速率，再以此計算一年、一天、時分秒的平均長度。<br>縮寫為世界一致的 Universal Time Coordinated, UTC<br>與國際度量衡標準相聯繫，所以目前所有的國際通訊系統，像是衛星、航空、GPS 等等，全部都協議採用 UTC 時間。</p>
+</blockquote>
+<p>科學界使用更加穩定的 UTC。</p>
+<h3 id="TimeStamp"><a href="#TimeStamp" class="headerlink" title="TimeStamp"></a>TimeStamp</h3><p>1970年， <a href="https://zh.wikipedia.org/wiki/UNIX%E6%97%B6%E9%97%B4">Unix正式誕生</a>，也因此 TimeStamp 由 1970/01/01 開始計算，網路上有很多轉換器，都可以算出年月日。 </p>
+<ul>
+<li><a href="https://www.unixtimestamp.com/">Unix TimeStamp 為秒數</a></li>
+<li><strong>JavaScript TimeStamp 為毫秒數</strong></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.now())</span><br><span class="line"><span class="comment">// 產生毫秒數，到現在的時間為止</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.UTC(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"><span class="comment">// 1609459200000</span></span><br><span class="line"><span class="comment">// 月份從 0 開始</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="為什麼需要-TimeStamp"><a href="#為什麼需要-TimeStamp" class="headerlink" title="為什麼需要 TimeStamp ?"></a>為什麼需要 TimeStamp ?</h4><p>雖然可以使用內建的方法取得年月日，但是所顯示的時間格式可能會不一致，若儲存為 TimeStamp，不僅較為單純也統一格式為數字，不論哪個語言都能使用。除了統一格式外，也可以利用 TimeStamp做出倒數計時、比對時間等等功能。</p>
+<h4 id="參考範例-1"><a href="#參考範例-1" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dateFn = <span class="function">(<span class="params">time</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(time)</span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    date.getTime(),     <span class="comment">// 毫秒數</span></span><br><span class="line">    date.getFullYear(), <span class="comment">// 年</span></span><br><span class="line">    date.getMonth(),    <span class="comment">// 月</span></span><br><span class="line">    date.getDate(),     <span class="comment">// 日</span></span><br><span class="line">    date.getHours(),    <span class="comment">// 小時</span></span><br><span class="line">    date.getMinutes(),  <span class="comment">// 分</span></span><br><span class="line">    date.getSeconds(),  <span class="comment">// 秒</span></span><br><span class="line">    date.toUTCString(), <span class="comment">// 格林威治標準時間 +0</span></span><br><span class="line">    date.toString(), <span class="comment">// 本地時間(台北標準時間) +8</span></span><br><span class="line">    <span class="comment">// 可以更改地點取得該時區時間</span></span><br><span class="line">    date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;<span class="attr">timeZone</span>: <span class="string">&#x27;America/New_York&#x27;</span>&#125;) </span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 被視為本地時區，正常取得時間</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-1-1&#x27;</span>)  </span><br><span class="line"><span class="comment">// 1609430400000 ，毫秒數</span></span><br><span class="line"><span class="comment">// 2021 0 1 0 0 0 ，年月日時分秒</span></span><br><span class="line"><span class="comment">// &quot;Thu, 31 Dec 2020 16:00:00 GMT&quot; ，格林威治標準時間，也就是 UTC時間</span></span><br><span class="line"><span class="comment">// &quot;Fri Jan 01 2021 00:00:00 GMT+0800 (台北標準時間)&quot; </span></span><br><span class="line"><span class="comment">// &quot;12/31/2020, 11:00:00 AM&quot; ，美國紐約時間</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 被視為格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-01-01&#x27;</span>)         </span><br><span class="line"></span><br><span class="line"><span class="comment">// ISO-8601 格式，被視為格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-01-01T00:00:00Z&#x27;</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">// Date() 內建日期字串轉毫秒數，但不同瀏覽器會有差異，不推薦</span></span><br><span class="line">dateFn(<span class="built_in">Date</span>.parse(<span class="string">&#x27;2021-1-1&#x27;</span>)) </span><br><span class="line"></span><br><span class="line"><span class="comment">// 格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="built_in">Date</span>.UTC(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>))   </span><br><span class="line"></span><br><span class="line"><span class="comment">// 被視為本地時區，正常取得時間</span></span><br><span class="line">dateFn(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>)) </span><br></pre></td></tr></table></figure>
+
+
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://www.muji.dev/2019/02/12/world-time/">Mujing Tsai - JS世界時間表</a></li>
+<li><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia - List of tz database time zones</a></li>
+<li><a href="https://w3c.hexschool.com/blog/e69d8619">Charles Hong - JavaScript 取得各國的日期與時間</a></li>
+<li><a href="https://pansci.asia/archives/84978">泛科學 - 到底是 GMT+8 還是 UTC+8 ?</a></li>
+<li><a href="https://blog.miniasp.com/post/2016/09/25/JavaScript-Date-usage-in-details">Will - 前端工程研究：關於 JavaScript 中 Date 型別的常見地雷與建議作法</a></li>
+<li><a href="https://segmentfault.com/a/1190000007581722">JavaScript 时间与日期处理实战:你肯定被坑过</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>JS地下城</tag>
       </tags>
   </entry>
   <entry>
@@ -1095,68 +1157,6 @@
 <li><a href="https://dotblogs.com.tw/AlenWu_coding_blog/2017/08/11/js_number_to_currency_comma">AlenWu - [Javascrpt]轉換數字成含千分位的文字</a></li>
 <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">MDN - Number.prototype.toLocaleString()</a></li>
 <li><a href="http://slashview.com/archive2020/20200712.html">SlashView - Javascript之數值千分位符號（Comma）的顯示</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>JS地下城</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>JS地下城 - 4F- 世界時鐘</title>
-    <url>/2021/01/07/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E4F-%E4%B8%96%E7%95%8C%E6%99%82%E9%90%98/</url>
-    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__4F/">WORLD CLOCK</a></p>
-<h2 id="世界時鐘"><a href="#世界時鐘" class="headerlink" title="世界時鐘"></a>世界時鐘</h2><h3 id="JavaScript"><a href="#JavaScript" class="headerlink" title="JavaScript"></a>JavaScript</h3><p>主要語法 <code>.toLocaleString( )</code></p>
-<ul>
-<li><code>.toLocaleString(&#39;en-US&#39;, 物件形式選項)</code></li>
-<li>利用不同選項產生要的資訊</li>
-<li>建立陣列，放入不同國家名稱以及 timeZone 名稱 </li>
-<li>利用 forEach，將此資料陣列組成字串<ul>
-<li><code>.toLocaleString(&#39;en-US&#39;, 日期資訊)</code></li>
-<li><code>.toLocaleString(&#39;en-US&#39;, 時間資訊)</code></li>
-</ul>
-</li>
-</ul>
-<h4 id="參考範例"><a href="#參考範例" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> options = &#123;</span><br><span class="line">  hour: <span class="string">&#x27;2-digit&#x27;</span>,   <span class="comment">//(e.g., 02)</span></span><br><span class="line">  minute: <span class="string">&#x27;2-digit&#x27;</span>, <span class="comment">//(e.g., 02)          </span></span><br><span class="line">  hour12: <span class="literal">false</span>,     <span class="comment">// 24 小時制</span></span><br><span class="line">  day: <span class="string">&#x27;numeric&#x27;</span>,    <span class="comment">//(e.g., 1)</span></span><br><span class="line">  month: <span class="string">&#x27;short&#x27;</span>,    <span class="comment">//(e.g., Oct)</span></span><br><span class="line">  year: <span class="string">&#x27;numeric&#x27;</span>,   <span class="comment">//(e.g., 2020)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> countries = &#123;</span><br><span class="line">  country: <span class="string">&#x27;New York&#x27;</span>, </span><br><span class="line">  timeZone: <span class="string">&#x27;America/New_York&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;...countries, ...options&#125;))</span><br><span class="line"><span class="comment">// &quot;Jan 6, 2021, 03:30&quot;</span></span><br></pre></td></tr></table></figure>
-<h3 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a>CSS</h3><p>利用 <code>:first-child</code> 與 <code>:last-child</code> 覆蓋原有配色</p>
-<hr>
-<h2 id="時間-Data"><a href="#時間-Data" class="headerlink" title="時間 Data()"></a>時間 <code>Data()</code></h2><p>將 <code>Date()</code>作為建構物件後，可以取用內建的方法，像是 : </p>
-<ul>
-<li><code>getFullYear()</code></li>
-<li><code>getMonth()</code>，月份從 0 開始，因此得+1才能正確顯示</li>
-<li><code>getDate()</code></li>
-<li><code>toLocaleString()</code>，本地時間</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>()</span><br><span class="line"><span class="keyword">let</span> str = <span class="string">`<span class="subst">$&#123;date.getFullYear()+<span class="number">1</span>&#125;</span>年 <span class="subst">$&#123;date.getMonth()+<span class="number">1</span>&#125;</span>月 <span class="subst">$&#123;date.getDate()&#125;</span>日`</span></span><br><span class="line"><span class="built_in">console</span>.log(str)</span><br><span class="line"><span class="built_in">console</span>.log(date.toLocaleString())</span><br><span class="line"><span class="comment">// &quot;2021年 1月 7日&quot;</span></span><br><span class="line"><span class="comment">// &quot;2021/1/7 上午9:55:56&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="格林威治平均時間（Greenwich-Mean-Time-GMT）"><a href="#格林威治平均時間（Greenwich-Mean-Time-GMT）" class="headerlink" title="格林威治平均時間（Greenwich Mean Time, GMT）"></a>格林威治平均時間（Greenwich Mean Time, GMT）</h3><p>以前不是有聽過電台撥放，中原標準時間，其實 GMT 是藉由在地球上觀測太陽的結果，算出一天多久後，再細分成小時、分、秒，再依照世界地區劃分，最終我們所在的台灣則是在 GMT +8 的時區內，而中原標準時間則是跟中華民國歷史有關，它所劃分的地區，就是 GMT +8。 </p>
-<h3 id="世界協調時間（Coordinated-Universal-Time-UTC）"><a href="#世界協調時間（Coordinated-Universal-Time-UTC）" class="headerlink" title="世界協調時間（Coordinated Universal Time, UTC）"></a>世界協調時間（Coordinated Universal Time, UTC）</h3><blockquote>
-<p>利用宇宙中穩定一致的無線電波源週期性的訊號，搭配電波源抵達地球時觀測的角度，直接計算地球的自轉與公轉速率，再以此計算一年、一天、時分秒的平均長度。<br>縮寫為世界一致的 Universal Time Coordinated, UTC<br>與國際度量衡標準相聯繫，所以目前所有的國際通訊系統，像是衛星、航空、GPS 等等，全部都協議採用 UTC 時間。</p>
-</blockquote>
-<p>科學界使用更加穩定的 UTC。</p>
-<h3 id="TimeStamp"><a href="#TimeStamp" class="headerlink" title="TimeStamp"></a>TimeStamp</h3><p>1970年， <a href="https://zh.wikipedia.org/wiki/UNIX%E6%97%B6%E9%97%B4">Unix正式誕生</a>，也因此 TimeStamp 由 1970/01/01 開始計算，網路上有很多轉換器，都可以算出年月日。 </p>
-<ul>
-<li><a href="https://www.unixtimestamp.com/">Unix TimeStamp 為秒數</a></li>
-<li><strong>JavaScript TimeStamp 為毫秒數</strong></li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.now())</span><br><span class="line"><span class="comment">// 產生毫秒數，到現在的時間為止</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Date</span>.UTC(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>))</span><br><span class="line"><span class="comment">// 1609459200000</span></span><br><span class="line"><span class="comment">// 月份從 0 開始</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="為什麼需要-TimeStamp"><a href="#為什麼需要-TimeStamp" class="headerlink" title="為什麼需要 TimeStamp ?"></a>為什麼需要 TimeStamp ?</h4><p>雖然可以使用內建的方法取得年月日，但是所顯示的時間格式可能會不一致，若儲存為 TimeStamp，不僅較為單純也統一格式為數字，不論哪個語言都能使用。除了統一格式外，也可以利用 TimeStamp做出倒數計時、比對時間等等功能。</p>
-<h4 id="參考範例-1"><a href="#參考範例-1" class="headerlink" title="參考範例"></a>參考範例</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> dateFn = <span class="function">(<span class="params">time</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">let</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>(time)</span><br><span class="line">  <span class="built_in">console</span>.log(</span><br><span class="line">    date.getTime(),     <span class="comment">// 毫秒數</span></span><br><span class="line">    date.getFullYear(), <span class="comment">// 年</span></span><br><span class="line">    date.getMonth(),    <span class="comment">// 月</span></span><br><span class="line">    date.getDate(),     <span class="comment">// 日</span></span><br><span class="line">    date.getHours(),    <span class="comment">// 小時</span></span><br><span class="line">    date.getMinutes(),  <span class="comment">// 分</span></span><br><span class="line">    date.getSeconds(),  <span class="comment">// 秒</span></span><br><span class="line">    date.toUTCString(), <span class="comment">// 格林威治標準時間 +0</span></span><br><span class="line">    date.toString(), <span class="comment">// 本地時間(台北標準時間) +8</span></span><br><span class="line">    <span class="comment">// 可以更改地點取得該時區時間</span></span><br><span class="line">    date.toLocaleString(<span class="string">&#x27;en-US&#x27;</span>, &#123;<span class="attr">timeZone</span>: <span class="string">&#x27;America/New_York&#x27;</span>&#125;) </span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 被視為本地時區，正常取得時間</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-1-1&#x27;</span>)  </span><br><span class="line"><span class="comment">// 1609430400000 ，毫秒數</span></span><br><span class="line"><span class="comment">// 2021 0 1 0 0 0 ，年月日時分秒</span></span><br><span class="line"><span class="comment">// &quot;Thu, 31 Dec 2020 16:00:00 GMT&quot; ，格林威治標準時間，也就是 UTC時間</span></span><br><span class="line"><span class="comment">// &quot;Fri Jan 01 2021 00:00:00 GMT+0800 (台北標準時間)&quot; </span></span><br><span class="line"><span class="comment">// &quot;12/31/2020, 11:00:00 AM&quot; ，美國紐約時間</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 被視為格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-01-01&#x27;</span>)         </span><br><span class="line"></span><br><span class="line"><span class="comment">// ISO-8601 格式，被視為格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="string">&#x27;2021-01-01T00:00:00Z&#x27;</span>) </span><br><span class="line"></span><br><span class="line"><span class="comment">// Date() 內建日期字串轉毫秒數，但不同瀏覽器會有差異，不推薦</span></span><br><span class="line">dateFn(<span class="built_in">Date</span>.parse(<span class="string">&#x27;2021-1-1&#x27;</span>)) </span><br><span class="line"></span><br><span class="line"><span class="comment">// 格林威治標準時間，台灣時間會多 8小時</span></span><br><span class="line">dateFn(<span class="built_in">Date</span>.UTC(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>))   </span><br><span class="line"></span><br><span class="line"><span class="comment">// 被視為本地時區，正常取得時間</span></span><br><span class="line">dateFn(<span class="keyword">new</span> <span class="built_in">Date</span>(<span class="number">2021</span>, <span class="number">0</span>, <span class="number">1</span>)) </span><br></pre></td></tr></table></figure>
-
-
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://www.muji.dev/2019/02/12/world-time/">Mujing Tsai - JS世界時間表</a></li>
-<li><a href="https://en.wikipedia.org/wiki/List_of_tz_database_time_zones">Wikipedia - List of tz database time zones</a></li>
-<li><a href="https://w3c.hexschool.com/blog/e69d8619">Charles Hong - JavaScript 取得各國的日期與時間</a></li>
-<li><a href="https://pansci.asia/archives/84978">泛科學 - 到底是 GMT+8 還是 UTC+8 ?</a></li>
-<li><a href="https://blog.miniasp.com/post/2016/09/25/JavaScript-Date-usage-in-details">Will - 前端工程研究：關於 JavaScript 中 Date 型別的常見地雷與建議作法</a></li>
-<li><a href="https://segmentfault.com/a/1190000007581722">JavaScript 时间与日期处理实战:你肯定被坑过</a></li>
 </ol>
 </blockquote>
 ]]></content>
@@ -1549,142 +1549,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JS地下城8F-井字遊戲</title>
-    <url>/2021/02/22/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E8F-%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2/</url>
-    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__8F/">作品</a></p>
-<h2 id="井字遊戲"><a href="#井字遊戲" class="headerlink" title="井字遊戲"></a>井字遊戲</h2><h3 id="規則"><a href="#規則" class="headerlink" title="規則"></a>規則</h3><ol>
-<li>【特定技術】先手為 O，後手為 X，某方獲勝時，上方會紀錄各方的獲勝戰績</li>
-<li>【特定技術】每回合結束後，會判定結果頁(平手、Ｏ 獲勝、X 獲勝)</li>
-<li>【特定技術】需符合 RWD，能在低螢幕解析度也能遊玩，介面不能超出 x 軸，至少在以下解析度能夠遊玩。<ul>
-<li>iPhone SE 320px</li>
-<li>iPhone 8 375px</li>
-<li>iPhone PLUS 414px</li>
-</ul>
-</li>
-<li>【特定技術】請使用瀏覽器離線儲存技術，將戰績保留起來，重新打開遊戲也仍可觀看到歷史戰績。技術請任選以下幾種<ul>
-<li>Cookie</li>
-<li>localStorage</li>
-</ul>
-</li>
-<li>【書寫能力】請寫 BLOG，描述你在開發「滿足獲勝條件」解題思維來進行加強描述<ul>
-<li>上面三個 O 符合獲勝條件</li>
-<li>斜線三個 X 符合獲勝條件</li>
-</ul>
-</li>
-</ol>
-<h3 id="規劃"><a href="#規劃" class="headerlink" title="規劃"></a>規劃</h3><ul>
-<li>html ＋ CSS<ul>
-<li><code>row rol-cols-3</code></li>
-<li>CSS 圓圈</li>
-<li>CSS 交叉</li>
-<li>CSS 空心圓圈</li>
-</ul>
-</li>
-<li>JavaScript<ul>
-<li>點擊 start 時轉換遊戲畫面</li>
-<li>點籍 restart 時重置遊戲</li>
-</ul>
-</li>
-<li>遊戲畫面 html ＋ CSS<ul>
-<li>戰績區塊</li>
-<li>井字區塊</li>
-<li>結果區塊<ul>
-<li>CSS ::after{文字}</li>
-<li>勝者顯示</li>
-<li>平手顯示</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>螢幕解析度 RWD <ul>
-<li>320px、375px、414px (題目要求)</li>
-<li>sm、md、lg、xl (依據 Bootstarp 5)</li>
-</ul>
-</li>
-<li>離線紀錄<ul>
-<li><code>localstorage.setItem(&#39;索引名稱&#39;, JSON.string())</code></li>
-<li><code>localstorage.getItem(&#39;索引名稱&#39;)</code></li>
-</ul>
-</li>
-<li>連線規則<ul>
-<li>連線後加總有八種情況</li>
-<li>上、中橫、下</li>
-<li>右、中直、左</li>
-<li>正斜、反斜</li>
-</ul>
-</li>
-</ul>
-<hr>
-<h2 id="連線規則"><a href="#連線規則" class="headerlink" title="連線規則"></a>連線規則</h2><h3 id="第一種想法-按鈕對應加總"><a href="#第一種想法-按鈕對應加總" class="headerlink" title="第一種想法 - 按鈕對應加總"></a>第一種想法 - 按鈕對應加總</h3><ul>
-<li>將按鈕給予對應值，9 個按鈕給 1~9 的值<ul>
-<li>6 上、12 左、18 右、24 下</li>
-<li>15 中橫中直</li>
-</ul>
-</li>
-<li>問題一<ul>
-<li>玩家點不同行列的數字，加總會一樣</li>
-<li>分別是 4 與 6 會有各三種</li>
-<li>3+6+9、4+6+8、5+6+7，第一種才是正確</li>
-<li>1+4+7、2+4+6、3+4+5，第一種才是正確</li>
-</ul>
-</li>
-<li>問題二<ul>
-<li>暫存陣列存放了超過四個數字，則無法加總</li>
-</ul>
-</li>
-</ul>
-<h3 id="第二種想法-多個暫存陣列"><a href="#第二種想法-多個暫存陣列" class="headerlink" title="第二種想法 - 多個暫存陣列"></a>第二種想法 - 多個暫存陣列</h3><ul>
-<li>建立 8 個陣列，根據規則 top、center`、bottom等等</li>
-<li>根據按鈕所帶的值分類，將按鈕分類到 8 個陣列中<ul>
-<li>例如按鈕一會有三個連線規則 top、rignt、backslash</li>
-</ul>
-</li>
-<li>再從該陣列中，利用 <code>every()</code> 對比該陣列中的值是否相同，若否，則無連線</li>
-<li>若比對值均相同，代表連線成功，下一步則顯示贏家或平手</li>
-<li>缺點是 code 很長</li>
-</ul>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> top = []</span><br><span class="line"><span class="keyword">const</span> slash = []</span><br><span class="line"><span class="keyword">const</span> left = []</span><br><span class="line"><span class="comment">// ... 以此類堆</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 每次按鈕點擊後就將該鈕對應號碼加入此陣列</span></span><br><span class="line"><span class="keyword">let</span> recordStorage  []</span><br><span class="line"><span class="comment">// 紀錄的預設值為</span></span><br><span class="line"><span class="keyword">let</span> record = &#123;</span><br><span class="line">  gamer : <span class="number">1</span>,</span><br><span class="line">  value : <span class="number">1</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 點擊時，假設玩家一點了按鈕一</span></span><br><span class="line">record.gamer = <span class="number">1</span></span><br><span class="line">record.value = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 根據規則將資料放入對應的暫存陣列</span></span><br><span class="line">recordStorage.forEach( <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span>(item.value)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">      top.push(item)</span><br><span class="line">      slash.push(item)</span><br><span class="line">      left.push(item)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 利用 every 檢查陣列資料是否相同，依據判斷回報 true or false</span></span><br><span class="line"><span class="comment">// 若回報 true ，則為已連線</span></span><br><span class="line">top.every( <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item.value === <span class="number">1</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<h3 id="第三種想法-參考攻略文"><a href="#第三種想法-參考攻略文" class="headerlink" title="第三種想法(參考攻略文)"></a>第三種想法(參考攻略文)</h3><ul>
-<li>根據按鈕所帶的內容，O 為 1，X 為 -1</li>
-<li>連線規則可以拆解為 <ul>
-<li>for 迴圈 <code>n=1</code>、<code>n&lt;3</code></li>
-<li>橫向按鈕，3n、3n+1、3n+2</li>
-<li>直向按鈕，n、n+3、n+6</li>
-<li>正斜按鈕 0、4、8</li>
-<li>反斜按鈕 2、4、6</li>
-</ul>
-</li>
-<li>將規則之三個數字相加取絕對值，若為3，則取得內容值即為贏家<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以選擇 Ｏ 點擊時 value 賦予 1，Ｘ 賦予 -1</span></span><br><span class="line"><span class="comment">// 或者取得 textContent 的內容再寫判斷，因為還要判斷是否已點擊，所以選擇判斷內容再轉成 1 或 -1</span></span><br><span class="line"><span class="keyword">let</span> btnAll = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.btn&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> winer = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> slash = <span class="built_in">Math</span>.abs( btnAll[<span class="number">0</span>].value + btnAll[<span class="number">4</span>].value + btnAll[<span class="number">8</span>].value )</span><br><span class="line"><span class="keyword">let</span> backSlash = <span class="built_in">Math</span>.abs( btnAll[<span class="number">2</span>].value + btnAll[<span class="number">4</span>].value + btnAll[<span class="number">6</span>].value )</span><br><span class="line"><span class="keyword">for</span> (n = <span class="number">0</span> ; n &lt; <span class="number">3</span> ; n++ ) &#123;</span><br><span class="line">  <span class="keyword">let</span> row = <span class="built_in">Math</span>.abs( btnAll[<span class="number">3n</span>].value + btnAll[<span class="number">3n</span>+<span class="number">1</span>].value + btnAll[<span class="number">3n</span>+<span class="number">2</span>].value )</span><br><span class="line">  <span class="keyword">let</span> col = <span class="built_in">Math</span>.abs( btnAll[n].value + btnAll[n+<span class="number">3</span>].value + btnAll[n+<span class="number">6</span>].value )</span><br><span class="line">  <span class="keyword">if</span> (row === <span class="number">3</span>) <span class="keyword">return</span> winer = btnAll[<span class="number">3n</span>].textContent</span><br><span class="line">  <span class="keyword">if</span> (col === <span class="number">3</span>) <span class="keyword">return</span> winer = btnAll[n].textContent</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (slash === <span class="number">3</span>) <span class="keyword">return</span> winer = btnAll[<span class="number">0</span>].textContent</span><br><span class="line"><span class="keyword">if</span> (backSlash === <span class="number">3</span>) <span class="keyword">return</span> winer = btnAll[<span class="number">2</span>].textContent</span><br><span class="line"><span class="comment">// 接著就是控制 CSS </span></span><br></pre></td></tr></table></figure>
-
-</li>
-</ul>
-<hr>
-<h2 id="戰績紀錄"><a href="#戰績紀錄" class="headerlink" title="戰績紀錄"></a>戰績紀錄</h2><h3 id="localstorage"><a href="#localstorage" class="headerlink" title="localstorage"></a>localstorage</h3><ul>
-<li>設定 localstorage<ul>
-<li><code>localstorage.setItem(&#39;test&#39;, JSON.string(物件))</code></li>
-</ul>
-</li>
-<li>取得 localstorage<ul>
-<li>建立變數存放 <code>JSON.parse(localstorage.getItem(&#39;test&#39;))</code></li>
-</ul>
-</li>
-</ul>
-<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
-<ol>
-<li><a href="https://medium.com/@f820602h/js%E5%9C%B0%E4%B8%8B%E5%9F%8E-8f-%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2-fb980243e322">MaxLee - JS地下城[8F] - 井字遊戲</a></li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>JS地下城</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Promise</title>
     <url>/2020/12/15/javascript/JS%E6%A0%B8%E5%BF%83%E7%AF%87-Promise/</url>
     <content><![CDATA[<p>快速導覽 : </p>
@@ -1825,6 +1689,142 @@
       </categories>
       <tags>
         <tag>JavaScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>JS地下城8F-井字遊戲</title>
+    <url>/2021/02/22/javascript/JS%E5%9C%B0%E4%B8%8B%E5%9F%8E8F-%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2/</url>
+    <content><![CDATA[<h2 id="作品"><a href="#作品" class="headerlink" title="作品"></a>作品</h2><p><a href="https://hsuan777.github.io/JS__UndergroundCity__8F/">作品</a></p>
+<h2 id="井字遊戲"><a href="#井字遊戲" class="headerlink" title="井字遊戲"></a>井字遊戲</h2><h3 id="規則"><a href="#規則" class="headerlink" title="規則"></a>規則</h3><ol>
+<li>【特定技術】先手為 O，後手為 X，某方獲勝時，上方會紀錄各方的獲勝戰績</li>
+<li>【特定技術】每回合結束後，會判定結果頁(平手、Ｏ 獲勝、X 獲勝)</li>
+<li>【特定技術】需符合 RWD，能在低螢幕解析度也能遊玩，介面不能超出 x 軸，至少在以下解析度能夠遊玩。<ul>
+<li>iPhone SE 320px</li>
+<li>iPhone 8 375px</li>
+<li>iPhone PLUS 414px</li>
+</ul>
+</li>
+<li>【特定技術】請使用瀏覽器離線儲存技術，將戰績保留起來，重新打開遊戲也仍可觀看到歷史戰績。技術請任選以下幾種<ul>
+<li>Cookie</li>
+<li>localStorage</li>
+</ul>
+</li>
+<li>【書寫能力】請寫 BLOG，描述你在開發「滿足獲勝條件」解題思維來進行加強描述<ul>
+<li>上面三個 O 符合獲勝條件</li>
+<li>斜線三個 X 符合獲勝條件</li>
+</ul>
+</li>
+</ol>
+<h3 id="規劃"><a href="#規劃" class="headerlink" title="規劃"></a>規劃</h3><ul>
+<li>html ＋ CSS<ul>
+<li><code>row rol-cols-3</code></li>
+<li>CSS 圓圈</li>
+<li>CSS 交叉</li>
+<li>CSS 空心圓圈</li>
+</ul>
+</li>
+<li>JavaScript<ul>
+<li>點擊 start 時轉換遊戲畫面</li>
+<li>點籍 restart 時重置遊戲</li>
+</ul>
+</li>
+<li>遊戲畫面 html ＋ CSS<ul>
+<li>戰績區塊</li>
+<li>井字區塊</li>
+<li>結果區塊<ul>
+<li>CSS ::after{文字}</li>
+<li>勝者顯示</li>
+<li>平手顯示</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>螢幕解析度 RWD <ul>
+<li>320px、375px、414px (題目要求)</li>
+<li>sm、md、lg、xl (依據 Bootstarp 5)</li>
+</ul>
+</li>
+<li>離線紀錄<ul>
+<li><code>localstorage.setItem(&#39;索引名稱&#39;, JSON.string())</code></li>
+<li><code>localstorage.getItem(&#39;索引名稱&#39;)</code></li>
+</ul>
+</li>
+<li>連線規則<ul>
+<li>連線後加總有八種情況</li>
+<li>上、中橫、下</li>
+<li>右、中直、左</li>
+<li>正斜、反斜</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="連線規則"><a href="#連線規則" class="headerlink" title="連線規則"></a>連線規則</h2><h3 id="第一種想法-按鈕對應加總"><a href="#第一種想法-按鈕對應加總" class="headerlink" title="第一種想法 - 按鈕對應加總"></a>第一種想法 - 按鈕對應加總</h3><ul>
+<li>將按鈕給予對應值，9 個按鈕給 1~9 的值<ul>
+<li>6 上、12 左、18 右、24 下</li>
+<li>15 中橫中直</li>
+</ul>
+</li>
+<li>問題一<ul>
+<li>玩家點不同行列的數字，加總會一樣</li>
+<li>分別是 4 與 6 會有各三種</li>
+<li>3+6+9、4+6+8、5+6+7，第一種才是正確</li>
+<li>1+4+7、2+4+6、3+4+5，第一種才是正確</li>
+</ul>
+</li>
+<li>問題二<ul>
+<li>暫存陣列存放了超過四個數字，則無法加總</li>
+</ul>
+</li>
+</ul>
+<h3 id="第二種想法-多個暫存陣列"><a href="#第二種想法-多個暫存陣列" class="headerlink" title="第二種想法 - 多個暫存陣列"></a>第二種想法 - 多個暫存陣列</h3><ul>
+<li>建立 8 個陣列，根據規則 top、center`、bottom等等</li>
+<li>根據按鈕所帶的值分類，將按鈕分類到 8 個陣列中<ul>
+<li>例如按鈕一會有三個連線規則 top、rignt、backslash</li>
+</ul>
+</li>
+<li>再從該陣列中，利用 <code>every()</code> 對比該陣列中的值是否相同，若否，則無連線</li>
+<li>若比對值均相同，代表連線成功，下一步則顯示贏家或平手</li>
+<li>缺點是 code 很長</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> top = []</span><br><span class="line"><span class="keyword">const</span> slash = []</span><br><span class="line"><span class="keyword">const</span> left = []</span><br><span class="line"><span class="comment">// ... 以此類堆</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 每次按鈕點擊後就將該鈕對應號碼加入此陣列</span></span><br><span class="line"><span class="keyword">let</span> recordStorage  []</span><br><span class="line"><span class="comment">// 紀錄的預設值為</span></span><br><span class="line"><span class="keyword">let</span> record = &#123;</span><br><span class="line">  gamer : <span class="number">1</span>,</span><br><span class="line">  value : <span class="number">1</span> </span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 點擊時，假設玩家一點了按鈕一</span></span><br><span class="line">record.gamer = <span class="number">1</span></span><br><span class="line">record.value = <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 根據規則將資料放入對應的暫存陣列</span></span><br><span class="line">recordStorage.forEach( <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">switch</span>(item.value)&#123;</span><br><span class="line">    <span class="keyword">case</span> <span class="string">&#x27;1&#x27;</span>:</span><br><span class="line">      top.push(item)</span><br><span class="line">      slash.push(item)</span><br><span class="line">      left.push(item)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 利用 every 檢查陣列資料是否相同，依據判斷回報 true or false</span></span><br><span class="line"><span class="comment">// 若回報 true ，則為已連線</span></span><br><span class="line">top.every( <span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> item.value === <span class="number">1</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="第三種想法-參考攻略文"><a href="#第三種想法-參考攻略文" class="headerlink" title="第三種想法(參考攻略文)"></a>第三種想法(參考攻略文)</h3><ul>
+<li>根據按鈕所帶的內容，O 為 1，X 為 -1</li>
+<li>連線規則可以拆解為 <ul>
+<li>for 迴圈 <code>n=1</code>、<code>n&lt;3</code></li>
+<li>橫向按鈕，3n、3n+1、3n+2</li>
+<li>直向按鈕，n、n+3、n+6</li>
+<li>正斜按鈕 0、4、8</li>
+<li>反斜按鈕 2、4、6</li>
+</ul>
+</li>
+<li>將規則之三個數字相加取絕對值，若為3，則取得內容值即為贏家<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 可以選擇 Ｏ 點擊時 value 賦予 1，Ｘ 賦予 -1</span></span><br><span class="line"><span class="comment">// 或者取得 textContent 的內容再寫判斷，因為還要判斷是否已點擊，所以選擇判斷內容再轉成 1 或 -1</span></span><br><span class="line"><span class="keyword">let</span> btnAll = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;.btn&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> winer = <span class="literal">null</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> slash = <span class="built_in">Math</span>.abs( btnAll[<span class="number">0</span>].value + btnAll[<span class="number">4</span>].value + btnAll[<span class="number">8</span>].value )</span><br><span class="line"><span class="keyword">let</span> backSlash = <span class="built_in">Math</span>.abs( btnAll[<span class="number">2</span>].value + btnAll[<span class="number">4</span>].value + btnAll[<span class="number">6</span>].value )</span><br><span class="line"><span class="keyword">for</span> (n = <span class="number">0</span> ; n &lt; <span class="number">3</span> ; n++ ) &#123;</span><br><span class="line">  <span class="keyword">let</span> row = <span class="built_in">Math</span>.abs( btnAll[<span class="number">3n</span>].value + btnAll[<span class="number">3n</span>+<span class="number">1</span>].value + btnAll[<span class="number">3n</span>+<span class="number">2</span>].value )</span><br><span class="line">  <span class="keyword">let</span> col = <span class="built_in">Math</span>.abs( btnAll[n].value + btnAll[n+<span class="number">3</span>].value + btnAll[n+<span class="number">6</span>].value )</span><br><span class="line">  <span class="keyword">if</span> (row === <span class="number">3</span>) <span class="keyword">return</span> winer = btnAll[<span class="number">3n</span>].textContent</span><br><span class="line">  <span class="keyword">if</span> (col === <span class="number">3</span>) <span class="keyword">return</span> winer = btnAll[n].textContent</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> (slash === <span class="number">3</span>) <span class="keyword">return</span> winer = btnAll[<span class="number">0</span>].textContent</span><br><span class="line"><span class="keyword">if</span> (backSlash === <span class="number">3</span>) <span class="keyword">return</span> winer = btnAll[<span class="number">2</span>].textContent</span><br><span class="line"><span class="comment">// 接著就是控制 CSS </span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<hr>
+<h2 id="戰績紀錄"><a href="#戰績紀錄" class="headerlink" title="戰績紀錄"></a>戰績紀錄</h2><h3 id="localstorage"><a href="#localstorage" class="headerlink" title="localstorage"></a>localstorage</h3><ul>
+<li>設定 localstorage<ul>
+<li><code>localstorage.setItem(&#39;test&#39;, JSON.string(物件))</code></li>
+</ul>
+</li>
+<li>取得 localstorage<ul>
+<li>建立變數存放 <code>JSON.parse(localstorage.getItem(&#39;test&#39;))</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="參考來源"><a href="#參考來源" class="headerlink" title="參考來源"></a>參考來源</h2><blockquote>
+<ol>
+<li><a href="https://medium.com/@f820602h/js%E5%9C%B0%E4%B8%8B%E5%9F%8E-8f-%E4%BA%95%E5%AD%97%E9%81%8A%E6%88%B2-fb980243e322">MaxLee - JS地下城[8F] - 井字遊戲</a></li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>JS地下城</tag>
       </tags>
   </entry>
   <entry>
